@@ -40,7 +40,7 @@ const IMAGE = `{ ..., "asset": asset->{ _id, "_ref": _id, metadata { dimensions 
 export const QUERY = `{
 	"settings": *[_type == "siteSettings"][0]{
 		name, legalName, tagline, description, phones, whatsapp, email, location, hours,
-		facebookUrl, facebookReviews, stats, sectors
+		facebookUrl, facebookReviewsUrl, stats, sectors
 	},
 	"products": *[_type == "product"] | order(orderRank asc, title asc){
 		"slug": slug.current, title, eyebrow, summary, body, features, applications, image ${IMAGE}

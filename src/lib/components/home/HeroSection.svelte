@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowRightIcon, CloudRainIcon, RulerIcon, StarIcon, SunIcon } from '@lucide/svelte';
+	import { ArrowRightIcon, CloudRainIcon, RulerIcon, SunIcon } from '@lucide/svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Picture from '$lib/components/Picture.svelte';
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
@@ -30,25 +30,8 @@
 		class="relative container-page grid gap-10 pt-6 pb-10 md:pt-12 md:pb-14 lg:grid-cols-12 lg:pt-12 lg:pb-16"
 	>
 		<div class="lg:col-span-7">
-			{#if settings.facebookReviews}
-				<a
-					href={settings.facebookUrl}
-					target="_blank"
-					rel="noopener"
-					class="inline-flex items-center gap-2 rounded-full border border-on-ink/15 bg-on-ink/10 px-3 py-1.5 text-xs font-semibold backdrop-blur hover:bg-on-ink/15"
-				>
-					<span class="flex" aria-hidden="true">
-						{#each { length: 5 }, i (i)}
-							<StarIcon class="size-3.5 fill-primary text-primary" />
-						{/each}
-					</span>
-					{settings.facebookReviews.percent}% recommend us · {settings.facebookReviews.count} Facebook
-					reviews
-				</a>
-			{/if}
-
 			<h1
-				class="mt-5 text-[2.25rem] leading-[1.02] font-extrabold tracking-tight text-balance sm:text-5xl lg:text-[3.75rem]"
+				class="text-[2.25rem] leading-[1.02] font-extrabold tracking-tight text-balance sm:text-5xl lg:text-[3.75rem]"
 			>
 				Custom shade & tensile structures
 				<span class="relative inline-block text-primary">

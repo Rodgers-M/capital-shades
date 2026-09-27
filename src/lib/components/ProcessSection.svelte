@@ -7,9 +7,9 @@
 	} from '@lucide/svelte';
 	import Picture from './Picture.svelte';
 	import SectionHeading from './SectionHeading.svelte';
-	import type { Img, SiteSettings } from '$lib/content/types';
+	import type { Img } from '$lib/content/types';
 
-	let { settings, image }: { settings: SiteSettings; image: Img } = $props();
+	let { image }: { image: Img } = $props();
 
 	const STEPS = [
 		{
@@ -43,26 +43,22 @@
 			>
 				<Picture {image} sizes="(min-width: 1024px) 600px, 100vw" class="size-full object-cover" />
 			</div>
-			{#if settings.facebookReviews}
-				<a
-					href={settings.facebookUrl}
-					target="_blank"
-					rel="noopener"
-					class="absolute right-4 -bottom-5 left-4 flex items-center gap-4 rounded-2xl border bg-card p-4 shadow-xl sm:right-6 sm:left-auto sm:w-72"
+			<div
+				class="absolute right-4 -bottom-5 left-4 flex items-center gap-4 rounded-2xl border bg-card p-4 shadow-xl sm:right-6 sm:left-auto sm:w-72"
+			>
+				<span
+					class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground"
+					aria-hidden="true"
 				>
-					<span
-						class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary text-lg font-extrabold text-primary-foreground"
+					<HardHatIcon class="size-6" />
+				</span>
+				<span>
+					<span class="block font-bold">One team, start to finish</span>
+					<span class="block text-xs text-muted-foreground"
+						>Designed, made and installed in-house</span
 					>
-						{settings.facebookReviews.percent}%
-					</span>
-					<span>
-						<span class="block font-bold">Recommend Capital Shades</span>
-						<span class="block text-xs text-muted-foreground">
-							{settings.facebookReviews.count} reviews on Facebook
-						</span>
-					</span>
-				</a>
-			{/if}
+				</span>
+			</div>
 		</div>
 
 		<div class="order-1 lg:order-2">

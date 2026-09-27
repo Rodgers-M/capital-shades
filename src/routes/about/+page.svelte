@@ -128,5 +128,5 @@
 </section>
 
 <div class="border-t">
-	<ProcessSection settings={data.settings} image={data.processImage} />
+	<ProcessSection image={data.processImage} />
 </div>

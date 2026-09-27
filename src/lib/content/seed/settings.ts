@@ -22,12 +22,14 @@ export const settings: SiteSettings = {
 	location: 'Nairobi, Kenya',
 	hours: null,
 	facebookUrl: 'https://www.facebook.com/capitalshades/',
-	facebookReviews: { percent: 100, count: 97 },
+	// Facebook shows "100% recommend" (97 reviews, Sept 2026); the site avoids counts that go stale
+	facebookReviewsUrl: 'https://www.facebook.com/capitalshades/reviews',
+	// Capabilities from the current site — no figures that need updating
 	stats: [
-		{ value: '100%', label: 'Recommend us on Facebook' },
-		{ value: '97', label: 'Facebook reviews' },
-		{ value: '15K', label: 'Facebook followers' },
-		{ value: 'In-house', label: 'Design, fabrication & install' }
+		{ value: 'In-house', label: 'Design, fabrication & installation' },
+		{ value: 'Any size', label: 'Custom-built for your site' },
+		{ value: 'Mesh or PVC', label: 'Breathable or 100% waterproof' },
+		{ value: 'Site visit', label: 'Evaluation & measurement' }
 	],
 	sectors: [
 		{

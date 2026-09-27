@@ -99,15 +99,12 @@ export const siteSettings = defineType({
 		}),
 		defineField({ name: 'facebookUrl', title: 'Facebook page', type: 'url', group: 'proof' }),
 		defineField({
-			name: 'facebookReviews',
-			title: 'Facebook recommendations',
-			type: 'object',
+			name: 'facebookReviewsUrl',
+			title: 'Facebook reviews page',
+			type: 'url',
 			group: 'proof',
-			description: 'Copy from the Facebook page, e.g. 100% recommend (97 reviews).',
-			fields: [
-				defineField({ name: 'percent', type: 'number', validation: (r) => r.min(0).max(100) }),
-				defineField({ name: 'count', title: 'Number of reviews', type: 'number' })
-			]
+			description:
+				'Shows a "Highly recommended on Facebook" band with links to read and leave reviews. Leave empty to hide it.'
 		}),
 		defineField({
 			name: 'stats',
@@ -115,7 +112,7 @@ export const siteSettings = defineType({
 			type: 'array',
 			group: 'proof',
 			description:
-				'Up to 4 facts shown under the home page hero. Only use numbers you can back up.',
+				'Up to 4 short facts shown under the home page hero. Avoid numbers that go out of date.',
 			of: [
 				defineArrayMember({
 					type: 'object',

@@ -38,8 +38,8 @@ export interface SiteSettings {
 	location: string;
 	hours: string | null;
 	facebookUrl: string;
-	/** Facebook recommendation summary — verifiable social proof. */
-	facebookReviews: { percent: number; count: number } | null;
+	/** Facebook reviews page — shown as "Highly recommended on Facebook". No counts, so it never goes stale. */
+	facebookReviewsUrl: string | null;
 	stats: Stat[];
 	/** Sectors the company builds for (from the current site). */
 	sectors: { title: string; text: string }[];

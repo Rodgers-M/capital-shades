@@ -2,15 +2,16 @@
 
 ## Decisions
 
-| Date       | Decision                                                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 2026-09-27 | Rebuild capitalshades.co.ke with SvelteKit. The Polymet React export is used as the design reference only.                           |
-| 2026-09-27 | Launch palette: navy `#0F172A` with amber primary (`#F59E0B`) and orange accent (`#F97316`). Font: Plus Jakarta Sans.                |
-| 2026-09-27 | Hosting will not be the current Apache host. Vercel is the most likely choice, but keep the build host-agnostic until it's decided.  |
-| 2026-09-27 | The blog is included at launch. It will be seeded from the current site's copy and the company's Facebook page.                      |
-| 2026-09-27 | Content lives in **Sanity**, a hosted CMS, so no database is needed. Pages are prerendered, and a Sanity webhook triggers a rebuild. |
-| 2026-09-27 | Enquiry forms email through **Resend**. If email fails, visitors are offered WhatsApp with the details pre-filled.                   |
-| 2026-09-27 | Only verifiable facts ship. Polymet's invented stats, clients, authors and photos are dropped. See content-to-confirm.md.            |
+| Date       | Decision                                                                                                                                                                                                                           |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-09-27 | Rebuild capitalshades.co.ke with SvelteKit. The Polymet React export is used as the design reference only.                                                                                                                         |
+| 2026-09-27 | Launch palette: navy `#0F172A` with amber primary (`#F59E0B`) and orange accent (`#F97316`). Font: Plus Jakarta Sans.                                                                                                              |
+| 2026-09-27 | Hosting will not be the current Apache host. Vercel is the most likely choice, but keep the build host-agnostic until it's decided.                                                                                                |
+| 2026-09-27 | The blog is included at launch. It will be seeded from the current site's copy and the company's Facebook page.                                                                                                                    |
+| 2026-09-27 | Content lives in **Sanity**, a hosted CMS, so no database is needed. Pages are prerendered, and a Sanity webhook triggers a rebuild.                                                                                               |
+| 2026-09-27 | Enquiry forms email through **Resend**. If email fails, visitors are offered WhatsApp with the details pre-filled.                                                                                                                 |
+| 2026-09-27 | Only verifiable facts ship. Polymet's invented stats, clients, authors and photos are dropped. See content-to-confirm.md.                                                                                                          |
+| 2026-09-28 | Reviews back up the message rather than lead it. There is no badge in the hero; a "Highly recommended on Facebook" band sits after the products, with read/leave review links. No review counts or ratings, because they go stale. |
 
 ## Backlog
 

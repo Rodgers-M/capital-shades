@@ -7,6 +7,7 @@
 	import ProductCards from '$lib/components/ProductCards.svelte';
 	import QuoteEstimator from '$lib/components/forms/QuoteEstimator.svelte';
 	import ProcessSection from '$lib/components/ProcessSection.svelte';
+	import ReviewsBand from '$lib/components/ReviewsBand.svelte';
 	import ProjectGallery from '$lib/components/projects/ProjectGallery.svelte';
 	import ArticleCard from '$lib/components/blog/ArticleCard.svelte';
 
@@ -47,6 +48,12 @@
 	<div class="mt-8 md:mt-10">
 		<ProductCards products={data.products} />
 	</div>
+	<!-- Reviews come after "what we do", as confirmation rather than the headline -->
+	{#if data.settings.facebookReviewsUrl}
+		<div class="mt-8 md:mt-10">
+			<ReviewsBand reviewsUrl={data.settings.facebookReviewsUrl} />
+		</div>
+	{/if}
 </section>
 
 <section id="estimator" class="bg-muted/60 py-16 md:py-24">
@@ -62,7 +69,7 @@
 	</div>
 </section>
 
-<ProcessSection settings={data.settings} image={data.processImage} />
+<ProcessSection image={data.processImage} />
 
 <section class="bg-ink py-16 md:py-24">
 	<div class="container-page">
