@@ -1,19 +1,16 @@
 <script lang="ts">
-	import {
-		ArrowRightIcon,
-		CloudRainIcon,
-		ImagesIcon,
-		RulerIcon,
-		StarIcon,
-		SunIcon
-	} from '@lucide/svelte';
+	import { ArrowRightIcon, CloudRainIcon, RulerIcon, StarIcon, SunIcon } from '@lucide/svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Picture from '$lib/components/Picture.svelte';
+	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import { QUOTE_HREF } from '$lib/nav';
+	import { whatsappLink } from '$lib/utils';
 	import type { Img, Project, SiteSettings } from '$lib/content/types';
 
 	let { settings, image, latest }: { settings: SiteSettings; image: Img; latest?: Project } =
 		$props();
+
+	const phone = $derived(settings.phones[0]);
 </script>
 
 <section class="relative overflow-hidden bg-ink text-on-ink">
@@ -30,7 +27,7 @@
 	<div class="absolute inset-0 bg-grid text-on-ink opacity-[0.07]"></div>
 
 	<div
-		class="relative container-page grid gap-10 pt-16 pb-14 md:pt-24 md:pb-20 lg:grid-cols-12 lg:pt-32 lg:pb-28"
+		class="relative container-page grid gap-10 pt-6 pb-10 md:pt-12 md:pb-14 lg:grid-cols-12 lg:pt-12 lg:pb-16"
 	>
 		<div class="lg:col-span-7">
 			{#if settings.facebookReviews}
@@ -51,7 +48,7 @@
 			{/if}
 
 			<h1
-				class="mt-6 text-[2.5rem] leading-[1.02] font-extrabold tracking-tight text-balance sm:text-5xl lg:text-[4.25rem]"
+				class="mt-5 text-[2.25rem] leading-[1.02] font-extrabold tracking-tight text-balance sm:text-5xl lg:text-[3.75rem]"
 			>
 				Custom shade & tensile structures
 				<span class="relative inline-block text-primary">
@@ -73,15 +70,15 @@
 				</span>
 			</h1>
 
-			<p class="mt-7 max-w-xl text-base leading-relaxed text-on-ink-muted md:text-lg">
+			<p class="mt-5 max-w-xl text-base leading-relaxed text-on-ink-muted md:text-lg">
 				Car park shades, shade sails, canopies and membrane structures — designed, fabricated and
-				installed by our own team. Choose <strong class="font-semibold text-on-ink"
-					>heavy-duty shade mesh</strong
+				installed by our own team. <span class="hidden sm:inline"
+					>Choose <strong class="font-semibold text-on-ink">heavy-duty shade mesh</strong>
+					or <strong class="font-semibold text-on-ink">100% waterproof PVC</strong>.</span
 				>
-				or <strong class="font-semibold text-on-ink">100% waterproof PVC</strong>.
 			</p>
 
-			<ul class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-on-ink-muted">
+			<ul class="mt-4 hidden flex-wrap gap-x-5 gap-y-2 text-sm text-on-ink-muted sm:flex">
 				<li class="inline-flex items-center gap-1.5">
 					<SunIcon class="size-4 text-primary" /> UV protection
 				</li>
@@ -93,14 +90,33 @@
 				</li>
 			</ul>
 
-			<div class="mt-9 flex flex-col gap-3 sm:flex-row">
+			<div class="mt-7 flex flex-col gap-3 sm:flex-row">
 				<Button href={QUOTE_HREF} size="lg" class="shadow-lg shadow-primary/30">
 					Request Site Assessment <ArrowRightIcon class="!size-5" />
 				</Button>
-				<Button href="/projects" size="lg" variant="outline-on-ink">
-					<ImagesIcon class="!size-5" /> View Recent Projects
+				<!-- On phones the fixed bottom bar already offers WhatsApp and Call -->
+				<Button
+					href={whatsappLink(settings.whatsapp.number, "Hi Capital Shades, I'd like a quote")}
+					target="_blank"
+					rel="noopener"
+					size="lg"
+					variant="outline-on-ink"
+					class="hidden sm:inline-flex"
+				>
+					<WhatsAppIcon class="size-5" /> Chat on WhatsApp
 				</Button>
 			</div>
+			<p class="mt-4 text-sm text-on-ink-muted">
+				Or call
+				<a
+					href="tel:+{phone.number}"
+					class="font-bold text-on-ink underline-offset-4 hover:underline">{phone.display}</a
+				>
+				<span aria-hidden="true" class="mx-1.5">·</span>
+				<a href="/projects" class="font-semibold text-primary underline-offset-4 hover:underline"
+					>See recent projects</a
+				>
+			</p>
 		</div>
 
 		{#if latest}
