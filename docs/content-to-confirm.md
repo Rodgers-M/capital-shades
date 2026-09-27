@@ -18,7 +18,7 @@ The site only states facts found on the current website or the company's Faceboo
 
   Several other 2019 images on the old site look like stock photos from overseas. They were deliberately **not** used.
 
-- [ ] **Logo.** We need a vector (SVG) or high-resolution logo. The only file available is a 200×90 PNG.
+- [ ] **Logo.** We need a vector (SVG) or high-resolution logo. The only file available is a 200×90 PNG. The favicon and Apple touch icon in `static/` are made from this PNG, so they're soft at large sizes. Regenerate them once a vector logo arrives.
 
 ## Nice to have
 
