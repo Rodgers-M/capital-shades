@@ -39,7 +39,7 @@
 			</nav>
 
 			<div class="flex items-center gap-2 lg:gap-3">
-				<!-- Phones get Call/WhatsApp from the fixed bottom bar; tablets and up get it here -->
+				<!-- Tablets and up: labelled number -->
 				<a
 					href="tel:+{phone.number}"
 					class="group hidden items-center gap-2.5 rounded-md py-1.5 pr-2 md:inline-flex"
@@ -59,6 +59,17 @@
 					{QUOTE_LABEL}
 					<ArrowRightIcon />
 				</Button>
+
+				<!-- Phones: compact call button beside the menu (number shown, "Call" under 340px) -->
+				<a
+					href="tel:+{phone.number}"
+					aria-label="Call {phone.display}"
+					class="inline-flex h-11 items-center gap-1.5 rounded-md bg-primary/15 px-3 text-sm font-bold whitespace-nowrap text-foreground transition-colors hover:bg-primary md:hidden"
+				>
+					<PhoneIcon class="size-4 text-accent-strong" />
+					<span class="max-[339px]:hidden">{phone.display}</span>
+					<span class="min-[340px]:hidden">Call</span>
+				</a>
 
 				<Dialog.Root bind:open>
 					<Dialog.Trigger
