@@ -83,11 +83,11 @@
 							class="fixed inset-0 z-50 bg-ink/60 data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in"
 						/>
 						<Dialog.Content
-							class="fixed inset-y-0 right-0 z-50 flex w-[88%] flex-col bg-card shadow-2xl data-[state=closed]:animate-sheet-out data-[state=open]:animate-sheet-in sm:max-w-sm"
+							class="fixed inset-y-0 right-0 z-50 flex w-1/2 max-w-xs flex-col overflow-y-auto bg-card shadow-2xl data-[state=closed]:animate-sheet-out data-[state=open]:animate-sheet-in"
 						>
-							<div class="flex items-center justify-between border-b p-5">
-								<Dialog.Title class="sr-only">Menu</Dialog.Title>
-								<SiteLogo />
+							<!-- Half-width panel: no room for the logo, which stays visible behind the overlay -->
+							<div class="flex items-center justify-between border-b py-3 pr-2 pl-4">
+								<Dialog.Title class="eyebrow text-muted-foreground">Menu</Dialog.Title>
 								<Dialog.Close
 									class="rounded-md p-2 text-muted-foreground hover:bg-muted"
 									aria-label="Close menu"
@@ -95,39 +95,38 @@
 									<XIcon class="size-5" />
 								</Dialog.Close>
 							</div>
-							<nav aria-label="Mobile" class="flex flex-col p-3">
+							<nav aria-label="Mobile" class="flex flex-col p-2">
 								{#each NAV_LINKS as link (link.href)}
 									<a
 										href={link.href}
 										onclick={() => (open = false)}
 										aria-current={isActive(link.href) ? 'page' : undefined}
 										class={cn(
-											'flex items-center justify-between rounded-lg px-4 py-3.5 text-base font-semibold transition-colors hover:bg-muted',
+											'flex items-center justify-between gap-2 rounded-lg px-3 py-3 text-base font-semibold transition-colors hover:bg-muted',
 											isActive(link.href) && 'bg-primary/10'
 										)}
 									>
 										{link.label}
-										<ArrowRightIcon class="size-4 text-muted-foreground" />
+										<ArrowRightIcon class="size-4 shrink-0 text-muted-foreground" />
 									</a>
 								{/each}
 							</nav>
-							<div class="mt-auto space-y-3 border-t p-5">
-								<Button href={QUOTE_HREF} onclick={() => (open = false)} class="h-12 w-full">
-									{QUOTE_LABEL}
+							<div class="mt-auto space-y-2 border-t p-3">
+								<Button href={QUOTE_HREF} onclick={() => (open = false)} class="w-full px-3">
+									Site assessment
 								</Button>
-								<div class="grid grid-cols-2 gap-2">
-									<Button href="tel:+{phone.number}" variant="outline">
-										<PhoneIcon /> Call
-									</Button>
-									<Button
-										href={whatsappLink(settings.whatsapp.number)}
-										target="_blank"
-										rel="noopener"
-										variant="whatsapp"
-									>
-										<WhatsAppIcon class="size-4" /> WhatsApp
-									</Button>
-								</div>
+								<Button href="tel:+{phone.number}" variant="outline" class="w-full px-3">
+									<PhoneIcon /> Call
+								</Button>
+								<Button
+									href={whatsappLink(settings.whatsapp.number)}
+									target="_blank"
+									rel="noopener"
+									variant="whatsapp"
+									class="w-full px-3"
+								>
+									<WhatsAppIcon class="size-4" /> WhatsApp
+								</Button>
 							</div>
 						</Dialog.Content>
 					</Dialog.Portal>
