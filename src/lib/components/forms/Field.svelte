@@ -11,7 +11,8 @@
 		autocomplete,
 		error,
 		multiline = false,
-		value = $bindable('')
+		value = $bindable(''),
+		input = $bindable()
 	}: {
 		id: string;
 		name: string;
@@ -23,6 +24,8 @@
 		error?: string;
 		multiline?: boolean;
 		value?: string;
+		/** The input/textarea element, e.g. to focus it */
+		input?: HTMLElement;
 	} = $props();
 
 	const control = $derived(
@@ -46,6 +49,7 @@
 			{placeholder}
 			rows="5"
 			bind:value
+			bind:this={input}
 			aria-invalid={error ? true : undefined}
 			aria-describedby={error ? `${id}-error` : undefined}
 			class={cn(control, 'py-2.5')}></textarea>
@@ -58,6 +62,7 @@
 			{placeholder}
 			{autocomplete}
 			bind:value
+			bind:this={input}
 			aria-invalid={error ? true : undefined}
 			aria-describedby={error ? `${id}-error` : undefined}
 			class={cn(control, 'h-11')}

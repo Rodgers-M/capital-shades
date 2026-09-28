@@ -15,16 +15,17 @@
 
 <Seo
 	title="Request a Site Assessment"
-	description="Tell us about your shade project in three quick steps and we'll call you to arrange a site visit."
+	description="Tell us about your shade project in a few taps and we'll call you to arrange a site visit."
 />
 
 <PageHero
 	eyebrow="Site assessment"
-	title="Plan your shade in three steps."
-	description="Tell us where it's going, how big it is and your preferred material — then we'll call you to arrange a site evaluation."
+	title="Plan your shade in a few taps."
+	description="Three quick choices and your number — then we'll call you to arrange a site visit."
 	image={data.products[0]?.image}
+	compact
 >
-	<ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-on-ink-muted">
+	<ul class="mt-4 hidden flex-wrap gap-x-6 gap-y-2 text-sm text-on-ink-muted sm:flex">
 		{#each PERKS as perk (perk.text)}
 			<li class="inline-flex items-center gap-2">
 				<perk.icon class="size-4 text-primary" />
@@ -34,6 +35,6 @@
 	</ul>
 </PageHero>
 
-<section class="relative container-page -mt-8 pb-8">
+<section class="relative container-page -mt-10 pb-8">
 	<QuoteEstimator settings={data.settings} />
 </section>
