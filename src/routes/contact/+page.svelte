@@ -45,7 +45,7 @@
 	description="Call, WhatsApp or send us your project details — we'll get back to you to talk it through."
 />
 
-<section class="container-page grid gap-6 py-12 md:py-16 lg:grid-cols-5">
+<section class="container-page grid gap-6 section-y lg:grid-cols-5">
 	<div class="space-y-3 lg:col-span-2">
 		{#each channels as channel (channel.href)}
 			<a

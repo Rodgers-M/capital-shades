@@ -125,6 +125,25 @@
 	}
 }
 
+/*
+ * Vertical rhythm. Every page section uses one of these, so spacing stays
+ * consistent and can be tuned in one place.
+ */
+@utility section-y {
+	padding-block: 3rem;
+	@media (width >= 48rem) {
+		padding-block: 4rem;
+	}
+}
+
+/* Bands and content sitting directly under a page header */
+@utility section-y-tight {
+	padding-block: 2rem;
+	@media (width >= 48rem) {
+		padding-block: 3rem;
+	}
+}
+
 /* Faint blueprint grid used over dark sections */
 @utility bg-grid {
 	background-image:

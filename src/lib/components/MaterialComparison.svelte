@@ -15,7 +15,7 @@
 	];
 </script>
 
-<section class="bg-muted/60 py-16 md:py-20">
+<section class="bg-muted/60 section-y">
 	<div class="mx-auto max-w-5xl px-4 md:px-6">
 		<SectionHeading
 			align="center"
@@ -23,7 +23,7 @@
 			title="Shade mesh vs waterproof PVC"
 			description="Both work well in Kenyan conditions — the right choice depends on how you use the space."
 		/>
-		<div class="mt-10 overflow-x-auto rounded-2xl border bg-card">
+		<div class="mt-8 overflow-x-auto rounded-2xl border bg-card">
 			<table class="w-full min-w-[32rem] text-left text-sm">
 				<thead class="bg-ink text-on-ink">
 					<tr>

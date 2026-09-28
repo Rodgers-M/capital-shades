@@ -81,7 +81,7 @@
 	</div>
 </section>
 
-<section class="container-page grid gap-10 py-14 md:py-20 lg:grid-cols-12 lg:gap-16">
+<section class="container-page grid gap-10 section-y lg:grid-cols-12 lg:gap-16">
 	<div class="prose prose-lg max-w-none lg:col-span-7">
 		{#each product.body as paragraph (paragraph)}
 			<p>{paragraph}</p>
@@ -122,7 +122,7 @@
 </section>
 
 {#if data.projects.length}
-	<section class="bg-ink py-16 md:py-20">
+	<section class="bg-ink section-y">
 		<div class="container-page">
 			<SectionHeading tone="ink" eyebrow="Projects" title="{product.title} we've built">
 				{#snippet action()}
@@ -143,7 +143,7 @@
 	</section>
 {/if}
 
-<section class="container-page py-16 md:py-20">
+<section class="container-page section-y">
 	<SectionHeading eyebrow="More products" title="Other shade solutions" />
 	<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
 		{#each data.others as other (other.slug)}

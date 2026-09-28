@@ -19,6 +19,6 @@
 	image={data.projects.find((p) => p.featured)?.image}
 />
 
-<section class="container-page py-10 md:py-14">
+<section class="container-page section-y-tight">
 	<ProjectGallery projects={data.projects} products={data.products} />
 </section>

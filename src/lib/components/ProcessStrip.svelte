@@ -17,7 +17,7 @@
 	];
 </script>
 
-<section class="container-page py-14 md:py-20">
+<section class="container-page section-y">
 	<SectionHeading eyebrow="How we work" title="From site visit to handover, one team.">
 		{#snippet action()}
 			<a

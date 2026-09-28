@@ -24,7 +24,7 @@
 	image={data.products[2]?.image}
 />
 
-<section class="container-page space-y-6 py-12 md:space-y-10 md:py-20">
+<section class="container-page space-y-6 section-y md:space-y-10">
 	{#each data.products as product, i (product.slug)}
 		<article
 			id={product.slug}

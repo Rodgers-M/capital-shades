@@ -37,7 +37,7 @@
 	<div
 		class={cn(
 			'relative container-page',
-			compact ? 'pt-5 pb-12 md:pt-6 md:pb-14' : 'py-14 md:py-20'
+			compact ? 'pt-5 pb-12 md:pt-6 md:pb-14' : 'py-12 md:py-16'
 		)}
 	>
 		<p class="inline-flex items-center gap-2 eyebrow text-primary">

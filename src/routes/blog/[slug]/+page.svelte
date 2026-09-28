@@ -95,7 +95,7 @@
 </section>
 
 {#if data.related.length}
-	<section class="container-page py-16 md:py-20">
+	<section class="container-page section-y">
 		<SectionHeading eyebrow="Keep reading" title="Related articles" />
 		<ul class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{#each data.related as related (related.slug)}

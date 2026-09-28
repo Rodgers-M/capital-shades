@@ -35,7 +35,7 @@
 	];
 </script>
 
-<section class="container-page py-16 md:py-24">
+<section class="container-page section-y">
 	<div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
 		<div class="relative order-2 lg:order-1">
 			<div

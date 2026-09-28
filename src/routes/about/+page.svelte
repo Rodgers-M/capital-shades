@@ -53,7 +53,7 @@
 	image={data.heroImage}
 />
 
-<section class="container-page grid items-center gap-10 py-16 md:py-24 lg:grid-cols-2 lg:gap-16">
+<section class="container-page grid items-center gap-10 section-y lg:grid-cols-2 lg:gap-16">
 	<div>
 		<SectionHeading
 			eyebrow="Our company"
@@ -87,14 +87,14 @@
 	</div>
 </section>
 
-<section class="bg-muted/60 py-16 md:py-24">
+<section class="bg-muted/60 section-y">
 	<div class="container-page">
 		<SectionHeading
 			align="center"
 			eyebrow="Why choose us"
 			title="Built to last, designed for you."
 		/>
-		<ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+		<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 			{#each REASONS as reason (reason.title)}
 				<li class="rounded-2xl border bg-card p-6">
 					<span
@@ -111,13 +111,13 @@
 	</div>
 </section>
 
-<section class="container-page py-16 md:py-24">
+<section class="container-page section-y">
 	<SectionHeading
 		eyebrow="Who we build for"
 		title="Our shades are perfect for…"
 		description="Cost-effective shade and UV protection for a wide variety of outdoor spaces."
 	/>
-	<ul class="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+	<ul class="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
 		{#each data.settings.sectors as sector (sector.title)}
 			<li class="border-l-2 border-primary pl-5">
 				<h3 class="font-extrabold">{sector.title}</h3>

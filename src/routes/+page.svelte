@@ -22,22 +22,7 @@
 
 <HeroSection settings={data.settings} image={data.heroImage} latest={data.latestProject} />
 
-<section class="border-b bg-card" aria-label="Who we build for">
-	<div class="container-page flex flex-col items-center gap-4 py-6 md:flex-row md:gap-10">
-		<p class="shrink-0 eyebrow text-muted-foreground">Built for</p>
-		<ul
-			class="grid w-full grid-cols-2 gap-x-6 gap-y-2 text-center sm:grid-cols-3 md:flex md:justify-between"
-		>
-			{#each data.settings.sectors as sector (sector.title)}
-				<li class="text-sm font-extrabold tracking-tight text-foreground/60 md:text-base">
-					{sector.title}
-				</li>
-			{/each}
-		</ul>
-	</div>
-</section>
-
-<section class="container-page py-14 md:py-20">
+<section class="container-page section-y">
 	<SectionHeading
 		eyebrow="What we build"
 		title="Shade solutions for every space."
@@ -54,7 +39,7 @@
 	</div>
 </section>
 
-<section class="bg-ink py-14 md:py-20">
+<section class="bg-ink section-y">
 	<div class="container-page">
 		<SectionHeading
 			tone="ink"
@@ -75,12 +60,12 @@
 </section>
 
 {#if data.settings.facebookReviewsUrl}
-	<section class="container-page py-10 md:py-14">
+	<section class="container-page section-y-tight">
 		<ReviewsBand reviewsUrl={data.settings.facebookReviewsUrl} />
 	</section>
 {/if}
 
-<section id="estimator" class="bg-muted/60 py-14 md:py-20">
+<section id="estimator" class="bg-muted/60 section-y">
 	<div class="container-page">
 		<SectionHeading
 			eyebrow="Site assessment"

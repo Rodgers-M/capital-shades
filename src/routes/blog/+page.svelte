@@ -21,7 +21,7 @@
 />
 
 <section class="border-b bg-card">
-	<div class="container-page pt-12 pb-10 md:pt-16 md:pb-14">
+	<div class="container-page section-y">
 		<SectionHeading
 			level={1}
 			eyebrow="Blog"
@@ -32,14 +32,14 @@
 			{/snippet}
 		</SectionHeading>
 		{#if posts.length}
-			<div class="mt-8 md:mt-10">
+			<div class="mt-8">
 				<FeaturedArticle post={posts[0]} side={posts.slice(1, 3)} />
 			</div>
 		{/if}
 	</div>
 </section>
 
-<section class="container-page py-12 md:py-16">
+<section class="container-page section-y">
 	<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 		<h2 class="text-2xl font-extrabold tracking-tight">All articles</h2>
 		<div class="-mx-4 [scrollbar-width:none] overflow-x-auto px-4 md:mx-0 md:px-0">
