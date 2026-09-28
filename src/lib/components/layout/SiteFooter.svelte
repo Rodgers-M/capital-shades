@@ -19,18 +19,18 @@
 			></div>
 			<div class="relative">
 				<p class="eyebrow">Planning a shade project?</p>
-				<h2 class="mt-1 text-2xl leading-tight font-extrabold md:text-3xl">
+				<h2 class="mt-1 text-xl leading-tight font-extrabold sm:text-2xl md:text-3xl">
 					Tell us about your site. We'll take it from there.
 				</h2>
 			</div>
-			<div class="relative mt-5 flex flex-col gap-3 sm:flex-row md:mt-0">
+			<div class="relative mt-4 flex flex-col gap-3 sm:mt-5 sm:flex-row md:mt-0">
 				<Button href={QUOTE_HREF} variant="ink" class="h-12 px-6">
 					Request Site Assessment <ArrowRightIcon />
 				</Button>
 				<Button
 					href="tel:+{settings.phones[0].number}"
 					variant="outline"
-					class="h-12 border-ink/30 bg-card/40 px-6 text-primary-foreground hover:bg-card/60"
+					class="hidden h-12 border-ink/30 bg-card/40 px-6 text-primary-foreground hover:bg-card/60 sm:inline-flex"
 				>
 					<PhoneIcon />
 					{settings.phones[0].display}
@@ -38,8 +38,8 @@
 			</div>
 		</div>
 
-		<div class="-mt-6 grid gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-4">
-			<div>
+		<div class="-mt-6 grid grid-cols-2 gap-x-6 gap-y-8 pb-10 sm:gap-10 lg:grid-cols-4">
+			<div class="col-span-2 lg:col-span-1">
 				<a
 					href="/"
 					class="inline-flex rounded-lg bg-card px-3 py-2"
@@ -47,7 +47,7 @@
 				>
 					<img src={logo} alt="Capital Shades" width="200" height="90" class="h-10 w-auto" />
 				</a>
-				<p class="mt-4 max-w-xs text-sm leading-relaxed text-on-ink-subtle">
+				<p class="mt-4 hidden max-w-xs text-sm leading-relaxed text-on-ink-subtle sm:block">
 					{settings.description}
 				</p>
 				<a
@@ -62,7 +62,7 @@
 
 			<div>
 				<h2 class="text-sm font-bold tracking-wider text-on-ink uppercase">Products</h2>
-				<ul class="mt-4 space-y-2.5 text-sm">
+				<ul class="mt-3 space-y-2 text-sm sm:mt-4 sm:space-y-2.5">
 					{#each products as product (product.slug)}
 						<li>
 							<a href="/products/{product.slug}" class="transition-colors hover:text-primary">
@@ -75,7 +75,7 @@
 
 			<div>
 				<h2 class="text-sm font-bold tracking-wider text-on-ink uppercase">Company</h2>
-				<ul class="mt-4 space-y-2.5 text-sm">
+				<ul class="mt-3 space-y-2 text-sm sm:mt-4 sm:space-y-2.5">
 					{#each NAV_LINKS as link (link.href)}
 						<li>
 							<a href={link.href} class="transition-colors hover:text-primary">{link.label}</a>
@@ -87,9 +87,9 @@
 				</ul>
 			</div>
 
-			<div>
+			<div class="col-span-2 lg:col-span-1">
 				<h2 class="text-sm font-bold tracking-wider text-on-ink uppercase">Contact</h2>
-				<ul class="mt-4 space-y-3 text-sm">
+				<ul class="mt-3 space-y-2 text-sm sm:mt-4 sm:space-y-3">
 					{#each settings.phones as phone (phone.number)}
 						<li>
 							<a href="tel:+{phone.number}" class="flex items-start gap-2.5 hover:text-primary">

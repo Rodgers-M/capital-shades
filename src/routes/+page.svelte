@@ -5,18 +5,22 @@
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
 	import HeroSection from '$lib/components/home/HeroSection.svelte';
 	import ProductCards from '$lib/components/ProductCards.svelte';
-	import QuoteEstimator from '$lib/components/forms/QuoteEstimator.svelte';
-	import ProcessSection from '$lib/components/ProcessSection.svelte';
+	import ProjectRow from '$lib/components/projects/ProjectRow.svelte';
 	import ReviewsBand from '$lib/components/ReviewsBand.svelte';
-	import ProjectGallery from '$lib/components/projects/ProjectGallery.svelte';
-	import ArticleCard from '$lib/components/blog/ArticleCard.svelte';
+	import QuoteEstimator from '$lib/components/forms/QuoteEstimator.svelte';
+	import ProcessStrip from '$lib/components/ProcessStrip.svelte';
 
 	let { data } = $props();
 </script>
 
+<!--
+	Home page: one job per section — what we do → real work → people recommend us
+	→ ask for an assessment. Detail lives on /products, /projects and /about.
+-->
+
 <Seo description={data.settings.description} image={data.heroImage} />
 
-<HeroSection settings={data.settings} image={data.heroImage} latest={data.projects[0]} />
+<HeroSection settings={data.settings} image={data.heroImage} latest={data.latestProject} />
 
 <section class="border-b bg-card" aria-label="Who we build for">
 	<div class="container-page flex flex-col items-center gap-4 py-6 md:flex-row md:gap-10">
@@ -33,7 +37,7 @@
 	</div>
 </section>
 
-<section class="container-page py-16 md:py-24">
+<section class="container-page py-14 md:py-20">
 	<SectionHeading
 		eyebrow="What we build"
 		title="Shade solutions for every space."
@@ -45,39 +49,18 @@
 			</Button>
 		{/snippet}
 	</SectionHeading>
-	<div class="mt-8 md:mt-10">
+	<div class="mt-8">
 		<ProductCards products={data.products} />
 	</div>
-	<!-- Reviews come after "what we do", as confirmation rather than the headline -->
-	{#if data.settings.facebookReviewsUrl}
-		<div class="mt-8 md:mt-10">
-			<ReviewsBand reviewsUrl={data.settings.facebookReviewsUrl} />
-		</div>
-	{/if}
 </section>
 
-<section id="estimator" class="bg-muted/60 py-16 md:py-24">
-	<div class="container-page">
-		<SectionHeading
-			eyebrow="Site assessment"
-			title="Tell us about your project in 30 seconds."
-			description="Answer three quick questions and we'll call you to arrange a site visit."
-		/>
-		<div class="mt-8 md:mt-10">
-			<QuoteEstimator settings={data.settings} />
-		</div>
-	</div>
-</section>
-
-<ProcessSection image={data.processImage} />
-
-<section class="bg-ink py-16 md:py-24">
+<section class="bg-ink py-14 md:py-20">
 	<div class="container-page">
 		<SectionHeading
 			tone="ink"
 			eyebrow="Recent projects"
 			title="Built across Kenya."
-			description="From single-car carports to commercial car parks — real installations by our team."
+			description="Real installations by our team — from single-car carports to commercial car parks."
 		>
 			{#snippet action()}
 				<Button href="/projects" class="self-start md:self-auto">
@@ -85,30 +68,29 @@
 				</Button>
 			{/snippet}
 		</SectionHeading>
-		<div class="mt-8 md:mt-10">
-			<ProjectGallery
-				projects={data.projects}
-				products={data.products}
-				showFilters={false}
-				tone="ink"
-			/>
+		<div class="mt-8">
+			<ProjectRow projects={data.projects} products={data.products} />
 		</div>
 	</div>
 </section>
 
-{#if data.posts.length}
-	<section class="container-page py-16 md:py-24">
-		<SectionHeading eyebrow="Insights" title="Guides & advice.">
-			{#snippet action()}
-				<Button href="/blog" variant="outline" class="self-start md:self-auto">
-					Read the blog <ArrowRightIcon />
-				</Button>
-			{/snippet}
-		</SectionHeading>
-		<ul class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{#each data.posts as post (post.slug)}
-				<li><ArticleCard {post} /></li>
-			{/each}
-		</ul>
+{#if data.settings.facebookReviewsUrl}
+	<section class="container-page py-10 md:py-14">
+		<ReviewsBand reviewsUrl={data.settings.facebookReviewsUrl} />
 	</section>
 {/if}
+
+<section id="estimator" class="bg-muted/60 py-14 md:py-20">
+	<div class="container-page">
+		<SectionHeading
+			eyebrow="Site assessment"
+			title="Tell us about your project in 30 seconds."
+			description="Three quick choices and your number — we'll call you to arrange a site visit."
+		/>
+		<div class="mt-8">
+			<QuoteEstimator settings={data.settings} />
+		</div>
+	</div>
+</section>
+
+<ProcessStrip />

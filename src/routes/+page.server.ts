@@ -1,13 +1,15 @@
 import { getContent } from '$lib/server/content';
 
+const HERO_PROJECT = 'green-cantilever-driveway';
+
 export async function load() {
-	const { projects, posts } = await getContent();
-	const featured = projects.filter((p) => p.featured);
-	const bySlug = (slug: string) => projects.find((p) => p.slug === slug) ?? projects[0];
+	const { projects } = await getContent();
+	const featured = projects.filter((p) => p.featured && p.slug !== HERO_PROJECT);
+	const pool = featured.length >= 4 ? featured : projects.filter((p) => p.slug !== HERO_PROJECT);
 	return {
-		heroImage: bySlug('green-cantilever-driveway').image,
-		processImage: bySlug('pergola-structure').image,
-		projects: (featured.length >= 6 ? featured : projects).slice(0, 6),
-		posts: posts.slice(0, 3).map(({ html: _html, ...summary }) => summary)
+		heroImage: (projects.find((p) => p.slug === HERO_PROJECT) ?? projects[0]).image,
+		// Desktop hero card shows the first; the projects row shows the next three
+		latestProject: pool[0],
+		projects: pool.slice(1, 4)
 	};
 }
