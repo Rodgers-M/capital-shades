@@ -28,7 +28,7 @@
 	{#each data.products as product, i (product.slug)}
 		<article
 			id={product.slug}
-			class="grid scroll-mt-32 overflow-hidden rounded-3xl border bg-card md:grid-cols-2"
+			class="grid scroll-mt-28 overflow-hidden rounded-3xl border bg-card md:grid-cols-2"
 		>
 			<div
 				class={cn(

@@ -376,7 +376,7 @@
 
 	<!-- Desktop only: on phones the step bar and the details summary cover this -->
 	<aside
-		class="relative hidden overflow-hidden rounded-2xl bg-ink p-6 text-on-ink shadow-xl lg:sticky lg:top-32 lg:col-span-4 lg:block lg:self-start"
+		class="relative hidden overflow-hidden rounded-2xl bg-ink p-6 text-on-ink shadow-xl lg:sticky lg:top-28 lg:col-span-4 lg:block lg:self-start"
 		aria-label="Your selection"
 	>
 		<div

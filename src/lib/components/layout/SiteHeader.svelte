@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { Dialog } from 'bits-ui';
-	import { ArrowRightIcon, MailIcon, MenuIcon, PhoneIcon, XIcon } from '@lucide/svelte';
+	import { ArrowRightIcon, MenuIcon, PhoneIcon, XIcon } from '@lucide/svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import SiteLogo from './SiteLogo.svelte';
@@ -18,31 +18,6 @@
 </script>
 
 <header class="sticky top-0 z-40 w-full">
-	<div class="bg-ink text-on-ink-muted">
-		<div
-			class="container-page flex h-9 items-center justify-center gap-4 text-xs sm:justify-between"
-		>
-			<div class="flex items-center gap-4 sm:gap-6">
-				<a
-					href="tel:+{phone.number}"
-					class="inline-flex items-center gap-1.5 font-semibold text-on-ink transition-colors hover:text-primary"
-				>
-					<PhoneIcon class="size-3.5 text-primary" />
-					{phone.display}
-				</a>
-				<span class="h-3 w-px bg-ink-border"></span>
-				<a
-					href="mailto:{settings.email}"
-					class="inline-flex items-center gap-1.5 transition-colors hover:text-primary"
-				>
-					<MailIcon class="size-3.5 text-primary" />
-					{settings.email}
-				</a>
-			</div>
-			<p class="hidden text-on-ink-subtle sm:block">{settings.tagline}</p>
-		</div>
-	</div>
-
 	<div class="border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/85">
 		<div class="container-page flex h-16 items-center justify-between gap-6 md:h-20">
 			<SiteLogo />
@@ -63,7 +38,23 @@
 				{/each}
 			</nav>
 
-			<div class="flex items-center gap-2">
+			<div class="flex items-center gap-2 lg:gap-3">
+				<!-- Phones get Call/WhatsApp from the fixed bottom bar; tablets and up get it here -->
+				<a
+					href="tel:+{phone.number}"
+					class="group hidden items-center gap-2.5 rounded-md py-1.5 pr-2 md:inline-flex"
+				>
+					<span
+						class="flex size-9 items-center justify-center rounded-full bg-primary/15 text-accent-strong transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
+						aria-hidden="true"
+					>
+						<PhoneIcon class="size-4" />
+					</span>
+					<span class="leading-tight">
+						<span class="block text-[11px] font-semibold text-muted-foreground">Call us</span>
+						<span class="block text-sm font-bold whitespace-nowrap">{phone.display}</span>
+					</span>
+				</a>
 				<Button href={QUOTE_HREF} class="hidden sm:inline-flex">
 					{QUOTE_LABEL}
 					<ArrowRightIcon />
