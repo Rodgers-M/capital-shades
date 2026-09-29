@@ -4,7 +4,8 @@
 	import Picture from '$lib/components/Picture.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
-	import ProjectGallery from '$lib/components/projects/ProjectGallery.svelte';
+	import ProjectRow from '$lib/components/projects/ProjectRow.svelte';
+	import ProductCards from '$lib/components/ProductCards.svelte';
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import { QUOTE_HREF } from '$lib/nav';
 	import { SITE_URL } from '$lib/config';
@@ -126,18 +127,16 @@
 		<div class="container-page">
 			<SectionHeading tone="ink" eyebrow="Projects" title="{product.title} we've built">
 				{#snippet action()}
-					<Button href="/projects" class="self-start md:self-auto">
-						All projects <ArrowRightIcon />
+					<Button href="/projects?filter={product.slug}" class="self-start md:self-auto">
+						{data.projectCount > data.projects.length
+							? `See all ${data.projectCount}`
+							: 'All projects'}
+						<ArrowRightIcon />
 					</Button>
 				{/snippet}
 			</SectionHeading>
 			<div class="mt-8">
-				<ProjectGallery
-					projects={data.projects}
-					products={data.products}
-					showFilters={false}
-					tone="ink"
-				/>
+				<ProjectRow projects={data.projects} products={data.products} />
 			</div>
 		</div>
 	</section>
@@ -145,22 +144,7 @@
 
 <section class="container-page section-y">
 	<SectionHeading eyebrow="More products" title="Other shade solutions" />
-	<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-		{#each data.others as other (other.slug)}
-			<li>
-				<a
-					href="/products/{other.slug}"
-					class="group block overflow-hidden rounded-2xl border bg-card transition-shadow hover:shadow-lg"
-				>
-					<Picture
-						image={other.image}
-						alt=""
-						sizes="(min-width: 1024px) 240px, 50vw"
-						class="aspect-[4/3] w-full object-cover"
-					/>
-					<p class="p-4 font-bold group-hover:text-accent-strong">{other.title}</p>
-				</a>
-			</li>
-		{/each}
-	</ul>
+	<div class="mt-8">
+		<ProductCards products={data.others} desktopCols={5} label="Other products" />
+	</div>
 </section>

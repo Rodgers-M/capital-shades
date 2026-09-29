@@ -17,7 +17,7 @@
 		item: Snippet<[T, number]>;
 		/** Accessible name for the list */
 		label: string;
-		desktopCols: 3 | 6;
+		desktopCols: 3 | 5 | 6;
 		key: (item: T) => string;
 	} = $props();
 </script>
@@ -26,7 +26,7 @@
 	aria-label={label}
 	class={cn(
 		'-mx-4 flex snap-x snap-mandatory scroll-px-4 [scrollbar-width:none] gap-3 overflow-x-auto px-4 pb-2 md:-mx-6 md:scroll-px-6 md:px-6 lg:mx-0 lg:grid lg:gap-4 lg:overflow-visible lg:px-0 lg:pb-0 [&::-webkit-scrollbar]:hidden',
-		desktopCols === 6 ? 'lg:grid-cols-6' : 'lg:grid-cols-3'
+		{ 3: 'lg:grid-cols-3', 5: 'lg:grid-cols-5', 6: 'lg:grid-cols-6' }[desktopCols]
 	)}
 >
 	{#each items as entry, i (key(entry))}

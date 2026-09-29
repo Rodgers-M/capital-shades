@@ -4,11 +4,15 @@
 	import SwipeRow from './SwipeRow.svelte';
 	import type { Product } from '$lib/content/types';
 
-	// Home page teaser: photo + name only; the detail lives on /products
-	let { products }: { products: Product[] } = $props();
+	// Teaser row: photo + name only; the detail lives on /products
+	let {
+		products,
+		desktopCols = 6,
+		label = 'Products'
+	}: { products: Product[]; desktopCols?: 5 | 6; label?: string } = $props();
 </script>
 
-<SwipeRow items={products} label="Products" desktopCols={6} key={(p) => p.slug}>
+<SwipeRow items={products} {label} {desktopCols} key={(p) => p.slug}>
 	{#snippet item(product)}
 		<a
 			href="/products/{product.slug}"
@@ -16,7 +20,7 @@
 		>
 			<Picture
 				image={product.image}
-				sizes="(min-width: 1024px) 200px, (min-width: 640px) 45vw, 78vw"
+				sizes="(min-width: 1024px) 240px, (min-width: 640px) 45vw, 78vw"
 				class="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105"
 			/>
 			<div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
@@ -27,7 +31,7 @@
 				<ArrowUpRightIcon class="size-4" />
 			</span>
 			<div class="relative p-4">
-				<!-- Six tiles per row on desktop: the name alone reads better -->
+				<!-- Five or six tiles per row on desktop: the name alone reads better -->
 				<p class="text-[10px] font-bold tracking-[0.14em] text-primary uppercase lg:hidden">
 					{product.eyebrow}
 				</p>

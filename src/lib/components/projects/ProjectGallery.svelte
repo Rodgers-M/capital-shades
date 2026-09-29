@@ -1,23 +1,17 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { ChevronLeftIcon, ChevronRightIcon, LayersIcon, MapPinIcon, XIcon } from '@lucide/svelte';
 	import { Dialog } from 'bits-ui';
 	import Picture from '$lib/components/Picture.svelte';
 	import { cn } from '$lib/utils';
 	import type { Product, Project, Sector } from '$lib/content/types';
 
-	let {
-		projects,
-		products,
-		limit,
-		showFilters = true,
-		tone = 'light'
-	}: {
-		projects: Project[];
-		products: Product[];
-		limit?: number;
-		showFilters?: boolean;
-		tone?: 'light' | 'ink';
-	} = $props();
+	/*
+	 * The /projects gallery. Phones: a swipe slider (one photo at a time, with a
+	 * counter and prev/next). Tablet and up: a masonry grid. Tapping a photo
+	 * opens it full screen. `?filter=<product-or-sector>` preselects a filter.
+	 */
+	let { projects, products }: { projects: Project[]; products: Product[] } = $props();
 
 	const SECTOR_LABELS: Record<Sector, string> = {
 		residential: 'Residential',
@@ -51,14 +45,42 @@
 
 	let active = $state('all');
 	let viewing = $state<number | null>(null);
+	let slide = $state(0);
+	let slider = $state<HTMLUListElement>();
 
-	const visible = $derived.by(() => {
-		const filter = filters.find((f) => f.id === active) ?? filters[0];
-		const list = projects.filter(filter.match);
-		return limit ? list.slice(0, limit) : list;
+	const visible = $derived(
+		projects.filter((filters.find((f) => f.id === active) ?? filters[0]).match)
+	);
+	const current = $derived(viewing === null ? null : visible[viewing]);
+
+	onMount(() => {
+		// Pages are prerendered, so read the query string in the browser
+		const requested = new URL(location.href).searchParams.get('filter');
+		if (requested && filters.some((f) => f.id === requested)) active = requested;
 	});
 
-	const current = $derived(viewing === null ? null : visible[viewing]);
+	function selectFilter(id: string) {
+		active = id;
+		slide = 0;
+		slider?.scrollTo({ left: 0 });
+	}
+
+	// Slider: keep the counter in sync with swiping, and let the buttons move it
+	function onSliderScroll() {
+		const first = slider?.children[0] as HTMLElement | undefined;
+		if (!slider || !first) return;
+		const step = first.offsetWidth + parseFloat(getComputedStyle(slider).columnGap || '0');
+		slide = Math.min(visible.length - 1, Math.max(0, Math.round(slider.scrollLeft / step)));
+	}
+
+	function goToSlide(i: number) {
+		const target = slider?.children[i] as HTMLElement | undefined;
+		if (!slider || !target) return;
+		slider.scrollTo({
+			left: target.offsetLeft - (slider.clientWidth - target.offsetWidth) / 2,
+			behavior: 'smooth'
+		});
+	}
 
 	function step(delta: number) {
 		if (viewing === null) return;
@@ -66,53 +88,53 @@
 	}
 </script>
 
-{#if showFilters}
-	<div class="-mx-4 mb-6 [scrollbar-width:none] overflow-x-auto px-4 pb-1 md:mx-0 md:px-0">
-		<div class="flex w-max gap-2" role="group" aria-label="Filter projects">
-			{#each filters as filter (filter.id)}
-				{@const isActive = active === filter.id}
-				<button
-					type="button"
-					aria-pressed={isActive}
-					onclick={() => (active = filter.id)}
+<div class="-mx-4 mb-6 [scrollbar-width:none] overflow-x-auto px-4 pb-1 md:mx-0 md:px-0">
+	<div class="flex w-max gap-2" role="group" aria-label="Filter projects">
+		{#each filters as filter (filter.id)}
+			{@const isActive = active === filter.id}
+			<button
+				type="button"
+				aria-pressed={isActive}
+				onclick={() => selectFilter(filter.id)}
+				class={cn(
+					'inline-flex h-10 items-center gap-2 rounded-full border px-4 text-sm font-semibold whitespace-nowrap transition-colors',
+					isActive
+						? 'border-ink bg-ink text-on-ink'
+						: 'bg-card text-muted-foreground hover:border-foreground/30 hover:text-foreground'
+				)}
+			>
+				{filter.label}
+				<span
 					class={cn(
-						'inline-flex h-10 items-center gap-2 rounded-full border px-4 text-sm font-semibold whitespace-nowrap transition-colors',
-						isActive
-							? 'border-ink bg-ink text-on-ink'
-							: 'bg-card text-muted-foreground hover:border-foreground/30 hover:text-foreground'
+						'rounded-full px-1.5 text-[11px] font-bold',
+						isActive ? 'bg-primary text-primary-foreground' : 'bg-muted'
 					)}
 				>
-					{filter.label}
-					<span
-						class={cn(
-							'rounded-full px-1.5 text-[11px] font-bold',
-							isActive ? 'bg-primary text-primary-foreground' : 'bg-muted'
-						)}
-					>
-						{projects.filter(filter.match).length}
-					</span>
-				</button>
-			{/each}
-		</div>
+					{projects.filter(filter.match).length}
+				</span>
+			</button>
+		{/each}
 	</div>
-{/if}
+</div>
 
-<ul class="columns-1 gap-4 sm:columns-2 lg:columns-3" aria-live="polite">
+<ul
+	bind:this={slider}
+	onscroll={onSliderScroll}
+	aria-label="Project photos"
+	class="relative -mx-4 flex snap-x snap-mandatory [scrollbar-width:none] gap-3 overflow-x-auto px-4 md:mx-0 md:block md:columns-2 md:gap-4 md:overflow-visible md:px-0 lg:columns-3 [&::-webkit-scrollbar]:hidden"
+>
 	{#each visible as project, i (project.slug)}
-		<li class="mb-4 break-inside-avoid">
+		<li class="w-[86%] shrink-0 snap-center md:mb-4 md:w-auto md:break-inside-avoid">
 			<button
 				type="button"
 				onclick={() => (viewing = i)}
-				class={cn(
-					'group relative block w-full overflow-hidden rounded-2xl bg-ink text-left text-on-ink',
-					tone === 'ink' && 'ring-1 ring-on-ink/10'
-				)}
+				class="group relative block w-full overflow-hidden rounded-2xl bg-ink text-left text-on-ink"
 				aria-label="View photo: {project.title}"
 			>
 				<Picture
 					image={project.image}
-					sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
-					class="h-auto w-full transition-transform duration-700 group-hover:scale-105"
+					sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 86vw"
+					class="w-full object-cover transition-transform duration-700 group-hover:scale-105 max-md:aspect-[4/5] md:h-auto"
 				/>
 				<span
 					class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent p-4 pt-16"
@@ -142,6 +164,33 @@
 		</li>
 	{/each}
 </ul>
+
+{#if visible.length > 1}
+	<!-- Phones only: slider position and controls -->
+	<div class="mt-4 flex items-center justify-between md:hidden">
+		<button
+			type="button"
+			onclick={() => goToSlide(slide - 1)}
+			disabled={slide === 0}
+			class="flex size-11 items-center justify-center rounded-full border bg-card disabled:opacity-40"
+			aria-label="Previous photo"
+		>
+			<ChevronLeftIcon class="size-5" />
+		</button>
+		<p class="text-sm font-semibold text-muted-foreground" aria-live="polite">
+			<span class="text-foreground">{slide + 1}</span> / {visible.length}
+		</p>
+		<button
+			type="button"
+			onclick={() => goToSlide(slide + 1)}
+			disabled={slide >= visible.length - 1}
+			class="flex size-11 items-center justify-center rounded-full border bg-card disabled:opacity-40"
+			aria-label="Next photo"
+		>
+			<ChevronRightIcon class="size-5" />
+		</button>
+	</div>
+{/if}
 
 {#if visible.length === 0}
 	<p class="rounded-2xl border border-dashed py-20 text-center text-muted-foreground">
