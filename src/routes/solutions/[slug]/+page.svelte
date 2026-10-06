@@ -7,26 +7,29 @@
 	import ProjectRow from '$lib/components/projects/ProjectRow.svelte';
 	import ProductCards from '$lib/components/ProductCards.svelte';
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
-	import { QUOTE_HREF } from '$lib/nav';
+	import { QUOTE_HREF, QUOTE_LABEL, SOLUTIONS_HREF } from '$lib/nav';
 	import { SITE_URL } from '$lib/config';
 	import { whatsappLink } from '$lib/utils';
 
 	let { data } = $props();
-	const product = $derived(data.product);
+	const solution = $derived(data.solution);
 	const settings = $derived(data.settings);
 </script>
 
 <Seo
-	title="{product.title} in Kenya"
-	description={product.summary}
-	image={product.image}
+	title="{solution.title} in Kenya"
+	description={solution.summary}
+	image={solution.image}
 	jsonLd={{
 		'@context': 'https://schema.org',
 		'@type': 'Service',
-		name: product.title,
-		description: product.summary,
-		serviceType: product.title,
-		areaServed: { '@type': 'Country', name: 'Kenya' },
+		name: solution.title,
+		description: solution.summary,
+		serviceType: solution.title,
+		// Only owner-confirmed areas (none yet), never an assumed region
+		...(settings.serviceAreas.length > 0 && {
+			areaServed: settings.serviceAreas.map((name) => ({ '@type': 'Place', name }))
+		}),
 		provider: { '@id': `${SITE_URL}/#business` }
 	}}
 />
@@ -38,28 +41,29 @@
 	>
 		<div>
 			<nav aria-label="Breadcrumb" class="text-sm text-on-ink-subtle">
-				<a href="/products" class="hover:text-primary">Products</a>
+				<a href={SOLUTIONS_HREF} class="hover:text-primary">Solutions</a>
 				<span aria-hidden="true" class="mx-1.5">/</span>
-				<span aria-current="page" class="text-on-ink-muted">{product.title}</span>
+				<span aria-current="page" class="text-on-ink-muted">{solution.title}</span>
 			</nav>
 			<p class="mt-6 inline-flex items-center gap-2 eyebrow text-primary">
 				<span class="h-[2px] w-6 bg-primary"></span>
-				{product.eyebrow}
+				{solution.eyebrow}
 			</p>
 			<h1 class="mt-3 text-4xl leading-[1.05] font-extrabold tracking-tight md:text-6xl">
-				{product.title}
+				{solution.title}
 			</h1>
 			<p class="mt-4 max-w-xl text-base leading-relaxed text-on-ink-muted md:text-lg">
-				{product.summary}
+				{solution.summary}
 			</p>
 			<div class="mt-8 flex flex-col gap-3 sm:flex-row">
 				<Button href={QUOTE_HREF} size="lg">
-					Request Site Assessment <ArrowRightIcon class="!size-5" />
+					{QUOTE_LABEL}
+					<ArrowRightIcon class="!size-5" />
 				</Button>
 				<Button
 					href={whatsappLink(
 						settings.whatsapp.number,
-						`Hi Capital Shades, I'm interested in ${product.title.toLowerCase()}.`
+						`Hi Capital Shades, I'm interested in ${solution.title.toLowerCase()}.`
 					)}
 					target="_blank"
 					rel="noopener"
@@ -72,7 +76,7 @@
 		</div>
 		<div class="overflow-hidden rounded-3xl ring-1 ring-on-ink/10">
 			<Picture
-				image={product.image}
+				image={solution.image}
 				loading="eager"
 				fetchpriority="high"
 				sizes="(min-width: 1024px) 600px, 100vw"
@@ -84,7 +88,7 @@
 
 <section class="container-page grid gap-10 section-y lg:grid-cols-12 lg:gap-16">
 	<div class="prose prose-lg max-w-none lg:col-span-7">
-		{#each product.body as paragraph (paragraph)}
+		{#each solution.body as paragraph (paragraph)}
 			<p>{paragraph}</p>
 		{/each}
 	</div>
@@ -92,7 +96,7 @@
 		<div class="rounded-2xl border bg-card p-6">
 			<h2 class="text-lg font-extrabold">Features</h2>
 			<ul class="mt-4 space-y-2.5">
-				{#each product.features as feature (feature)}
+				{#each solution.features as feature (feature)}
 					<li class="flex items-center gap-2 text-sm font-medium">
 						<span
 							class="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-accent-strong"
@@ -107,16 +111,16 @@
 		<div class="rounded-2xl border bg-card p-6">
 			<h2 class="text-lg font-extrabold">Ideal for</h2>
 			<ul class="mt-4 flex flex-wrap gap-2">
-				{#each product.applications as application (application)}
+				{#each solution.applications as application (application)}
 					<li class="rounded-full bg-muted px-3 py-1.5 text-sm font-semibold">{application}</li>
 				{/each}
 			</ul>
 		</div>
 		<div class="rounded-2xl bg-ink p-6 text-on-ink">
-			<p class="font-bold">Questions about {product.title.toLowerCase()}?</p>
+			<p class="font-bold">Questions about {solution.title.toLowerCase()}?</p>
 			<p class="mt-1 text-sm text-on-ink-subtle">Speak to our team directly.</p>
-			<Button href="tel:+{settings.phones[0].number}" class="mt-4 w-full">
-				<PhoneIcon /> Call {settings.phones[0].display}
+			<Button href="tel:+{settings.primaryPhone.number}" class="mt-4 w-full">
+				<PhoneIcon /> Call {settings.primaryPhone.display}
 			</Button>
 		</div>
 	</aside>
@@ -125,9 +129,9 @@
 {#if data.projects.length}
 	<section class="bg-ink section-y">
 		<div class="container-page">
-			<SectionHeading tone="ink" eyebrow="Projects" title="{product.title} we've built">
+			<SectionHeading tone="ink" eyebrow="Projects" title="{solution.title} we've built">
 				{#snippet action()}
-					<Button href="/projects?filter={product.slug}" class="self-start md:self-auto">
+					<Button href="/projects?filter={solution.slug}" class="self-start md:self-auto">
 						{data.projectCount > data.projects.length
 							? `See all ${data.projectCount}`
 							: 'All projects'}
@@ -143,8 +147,8 @@
 {/if}
 
 <section class="container-page section-y">
-	<SectionHeading eyebrow="More products" title="Other shade solutions" />
+	<SectionHeading eyebrow="More solutions" title="Other shade solutions" />
 	<div class="mt-8">
-		<ProductCards products={data.others} desktopCols={5} label="Other products" />
+		<ProductCards products={data.others} desktopCols={5} label="Other solutions" />
 	</div>
 </section>

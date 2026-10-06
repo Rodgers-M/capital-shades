@@ -1,81 +1,40 @@
 <script lang="ts">
-	import { ArrowRightIcon } from '@lucide/svelte';
 	import Seo from '$lib/components/Seo.svelte';
-	import Button from '$lib/components/ui/Button.svelte';
-	import SectionHeading from '$lib/components/SectionHeading.svelte';
 	import HeroSection from '$lib/components/home/HeroSection.svelte';
-	import ProductCards from '$lib/components/ProductCards.svelte';
-	import ProjectRow from '$lib/components/projects/ProjectRow.svelte';
-	import ReviewsBand from '$lib/components/ReviewsBand.svelte';
-	import QuoteEstimator from '$lib/components/forms/QuoteEstimator.svelte';
+	import SelectedProjects from '$lib/components/home/SelectedProjects.svelte';
+	import FeaturedSolutions from '$lib/components/home/FeaturedSolutions.svelte';
+	import SolutionGuide from '$lib/components/home/SolutionGuide.svelte';
+	import SectorContext from '$lib/components/home/SectorContext.svelte';
+	import FeaturedProject from '$lib/components/home/FeaturedProject.svelte';
 	import ProcessStrip from '$lib/components/ProcessStrip.svelte';
+	import QuoteCta from '$lib/components/home/QuoteCta.svelte';
 
 	let { data } = $props();
 </script>
 
 <!--
-	Home page: one job per section — what we do → real work → people recommend us
-	→ ask for an assessment. Detail lives on /products, /projects and /about.
+	Home page: a routing and credibility layer (docs/design-direction.md).
+	Hero → project proof → featured solutions → cover guidance → sectors →
+	one project story → how we work → quote. Detail lives on /solutions,
+	/projects and /about.
 -->
 
-<Seo description={data.settings.description} image={data.heroImage} />
+<Seo description={data.settings.description} image={data.hero?.heroImage} />
 
-<HeroSection settings={data.settings} image={data.heroImage} latest={data.latestProject} />
+<HeroSection settings={data.settings} project={data.hero} solutions={data.products} />
 
-<section class="container-page section-y">
-	<SectionHeading
-		eyebrow="What we build"
-		title="Shade solutions for every space."
-		description="Regardless of how large, small or irregularly shaped your space is, we can build a shade solution for it."
-	>
-		{#snippet action()}
-			<Button href="/products" variant="outline" class="self-start md:self-auto">
-				All products <ArrowRightIcon />
-			</Button>
-		{/snippet}
-	</SectionHeading>
-	<div class="mt-8">
-		<ProductCards products={data.products} />
-	</div>
-</section>
+<SelectedProjects projects={data.selectedProjects} solutions={data.products} />
 
-<section class="bg-ink section-y">
-	<div class="container-page">
-		<SectionHeading
-			tone="ink"
-			eyebrow="Recent projects"
-			title="Built across Kenya."
-			description="Real installations by our team — from single-car carports to commercial car parks."
-		>
-			{#snippet action()}
-				<Button href="/projects" class="self-start md:self-auto">
-					View all projects <ArrowRightIcon />
-				</Button>
-			{/snippet}
-		</SectionHeading>
-		<div class="mt-8">
-			<ProjectRow projects={data.projects} products={data.products} />
-		</div>
-	</div>
-</section>
+<FeaturedSolutions solutions={data.featuredSolutions} />
 
-{#if data.settings.facebookReviewsUrl}
-	<section class="container-page section-y-tight">
-		<ReviewsBand reviewsUrl={data.settings.facebookReviewsUrl} />
-	</section>
+<SolutionGuide />
+
+<SectorContext sectors={data.sectors} />
+
+{#if data.featuredProject}
+	<FeaturedProject project={data.featuredProject} solutions={data.products} />
 {/if}
 
-<section id="estimator" class="bg-muted/60 section-y">
-	<div class="container-page">
-		<SectionHeading
-			eyebrow="Site assessment"
-			title="Tell us about your project in 30 seconds."
-			description="Three quick choices and your number — we'll call you to arrange a site visit."
-		/>
-		<div class="mt-8">
-			<QuoteEstimator settings={data.settings} />
-		</div>
-	</div>
-</section>
-
 <ProcessStrip />
+
+<QuoteCta settings={data.settings} image={data.closingImage} />

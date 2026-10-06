@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import Button from '$lib/components/ui/Button.svelte';
+	import { SOLUTIONS_HREF } from '$lib/nav';
 </script>
 
 <svelte:head>
@@ -20,7 +21,7 @@
 	</p>
 	<div class="mt-8 flex flex-wrap justify-center gap-3">
 		<Button href="/">Home</Button>
-		<Button href="/products" variant="outline">Products</Button>
+		<Button href={SOLUTIONS_HREF} variant="outline">Solutions</Button>
 		<Button href="/projects" variant="outline">Projects</Button>
 		<Button href="/contact" variant="outline">Contact</Button>
 	</div>

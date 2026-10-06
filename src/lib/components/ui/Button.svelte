@@ -4,12 +4,12 @@
 	export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
 
 	const variants: Record<ButtonVariant, string> = {
-		primary:
-			'bg-primary text-primary-foreground shadow-md shadow-primary/25 hover:bg-primary-hover',
+		primary: 'bg-primary text-primary-foreground hover:bg-primary-hover',
 		ink: 'bg-ink text-on-ink hover:bg-ink-raised',
-		outline: 'border border-border bg-card text-foreground hover:bg-muted',
+		outline:
+			'border border-foreground/25 bg-transparent text-foreground hover:border-foreground hover:bg-foreground/[0.04]',
 		'outline-on-ink':
-			'border border-on-ink/25 bg-on-ink/5 text-on-ink backdrop-blur hover:bg-on-ink/15',
+			'border border-on-ink/30 bg-transparent text-on-ink hover:border-on-ink/60 hover:bg-on-ink/10',
 		ghost: 'text-foreground hover:bg-muted',
 		whatsapp: 'bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp-hover'
 	};
@@ -41,7 +41,7 @@
 
 	const classes = $derived(
 		cn(
-			'inline-flex shrink-0 items-center justify-center gap-2 rounded-md font-bold whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-40 [&_svg]:size-4',
+			'inline-flex shrink-0 items-center justify-center gap-2 rounded-sm font-semibold tracking-wide whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-40 [&_svg]:size-4',
 			sizes[size],
 			variants[variant],
 			className

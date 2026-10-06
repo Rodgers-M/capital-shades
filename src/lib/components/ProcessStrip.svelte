@@ -1,48 +1,42 @@
 <script lang="ts">
-	import {
-		ArrowRightIcon,
-		ClipboardCheckIcon,
-		DraftingCompassIcon,
-		FactoryIcon,
-		HardHatIcon
-	} from '@lucide/svelte';
-	import SectionHeading from './SectionHeading.svelte';
+	import EditorialHeading from './EditorialHeading.svelte';
+	import TextLink from './TextLink.svelte';
 
-	// Home page summary of the process; the full version is ProcessSection on /about
+	// Home page summary of the process; the full version is ProcessSection on /about.
+	// Describes the steps without claiming who fabricates (not yet confirmed).
 	const STEPS = [
-		{ icon: ClipboardCheckIcon, title: 'Site evaluation', text: 'We visit and measure.' },
-		{ icon: DraftingCompassIcon, title: 'Design', text: 'Layout, materials, colours.' },
-		{ icon: FactoryIcon, title: 'Fabrication', text: 'Made by our own team.' },
-		{ icon: HardHatIcon, title: 'Installation', text: 'Set up and tensioned on site.' }
+		{
+			title: 'Site evaluation',
+			text: 'A visit to measure the space and understand how it is used.'
+		},
+		{ title: 'Design', text: 'Layout, materials and colours, agreed with you.' },
+		{ title: 'Fabrication', text: 'Frames and covers made to the agreed design.' },
+		{ title: 'Installation', text: 'Set up, tensioned and finished on site.' }
 	];
 </script>
 
-<section class="container-page section-y">
-	<SectionHeading eyebrow="How we work" title="From site visit to handover, one team.">
-		{#snippet action()}
-			<a
-				href="/about"
-				class="inline-flex items-center gap-1 self-start text-sm font-semibold text-accent-strong underline-offset-4 hover:underline md:self-auto"
-			>
-				More about us <ArrowRightIcon class="size-4" />
-			</a>
-		{/snippet}
-	</SectionHeading>
-	<ol class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-		{#each STEPS as step, i (step.title)}
-			<li class="rounded-xl border bg-card p-4">
-				<div class="flex items-center gap-2.5">
-					<span
-						class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-ink text-primary"
-						aria-hidden="true"
-					>
-						<step.icon class="size-4" />
+<section aria-labelledby="how-we-work" class="bg-muted section-y">
+	<div class="container-page">
+		<EditorialHeading
+			id="how-we-work"
+			eyebrow="How we work"
+			title="A straightforward path from enquiry to completed project."
+		>
+			{#snippet action()}
+				<TextLink href="/about">More about us</TextLink>
+			{/snippet}
+		</EditorialHeading>
+
+		<ol class="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+			{#each STEPS as step, i (step.title)}
+				<li class="border-t border-foreground/20 pt-6">
+					<span class="font-mono text-sm text-primary-strong" aria-hidden="true">
+						{String(i + 1).padStart(2, '0')}
 					</span>
-					<span class="font-mono text-xs font-bold text-accent-strong">0{i + 1}</span>
-				</div>
-				<p class="mt-3 font-bold">{step.title}</p>
-				<p class="mt-0.5 text-sm text-muted-foreground">{step.text}</p>
-			</li>
-		{/each}
-	</ol>
+					<h3 class="mt-4 text-xl font-medium tracking-tight">{step.title}</h3>
+					<p class="mt-2 leading-relaxed text-muted-foreground">{step.text}</p>
+				</li>
+			{/each}
+		</ol>
+	</div>
 </section>

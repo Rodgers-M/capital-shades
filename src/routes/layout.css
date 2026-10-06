@@ -3,8 +3,12 @@
 
 /*
  * Brand tokens. Every colour used by components comes from here — no hex values
- * or palette literals (slate-*, amber-*) in markup. Swapping the palette (e.g. to
- * the teal logo colour, see docs/decisions.md) should only touch this block.
+ * or palette literals (slate-*, amber-*) in markup.
+ *
+ * Identity (Phase A, 2026-10): warm white canvas, near-black structure, gold as
+ * a restrained premium accent and the logo's teal as a secondary signature.
+ * Gold and teal fills take near-black text; neither is dark enough for text on
+ * light surfaces, so use the *-strong variants for coloured text there.
  */
 @theme {
 	--font-sans:
@@ -12,38 +16,55 @@
 		'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
 	/* Light surfaces */
-	--color-background: #f8fafc;
-	--color-foreground: #0f172a;
+	--color-background: #faf9f6;
+	--color-foreground: #171717;
 	--color-card: #ffffff;
-	--color-muted: #eaf0f6;
-	--color-muted-foreground: #5b6b82;
-	--color-border: #e2e8f0;
-	--color-input: #d5dde7;
+	--color-muted: #f1f0ec;
+	--color-muted-foreground: #6f6d67;
+	--color-border: #dedcd5;
+	--color-input: #cfcdc5;
 
-	/* Brand fills: navy text sits on both (8.3:1 on amber) */
-	--color-primary: #f59e0b;
-	--color-primary-hover: #e08e06;
-	--color-primary-foreground: #0f172a;
-	--color-accent: #f97316;
-	/* Coloured text on light surfaces — primary/accent are too light for that (≤2.8:1) */
-	--color-accent-strong: #c2410c;
-	--color-ring: #f59e0b;
+	/* Gold — primary fill (near-black text on it: 7.6:1) */
+	--color-primary: #c8a45d;
+	--color-primary-hover: #b8924e;
+	--color-primary-foreground: #171717;
+	/* Gold as text on light surfaces (5.2:1 on muted) */
+	--color-primary-strong: #7d5f26;
 
-	/* Ink: the dark navy surfaces (top bar, hero, footer, dark sections) */
-	--color-ink: #0f172a;
-	--color-ink-raised: #1e293b;
-	--color-ink-border: #26334a;
-	--color-on-ink: #ffffff;
-	--color-on-ink-muted: #cbd5e1;
-	--color-on-ink-subtle: #94a3b8;
+	/* Capital Shades teal — secondary brand signature (near-black text on it: 7.4:1) */
+	--color-brand: #1abc9c;
+	--color-brand-hover: #159e85;
+	--color-brand-foreground: #171717;
+	/* Teal as text on light surfaces (5:1) */
+	--color-brand-strong: #0e7a64;
+
+	/* Focus ring: a deeper gold that reaches 3:1 on both warm white and charcoal */
+	--color-ring: #9c7a3c;
+
+	/* Ink: the near-black surfaces (footer, dark sections, mobile action bar) */
+	--color-ink: #171717;
+	--color-ink-raised: #222222;
+	--color-ink-border: #343434;
+	--color-on-ink: #faf9f6;
+	--color-on-ink-muted: #c9c7c0;
+	--color-on-ink-subtle: #95928a;
 
 	/* Status & third-party brand */
 	--color-success: #10b981;
 	--color-success-strong: #047857;
+	--color-destructive: #b42318;
 	--color-whatsapp: #25d366;
 	--color-whatsapp-hover: #1ebe5a;
-	/* White on WhatsApp green is only 2:1 — use navy text (9:1) */
-	--color-whatsapp-foreground: #0f172a;
+	/* White on WhatsApp green is only 2:1 — use near-black text (9:1) */
+	--color-whatsapp-foreground: #171717;
+
+	/*
+	 * TODO(phase-b): temporary aliases for the old navy/amber/orange tokens, still
+	 * used by page sections (hero, estimator, product pages, blog). Migrate those
+	 * to primary/brand/*-strong/destructive, then delete these two.
+	 */
+	--color-accent: var(--color-brand);
+	--color-accent-strong: var(--color-primary-strong);
 
 	--animate-fade-in: fade-in 0.2s ease-out;
 	--animate-fade-out: fade-out 0.15s ease-in;
@@ -118,10 +139,13 @@
 @utility container-page {
 	margin-inline: auto;
 	width: 100%;
-	max-width: 80rem;
-	padding-inline: 1rem;
+	max-width: 88rem;
+	padding-inline: 1.25rem;
 	@media (width >= 48rem) {
-		padding-inline: 1.5rem;
+		padding-inline: 2rem;
+	}
+	@media (width >= 80rem) {
+		padding-inline: 3rem;
 	}
 }
 
@@ -130,17 +154,23 @@
  * consistent and can be tuned in one place.
  */
 @utility section-y {
-	padding-block: 3rem;
+	padding-block: 4rem;
 	@media (width >= 48rem) {
-		padding-block: 4rem;
+		padding-block: 6rem;
+	}
+	@media (width >= 80rem) {
+		padding-block: 7.5rem;
 	}
 }
 
 /* Bands and content sitting directly under a page header */
 @utility section-y-tight {
-	padding-block: 2rem;
+	padding-block: 2.5rem;
 	@media (width >= 48rem) {
-		padding-block: 3rem;
+		padding-block: 3.5rem;
+	}
+	@media (width >= 80rem) {
+		padding-block: 4rem;
 	}
 }
 
@@ -152,9 +182,11 @@
 	background-size: 48px 48px;
 }
 
+/* Small architectural label above headings — use sparingly */
 @utility eyebrow {
 	font-size: 0.75rem;
-	font-weight: 700;
-	letter-spacing: 0.2em;
+	line-height: 1rem;
+	font-weight: 600;
+	letter-spacing: 0.24em;
 	text-transform: uppercase;
 }

@@ -11,7 +11,8 @@
 
 	const settings = $derived(data.settings);
 
-	// Business details for Google (local search / knowledge panel)
+	// Business details for Google (local search / knowledge panel). Only fields set
+	// in settings are published — unconfirmed ones (address, areas) stay out.
 	const organization = $derived({
 		'@context': 'https://schema.org',
 		'@type': 'HomeAndConstructionBusiness',
@@ -22,15 +23,17 @@
 		slogan: settings.tagline,
 		url: SITE_URL,
 		logo: `${SITE_URL}/logo.png`,
-		telephone: settings.phones.map((p) => `+${p.number}`),
+		// One number only: publishing both conflicting numbers confuses Google
+		telephone: `+${settings.primaryPhone.number}`,
 		email: settings.email,
-		address: {
-			'@type': 'PostalAddress',
-			addressLocality: 'Nairobi',
-			addressCountry: 'KE'
-		},
-		areaServed: { '@type': 'Country', name: 'Kenya' },
-		sameAs: [settings.facebookUrl]
+		...(settings.address && {
+			address: { '@type': 'PostalAddress', streetAddress: settings.address, addressCountry: 'KE' }
+		}),
+		...(settings.googleMapsUrl && { hasMap: settings.googleMapsUrl }),
+		...(settings.serviceAreas.length > 0 && {
+			areaServed: settings.serviceAreas.map((name) => ({ '@type': 'Place', name }))
+		}),
+		sameAs: [settings.facebookUrl, settings.instagramUrl, settings.linkedinUrl].filter(Boolean)
 	});
 </script>
 
@@ -39,14 +42,14 @@
 	<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
 	<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-	<meta name="theme-color" content="#0f172a" />
+	<meta name="theme-color" content="#171717" />
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -- serialised JSON from our own data -->
 	{@html jsonLdTag(organization)}
 </svelte:head>
 
 <a
 	href="#main"
-	class="sr-only z-50 rounded-md bg-primary px-4 py-2 font-bold text-primary-foreground focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+	class="sr-only z-50 rounded-sm bg-primary px-4 py-2 font-bold text-primary-foreground focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
 >
 	Skip to content
 </a>

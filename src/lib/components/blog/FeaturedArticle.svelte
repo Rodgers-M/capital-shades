@@ -2,7 +2,7 @@
 	import { ArrowUpRightIcon, ClockIcon } from '@lucide/svelte';
 	import Picture from '$lib/components/Picture.svelte';
 	import TagPill from './TagPill.svelte';
-	import { QUOTE_HREF } from '$lib/nav';
+	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
 	import { formatDate } from '$lib/utils';
 	import type { PostSummary } from '$lib/content/types';
 
@@ -90,7 +90,8 @@
 					href={QUOTE_HREF}
 					class="mt-4 inline-flex items-center gap-1.5 self-start rounded-md bg-ink px-4 py-2.5 text-sm font-bold text-on-ink hover:bg-ink-raised"
 				>
-					Request site assessment <ArrowUpRightIcon class="size-4" />
+					{QUOTE_LABEL}
+					<ArrowUpRightIcon class="size-4" />
 				</a>
 			</div>
 		</div>

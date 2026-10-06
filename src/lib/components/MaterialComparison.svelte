@@ -1,18 +1,7 @@
 <script lang="ts">
 	import { CloudRainIcon, SunIcon } from '@lucide/svelte';
 	import SectionHeading from './SectionHeading.svelte';
-
-	const ROWS = [
-		{
-			label: 'Sun protection',
-			mesh: 'Blocks most UV (varies by grade)',
-			pvc: 'Blocks direct sun fully'
-		},
-		{ label: 'Rain', mesh: 'Breaks up light rain only', pvc: '100% waterproof' },
-		{ label: 'Airflow', mesh: 'Breathable — stays airy', pvc: 'Sealed — keep sides open' },
-		{ label: 'Finish', mesh: 'Textured fabric', pvc: 'Smooth, architectural' },
-		{ label: 'Best for', mesh: 'Homes, schools, open car parks', pvc: 'Entrances, walkways, malls' }
-	];
+	import { MATERIAL_ROWS as ROWS, MATERIALS_ARTICLE } from '$lib/content/materials';
 </script>
 
 <section class="bg-muted/60 section-y">
@@ -59,9 +48,8 @@
 		</div>
 		<p class="mt-4 text-center text-sm text-muted-foreground">
 			Read the full comparison:
-			<a
-				href="/blog/shade-netting-vs-pvc-membrane"
-				class="font-semibold text-accent-strong underline">Shade netting vs waterproof PVC</a
+			<a href={MATERIALS_ARTICLE.href} class="font-semibold text-accent-strong underline"
+				>{MATERIALS_ARTICLE.title}</a
 			>
 		</p>
 	</div>

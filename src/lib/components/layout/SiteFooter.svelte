@@ -1,116 +1,174 @@
 <script lang="ts">
-	import { ArrowRightIcon, MailIcon, MapPinIcon, PhoneIcon, ClockIcon } from '@lucide/svelte';
+	import { page } from '$app/state';
+	import { ArrowRightIcon, ClockIcon, MailIcon, MapPinIcon, PhoneIcon } from '@lucide/svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import logo from '$lib/assets/logo.png';
-	import { NAV_LINKS, QUOTE_HREF } from '$lib/nav';
-	import type { Product, SiteSettings } from '$lib/content/types';
+	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
+	import SiteLogo from './SiteLogo.svelte';
+	import {
+		COMPANY_LINKS,
+		QUOTE_HREF,
+		QUOTE_LABEL,
+		showsMobileActionBar,
+		solutionHref
+	} from '$lib/nav';
+	import { cn, whatsappLink } from '$lib/utils';
+	import type { Product, PublicSiteSettings } from '$lib/content/types';
 
-	let { settings, products }: { settings: SiteSettings; products: Product[] } = $props();
+	let { settings, products }: { settings: PublicSiteSettings; products: Product[] } = $props();
+
+	// Only profiles set in settings — nothing unverified is linked
+	const socials = $derived(
+		[
+			{ label: 'Facebook', href: settings.facebookUrl },
+			{ label: 'Instagram', href: settings.instagramUrl },
+			{ label: 'LinkedIn', href: settings.linkedinUrl }
+		].filter((s): s is { label: string; href: string } => !!s.href)
+	);
+
+	// Only a confirmed address or location — never a default
+	const place = $derived(settings.address ?? settings.location);
+
+	// The home page ends with its own quote section, so skip the duplicate band there
+	const showCta = $derived(page.url.pathname !== '/');
+
+	const quoteMessage = "Hi Capital Shades, I'd like a quote";
+	const heading = 'eyebrow text-on-ink';
+	const link = 'transition-colors hover:text-on-ink';
 </script>
 
-<footer class="mt-24 bg-ink text-on-ink-muted">
-	<div class="container-page">
-		<div
-			class="relative -translate-y-1/2 overflow-hidden rounded-2xl bg-primary px-6 py-8 text-primary-foreground shadow-xl md:flex md:items-center md:justify-between md:px-10"
-		>
+<footer class={cn('bg-ink text-on-ink-muted', showCta && 'mt-16 md:mt-24')}>
+	<!-- Conversion band -->
+	{#if showCta}
+		<section aria-labelledby="footer-cta" class="border-b border-ink-border">
 			<div
-				class="pointer-events-none absolute inset-0 opacity-20"
-				style="background-image: repeating-linear-gradient(135deg, var(--color-ink) 0 2px, transparent 2px 22px)"
-			></div>
-			<div class="relative">
-				<p class="eyebrow">Planning a shade project?</p>
-				<h2 class="mt-1 text-xl leading-tight font-extrabold sm:text-2xl md:text-3xl">
-					Tell us about your site. We'll take it from there.
-				</h2>
+				class="container-page flex flex-col gap-8 py-14 md:flex-row md:items-end md:justify-between md:py-20"
+			>
+				<div class="max-w-2xl">
+					<p class="flex items-center gap-3 eyebrow text-primary">
+						<span class="h-px w-10 bg-primary" aria-hidden="true"></span>
+						Planning a shade project?
+					</p>
+					<h2
+						id="footer-cta"
+						class="mt-4 text-2xl leading-tight font-semibold tracking-tight text-on-ink sm:text-3xl md:text-4xl"
+					>
+						Tell us about your site. We'll take it from there.
+					</h2>
+				</div>
+				<div class="flex flex-col gap-3 sm:flex-row">
+					<Button href={QUOTE_HREF} size="lg">
+						{QUOTE_LABEL}
+						<ArrowRightIcon />
+					</Button>
+					<Button
+						href={whatsappLink(settings.whatsapp.number, quoteMessage)}
+						target="_blank"
+						rel="noopener"
+						variant="outline-on-ink"
+						size="lg"
+					>
+						<WhatsAppIcon class="size-4 text-brand" />
+						WhatsApp
+						<span class="sr-only">(opens in a new tab)</span>
+					</Button>
+				</div>
 			</div>
-			<div class="relative mt-4 flex flex-col gap-3 sm:mt-5 sm:flex-row md:mt-0">
-				<Button href={QUOTE_HREF} variant="ink" class="h-12 px-6">
-					Request Site Assessment <ArrowRightIcon />
-				</Button>
-				<Button
-					href="tel:+{settings.phones[0].number}"
-					variant="outline"
-					class="hidden h-12 border-ink/30 bg-card/40 px-6 text-primary-foreground hover:bg-card/60 sm:inline-flex"
-				>
-					<PhoneIcon />
-					{settings.phones[0].display}
-				</Button>
-			</div>
-		</div>
+		</section>
+	{/if}
 
-		<div class="-mt-6 grid grid-cols-2 gap-x-6 gap-y-8 pb-10 sm:gap-10 lg:grid-cols-4">
+	<div class="container-page">
+		<div class="grid grid-cols-2 gap-x-6 gap-y-10 py-14 sm:gap-10 md:py-16 lg:grid-cols-4">
 			<div class="col-span-2 lg:col-span-1">
-				<a
-					href="/"
-					class="inline-flex rounded-lg bg-card px-3 py-2"
-					aria-label="Capital Shades home"
-				>
-					<img src={logo} alt="Capital Shades" width="200" height="90" class="h-10 w-auto" />
-				</a>
-				<p class="mt-4 hidden max-w-xs text-sm leading-relaxed text-on-ink-subtle sm:block">
+				<SiteLogo onInk />
+				<p class="mt-5 hidden max-w-xs text-sm leading-relaxed text-on-ink-subtle sm:block">
 					{settings.description}
 				</p>
-				<a
-					href={settings.facebookUrl}
-					target="_blank"
-					rel="noopener"
-					class="mt-4 inline-block text-sm font-semibold text-on-ink hover:text-primary"
-				>
-					Follow us on Facebook →
-				</a>
+				{#if socials.length}
+					<ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+						{#each socials as social (social.href)}
+							<li>
+								<a
+									href={social.href}
+									target="_blank"
+									rel="noopener"
+									class="text-on-ink underline decoration-primary/60 underline-offset-4 transition-colors hover:decoration-primary"
+								>
+									{social.label}<span class="sr-only"> (opens in a new tab)</span>
+								</a>
+							</li>
+						{/each}
+					</ul>
+				{/if}
 			</div>
 
 			<div>
-				<h2 class="text-sm font-bold tracking-wider text-on-ink uppercase">Products</h2>
-				<ul class="mt-3 space-y-2 text-sm sm:mt-4 sm:space-y-2.5">
+				<h2 class={heading}>Solutions</h2>
+				<ul class="mt-4 space-y-2.5 text-sm">
 					{#each products as product (product.slug)}
 						<li>
-							<a href="/products/{product.slug}" class="transition-colors hover:text-primary">
-								{product.title}
-							</a>
+							<a href={solutionHref(product.slug)} class={link}>{product.title}</a>
 						</li>
 					{/each}
 				</ul>
 			</div>
 
 			<div>
-				<h2 class="text-sm font-bold tracking-wider text-on-ink uppercase">Company</h2>
-				<ul class="mt-3 space-y-2 text-sm sm:mt-4 sm:space-y-2.5">
-					{#each NAV_LINKS as link (link.href)}
+				<h2 class={heading}>Company</h2>
+				<ul class="mt-4 space-y-2.5 text-sm">
+					{#each COMPANY_LINKS as item (item.href)}
 						<li>
-							<a href={link.href} class="transition-colors hover:text-primary">{link.label}</a>
+							<a href={item.href} class={link}>{item.label}</a>
 						</li>
 					{/each}
 					<li>
-						<a href={QUOTE_HREF} class="transition-colors hover:text-primary">Site assessment</a>
+						<a href={QUOTE_HREF} class={link}>{QUOTE_LABEL}</a>
 					</li>
 				</ul>
 			</div>
 
 			<div class="col-span-2 lg:col-span-1">
-				<h2 class="text-sm font-bold tracking-wider text-on-ink uppercase">Contact</h2>
-				<ul class="mt-3 space-y-2 text-sm sm:mt-4 sm:space-y-3">
-					{#each settings.phones as phone (phone.number)}
-						<li>
-							<a href="tel:+{phone.number}" class="flex items-start gap-2.5 hover:text-primary">
-								<PhoneIcon class="mt-0.5 size-4 text-primary" />
-								{phone.display}
-							</a>
-						</li>
-					{/each}
+				<h2 class={heading}>Contact</h2>
+				<ul class="mt-4 space-y-3 text-sm">
 					<li>
-						<a href="mailto:{settings.email}" class="flex items-start gap-2.5 hover:text-primary">
-							<MailIcon class="mt-0.5 size-4 text-primary" />
+						<a href="tel:+{settings.primaryPhone.number}" class="flex items-start gap-2.5 {link}">
+							<PhoneIcon class="mt-0.5 size-4 shrink-0 text-brand" />
+							{settings.primaryPhone.display}
+						</a>
+					</li>
+					<li>
+						<a
+							href={whatsappLink(settings.whatsapp.number)}
+							target="_blank"
+							rel="noopener"
+							class="flex items-start gap-2.5 {link}"
+						>
+							<WhatsAppIcon class="mt-0.5 size-4 shrink-0 text-brand" />
+							WhatsApp {settings.whatsapp.display}
+							<span class="sr-only">(opens in a new tab)</span>
+						</a>
+					</li>
+					<li>
+						<a href="mailto:{settings.email}" class="flex items-start gap-2.5 {link}">
+							<MailIcon class="mt-0.5 size-4 shrink-0 text-brand" />
 							{settings.email}
 						</a>
 					</li>
-					<li class="flex items-start gap-2.5">
-						<MapPinIcon class="mt-0.5 size-4 text-primary" />
-						{settings.location}
-					</li>
+					{#if place}
+						<li class="flex items-start gap-2.5">
+							<MapPinIcon class="mt-0.5 size-4 shrink-0 text-brand" />
+							{#if settings.googleMapsUrl}
+								<a href={settings.googleMapsUrl} target="_blank" rel="noopener" class={link}>
+									{place}
+									<span class="sr-only">(map, opens in a new tab)</span>
+								</a>
+							{:else}
+								{place}
+							{/if}
+						</li>
+					{/if}
 					{#if settings.hours}
 						<li class="flex items-start gap-2.5">
-							<ClockIcon class="mt-0.5 size-4 text-primary" />
+							<ClockIcon class="mt-0.5 size-4 shrink-0 text-brand" />
 							{settings.hours}
 						</li>
 					{/if}
@@ -119,7 +177,11 @@
 		</div>
 
 		<div
-			class="flex flex-col gap-2 border-t border-ink-border py-6 pb-24 text-xs text-on-ink-subtle md:flex-row md:justify-between md:pb-6"
+			class={cn(
+				'flex flex-col gap-2 border-t border-ink-border py-6 text-xs text-on-ink-subtle md:flex-row md:justify-between',
+				// Clear the fixed phone action bar where it shows
+				showsMobileActionBar(page.url.pathname) && 'pb-24 md:pb-6'
+			)}
 		>
 			<p>© {new Date().getFullYear()} {settings.legalName}. All rights reserved.</p>
 			<p>{settings.tagline}</p>

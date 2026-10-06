@@ -12,7 +12,7 @@
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
 	import ProcessSection from '$lib/components/ProcessSection.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import { QUOTE_HREF } from '$lib/nav';
+	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
 
 	let { data } = $props();
 
@@ -75,7 +75,8 @@
 			</p>
 		</div>
 		<Button href={QUOTE_HREF} class="mt-8">
-			Request Site Assessment <ArrowRightIcon />
+			{QUOTE_LABEL}
+			<ArrowRightIcon />
 		</Button>
 	</div>
 	<div class="overflow-hidden rounded-3xl">
@@ -89,11 +90,7 @@
 
 <section class="bg-muted/60 section-y">
 	<div class="container-page">
-		<SectionHeading
-			align="center"
-			eyebrow="Why choose us"
-			title="Built to last, designed for you."
-		/>
+		<SectionHeading align="center" eyebrow="Why choose us" title="Designed around your site." />
 		<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 			{#each REASONS as reason (reason.title)}
 				<li class="rounded-2xl border bg-card p-6">

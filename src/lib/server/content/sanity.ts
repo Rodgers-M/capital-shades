@@ -39,14 +39,16 @@ const IMAGE = `{ ..., "asset": asset->{ _id, "_ref": _id, metadata { dimensions 
 
 export const QUERY = `{
 	"settings": *[_type == "siteSettings"][0]{
-		name, legalName, tagline, description, phones, whatsapp, email, location, hours,
-		facebookUrl, facebookReviewsUrl, stats, sectors
+		name, legalName, tagline, description, phones, primaryPhone, whatsapp, email, location,
+		address, hours, facebookUrl, instagramUrl, linkedinUrl, googleMapsUrl, serviceAreas,
+		facebookReviewsUrl, stats, sectors
 	},
 	"products": *[_type == "product"] | order(orderRank asc, title asc){
 		"slug": slug.current, title, eyebrow, summary, body, features, applications, image ${IMAGE}
 	},
 	"projects": *[_type == "project"] | order(featured desc, _createdAt desc){
-		"slug": slug.current, title, "product": product->slug.current, sector, location,
+		"slug": slug.current, title, "product": product->slug.current,
+		"solutions": solutions[]->slug.current, sector, location,
 		material, completed, featured, image ${IMAGE}
 	},
 	"posts": *[_type == "post" && defined(publishedAt)]{
@@ -82,8 +84,22 @@ export function mapSanityContent(
 		};
 	};
 
-	const settings: SiteSettings = data.settings;
-	if (!settings) throw new Error('Sanity: missing "siteSettings" document');
+	if (!data.settings) throw new Error('Sanity: missing "siteSettings" document');
+	// TODO(phase-b): the Studio schema has no fields for these yet, so fall back
+	// to "not confirmed" (and the first phone) until it does.
+	const settings: SiteSettings = {
+		...data.settings,
+		primaryPhone: data.settings.primaryPhone ?? data.settings.phones[0],
+		location: data.settings.location ?? null,
+		address: data.settings.address ?? null,
+		hours: data.settings.hours ?? null,
+		facebookUrl: data.settings.facebookUrl ?? null,
+		instagramUrl: data.settings.instagramUrl ?? null,
+		linkedinUrl: data.settings.linkedinUrl ?? null,
+		googleMapsUrl: data.settings.googleMapsUrl ?? null,
+		serviceAreas: data.settings.serviceAreas ?? [],
+		facebookReviewsUrl: data.settings.facebookReviewsUrl ?? null
+	};
 
 	const products: Product[] = data.products.map(
 		(p: Omit<Product, 'image'> & { image: SanityImage }) => ({
@@ -95,14 +111,27 @@ export function mapSanityContent(
 		})
 	);
 
+	// The Studio schema still has a single `product` reference (and `image`), so
+	// they become the first solution and the hero image.
+	// TODO: read `solutions` and `heroImage` directly after the schema migration.
 	const projects: Project[] = data.projects.map(
-		(p: Omit<Project, 'image'> & { image: SanityImage }) => ({
+		({
+			image,
+			product,
+			solutions,
+			...p
+		}: Omit<Project, 'heroImage' | 'solutions'> & {
+			image: SanityImage;
+			product: string;
+			solutions?: string[] | null;
+		}) => ({
 			...p,
+			solutions: solutions?.length ? solutions : [product],
 			location: p.location ?? null,
 			material: p.material ?? null,
 			completed: p.completed ?? null,
 			featured: p.featured ?? false,
-			image: toImg(p.image, p.title)
+			heroImage: toImg(image, p.title)
 		})
 	);
 

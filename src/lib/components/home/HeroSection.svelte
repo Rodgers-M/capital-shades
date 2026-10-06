@@ -1,138 +1,73 @@
 <script lang="ts">
-	import { ArrowRightIcon, CloudRainIcon, RulerIcon, SunIcon } from '@lucide/svelte';
+	import { ArrowRightIcon } from '@lucide/svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Picture from '$lib/components/Picture.svelte';
-	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
-	import { QUOTE_HREF } from '$lib/nav';
-	import { whatsappLink } from '$lib/utils';
-	import type { Img, Project, SiteSettings } from '$lib/content/types';
+	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
+	import type { Product, Project, PublicSiteSettings } from '$lib/content/types';
 
-	let { settings, image, latest }: { settings: SiteSettings; image: Img; latest?: Project } =
-		$props();
+	/*
+	 * Home hero: an expressive line, then a literal one saying what Capital
+	 * Shades provides, beside a real project photo. `data-hero` lets the phone
+	 * action bar wait until the visitor has scrolled past it.
+	 */
+	let {
+		settings,
+		project,
+		solutions
+	}: { settings: PublicSiteSettings; project?: Project; solutions: Product[] } = $props();
 
-	const phone = $derived(settings.phones[0]);
+	const solutionTitle = (slug: string) => solutions.find((s) => s.slug === slug)?.title;
+	const caption = $derived(
+		project && [project.title, solutionTitle(project.solutions[0])].filter(Boolean).join(' — ')
+	);
 </script>
 
-<section class="relative overflow-hidden bg-ink text-on-ink">
-	<Picture
-		{image}
-		alt=""
-		loading="eager"
-		fetchpriority="high"
-		class="absolute inset-0 size-full object-cover"
-	/>
+<section data-hero aria-labelledby="hero-title" class="border-b">
 	<div
-		class="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/40 lg:bg-gradient-to-r lg:from-ink lg:via-ink/80 lg:to-transparent"
-	></div>
-	<div class="absolute inset-0 bg-grid text-on-ink opacity-[0.07]"></div>
-
-	<div
-		class="relative container-page grid gap-10 pt-6 pb-10 md:pt-12 md:pb-14 lg:grid-cols-12 lg:pt-12 lg:pb-16"
+		class="container-page grid gap-10 pt-10 pb-12 md:pt-14 md:pb-16 lg:min-h-[min(46rem,calc(100svh-5rem))] lg:grid-cols-12 lg:items-center lg:gap-12 lg:py-16"
 	>
-		<div class="lg:col-span-7">
+		<div class="lg:col-span-6 xl:col-span-5">
+			<p class="flex items-center gap-3 eyebrow text-primary-strong">
+				<span class="h-px w-10 bg-primary" aria-hidden="true"></span>
+				{settings.name}
+			</p>
 			<h1
-				class="text-[2.25rem] leading-[1.02] font-extrabold tracking-tight text-balance sm:text-5xl lg:text-[3.75rem]"
+				id="hero-title"
+				class="mt-6 text-[2.75rem] leading-[1.02] font-medium tracking-[-0.025em] text-balance sm:text-6xl xl:text-7xl"
 			>
-				Custom shade & tensile structures
-				<span class="relative inline-block text-primary">
-					built to last
-					<svg
-						viewBox="0 0 300 12"
-						class="absolute -bottom-2 left-0 h-3 w-full text-accent"
-						preserveAspectRatio="none"
-						aria-hidden="true"
-					>
-						<path
-							d="M2 9C80 3 220 3 298 8"
-							stroke="currentColor"
-							stroke-width="4"
-							fill="none"
-							stroke-linecap="round"
-						/>
-					</svg>
-				</span>
+				Shade, shaped around your space.
 			</h1>
-
-			<p class="mt-5 max-w-xl text-base leading-relaxed text-on-ink-muted md:text-lg">
-				Car park shades, shade sails, canopies and membrane structures — designed, fabricated and
-				installed by our own team. <span class="hidden sm:inline"
-					>Choose <strong class="font-semibold text-on-ink">heavy-duty shade mesh</strong>
-					or <strong class="font-semibold text-on-ink">100% waterproof PVC</strong>.</span
-				>
+			<p class="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+				Car park shades, shade sails, canopies and tensile membrane structures — designed for your
+				site and installed by {settings.name}.
 			</p>
-
-			<ul class="mt-4 hidden flex-wrap gap-x-5 gap-y-2 text-sm text-on-ink-muted sm:flex">
-				<li class="inline-flex items-center gap-1.5">
-					<SunIcon class="size-4 text-primary" /> UV protection
-				</li>
-				<li class="inline-flex items-center gap-1.5">
-					<CloudRainIcon class="size-4 text-primary" /> Waterproof options
-				</li>
-				<li class="inline-flex items-center gap-1.5">
-					<RulerIcon class="size-4 text-primary" /> Site evaluation & custom design
-				</li>
-			</ul>
-
-			<div class="mt-7 flex flex-col gap-3 sm:flex-row">
-				<Button href={QUOTE_HREF} size="lg" class="shadow-lg shadow-primary/30">
-					Request Site Assessment <ArrowRightIcon class="!size-5" />
+			<div class="mt-9 flex flex-col gap-3 sm:flex-row">
+				<Button href={QUOTE_HREF} size="lg">
+					{QUOTE_LABEL}
+					<ArrowRightIcon />
 				</Button>
-				<!-- On phones the fixed bottom bar already offers WhatsApp and Call -->
-				<Button
-					href={whatsappLink(settings.whatsapp.number, "Hi Capital Shades, I'd like a quote")}
-					target="_blank"
-					rel="noopener"
-					size="lg"
-					variant="outline-on-ink"
-					class="hidden sm:inline-flex"
-				>
-					<WhatsAppIcon class="size-5" /> Chat on WhatsApp
-				</Button>
+				<Button href="/projects" variant="outline" size="lg">View Projects</Button>
 			</div>
-			<p class="mt-4 text-sm text-on-ink-muted">
-				Or call
-				<a
-					href="tel:+{phone.number}"
-					class="font-bold text-on-ink underline-offset-4 hover:underline">{phone.display}</a
-				>
-				<span aria-hidden="true" class="mx-1.5">·</span>
-				<a href="/projects" class="font-semibold text-primary underline-offset-4 hover:underline"
-					>See recent projects</a
-				>
-			</p>
 		</div>
 
-		{#if latest}
-			<div class="hidden items-end justify-end lg:col-span-5 lg:flex">
-				<a
-					href="/projects"
-					class="group w-full max-w-sm overflow-hidden rounded-2xl border border-on-ink/10 bg-ink/70 backdrop-blur-md"
-				>
+		{#if project}
+			<figure class="lg:col-span-6 xl:col-span-7">
+				<div class="relative -mx-5 overflow-hidden sm:mx-0 sm:rounded-sm">
 					<Picture
-						image={latest.image}
-						sizes="384px"
-						class="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+						image={project.heroImage}
+						loading="eager"
+						fetchpriority="high"
+						sizes="(min-width: 1280px) 760px, (min-width: 1024px) 50vw, 100vw"
+						class="aspect-[4/3] w-full object-cover lg:aspect-[5/4]"
 					/>
-					<div class="p-5">
-						<p class="eyebrow text-on-ink-subtle">Recent project</p>
-						<p class="mt-2 text-lg font-bold">{latest.title}</p>
-						<p class="mt-1 inline-flex items-center gap-1 text-sm text-primary">
-							See all projects <ArrowRightIcon class="size-4" />
-						</p>
-					</div>
-				</a>
-			</div>
-		{/if}
-	</div>
-
-	<div class="relative border-t border-on-ink/10 bg-ink/80 backdrop-blur">
-		<dl class="container-page grid grid-cols-2 divide-on-ink/10 md:grid-cols-4 md:divide-x">
-			{#each settings.stats as stat (stat.label)}
-				<div class="px-2 py-5 md:px-6">
-					<dt class="text-xs font-medium text-on-ink-subtle">{stat.label}</dt>
-					<dd class="mt-1 text-2xl font-extrabold md:text-3xl">{stat.value}</dd>
 				</div>
-			{/each}
-		</dl>
+				<figcaption
+					class="mt-3 flex items-center gap-3 text-xs font-medium tracking-[0.14em] text-muted-foreground uppercase"
+				>
+					<span class="h-px w-6 bg-brand" aria-hidden="true"></span>
+					{caption}
+				</figcaption>
+			</figure>
+		{/if}
 	</div>
 </section>

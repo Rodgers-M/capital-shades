@@ -21,10 +21,11 @@
 	import Field from './Field.svelte';
 	import { submitEnquiry } from './submitEnquiry';
 	import { APPLICATIONS, MATERIALS, SIZES, labelFor, summarise } from '$lib/enquiry';
+	import { QUOTE_LABEL } from '$lib/nav';
 	import { cn, whatsappLink } from '$lib/utils';
-	import type { SiteSettings } from '$lib/content/types';
+	import type { PublicSiteSettings } from '$lib/content/types';
 
-	let { settings, class: className }: { settings: SiteSettings; class?: string } = $props();
+	let { settings, class: className }: { settings: PublicSiteSettings; class?: string } = $props();
 
 	const ICONS: Record<string, Component<{ class?: string }>> = {
 		residential: HomeIcon,
@@ -139,7 +140,7 @@
 		The estimator needs JavaScript. You can still <a class="font-bold underline" href="/contact"
 			>send us an enquiry</a
 		>
-		or call {settings.phones[0].display}.
+		or call {settings.primaryPhone.display}.
 	</p>
 </noscript>
 
@@ -339,8 +340,8 @@
 					</div>
 
 					{#if status === 'error'}
-						<div class="mt-4 rounded-lg bg-accent/10 p-3 text-sm" role="alert">
-							<p class="font-semibold text-accent-strong">{errorMessage}</p>
+						<div class="mt-4 rounded-lg bg-destructive/10 p-3 text-sm" role="alert">
+							<p class="font-semibold text-destructive">{errorMessage}</p>
 							<a
 								href={whatsappFallback}
 								target="_blank"
@@ -357,7 +358,7 @@
 						class="mt-5 h-12 w-full text-base shadow-lg shadow-primary/30 sm:w-auto sm:px-8"
 						disabled={status === 'submitting'}
 					>
-						{status === 'submitting' ? 'Sending…' : 'Request Site Assessment'}
+						{status === 'submitting' ? 'Sending…' : QUOTE_LABEL}
 						<ArrowRightIcon />
 					</Button>
 					<p class="mt-3 text-xs text-muted-foreground">We'll call you to arrange a site visit.</p>

@@ -31,7 +31,7 @@
 	const control = $derived(
 		cn(
 			'w-full rounded-md border bg-card px-3 text-base text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-ring/40',
-			error ? 'border-accent-strong' : 'border-input'
+			error ? 'border-destructive' : 'border-input'
 		)
 	);
 </script>
@@ -69,6 +69,6 @@
 		/>
 	{/if}
 	{#if error}
-		<p id="{id}-error" class="text-sm font-medium text-accent-strong">{error}</p>
+		<p id="{id}-error" class="text-sm font-medium text-destructive">{error}</p>
 	{/if}
 </div>

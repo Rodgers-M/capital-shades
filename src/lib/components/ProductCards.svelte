@@ -2,20 +2,21 @@
 	import { ArrowUpRightIcon } from '@lucide/svelte';
 	import Picture from './Picture.svelte';
 	import SwipeRow from './SwipeRow.svelte';
+	import { solutionHref } from '$lib/nav';
 	import type { Product } from '$lib/content/types';
 
-	// Teaser row: photo + name only; the detail lives on /products
+	// Teaser row of solutions: photo + name only; the detail lives on /solutions
 	let {
 		products,
 		desktopCols = 6,
-		label = 'Products'
+		label = 'Solutions'
 	}: { products: Product[]; desktopCols?: 5 | 6; label?: string } = $props();
 </script>
 
 <SwipeRow items={products} {label} {desktopCols} key={(p) => p.slug}>
 	{#snippet item(product)}
 		<a
-			href="/products/{product.slug}"
+			href={solutionHref(product.slug)}
 			class="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl bg-ink text-on-ink ring-1 ring-ink/5 transition-shadow hover:shadow-xl"
 		>
 			<Picture

@@ -5,29 +5,29 @@
 	import Picture from '$lib/components/Picture.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import MaterialComparison from '$lib/components/MaterialComparison.svelte';
-	import { QUOTE_HREF } from '$lib/nav';
+	import { QUOTE_HREF, QUOTE_LABEL, solutionHref } from '$lib/nav';
 	import { cn } from '$lib/utils';
 
 	let { data } = $props();
 </script>
 
 <Seo
-	title="Products"
+	title="Solutions"
 	description="Car park shades, shade sails, canopies, tensile membrane structures, parasols and pool shades — custom designed and installed in Kenya."
 	image={data.products[0]?.image}
 />
 
 <PageHero
-	eyebrow="Products"
+	eyebrow="Solutions"
 	title="Shade solutions for any space."
-	description="Every structure is custom-designed for your site, then fabricated and installed by our own team — in shade mesh, waterproof PVC or metal roofing."
+	description="Every structure is custom-designed for your site, then fabricated and installed — in shade mesh, waterproof PVC or metal roofing."
 	image={data.products[2]?.image}
 />
 
 <section class="container-page space-y-6 section-y md:space-y-10">
-	{#each data.products as product, i (product.slug)}
+	{#each data.products as solution, i (solution.slug)}
 		<article
-			id={product.slug}
+			id={solution.slug}
 			class="grid scroll-mt-28 overflow-hidden rounded-3xl border bg-card md:grid-cols-2"
 		>
 			<div
@@ -37,19 +37,20 @@
 				)}
 			>
 				<Picture
-					image={product.image}
+					image={solution.image}
 					sizes="(min-width: 768px) 50vw, 100vw"
 					class="absolute inset-0 size-full object-cover"
 				/>
 			</div>
 			<div class="flex flex-col justify-center p-6 md:p-10">
-				<p class="font-mono text-xs font-bold text-accent-strong">0{i + 1} — {product.eyebrow}</p>
+				<p class="font-mono text-xs font-bold text-accent-strong">0{i + 1} — {solution.eyebrow}</p>
 				<h2 class="mt-2 text-2xl font-extrabold tracking-tight md:text-3xl">
-					<a href="/products/{product.slug}" class="hover:text-accent-strong">{product.title}</a>
+					<a href={solutionHref(solution.slug)} class="hover:text-accent-strong">{solution.title}</a
+					>
 				</h2>
-				<p class="mt-3 leading-relaxed text-muted-foreground">{product.summary}</p>
+				<p class="mt-3 leading-relaxed text-muted-foreground">{solution.summary}</p>
 				<ul class="mt-5 space-y-2">
-					{#each product.features as feature (feature)}
+					{#each solution.features as feature (feature)}
 						<li class="flex items-center gap-2 text-sm font-medium">
 							<span
 								class="flex size-5 items-center justify-center rounded-full bg-primary/15 text-accent-strong"
@@ -61,10 +62,10 @@
 					{/each}
 				</ul>
 				<div class="mt-7 flex flex-col gap-3 sm:flex-row">
-					<Button href="/products/{product.slug}">
+					<Button href={solutionHref(solution.slug)}>
 						Learn more <ArrowRightIcon />
 					</Button>
-					<Button href={QUOTE_HREF} variant="outline">Request site assessment</Button>
+					<Button href={QUOTE_HREF} variant="outline">{QUOTE_LABEL}</Button>
 				</div>
 			</div>
 		</article>

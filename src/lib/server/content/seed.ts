@@ -15,14 +15,18 @@ export function loadSeedContent(): Content {
 		image: photo(key, photoAlt)
 	}));
 
-	const projects: Project[] = seedProjects.map(({ photo: key, photoAlt, ...p }) => ({
-		...p,
-		location: p.location ?? null,
-		material: p.material ?? null,
-		completed: p.completed ?? null,
-		featured: p.featured ?? false,
-		image: photo(key, photoAlt)
-	}));
+	// Seed entries still name one `product`; it becomes the project's first solution
+	const projects: Project[] = seedProjects.map(
+		({ photo: key, photoAlt, product, solutions, ...p }) => ({
+			...p,
+			solutions: solutions?.length ? solutions : [product],
+			location: p.location ?? null,
+			material: p.material ?? null,
+			completed: p.completed ?? null,
+			featured: p.featured ?? false,
+			heroImage: photo(key, photoAlt)
+		})
+	);
 
 	const posts: Post[] = seedPosts
 		.filter((p) => !p.draft)

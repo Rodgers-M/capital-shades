@@ -25,7 +25,7 @@
 		{
 			icon: FactoryIcon,
 			title: 'Fabrication',
-			text: 'Frames and covers are made by our own team, so quality stays under our control.'
+			text: 'Frames and covers are made to the agreed design, ready for installation.'
 		},
 		{
 			icon: HardHatIcon,
@@ -53,9 +53,9 @@
 					<HardHatIcon class="size-6" />
 				</span>
 				<span>
-					<span class="block font-bold">One team, start to finish</span>
+					<span class="block font-bold">Start to finish</span>
 					<span class="block text-xs text-muted-foreground"
-						>Designed, made and installed in-house</span
+						>A straightforward path from enquiry to completed project</span
 					>
 				</span>
 			</div>
@@ -64,8 +64,8 @@
 		<div class="order-1 lg:order-2">
 			<SectionHeading
 				eyebrow="How we work"
-				title="From site visit to handover, one accountable team."
-				description="We design, fabricate and install every structure ourselves — no middlemen between you and the people building your shade."
+				title="From site visit to handover."
+				description="Every project follows the same clear steps, from the first site visit to the finished structure."
 			/>
 			<ol class="mt-8 space-y-3">
 				{#each STEPS as step, i (step.title)}

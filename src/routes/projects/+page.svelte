@@ -9,14 +9,14 @@
 <Seo
 	title="Recent Projects"
 	description="Car park shades, carports, shade sails and membrane structures recently installed by Capital Shades for homes and businesses in Kenya."
-	image={data.projects[0]?.image}
+	image={data.projects[0]?.heroImage}
 />
 
 <PageHero
 	eyebrow="Recent projects"
 	title="Real installations by our team."
 	description="Browse car park shades, carports, sails and membrane structures we've designed and installed for homes and businesses."
-	image={data.projects.find((p) => p.featured)?.image}
+	image={data.projects.find((p) => p.featured)?.heroImage}
 />
 
 <section class="container-page section-y-tight">

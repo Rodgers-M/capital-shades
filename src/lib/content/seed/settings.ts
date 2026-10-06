@@ -10,24 +10,32 @@ export const settings: SiteSettings = {
 	legalName: 'Capital Shades E.A Ltd',
 	tagline: 'The coolest solutions under the sun.',
 	description:
-		'Capital Shades designs, fabricates and installs custom car park shades, shade sails, canopies and tensile membrane structures in Kenya.',
+		'Capital Shades designs and installs custom car park shades, shade sails, canopies and tensile membrane structures in Kenya.',
 	// Facebook and the current contact page list 0722 765 397; the current site header lists 0708 559 059.
 	phones: [
 		{ display: '0722 765 397', number: '254722765397' },
 		{ display: '0708 559 059', number: '254708559059' }
 	],
+	// TODO(owner): provisional — 0722 765 397 is on Facebook, the contact page and the carport sign.
+	primaryPhone: { display: '0722 765 397', number: '254722765397' },
 	// TODO(owner): confirm which number is on WhatsApp (Facebook shows a WhatsApp button).
 	whatsapp: { display: '0722 765 397', number: '254722765397' },
 	email: 'info@capitalshades.co.ke',
-	location: 'Nairobi, Kenya',
+	// Unconfirmed details stay null/empty so nothing is published until the owner confirms it.
+	// TODO(owner): confirm the location (the old site never stated one).
+	location: null,
+	address: null,
 	hours: null,
 	facebookUrl: 'https://www.facebook.com/capitalshades/',
+	instagramUrl: null,
+	linkedinUrl: null,
+	googleMapsUrl: null,
+	serviceAreas: [],
 	// Facebook shows "100% recommend" (97 reviews, Sept 2026); the site avoids counts that go stale
 	facebookReviewsUrl: 'https://www.facebook.com/capitalshades/reviews',
-	// Capabilities from the current site — no figures that need updating
+	// Capabilities from the current site — no figures that need updating.
+	// "In-house" and "Any size" were removed as unverified claims (Phase B1).
 	stats: [
-		{ value: 'In-house', label: 'Design, fabrication & installation' },
-		{ value: 'Any size', label: 'Custom-built for your site' },
 		{ value: 'Mesh or PVC', label: 'Breathable or 100% waterproof' },
 		{ value: 'Site visit', label: 'Evaluation & measurement' }
 	],

@@ -9,7 +9,7 @@
 	/*
 	 * The /projects gallery. Phones: a swipe slider (one photo at a time, with a
 	 * counter and prev/next). Tablet and up: a masonry grid. Tapping a photo
-	 * opens it full screen. `?filter=<product-or-sector>` preselects a filter.
+	 * opens it full screen. `?filter=<solution-or-sector>` preselects a filter.
 	 */
 	let { projects, products }: { projects: Project[]; products: Product[] } = $props();
 
@@ -19,21 +19,25 @@
 		institutional: 'Schools & institutions'
 	};
 
-	const productTitle = (slug: string) => products.find((p) => p.slug === slug)?.title ?? '';
+	// A project's label names its main (first) solution
+	const solutionTitle = (project: Project) =>
+		products.find((p) => p.slug === project.solutions[0])?.title ?? '';
 
 	type Filter = { id: string; label: string; match: (p: Project) => boolean };
 
 	const filters = $derived.by((): Filter[] => {
-		const usedProducts = products.filter((prod) => projects.some((p) => p.product === prod.slug));
+		const usedSolutions = products.filter((s) =>
+			projects.some((p) => p.solutions.includes(s.slug))
+		);
 		const usedSectors = (Object.keys(SECTOR_LABELS) as Sector[]).filter((s) =>
 			projects.some((p) => p.sector === s)
 		);
 		return [
 			{ id: 'all', label: 'All projects', match: () => true },
-			...usedProducts.map((prod) => ({
-				id: prod.slug,
-				label: prod.title,
-				match: (p: Project) => p.product === prod.slug
+			...usedSolutions.map((s) => ({
+				id: s.slug,
+				label: s.title,
+				match: (p: Project) => p.solutions.includes(s.slug)
 			})),
 			...usedSectors.map((s) => ({
 				id: s,
@@ -132,7 +136,7 @@
 				aria-label="View photo: {project.title}"
 			>
 				<Picture
-					image={project.image}
+					image={project.heroImage}
 					sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 86vw"
 					class="w-full object-cover transition-transform duration-700 group-hover:scale-105 max-md:aspect-[4/5] md:h-auto"
 				/>
@@ -140,7 +144,7 @@
 					class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent p-4 pt-16"
 				>
 					<span class="block text-[11px] font-bold tracking-[0.16em] text-primary uppercase">
-						{productTitle(project.product)} · {SECTOR_LABELS[project.sector]}
+						{solutionTitle(project)} · {SECTOR_LABELS[project.sector]}
 					</span>
 					<span class="mt-1 block text-lg leading-snug font-extrabold">{project.title}</span>
 					{#if project.location || project.material}
@@ -216,7 +220,7 @@
 			{#if current}
 				<Dialog.Title class="sr-only">{current.title}</Dialog.Title>
 				<Picture
-					image={current.image}
+					image={current.heroImage}
 					sizes="100vw"
 					loading="eager"
 					class="max-h-[80dvh] w-auto max-w-full rounded-xl object-contain"
@@ -224,7 +228,7 @@
 				<div class="mt-4 text-center">
 					<p class="font-bold">{current.title}</p>
 					<p class="text-sm text-on-ink-subtle">
-						{productTitle(current.product)} · {(viewing ?? 0) + 1} of {visible.length}
+						{solutionTitle(current)} · {(viewing ?? 0) + 1} of {visible.length}
 					</p>
 				</div>
 				{#if visible.length > 1}

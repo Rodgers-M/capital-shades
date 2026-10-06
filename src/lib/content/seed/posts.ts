@@ -60,7 +60,7 @@ The two most common covers are **shade netting** (breathable knitted fabric) and
 4. **Local regulations.** Larger structures may need approvals; a professional installer will advise.
 5. **Professional installation.** Correct tensioning and anchoring are what make a shade last.
 
-Planning a car park shade? [Request a site assessment](/estimator) and tell us about your space.
+Planning a car park shade? [Request a quote](/request-a-quote) and tell us about your space.
 `
 	},
 	{
@@ -153,7 +153,7 @@ Standard shades are supported at both ends — or along both sides — of the co
 - **Offices and malls with many bays:** standard or double-sided designs usually give the best value.
 - **Tight or irregular spaces:** a custom design may combine both.
 
-However large, small or irregularly shaped your car park is, the right answer comes from the site itself. [Request a site assessment](/estimator) and we'll suggest the best layout.
+However large, small or irregularly shaped your car park is, the right answer comes from the site itself. [Request a quote](/request-a-quote) and we'll suggest the best layout.
 `
 	},
 	{
@@ -221,7 +221,7 @@ A shopper's visit begins in the car park. Returning to a car that has been stand
 - **Match the brand.** Fabrics and membranes come in a wide range of colours, and lighting can be added for evening trade.
 - **Install with minimal disruption,** phasing work so the centre stays open.
 
-Planning shade for a commercial site? [Request a site assessment](/estimator).
+Planning shade for a commercial site? [Request a quote](/request-a-quote).
 `
 	},
 	{
@@ -286,7 +286,7 @@ Every shade is custom, but these are the factors that drive the price.
 
 _TODO(owner): per-bay or per-m² ranges for netting, PVC and metal roofing._
 
-[Request a site assessment](/estimator) for an exact quote.
+[Request a quote](/request-a-quote) for an exact quote.
 `
 	}
 ];

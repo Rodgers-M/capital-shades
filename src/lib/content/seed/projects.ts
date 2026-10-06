@@ -3,7 +3,10 @@ import type { Sector } from '../types';
 export interface SeedProject {
 	slug: string;
 	title: string;
+	/** Main solution slug (legacy name); becomes `solutions[0]`. Also used by the Studio import script. */
 	product: string;
+	/** All solution slugs, main one first; defaults to [product] */
+	solutions?: string[];
 	sector: Sector;
 	photo: string;
 	photoAlt: string;

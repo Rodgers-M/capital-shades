@@ -6,7 +6,7 @@
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
 	import ArticleCard from '$lib/components/blog/ArticleCard.svelte';
 	import TagPill from '$lib/components/blog/TagPill.svelte';
-	import { QUOTE_HREF } from '$lib/nav';
+	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
 	import { SITE_URL } from '$lib/config';
 	import { formatDate } from '$lib/utils';
 
@@ -89,7 +89,8 @@
 			</p>
 		</div>
 		<Button href={QUOTE_HREF} class="shrink-0">
-			Request Site Assessment <ArrowRightIcon />
+			{QUOTE_LABEL}
+			<ArrowRightIcon />
 		</Button>
 	</div>
 </section>

@@ -10,13 +10,13 @@
 	const settings = $derived(data.settings);
 
 	const channels = $derived([
-		...settings.phones.map((phone, i) => ({
+		{
 			icon: PhoneIcon,
-			label: i === 0 ? 'Call us' : 'Or call',
-			value: phone.display,
-			href: `tel:+${phone.number}`,
+			label: 'Call us',
+			value: settings.primaryPhone.display,
+			href: `tel:+${settings.primaryPhone.number}`,
 			external: false
-		})),
+		},
 		{
 			icon: WhatsAppIcon,
 			label: 'WhatsApp',
@@ -67,18 +67,22 @@
 				</span>
 			</a>
 		{/each}
-		<div class="space-y-2 rounded-2xl bg-ink p-5 text-sm text-on-ink-muted">
-			<p class="flex items-center gap-2">
-				<MapPinIcon class="size-4 text-primary" />
-				{settings.location}
-			</p>
-			{#if settings.hours}
-				<p class="flex items-center gap-2">
-					<ClockIcon class="size-4 text-primary" />
-					{settings.hours}
-				</p>
-			{/if}
-		</div>
+		{#if settings.location || settings.hours}
+			<div class="space-y-2 rounded-2xl bg-ink p-5 text-sm text-on-ink-muted">
+				{#if settings.location}
+					<p class="flex items-center gap-2">
+						<MapPinIcon class="size-4 text-primary" />
+						{settings.location}
+					</p>
+				{/if}
+				{#if settings.hours}
+					<p class="flex items-center gap-2">
+						<ClockIcon class="size-4 text-primary" />
+						{settings.hours}
+					</p>
+				{/if}
+			</div>
+		{/if}
 	</div>
 
 	<div class="rounded-2xl border bg-card p-5 shadow-sm md:p-8 lg:col-span-3">

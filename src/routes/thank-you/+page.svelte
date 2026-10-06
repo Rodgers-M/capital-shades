@@ -14,8 +14,8 @@
 	<h1 class="mt-5 text-3xl font-extrabold md:text-4xl">Thank you — we've got your message.</h1>
 	<p class="mt-3 max-w-md text-muted-foreground">
 		Our team will get back to you shortly. If it's urgent, call us on
-		<a href="tel:+{data.settings.phones[0].number}" class="font-bold text-foreground underline"
-			>{data.settings.phones[0].display}</a
+		<a href="tel:+{data.settings.primaryPhone.number}" class="font-bold text-foreground underline"
+			>{data.settings.primaryPhone.display}</a
 		>.
 	</p>
 	<div class="mt-8 flex gap-3">
