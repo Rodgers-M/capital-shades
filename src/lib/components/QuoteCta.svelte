@@ -4,7 +4,7 @@
 	import Picture from '$lib/components/Picture.svelte';
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
-	import { whatsappHref } from '$lib/whatsapp';
+	import { whatsappHref, type WhatsAppContext } from '$lib/whatsapp';
 	import type { Img, PublicSiteSettings } from '$lib/content/types';
 
 	// Closing call to action for pages that end with their own quote section
@@ -12,12 +12,12 @@
 	let {
 		settings,
 		image,
-		topic
+		whatsapp = {}
 	}: {
 		settings: PublicSiteSettings;
 		image?: Img;
-		/** Solution title, for a contextual WhatsApp message */
-		topic?: string;
+		/** What the page is about, for a contextual WhatsApp message */
+		whatsapp?: WhatsAppContext;
 	} = $props();
 </script>
 
@@ -55,7 +55,7 @@
 					<ArrowRightIcon />
 				</Button>
 				<Button
-					href={whatsappHref(settings, { topic })}
+					href={whatsappHref(settings, whatsapp)}
 					target="_blank"
 					rel="noopener"
 					variant="outline"

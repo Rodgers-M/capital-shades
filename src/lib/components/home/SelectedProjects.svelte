@@ -3,6 +3,7 @@
 	import Picture from '$lib/components/Picture.svelte';
 	import TextLink from '$lib/components/TextLink.svelte';
 	import { SECTORS } from '$lib/content/sectors';
+	import { projectHref } from '$lib/nav';
 	import { cn } from '$lib/utils';
 	import type { Product, Project } from '$lib/content/types';
 
@@ -40,7 +41,7 @@
 		<ul class="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 md:gap-x-6 lg:mt-16 lg:grid-cols-12">
 			{#each projects as project, i (project.slug)}
 				<li class={LAYOUT[i]?.item}>
-					<figure>
+					<figure class="group relative">
 						<div class="overflow-hidden rounded-sm bg-muted">
 							<Picture
 								image={project.heroImage}
@@ -51,7 +52,12 @@
 							/>
 						</div>
 						<figcaption class="mt-4">
-							<p class="text-base leading-snug font-medium md:text-lg">{project.title}</p>
+							<p class="text-base leading-snug font-medium md:text-lg">
+								<a
+									href={projectHref(project.slug)}
+									class="after:absolute after:inset-0 hover:text-primary-strong">{project.title}</a
+								>
+							</p>
 							<p
 								class="mt-1.5 text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase"
 							>

@@ -3,7 +3,7 @@
 	import { page } from '$app/state';
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import { showsQuickContact } from '$lib/nav';
-	import { whatsappHref } from '$lib/whatsapp';
+	import { whatsappHref, whatsappLabel } from '$lib/whatsapp';
 	import type { PublicSiteSettings } from '$lib/content/types';
 
 	/*
@@ -32,18 +32,16 @@
 	});
 
 	const allowed = $derived(showsQuickContact(page.url.pathname));
-	const topic = $derived(page.data.whatsappTopic);
+	const context = $derived(page.data.whatsapp);
 </script>
 
 {#if allowed}
 	<a
-		href={whatsappHref(settings, { topic })}
+		href={whatsappHref(settings, context)}
 		target="_blank"
 		rel="noopener"
 		inert={footerInView}
-		aria-label={topic
-			? `Ask about ${topic.toLowerCase()} on WhatsApp (opens in a new tab)`
-			: 'Chat with Capital Shades on WhatsApp (opens in a new tab)'}
+		aria-label={whatsappLabel(context)}
 		class="fixed right-6 bottom-6 z-30 hidden h-12 items-center gap-2.5 rounded-sm border border-ink-border bg-ink px-3.5 text-sm font-semibold text-on-ink shadow-md transition-[transform,opacity,background-color] duration-300 hover:bg-ink-raised md:inline-flex lg:px-4 {footerInView
 			? 'pointer-events-none translate-y-4 opacity-0'
 			: ''}"

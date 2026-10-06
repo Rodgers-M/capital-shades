@@ -104,7 +104,7 @@
 								<PhoneIcon /> Call
 							</Button>
 							<Button
-								href={whatsappHref(settings, { topic: page.data.whatsappTopic })}
+								href={whatsappHref(settings, page.data.whatsapp)}
 								target="_blank"
 								rel="noopener"
 								variant="whatsapp"

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ArrowRightIcon } from '@lucide/svelte';
 	import EditorialHeading from '$lib/components/EditorialHeading.svelte';
-	import { QUOTE_HREF } from '$lib/nav';
+	import { QUOTE_HREF, projectsHref } from '$lib/nav';
 	import type { Sector } from '$lib/content/types';
 
 	/*
@@ -29,7 +29,7 @@
 					<h3 class="text-2xl font-medium tracking-tight">{sector.label}</h3>
 					<p class="mt-3 flex-1 leading-relaxed text-on-ink-muted">{sector.text}</p>
 					<a
-						href={sector.hasProjects ? `/projects?filter=${sector.id}` : QUOTE_HREF}
+						href={sector.hasProjects ? projectsHref({ sector: sector.id }) : QUOTE_HREF}
 						class="group mt-6 inline-flex items-center gap-2 self-start text-sm font-semibold text-on-ink underline decoration-primary underline-offset-[6px] transition-colors hover:text-primary"
 					>
 						{sector.hasProjects ? `${sector.label} projects` : 'Discuss your project'}

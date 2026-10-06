@@ -3,7 +3,7 @@
 	import Picture from '$lib/components/Picture.svelte';
 	import TextLink from '$lib/components/TextLink.svelte';
 	import { SECTORS } from '$lib/content/sectors';
-	import { solutionHref } from '$lib/nav';
+	import { projectHref, projectsHref, solutionHref } from '$lib/nav';
 	import type { Product, Project } from '$lib/content/types';
 
 	/*
@@ -96,11 +96,14 @@
 				</div>
 			{/each}
 
-			{#if project.solutions[0]}
-				<TextLink href="/projects?filter={project.solutions[0]}" class="mt-10">
-					View similar projects
-				</TextLink>
-			{/if}
+			<div class="mt-10 flex flex-wrap gap-x-8 gap-y-4">
+				<TextLink href={projectHref(project.slug)}>View project</TextLink>
+				{#if project.solutions[0]}
+					<TextLink href={projectsHref({ solution: project.solutions[0] })}>
+						More {solutionLinks[0]?.title.toLowerCase() ?? ''} projects
+					</TextLink>
+				{/if}
+			</div>
 		</div>
 	</div>
 </section>

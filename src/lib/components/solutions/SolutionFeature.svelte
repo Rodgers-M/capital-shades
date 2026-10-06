@@ -2,7 +2,7 @@
 	import { ArrowRightIcon } from '@lucide/svelte';
 	import Picture from '$lib/components/Picture.svelte';
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
-	import { solutionHref } from '$lib/nav';
+	import { projectsHref, solutionHref } from '$lib/nav';
 	import { cn } from '$lib/utils';
 	import { whatsappHref } from '$lib/whatsapp';
 	import type { Img, Product, PublicSiteSettings } from '$lib/content/types';
@@ -90,7 +90,7 @@
 				</ul>
 				{#if hasProjects}
 					<a
-						href="/projects?filter={solution.slug}"
+						href={projectsHref({ solution: solution.slug })}
 						class="text-sm font-medium underline decoration-primary underline-offset-4 hover:text-primary-strong"
 					>
 						See projects

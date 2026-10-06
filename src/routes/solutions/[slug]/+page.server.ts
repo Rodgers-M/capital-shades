@@ -30,6 +30,6 @@ export async function load({ params }) {
 		projects: shown,
 		closingImage: closing?.heroImage,
 		others: products.filter((p) => p.slug !== solution.slug),
-		whatsappTopic: solution.title
+		whatsapp: { topic: solution.title }
 	};
 }

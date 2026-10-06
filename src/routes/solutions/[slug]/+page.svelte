@@ -8,7 +8,7 @@
 	import RelatedProjects from '$lib/components/solutions/RelatedProjects.svelte';
 	import SolutionIndexList from '$lib/components/solutions/SolutionIndexList.svelte';
 	import { SITE_URL } from '$lib/config';
-	import { SOLUTIONS_HREF } from '$lib/nav';
+	import { SOLUTIONS_HREF, projectsHref } from '$lib/nav';
 
 	/*
 	 * Reusable solution template: hero → overview & verified lists → related
@@ -45,7 +45,7 @@
 	<RelatedProjects
 		projects={data.projects}
 		solutionTitle={solution.title}
-		galleryHref="/projects?filter={solution.slug}"
+		galleryHref={projectsHref({ solution: solution.slug })}
 	/>
 {/if}
 
@@ -65,5 +65,5 @@
 </section>
 
 <div class="border-t">
-	<QuoteCta {settings} image={data.closingImage} topic={solution.title} />
+	<QuoteCta {settings} image={data.closingImage} whatsapp={{ topic: solution.title }} />
 </div>

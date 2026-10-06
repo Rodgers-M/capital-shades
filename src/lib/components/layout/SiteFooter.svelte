@@ -32,7 +32,7 @@
 
 	// Pages that end with their own quote section skip the duplicate band
 	const showCta = $derived(!hasClosingCta(page.url.pathname));
-	const whatsapp = $derived(whatsappHref(settings, { topic: page.data.whatsappTopic }));
+	const whatsapp = $derived(whatsappHref(settings, page.data.whatsapp));
 
 	const heading = 'eyebrow text-on-ink';
 	const link = 'transition-colors hover:text-on-ink';

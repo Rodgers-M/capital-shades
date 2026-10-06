@@ -1,16 +1,17 @@
 import { SITE_URL } from '$lib/config';
 import { getContent } from '$lib/server/content';
-import { QUOTE_HREF, SOLUTIONS_HREF, solutionHref } from '$lib/nav';
+import { PROJECTS_HREF, QUOTE_HREF, SOLUTIONS_HREF, projectHref, solutionHref } from '$lib/nav';
 
 export const prerender = true;
 
 export async function GET() {
-	const { products, posts } = await getContent();
+	const { products, projects, posts } = await getContent();
 	const pages = [
 		'/',
 		SOLUTIONS_HREF,
 		...products.map((p) => solutionHref(p.slug)),
-		'/projects',
+		PROJECTS_HREF,
+		...projects.map((p) => projectHref(p.slug)),
 		QUOTE_HREF,
 		'/about',
 		'/blog',

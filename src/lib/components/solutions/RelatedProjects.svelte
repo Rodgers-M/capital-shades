@@ -3,6 +3,7 @@
 	import Picture from '$lib/components/Picture.svelte';
 	import TextLink from '$lib/components/TextLink.svelte';
 	import { sectorLabel } from '$lib/content/sectors';
+	import { projectHref } from '$lib/nav';
 	import type { Project } from '$lib/content/types';
 
 	/*
@@ -30,7 +31,7 @@
 			{/snippet}
 		</EditorialHeading>
 
-		<figure class="mt-12 grid gap-6 lg:mt-16 lg:grid-cols-12 lg:items-end lg:gap-10">
+		<figure class="relative mt-12 grid gap-6 lg:mt-16 lg:grid-cols-12 lg:items-end lg:gap-10">
 			<div class="overflow-hidden rounded-sm lg:col-span-8">
 				<Picture
 					image={lead.heroImage}
@@ -39,7 +40,12 @@
 				/>
 			</div>
 			<figcaption class="lg:col-span-4 lg:pb-2">
-				<p class="text-2xl font-medium tracking-tight">{lead.title}</p>
+				<p class="text-2xl font-medium tracking-tight">
+					<a
+						href={projectHref(lead.slug)}
+						class="after:absolute after:inset-0 hover:text-primary-strong">{lead.title}</a
+					>
+				</p>
 				<p class="mt-2 text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
 					{meta(lead)}
 				</p>
@@ -53,7 +59,7 @@
 			<ul class="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 md:gap-x-6 lg:grid-cols-4">
 				{#each rest as project, i (project.slug)}
 					<li class={i % 2 === 1 ? 'mt-10 lg:mt-16' : ''}>
-						<figure>
+						<figure class="relative">
 							<div class="overflow-hidden rounded-sm">
 								<Picture
 									image={project.heroImage}
@@ -62,7 +68,13 @@
 								/>
 							</div>
 							<figcaption class="mt-3">
-								<p class="leading-snug font-medium">{project.title}</p>
+								<p class="leading-snug font-medium">
+									<a
+										href={projectHref(project.slug)}
+										class="after:absolute after:inset-0 hover:text-primary-strong"
+										>{project.title}</a
+									>
+								</p>
 								<p
 									class="mt-1 text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase"
 								>

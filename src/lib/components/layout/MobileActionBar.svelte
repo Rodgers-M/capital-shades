@@ -78,7 +78,7 @@
 			Call
 		</a>
 		<a
-			href={whatsappHref(settings, { topic: page.data.whatsappTopic })}
+			href={whatsappHref(settings, page.data.whatsapp)}
 			target="_blank"
 			rel="noopener"
 			class="{compact} bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp-hover"

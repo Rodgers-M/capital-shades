@@ -5,8 +5,8 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		interface PageData {
-			/** Solution title a page is about; makes WhatsApp messages contextual (see $lib/whatsapp) */
-			whatsappTopic?: string;
+			/** What the page is about, for contextual WhatsApp messages (see $lib/whatsapp) */
+			whatsapp?: import('$lib/whatsapp').WhatsAppContext;
 		}
 		// interface PageState {}
 		// interface Platform {}
