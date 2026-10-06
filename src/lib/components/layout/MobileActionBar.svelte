@@ -3,8 +3,8 @@
 	import { page } from '$app/state';
 	import { ArrowRightIcon, PhoneIcon } from '@lucide/svelte';
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
-	import { QUOTE_HREF, QUOTE_LABEL, hasHero, showsMobileActionBar } from '$lib/nav';
-	import { whatsappLink } from '$lib/utils';
+	import { QUOTE_HREF, QUOTE_LABEL, hasHero, showsQuickContact } from '$lib/nav';
+	import { whatsappHref } from '$lib/whatsapp';
 	import type { PublicSiteSettings } from '$lib/content/types';
 
 	let { settings }: { settings: PublicSiteSettings } = $props();
@@ -47,7 +47,7 @@
 		target instanceof HTMLElement &&
 		target.matches('input, textarea, select, [contenteditable=""], [contenteditable="true"]');
 
-	const allowed = $derived(showsMobileActionBar(page.url.pathname));
+	const allowed = $derived(showsQuickContact(page.url.pathname));
 	const visible = $derived(allowed && !heroInView && !fieldFocused);
 
 	// Call and WhatsApp: compact icon-over-label cells (48px tall, 72px wide), so
@@ -78,7 +78,7 @@
 			Call
 		</a>
 		<a
-			href={whatsappLink(settings.whatsapp.number, "Hi Capital Shades, I'd like a quote")}
+			href={whatsappHref(settings, { topic: page.data.whatsappTopic })}
 			target="_blank"
 			rel="noopener"
 			class="{compact} bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp-hover"

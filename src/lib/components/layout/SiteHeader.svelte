@@ -6,7 +6,8 @@
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import SiteLogo from './SiteLogo.svelte';
 	import { NAV_LINKS, QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
-	import { cn, whatsappLink } from '$lib/utils';
+	import { cn } from '$lib/utils';
+	import { whatsappHref } from '$lib/whatsapp';
 	import type { PublicSiteSettings } from '$lib/content/types';
 
 	let { settings }: { settings: PublicSiteSettings } = $props();
@@ -103,7 +104,7 @@
 								<PhoneIcon /> Call
 							</Button>
 							<Button
-								href={whatsappLink(settings.whatsapp.number)}
+								href={whatsappHref(settings, { topic: page.data.whatsappTopic })}
 								target="_blank"
 								rel="noopener"
 								variant="whatsapp"

@@ -5,7 +5,7 @@ export const MATERIAL_ROWS = [
 		mesh: 'Blocks most UV (varies by grade)',
 		pvc: 'Blocks direct sun fully'
 	},
-	{ label: 'Rain', mesh: 'Breaks up light rain only', pvc: '100% waterproof' },
+	{ label: 'Rain', mesh: 'Breaks up light rain only', pvc: 'Waterproof cover' },
 	{ label: 'Airflow', mesh: 'Breathable — stays airy', pvc: 'Sealed — keep sides open' },
 	{ label: 'Finish', mesh: 'Textured fabric', pvc: 'Smooth, architectural' },
 	{ label: 'Best for', mesh: 'Homes, schools, open car parks', pvc: 'Entrances, walkways, malls' }

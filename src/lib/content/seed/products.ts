@@ -12,8 +12,9 @@ export interface SeedProduct {
 
 /*
  * The six product lines on the current site, rewritten from its copy.
- * Features stick to what the current site claims (fabric colours, waterproofing,
- * UV protection, mesh/PVC/metal roof options, custom design, installation).
+ * Copy is descriptive: what each structure is and where it is used. No
+ * subjective, superlative or geographic claims, and nothing about performance,
+ * value or who builds what beyond "design and installation" (Phase C1 review).
  */
 export const products: SeedProduct[] = [
 	{
@@ -21,37 +22,36 @@ export const products: SeedProduct[] = [
 		title: 'Car Park Shades',
 		eyebrow: 'Homes to shopping centres',
 		summary:
-			'Cantilever, residential and commercial car park shades that protect vehicles from sun, heat, rain and hail.',
+			'Cantilever and post-supported car park shades that keep vehicles out of direct sun and rain, at home or at work.',
 		body: [
-			'Nothing is more frustrating than watching the sun fade your paintwork or hail dent your car because there was no covered parking. Our car park shades protect vehicles at home, at work and wherever your customers park.',
-			'Regardless of how large, small or irregularly shaped your car park is, we design a shade to fit it — from a single-car carport to long rows of commercial bays. Choose cantilever designs for post-free access, or standard designs for economical coverage of large areas.',
-			'Covers are available in heavy-duty shade mesh, 100% waterproof PVC membrane or metal roofing, in a wide range of colours.'
+			'Car park shades cover parked vehicles at homes, offices and other sites where people park, keeping them out of direct sun and rain.',
+			'Each shade is designed around the space it covers, from a single-car carport to rows of commercial bays. Cantilever designs keep posts to one side of the bay; post-supported designs suit wider areas.',
+			'Covers are available in shade mesh, waterproof PVC membrane or metal roofing, in a choice of colours.'
 		],
 		features: [
 			'Cantilever and post-supported designs',
 			'Shade mesh, PVC membrane or metal roof',
-			'Wide range of fabric colours',
-			'Custom-designed for your site'
+			'Choice of fabric colours',
+			'Designed for the site'
 		],
 		applications: ['Homes', 'Offices', 'Shopping centres', 'Schools', 'Hotels'],
 		photo: 'carport-landcruiser-green',
-		photoAlt: 'Green car park shade over a white SUV at a home in Nairobi'
+		photoAlt: 'Green car park shade over a white SUV at a home'
 	},
 	{
 		slug: 'shade-sails',
 		title: 'Shade Sails',
 		eyebrow: 'Patios, pools & play areas',
-		summary:
-			'Tensioned fabric sails that shade patios, terraces, play areas and gardens with a light, modern look.',
+		summary: 'Tensioned fabric sails that shade patios, terraces, play areas and gardens.',
 		body: [
-			'Our sails are designed to do more than keep off the sun. Layered sails create generous shade over terraces, play equipment and gardens, while the open design keeps the space airy.',
+			'Shade sails are tensioned fabric panels, often layered at different heights. They shade terraces, play equipment and gardens while leaving the sides open to the air.',
 			'Choose breathable shade fabric for airflow, or waterproof material where you also need protection from rain.'
 		],
 		features: [
 			'Breathable or waterproof fabrics',
-			'Wide range of colours',
+			'Choice of colours',
 			'Layered, custom shapes',
-			'Professionally tensioned'
+			'Tensioned fabric panels'
 		],
 		applications: ['Homes', 'Hotels & restaurants', 'Schools', 'Pools'],
 		photo: 'sails-hotel-balcony',
@@ -62,16 +62,16 @@ export const products: SeedProduct[] = [
 		title: 'Canopies',
 		eyebrow: 'Entrances & walkways',
 		summary:
-			'Entrance canopies and covered walkways that keep people shaded and dry and give your frontage a distinctive look.',
+			'Entrance canopies and covered walkways that shade people as they arrive, wait or move between buildings.',
 		body: [
-			'A canopy over an entrance, walkway or seating area makes every visit more comfortable. Our canopies block the harsh sun and — in waterproof PVC — keep people dry in the rains.',
+			'A canopy shades an entrance, walkway or seating area. With a waterproof PVC cover, it also keeps people dry when it rains.',
 			'We design canopies to suit the building, with a choice of shapes, fabrics and colours.'
 		],
 		features: [
-			'High UV protection',
+			'Shade from direct sun',
 			'Waterproof PVC options',
-			'Shapes and colours to suit your building',
-			'Designed and installed by our team'
+			'Shapes and colours to suit the building',
+			'Design and installation'
 		],
 		applications: ['Shop and office entrances', 'Walkways', 'Restaurants', 'Schools'],
 		photo: 'canopy-red-entrance',
@@ -82,16 +82,16 @@ export const products: SeedProduct[] = [
 		title: 'Tensile Membrane Structures',
 		eyebrow: 'Architectural shade',
 		summary:
-			'Fabric held in tension to create striking, curved structures for carports, courtyards and commercial spaces.',
+			'Fabric held in tension to form curved structures over carports, courtyards and commercial spaces.',
 		body: [
-			'Tensile membrane structures use fabric stretched in tension to create curved, architectural forms. They make a statement at entrances and courtyards and turn a carport into a feature of the property.',
-			'Our membrane structures can include decorative panels and integrated lighting, so they look as good at night as they do in the day.'
+			'Tensile membrane structures use fabric stretched in tension to create curved forms. They are used over entrances, courtyards and carports.',
+			'Designs can include decorative panels and integrated lighting.'
 		],
 		features: [
 			'Curved, architectural forms',
 			'Decorative panels and lighting options',
 			'Waterproof PVC membranes',
-			'Custom design for every site'
+			'Designed for the site'
 		],
 		applications: ['Homes', 'Courtyards', 'Hotels', 'Commercial entrances'],
 		photo: 'carport-decorative-night',
@@ -101,12 +101,11 @@ export const products: SeedProduct[] = [
 		slug: 'parasols',
 		title: 'Parasols',
 		eyebrow: 'Hospitality & outdoor seating',
-		summary:
-			'Durable parasols that bring shade and style to restaurants, hotels, gardens and outdoor seating.',
+		summary: 'Parasols that shade outdoor seating at restaurants, hotels and gardens.',
 		body: [
-			'We pride ourselves on offering customers strong value on price, quality and durability. Our parasols provide shade and aesthetic appeal for outdoor dining, poolsides and gardens across Kenya.'
+			'Parasols shade individual tables and seating areas for outdoor dining, poolsides and gardens.'
 		],
-		features: ['Durable frames and fabrics', 'Range of sizes and colours', 'Good value for money'],
+		features: ['Choice of sizes', 'Choice of colours'],
 		applications: ['Restaurants', 'Hotels', 'Gardens', 'Poolsides'],
 		photo: 'parasol-yellow',
 		photoAlt: 'Yellow parasols shading outdoor restaurant seating'
@@ -116,11 +115,15 @@ export const products: SeedProduct[] = [
 		title: 'Pool Shades',
 		eyebrow: 'Poolside comfort',
 		summary:
-			'Shade structures over and around pools that protect swimmers from the sun and add style to the space.',
+			'Shade structures over and around pools that keep swimmers and poolside seating out of direct sun.',
 		body: [
-			'A shade structure over a pool delivers more than UV protection and relief from the heat. Today’s shade structures are attractive additions in their own right, adding ambience and style to your pool area.'
+			'A shade structure over or beside a pool shades the water and the seating around it from direct sun.'
 		],
-		features: ['UV protection for swimmers', 'Sails or fixed structures', 'Choice of colours'],
+		features: [
+			'Shade over the water and poolside',
+			'Sails or fixed structures',
+			'Choice of colours'
+		],
 		applications: ['Homes', 'Hotels', 'Clubs', 'Schools'],
 		photo: 'sails-pool-garden',
 		photoAlt: 'Shade sails over a garden beside a swimming pool'

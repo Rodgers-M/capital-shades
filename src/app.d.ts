@@ -4,7 +4,10 @@ declare global {
 	namespace App {
 		// interface Error {}
 		// interface Locals {}
-		// interface PageData {}
+		interface PageData {
+			/** Solution title a page is about; makes WhatsApp messages contextual (see $lib/whatsapp) */
+			whatsappTopic?: string;
+		}
 		// interface PageState {}
 		// interface Platform {}
 	}

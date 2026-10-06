@@ -22,3 +22,5 @@ export const SECTORS: { id: Sector; label: string; text: string }[] = [
 		text: 'Shade over play areas, walkways, sports facilities and parking for schools and public buildings.'
 	}
 ];
+
+export const sectorLabel = (id: Sector) => SECTORS.find((s) => s.id === id)?.label ?? id;

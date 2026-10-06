@@ -3,6 +3,7 @@
 	import EditorialHeading from '$lib/components/EditorialHeading.svelte';
 	import Picture from '$lib/components/Picture.svelte';
 	import TextLink from '$lib/components/TextLink.svelte';
+	import SolutionIndexList from '$lib/components/solutions/SolutionIndexList.svelte';
 	import { SOLUTIONS_HREF, solutionHref } from '$lib/nav';
 	import type { Product } from '$lib/content/types';
 
@@ -56,38 +57,7 @@
 				</a>
 
 				{#if rest.length}
-					<ol class="border-t border-foreground/15 lg:col-span-5 lg:self-start">
-						{#each rest as solution, i (solution.slug)}
-							<li class="border-b border-foreground/15">
-								<a
-									href={solutionHref(solution.slug)}
-									class="group grid grid-cols-[auto_1fr_auto] items-start gap-x-5 py-6"
-								>
-									<span class="pt-1 font-mono text-sm text-primary-strong">{number(i + 1)}</span>
-									<span>
-										<span
-											class="block text-xl font-medium tracking-tight transition-colors group-hover:text-primary-strong"
-										>
-											{solution.title}
-										</span>
-										<span
-											class="mt-2 line-clamp-3 block text-sm leading-relaxed text-muted-foreground"
-										>
-											{solution.summary}
-										</span>
-									</span>
-									<span class="w-20 overflow-hidden rounded-sm sm:w-28">
-										<Picture
-											image={solution.image}
-											alt=""
-											sizes="112px"
-											class="aspect-[4/3] w-full object-cover"
-										/>
-									</span>
-								</a>
-							</li>
-						{/each}
-					</ol>
+					<SolutionIndexList solutions={rest} start={2} class="lg:col-span-5 lg:self-start" />
 				{/if}
 			</div>
 		</div>

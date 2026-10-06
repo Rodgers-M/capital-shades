@@ -4,6 +4,7 @@
 	import SiteHeader from '$lib/components/layout/SiteHeader.svelte';
 	import SiteFooter from '$lib/components/layout/SiteFooter.svelte';
 	import MobileActionBar from '$lib/components/layout/MobileActionBar.svelte';
+	import FloatingWhatsApp from '$lib/components/layout/FloatingWhatsApp.svelte';
 	import { SITE_URL } from '$lib/config';
 	import { jsonLdTag } from '$lib/seo';
 
@@ -61,4 +62,5 @@
 	</main>
 	<SiteFooter {settings} products={data.products} />
 	<MobileActionBar {settings} />
+	<FloatingWhatsApp {settings} />
 </div>

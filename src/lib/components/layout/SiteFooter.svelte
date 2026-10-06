@@ -8,10 +8,12 @@
 		COMPANY_LINKS,
 		QUOTE_HREF,
 		QUOTE_LABEL,
-		showsMobileActionBar,
+		hasClosingCta,
+		showsQuickContact,
 		solutionHref
 	} from '$lib/nav';
-	import { cn, whatsappLink } from '$lib/utils';
+	import { cn } from '$lib/utils';
+	import { whatsappHref } from '$lib/whatsapp';
 	import type { Product, PublicSiteSettings } from '$lib/content/types';
 
 	let { settings, products }: { settings: PublicSiteSettings; products: Product[] } = $props();
@@ -28,10 +30,10 @@
 	// Only a confirmed address or location — never a default
 	const place = $derived(settings.address ?? settings.location);
 
-	// The home page ends with its own quote section, so skip the duplicate band there
-	const showCta = $derived(page.url.pathname !== '/');
+	// Pages that end with their own quote section skip the duplicate band
+	const showCta = $derived(!hasClosingCta(page.url.pathname));
+	const whatsapp = $derived(whatsappHref(settings, { topic: page.data.whatsappTopic }));
 
-	const quoteMessage = "Hi Capital Shades, I'd like a quote";
 	const heading = 'eyebrow text-on-ink';
 	const link = 'transition-colors hover:text-on-ink';
 </script>
@@ -60,13 +62,7 @@
 						{QUOTE_LABEL}
 						<ArrowRightIcon />
 					</Button>
-					<Button
-						href={whatsappLink(settings.whatsapp.number, quoteMessage)}
-						target="_blank"
-						rel="noopener"
-						variant="outline-on-ink"
-						size="lg"
-					>
+					<Button href={whatsapp} target="_blank" rel="noopener" variant="outline-on-ink" size="lg">
 						<WhatsAppIcon class="size-4 text-brand" />
 						WhatsApp
 						<span class="sr-only">(opens in a new tab)</span>
@@ -137,7 +133,7 @@
 					</li>
 					<li>
 						<a
-							href={whatsappLink(settings.whatsapp.number)}
+							href={whatsapp}
 							target="_blank"
 							rel="noopener"
 							class="flex items-start gap-2.5 {link}"
@@ -180,7 +176,7 @@
 			class={cn(
 				'flex flex-col gap-2 border-t border-ink-border py-6 text-xs text-on-ink-subtle md:flex-row md:justify-between',
 				// Clear the fixed phone action bar where it shows
-				showsMobileActionBar(page.url.pathname) && 'pb-24 md:pb-6'
+				showsQuickContact(page.url.pathname) && 'pb-24 md:pb-6'
 			)}
 		>
 			<p>© {new Date().getFullYear()} {settings.legalName}. All rights reserved.</p>

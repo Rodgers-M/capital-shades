@@ -22,17 +22,23 @@ export const SOLUTIONS_HREF = '/solutions';
 /** Detail page for one solution. */
 export const solutionHref = (slug: string) => `${SOLUTIONS_HREF}/${slug}`;
 
-/** Pages where the phone action bar would duplicate the page's own actions. */
-const NO_ACTION_BAR = [QUOTE_HREF, '/contact'];
+/** Pages where the quick-contact controls (phone bar, floating WhatsApp) would duplicate the page's own. */
+const NO_QUICK_CONTACT = [QUOTE_HREF, '/contact'];
+
+const matches = (pathname: string, href: string) =>
+	pathname === href || pathname.startsWith(`${href}/`);
+
+export const showsQuickContact = (pathname: string) =>
+	!NO_QUICK_CONTACT.some((href) => matches(pathname, href));
 
 /**
  * Pages that open with a hero marked `data-hero`. The phone action bar waits
  * until it has scrolled out of view; listing them here avoids a flash of the
  * bar before the page's script runs.
  */
-const PAGES_WITH_HERO = ['/'];
+export const hasHero = (pathname: string) =>
+	pathname === '/' || pathname.startsWith(`${SOLUTIONS_HREF}/`);
 
-export const hasHero = (pathname: string) => PAGES_WITH_HERO.includes(pathname);
-
-export const showsMobileActionBar = (pathname: string) =>
-	!NO_ACTION_BAR.some((href) => pathname === href || pathname.startsWith(`${href}/`));
+/** Pages that end with their own quote section, so the footer skips its band. */
+export const hasClosingCta = (pathname: string) =>
+	pathname === '/' || pathname.startsWith(`${SOLUTIONS_HREF}/`);

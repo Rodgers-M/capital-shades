@@ -4,11 +4,21 @@
 	import Picture from '$lib/components/Picture.svelte';
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
-	import { whatsappLink } from '$lib/utils';
+	import { whatsappHref } from '$lib/whatsapp';
 	import type { Img, PublicSiteSettings } from '$lib/content/types';
 
-	// Closing call to action. Replaces the footer's quote band on the home page.
-	let { settings, image }: { settings: PublicSiteSettings; image?: Img } = $props();
+	// Closing call to action for pages that end with their own quote section
+	// (see hasClosingCta in $lib/nav — the footer skips its band there).
+	let {
+		settings,
+		image,
+		topic
+	}: {
+		settings: PublicSiteSettings;
+		image?: Img;
+		/** Solution title, for a contextual WhatsApp message */
+		topic?: string;
+	} = $props();
 </script>
 
 <section aria-labelledby="quote-cta" class="container-page section-y">
@@ -45,7 +55,7 @@
 					<ArrowRightIcon />
 				</Button>
 				<Button
-					href={whatsappLink(settings.whatsapp.number, "Hi Capital Shades, I'd like a quote")}
+					href={whatsappHref(settings, { topic })}
 					target="_blank"
 					rel="noopener"
 					variant="outline"
