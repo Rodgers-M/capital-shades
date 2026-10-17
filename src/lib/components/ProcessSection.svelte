@@ -1,88 +1,63 @@
 <script lang="ts">
-	import {
-		ClipboardCheckIcon,
-		DraftingCompassIcon,
-		FactoryIcon,
-		HardHatIcon
-	} from '@lucide/svelte';
+	import EditorialHeading from './EditorialHeading.svelte';
 	import Picture from './Picture.svelte';
-	import SectionHeading from './SectionHeading.svelte';
 	import type { Img } from '$lib/content/types';
 
-	let { image }: { image: Img } = $props();
+	/*
+	 * How a project runs, described from the visitor's side. The site visit is
+	 * supported by the current site's copy ("site visit — evaluation &
+	 * measurement"); nothing here claims who fabricates or installs.
+	 */
+	let { image }: { image?: Img } = $props();
 
 	const STEPS = [
 		{
-			icon: ClipboardCheckIcon,
-			title: 'Site evaluation',
-			text: 'We visit your site, take measurements and understand how the space is used.'
+			title: 'Tell us about your project',
+			text: 'Call, WhatsApp or send a few details about the space and what you would like covered.'
 		},
 		{
-			icon: DraftingCompassIcon,
-			title: 'Design',
-			text: 'We design a fit-for-purpose structure and agree the layout, materials and colours with you.'
+			title: 'Site visit',
+			text: 'The site is measured and we look at how the space is used.'
 		},
 		{
-			icon: FactoryIcon,
-			title: 'Fabrication',
-			text: 'Frames and covers are made to the agreed design, ready for installation.'
+			title: 'Design and specification',
+			text: 'Layout, cover material and colours are agreed with you before work starts.'
 		},
 		{
-			icon: HardHatIcon,
-			title: 'Installation',
-			text: 'Our installers set up, tension and finish the structure on site.'
+			title: 'Installation and handover',
+			text: 'The structure is installed and finished on site, then handed over.'
 		}
 	];
 </script>
 
-<section class="container-page section-y">
-	<div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-		<div class="relative order-2 lg:order-1">
-			<div
-				class="relative aspect-[4/5] overflow-hidden rounded-3xl sm:aspect-[4/3] lg:aspect-[4/5]"
-			>
-				<Picture {image} sizes="(min-width: 1024px) 600px, 100vw" class="size-full object-cover" />
+<section aria-labelledby="process" class="container-page section-y">
+	<div class="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
+		{#if image}
+			<div class="overflow-hidden rounded-sm lg:sticky lg:top-28 lg:col-span-5">
+				<Picture
+					{image}
+					alt=""
+					sizes="(min-width: 1024px) 40vw, 100vw"
+					class="aspect-[4/3] w-full object-cover lg:aspect-[4/5]"
+				/>
 			</div>
-			<div
-				class="absolute right-4 -bottom-5 left-4 flex items-center gap-4 rounded-2xl border bg-card p-4 shadow-xl sm:right-6 sm:left-auto sm:w-72"
-			>
-				<span
-					class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground"
-					aria-hidden="true"
-				>
-					<HardHatIcon class="size-6" />
-				</span>
-				<span>
-					<span class="block font-bold">Start to finish</span>
-					<span class="block text-xs text-muted-foreground"
-						>A straightforward path from enquiry to completed project</span
-					>
-				</span>
-			</div>
-		</div>
+		{/if}
 
-		<div class="order-1 lg:order-2">
-			<SectionHeading
-				eyebrow="How we work"
-				title="From site visit to handover."
-				description="Every project follows the same clear steps, from the first site visit to the finished structure."
+		<div class={image ? 'lg:col-span-7' : 'lg:col-span-12'}>
+			<EditorialHeading
+				id="process"
+				eyebrow="How it works"
+				title="A straightforward path from enquiry to completed project."
 			/>
-			<ol class="mt-8 space-y-3">
+			<ol class="mt-12 border-t border-foreground/15">
 				{#each STEPS as step, i (step.title)}
-					<li
-						class="flex gap-4 rounded-xl border bg-card p-4 transition-colors hover:border-primary/60"
-					>
-						<div
-							class="flex size-11 shrink-0 items-center justify-center rounded-lg bg-ink text-primary"
-						>
-							<step.icon class="size-5" />
-						</div>
+					<li class="grid grid-cols-[3rem_1fr] gap-x-4 border-b border-foreground/15 py-7">
+						<span class="pt-1 font-mono text-sm text-primary-strong" aria-hidden="true">
+							{String(i + 1).padStart(2, '0')}
+						</span>
 						<div>
-							<p class="font-bold">
-								<span class="mr-2 font-mono text-xs text-accent-strong">0{i + 1}</span>
-								{step.title}
-							</p>
-							<p class="mt-1 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+							<h3 class="text-xl font-medium tracking-tight">{step.title}</h3>
+							<p class="mt-2 max-w-xl leading-relaxed text-muted-foreground">{step.text}</p>
 						</div>
 					</li>
 				{/each}

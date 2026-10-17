@@ -1,35 +1,258 @@
-# Content to confirm with the owner
+# Capital Shades — Content Still to Confirm
 
-The site only states facts found on the current website or the company's Facebook page. These items need the owner before launch. Once Sanity is live, most of them can be edited in the Studio.
+This file contains only information that is genuinely unresolved or requires
+additional source material before publication.
+
+Confirmed decisions belong in `decisions.md`.
+
+---
 
 ## Must confirm before launch
 
-- [ ] **Main phone number.** The site uses **0722 765 397** as the main number (Facebook, the contact page and the carport sign in photo `carpark-signboard`). **0708 559 059**, from the old header, is listed second. Is 0708 still in use?
-- [ ] **WhatsApp number.** The site assumes 0722 765 397 (`settings.whatsapp`).
-- [ ] **Enquiry inbox.** Should enquiries go to `info@capitalshades.co.ke`?
-- [ ] **Location.** The site shows "Nairobi, Kenya". Add a street address or area if they want one shown, plus a map pin.
-- [ ] **Opening hours.** Currently hidden. Facebook says "Always open", which is probably a default setting.
-- [ ] **Photo rights.** All 22 project photos come from the owner's "Recent Projects" uploads (2023 and 2025). Confirm they can be used.
-- [ ] **Four product photos from the 2019 site.** Confirm these are the company's own work, not stock images:
-  - `parasol-yellow`
-  - `sails-pool-garden`
-  - `canopy-red-walkway`
-  - `canopy-red-entrance`
+### Business address / map
 
-  Several other 2019 images on the old site look like stock photos from overseas. They were deliberately **not** used.
+- [ ] Confirm whether a physical office/workshop address should be published.
+- [ ] Confirm Google Maps / Google Business Profile location.
+- [ ] Confirm whether customers visit the premises or contact should remain
+      primarily phone/site-visit based.
 
-- [ ] **Logo.** We need a vector (SVG) or high-resolution logo. The only file available is a 200×90 PNG. The favicon and Apple touch icon in `static/` are made from this PNG, so they're soft at large sizes. Regenerate them once a vector logo arrives.
+Do not invent a street address.
 
-## Nice to have
+---
 
-- [ ] **Project details.** Add location, material and completion date for each project. These fields are hidden when empty.
-- [ ] **Years in business, warranty terms and number of projects.** Add them to the stats bar only if they're accurate.
-- [ ] **Testimonials.** Get permission to quote a few of the 97 Facebook reviews by name.
-- [ ] **Client names or logos** for a "Trusted by" strip. This needs permission from each client.
-- [ ] **Pricing ranges** for the draft post _What Does a Car Park Shade Cost in Kenya?_ (`car-park-shade-prices-kenya`). Competitors rank well with posts like this.
-- [ ] **Blog review.** The owner should read the six launch posts for accuracy and tone.
-- [ ] **Case studies.** Pick 2–3 installations from the Facebook installation videos and write them up as case studies.
+### Business hours
 
-## Placeholder or invented content from the Polymet prototype that was NOT carried over
+- [ ] Confirm official business hours.
 
-The prototype's invented stats ("850+ projects", "15-yr warranty", "47 counties", "4.9 from 300+ clients", "since 2012", "NCA-1") are gone. So are its fake client names, AI-generated photos, blog authors (which used real people's GitHub photos), the Mombasa Road address, response-time promises and invented installation timelines.
+Do not use Facebook's "Always open" value unless the owner explicitly confirms
+that the business wants to publish 24/7 availability.
+
+---
+
+### Warranty scope
+
+Approved current website wording:
+
+> Selected structures are covered by warranties of up to 10 years.
+> Final warranty terms are provided with the quotation and contract documents.
+
+Still confirm:
+
+- [ ] Which structures qualify for the 10-year term?
+- [ ] Whether warranty duration varies by material.
+- [ ] Whether warranties cover:
+  - materials;
+  - steel structure;
+  - workmanship;
+  - manufacturer defects;
+  - complete installation.
+- [ ] Any exclusions or maintenance conditions.
+
+Do not replace the approved conditional wording with a blanket 10-year
+guarantee.
+
+---
+
+### Logo source
+
+- [ ] Obtain the highest-resolution version of the official logo available.
+- [ ] Ask whether an original vector/SVG/AI/PDF logo file exists.
+
+If no vector exists, recreate the current logo faithfully as SVG.
+
+Do not redesign the logo.
+
+Current low-resolution assets should eventually be replaced and favicon/app
+icons regenerated from the approved vector.
+
+---
+
+### Project photo rights
+
+- [ ] Confirm publication rights for the current project-photo collection.
+
+The current portfolio contains recent owner-provided/Facebook project images.
+
+Also confirm whether the older 2019 images below are Capital Shades work rather
+than stock photography:
+
+- [ ] `parasol-yellow`
+- [ ] `sails-pool-garden`
+- [ ] `canopy-red-walkway`
+- [ ] `canopy-red-entrance`
+
+Do not publish questionable overseas/stock-looking imagery as company work.
+
+---
+
+### Project content
+
+For priority projects, collect:
+
+- [ ] General location / estate
+- [ ] Completion year
+- [ ] Solution(s)
+- [ ] Sector
+- [ ] Project scope
+- [ ] Customer requirement
+- [ ] What Capital Shades delivered
+- [ ] Materials where useful
+- [ ] Additional photos
+- [ ] Permission to publish photos
+
+Client names should not be published.
+
+Location should remain general enough that private residential sites cannot be
+easily identified.
+
+Also resolve duplicate project titles such as repeated
+"Cantilever carport" entries.
+
+---
+
+### Supplier / manufacturer information
+
+Confirmed:
+
+Materials are sourced from suppliers including suppliers in South Africa and
+France.
+
+Still confirm:
+
+- [ ] supplier/manufacturer names, if the business wants them published;
+- [ ] product brands;
+- [ ] manufacturer warranty details;
+- [ ] certifications or technical specifications.
+
+Do not invent supplier relationships.
+
+---
+
+### Social channels
+
+Confirm official profiles:
+
+- [ ] Facebook
+- [ ] Instagram
+- [ ] TikTok
+- [ ] LinkedIn, if used
+
+Only expose verified official accounts.
+
+---
+
+## Important content to collect
+
+### Featured projects
+
+- [ ] Select approximately 5–10 flagship projects.
+- [ ] Prioritize projects that represent the type of work Capital Shades wants
+      more of.
+- [ ] Include stronger institutional examples where available.
+
+---
+
+### Testimonials and reviews
+
+- [ ] Select 3–5 strong verified testimonials.
+- [ ] Obtain permission where names/organisations will be quoted.
+- [ ] Decide whether Facebook/Google review excerpts should appear on-site.
+
+Avoid fake review counts or ratings.
+
+---
+
+### Institutional credibility
+
+Institutional work is a strategic growth target.
+
+Collect where available:
+
+- [ ] school projects
+- [ ] hospital projects
+- [ ] church projects
+- [ ] government projects
+- [ ] shopping-centre projects
+- [ ] commercial/property-development projects
+
+Do not invent institutional case studies to fill gaps.
+
+---
+
+### Blog/content review
+
+- [ ] Owner review of existing launch articles.
+- [ ] Check technical statements for accuracy.
+- [ ] Remove unsupported claims.
+- [ ] Confirm pricing information before publishing cost guides.
+
+The phrase "professionally tensioned" in the current school-shade blog article
+still requires review.
+
+---
+
+### Pricing content
+
+If publishing pricing articles:
+
+- [ ] obtain realistic current ranges;
+- [ ] identify factors that materially change price;
+- [ ] make clear when site assessment is required;
+- [ ] avoid presenting indicative pricing as a binding quotation.
+
+---
+
+## Already confirmed
+
+The following no longer need owner confirmation:
+
+- [x] Primary phone: `+254 722 765397`
+- [x] WhatsApp: `+254 722 765397`
+- [x] Enquiry email: `info@capitalshades.co.ke`
+- [x] Business is based in Nairobi
+- [x] Business serves projects across Kenya and East Africa
+- [x] Residential / Commercial / Institutional classification
+- [x] Property developers and homeowners are currently strong customer groups
+- [x] Institutional customers are a strategic growth target
+- [x] Design
+- [x] Fabrication
+- [x] Supply
+- [x] Installation
+- [x] Maintenance / repair
+- [x] After-sales support
+- [x] Site visits are part of the normal project process
+- [x] Capital Shades performs site measurements
+- [x] Final quotation follows site visit / confirmed measurements
+- [x] Site photos are useful for initial assessment/estimate
+- [x] Phone / WhatsApp / Email are all valid contact channels
+- [x] Client names should not be published
+- [x] General project locations may be published
+- [x] Completion years may be published
+- [x] Project scope may be published
+- [x] Existing logo should remain
+- [x] No formal brand guide currently exists
+- [x] Owner approves black / white / gold / teal design direction
+- [x] Projects, galleries and blog/articles should be editable after launch
+- [x] Google visibility is a major website priority
+
+---
+
+## Content intentionally excluded
+
+Do not reintroduce invented prototype content including:
+
+- "850+ projects"
+- "15-year warranty"
+- "47 counties"
+- "4.9 from 300+ clients"
+- "since 2012"
+- "NCA-1"
+
+Also excluded unless later verified:
+
+- fake client names
+- AI-generated project photos
+- invented blog authors
+- invented addresses
+- invented response-time promises
+- invented installation timelines

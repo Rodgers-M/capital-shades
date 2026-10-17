@@ -1,129 +1,145 @@
 <script lang="ts">
-	import {
-		ArrowRightIcon,
-		BadgeDollarSignIcon,
-		PaintbrushIcon,
-		ShieldCheckIcon,
-		WrenchIcon
-	} from '@lucide/svelte';
 	import Seo from '$lib/components/Seo.svelte';
-	import PageHero from '$lib/components/PageHero.svelte';
+	import EditorialHeading from '$lib/components/EditorialHeading.svelte';
 	import Picture from '$lib/components/Picture.svelte';
-	import SectionHeading from '$lib/components/SectionHeading.svelte';
+	import TextLink from '$lib/components/TextLink.svelte';
 	import ProcessSection from '$lib/components/ProcessSection.svelte';
-	import Button from '$lib/components/ui/Button.svelte';
-	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
+	import ServiceArea from '$lib/components/ServiceArea.svelte';
+	import QuoteCta from '$lib/components/QuoteCta.svelte';
+	import SectorContext from '$lib/components/home/SectorContext.svelte';
+	import SelectedProjects from '$lib/components/home/SelectedProjects.svelte';
+	import SolutionIndexList from '$lib/components/solutions/SolutionIndexList.svelte';
+	import { PROJECTS_HREF, SOLUTIONS_HREF } from '$lib/nav';
 
+	/*
+	 * About: who Capital Shades is, what it builds, for whom, how a project
+	 * runs, where it works, and the proof. Factual and concise — no founding
+	 * year, counts or team claims. Location wording comes from settings.
+	 */
 	let { data } = $props();
+	const settings = $derived(data.settings);
 
-	const REASONS = [
-		{
-			icon: ShieldCheckIcon,
-			title: 'Durable materials',
-			text: 'Built to withstand the elements for long-lasting performance.'
-		},
-		{
-			icon: PaintbrushIcon,
-			title: 'Custom designs',
-			text: 'Tailored to your site, your needs and your style.'
-		},
-		{
-			icon: BadgeDollarSignIcon,
-			title: 'Fair pricing',
-			text: 'High-quality structures at competitive prices.'
-		},
-		{
-			icon: WrenchIcon,
-			title: 'Hassle-free installation',
-			text: 'Our own professional team handles the installation.'
-		}
-	];
+	const positioning = $derived(
+		`${settings.location ? `${settings.location}-based shade` : 'Shade'} and outdoor structures for homes, businesses and institutions.`
+	);
+	const solutionList = $derived(
+		data.products.map((s, i, all) =>
+			i === all.length - 1 && all.length > 1
+				? `and ${s.title.toLowerCase()}`
+				: s.title.toLowerCase()
+		)
+	);
 </script>
 
 <Seo
-	title="About Us"
-	description="Capital Shades specialises in site evaluation, design, fabrication and installation of custom shade and tensile membrane structures in Kenya."
+	title="About"
+	description="{settings.name} designs and installs car park shades, shade sails, canopies and tensile membrane structures{settings.location
+		? ` and is based in ${settings.location}`
+		: ''}."
 	image={data.heroImage}
 />
 
-<PageHero
-	eyebrow="About Capital Shades"
-	title="The coolest solutions under the sun."
-	description="We specialise in unique tensile structures — designing, fabricating and installing long-lasting fabric structures for homes, businesses and institutions."
-	image={data.heroImage}
-/>
-
-<section class="container-page grid items-center gap-10 section-y lg:grid-cols-2 lg:gap-16">
-	<div>
-		<SectionHeading
-			eyebrow="Our company"
-			title="Fit-for-purpose shade, from site visit to handover."
-		/>
-		<div class="mt-6 space-y-4 leading-relaxed text-muted-foreground">
-			<p>
-				We specialise in site evaluation and in designing fit-for-purpose structures in a range of
-				materials — from shade mesh and PVC to metal-roofed car park structures.
+<section aria-labelledby="about-title" class="border-b">
+	<div
+		class="container-page grid gap-10 pt-10 pb-12 md:pt-14 md:pb-16 lg:grid-cols-12 lg:items-center lg:gap-12 lg:py-16"
+	>
+		<div class="lg:col-span-6 xl:col-span-5">
+			<p class="flex items-center gap-3 eyebrow text-primary-strong">
+				<span class="h-px w-10 bg-primary" aria-hidden="true"></span>
+				About
 			</p>
-			<p>
-				We cater to a wide range of applications: small residential shade sails for your backyard,
-				right up to large custom structures for schools, sports centres and commercial sites.
+			<h1
+				id="about-title"
+				class="mt-6 text-[2.5rem] leading-[1.04] font-medium tracking-[-0.025em] text-balance sm:text-6xl"
+			>
+				About {settings.name}.
+			</h1>
+			<p class="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+				{positioning}
 			</p>
-			<p>
-				Working with commercial clients, we have seen a marked difference in both how long shoppers
-				stay and which centre they choose when shade and all-weather cover are available. We are
-				always looking for ways shade can help our clients achieve their goals.
-			</p>
+			{#if settings.tagline}
+				<p class="mt-6 border-l-2 border-primary pl-4 text-muted-foreground italic">
+					{settings.tagline}
+				</p>
+			{/if}
 		</div>
-		<Button href={QUOTE_HREF} class="mt-8">
-			{QUOTE_LABEL}
-			<ArrowRightIcon />
-		</Button>
+		{#if data.heroImage}
+			<div class="-mx-5 overflow-hidden sm:mx-0 sm:rounded-sm lg:col-span-6 xl:col-span-7">
+				<Picture
+					image={data.heroImage}
+					loading="eager"
+					fetchpriority="high"
+					sizes="(min-width: 1280px) 760px, (min-width: 1024px) 50vw, 100vw"
+					class="aspect-[4/3] w-full object-cover lg:aspect-[5/4]"
+				/>
+			</div>
+		{/if}
 	</div>
-	<div class="overflow-hidden rounded-3xl">
-		<Picture
-			image={data.profileImage}
-			sizes="(min-width: 1024px) 600px, 100vw"
-			class="aspect-[4/3] w-full object-cover"
+</section>
+
+<section aria-labelledby="who-we-are" class="container-page section-y">
+	<div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+		<EditorialHeading
+			id="who-we-are"
+			eyebrow="Who we are"
+			title="Design and installation of shade structures."
+			class="lg:col-span-5 lg:self-start"
 		/>
+		<div class="space-y-5 text-lg leading-relaxed text-foreground/85 lg:col-span-7 lg:pt-16">
+			<p>
+				{settings.legalName} designs and installs shade and outdoor structures: {solutionList.join(
+					', '
+				)}.
+			</p>
+			<p>
+				Projects range from single-car carports and garden shade to car parks and outdoor areas for
+				businesses, with covers in shade mesh, waterproof PVC or metal roofing.
+			</p>
+			<div class="flex flex-wrap gap-x-8 gap-y-4 pt-3">
+				<TextLink href={PROJECTS_HREF}>See projects</TextLink>
+				<TextLink href={SOLUTIONS_HREF}>Explore solutions</TextLink>
+			</div>
+		</div>
 	</div>
 </section>
 
-<section class="bg-muted/60 section-y">
-	<div class="container-page">
-		<SectionHeading align="center" eyebrow="Why choose us" title="Designed around your site." />
-		<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-			{#each REASONS as reason (reason.title)}
-				<li class="rounded-2xl border bg-card p-6">
-					<span
-						class="flex size-11 items-center justify-center rounded-lg bg-ink text-primary"
-						aria-hidden="true"
-					>
-						<reason.icon class="size-5" />
-					</span>
-					<h3 class="mt-4 font-extrabold">{reason.title}</h3>
-					<p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">{reason.text}</p>
-				</li>
-			{/each}
-		</ul>
+<section aria-labelledby="what-we-help-with" class="bg-muted section-y">
+	<div class="container-page grid gap-10 lg:grid-cols-12 lg:gap-16">
+		<EditorialHeading
+			id="what-we-help-with"
+			eyebrow="Solutions"
+			title="What we help with."
+			class="lg:col-span-5 lg:self-start"
+		/>
+		<div class="lg:col-span-7">
+			<SolutionIndexList solutions={data.products} />
+			<TextLink href={SOLUTIONS_HREF} class="mt-8">View all solutions</TextLink>
+		</div>
 	</div>
 </section>
 
-<section class="container-page section-y">
-	<SectionHeading
-		eyebrow="Who we build for"
-		title="Our shades are perfect for…"
-		description="Cost-effective shade and UV protection for a wide variety of outdoor spaces."
-	/>
-	<ul class="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-		{#each data.settings.sectors as sector (sector.title)}
-			<li class="border-l-2 border-primary pl-5">
-				<h3 class="font-extrabold">{sector.title}</h3>
-				<p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">{sector.text}</p>
-			</li>
-		{/each}
-	</ul>
-</section>
+<SectorContext sectors={data.sectors} />
+
+<ProcessSection image={data.processImage} />
+
+{#if settings.location || settings.serviceAreas.length}
+	<section aria-labelledby="service-area" class="border-t">
+		<div class="container-page grid gap-10 section-y lg:grid-cols-12 lg:gap-16">
+			<EditorialHeading
+				id="service-area"
+				eyebrow="Service area"
+				title="Where we work."
+				class="lg:col-span-5 lg:self-start"
+			/>
+			<ServiceArea {settings} class="lg:col-span-7 lg:pt-16" />
+		</div>
+	</section>
+{/if}
 
 <div class="border-t">
-	<ProcessSection image={data.processImage} />
+	<SelectedProjects projects={data.selectedProjects} solutions={data.products} />
+</div>
+
+<div class="border-t">
+	<QuoteCta {settings} image={data.closingImage} />
 </div>

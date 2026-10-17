@@ -22,15 +22,16 @@ export const settings: SiteSettings = {
 	whatsapp: { display: '0722 765 397', number: '254722765397' },
 	email: 'info@capitalshades.co.ke',
 	// Unconfirmed details stay null/empty so nothing is published until the owner confirms it.
-	// TODO(owner): confirm the location (the old site never stated one).
-	location: null,
+	// Geographic positioning recorded in docs/decisions.md ("Geographic positioning"):
+	// Nairobi-centred, serving nearby counties; projects elsewhere may be considered.
+	location: 'Nairobi',
 	address: null,
 	hours: null,
 	facebookUrl: 'https://www.facebook.com/capitalshades/',
 	instagramUrl: null,
 	linkedinUrl: null,
 	googleMapsUrl: null,
-	serviceAreas: [],
+	serviceAreas: ['Nairobi', 'Kiambu County', 'Machakos County', 'Kajiado County'],
 	// Facebook shows "100% recommend" (97 reviews, Sept 2026); the site avoids counts that go stale
 	facebookReviewsUrl: 'https://www.facebook.com/capitalshades/reviews',
 	// Capabilities from the current site — no figures that need updating.
@@ -42,7 +43,7 @@ export const settings: SiteSettings = {
 	sectors: [
 		{
 			title: 'Homes',
-			text: 'Carports, patios and gardens — in heavy-duty shade fabric or 100% waterproof PVC membrane.'
+			text: 'Carports, patios and gardens — in shade mesh or waterproof PVC membrane.'
 		},
 		{
 			title: 'Businesses',

@@ -1,4 +1,14 @@
-# Capital Shades Implementation Plan
+# Capital Shades — Implementation Plan
+
+This document tracks completed website phases and defines the current
+implementation phase.
+
+Detailed product/business decisions live in `decisions.md`.
+Visual and UX principles live in `design-direction.md`.
+
+---
+
+# Completed phases
 
 ## Phase A — Global Foundation
 
@@ -9,414 +19,333 @@ Status: Complete
 - [x] Navigation architecture
 - [x] Content types
 - [x] Centralized public settings
+- [x] Public-settings allowlist
 - [x] Button system
 - [x] Header
 - [x] Mobile action bar
 - [x] Footer
 - [x] Metadata foundations
-- [x] Typecheck
-- [x] Lint
-- [x] Production build
+- [x] Primary public phone handling
+- [x] Responsive validation
+- [x] Check / lint / production build
+
+---
 
 ## Phase B1 — Route & Content Model Migration
 
 Status: Complete
 
-- [x] Real `/solutions` and `/solutions/[slug]` routes
-- [x] Real `/request-a-quote` route
-- [x] Permanent redirects from `/products`, `/products/[slug]` and `/estimator`
-- [x] Public terminology: Solutions, Request a Quote
-- [x] Solution links use `/solutions/[slug]`
-- [x] Project UI consumes `solutions` and `heroImage`
-- [x] Public contact details use `primaryPhone`
-- [x] Legacy `product` and `image` removed from the project type
-- [x] Unverified homepage stats removed
-- [x] Typecheck
-- [x] Lint
-- [x] Production build
+- [x] `/solutions`
+- [x] `/solutions/[slug]`
+- [x] `/request-a-quote`
+- [x] Legacy permanent redirects
+- [x] Public "Solutions" terminology
+- [x] Project `solutions` model
+- [x] `heroImage`
+- [x] Primary public contact usage
+- [x] Removal of deprecated project UI fields
+- [x] Unverified homepage statistics removed
+- [x] Check / lint / production build
 
-## Phase B2 — Homepage Visual Rebuild
+---
+
+## Phase B2 — Homepage
 
 Status: Complete
 
-- [x] Split editorial hero
-- [x] Selected projects section
-- [x] Featured solutions section
-- [x] Cover/material guidance
-- [x] Residential / Commercial / Institutional section
-- [x] Featured project section
+- [x] Editorial hero
+- [x] Selected projects
+- [x] Featured solutions
+- [x] Solution/material guidance
+- [x] Sector context
+- [x] Featured project
 - [x] Process section
-- [x] Closing quote CTA
+- [x] Closing conversion CTA
 - [x] Hero-aware mobile action bar
-- [x] Form-focus action bar behavior
-- [x] Removed legacy homepage visual treatments
-- [x] Removed/reworded unverified homepage claims
-- [x] 320px / 375px responsive checks
-- [x] npm run check
-- [x] npm run lint
-- [x] npm run build
+- [x] Form-focus action-bar behavior
+- [x] Old visual treatments removed
+- [x] Claim-safety cleanup
+- [x] Responsive validation
+- [x] Check / lint / production build
+
+---
 
 ## Phase C1 — Solutions Experience
 
 Status: Complete
 
-- [x] Editorial `/solutions` index (all six solutions, catalogue order)
-- [x] Guidance for visitors unsure which structure they need
-- [x] Reusable `/solutions/[slug]` template
-- [x] Related real projects per solution; zero-project solutions handled
-- [x] Shared contextual WhatsApp messages (`$lib/whatsapp.ts`)
-- [x] Floating WhatsApp on tablet/desktop; mobile keeps the action bar
-- [x] Solution-record copy review (unverified/subjective/geographic claims)
-- [x] Materials comparison and `/solutions` intro copy fixes
-- [x] 320px / 375px responsive checks
-- [x] npm run check
-- [x] npm run lint
-- [x] npm run build
+- [x] Editorial Solutions index
+- [x] Solution detail template
+- [x] Related project proof
+- [x] Zero-project handling
+- [x] Contextual WhatsApp helper
+- [x] Desktop/tablet floating WhatsApp
+- [x] Mobile conversion behavior
+- [x] Solution copy cleanup
+- [x] Shared material guidance
+- [x] Responsive validation
+- [x] Check / lint / production build
 
-## Deferred content cleanup
+Note:
 
-The following wording remains and should be handled in the phase that owns
-the relevant surface:
+The current frontend solution data predates the newly confirmed taxonomy.
+Taxonomy migration should be handled deliberately rather than through
+piecemeal edits.
 
-- settings stat: "Breathable or 100% waterproof"
-  - clean during content/settings cleanup
-- About sector description:
-  - "100% waterproof PVC membrane"
-  - clean during C3
-- Quote form material option:
-  - "100% waterproof PVC"
-  - review during C4
-
-Do not widen C2 to address these.
-
-## Current Phase
-
-Phase C2 — Projects Experience
-
-## Objective
-
-Redesign the Projects index and project detail pages into an image-led,
-editorial portfolio that helps visitors answer:
-
-"Has Capital Shades delivered something similar to what I need?"
-
-Projects should function as the site's strongest proof layer.
-
-Use only verified project data and real project imagery.
+See `decisions.md`.
 
 ---
 
-## In Scope
+## Phase C2 — Projects Experience
 
-### Projects index
+Status: Complete
 
-Redesign `/projects`.
-
-Requirements:
-
-- image-led editorial layout
-- real project photography as the primary proof
-- avoid repetitive equal-sized card grids
-- preserve URL-driven filtering
-- support filtering by sector and solution
-- keep filtered URLs shareable
-- show only verified metadata
-- normalize sector wording
-- gracefully handle zero-result filters
-- avoid fake project counts
-
-Canonical sector labels:
-
-- Residential
-- Commercial
-- Institutional
-
-Do not use "Schools & institutions" as the canonical label.
-
-If a sector currently has no projects, do not expose it as a visible filter
-unless there is a deliberate empty-state reason.
-
-Currently Institutional has no projects, so it should normally remain hidden
-from the visible project filters.
+- [x] Editorial Projects index
+- [x] URL-driven solution/sector filters
+- [x] Canonical sector vocabulary
+- [x] Zero-result states
+- [x] Project detail pages
+- [x] Verified metadata only
+- [x] Project vs solution content separation
+- [x] Accessible project lightbox
+- [x] Related-project logic
+- [x] Project-specific WhatsApp context
+- [x] Project sitemap entries
+- [x] Responsive validation
+- [x] Check / lint / production build
 
 ---
 
-## Project index copy safety
+## Phase C3 — About + Contact
 
-The current `/projects` intro contains "by our team".
+Status: Complete
 
-Remove or neutralize that wording during the redesign.
+### About
 
-Do not replace it with another unverified in-house/team claim.
+- [x] New visual system
+- [x] Business positioning
+- [x] Solutions overview
+- [x] Residential / Commercial / Institutional context
+- [x] Process section
+- [x] Service-area section
+- [x] Selected-project proof
+- [x] Conversion CTA
 
-Prefer descriptive copy such as:
+### Contact
 
-"Selected shade and outdoor structure projects."
+- [x] Above-the-fold Call / WhatsApp / Request Quote actions
+- [x] Email path
+- [x] Contact form preserved
+- [x] Location/service-area support
+- [x] Empty optional fields omitted
+- [x] Project/Solutions/review links
+- [x] Responsive validation
+- [x] Check / lint / production build
 
-or equivalent.
+Note:
 
----
+Discovery completed after C3 confirmed a broader Kenya/East Africa service
+scope and the full Design → Fabrication → Supply → Installation →
+Maintenance lifecycle.
 
-## Project detail pages
-
-Create or redesign:
-
-`/projects/[slug]`
-
-Use a reusable project detail template.
-
-The page should support:
-
-- breadcrumb
-- project title
-- solution(s)
-- sector
-- hero image
-- gallery
-- Request a Quote CTA
-- contextual WhatsApp CTA
-- location when verified
-- completion date when verified
-- requirement when verified
-- delivered solution when verified
-- related projects
-- final conversion CTA
-
-Unavailable fields must be omitted cleanly.
-
-Do not show empty labels or placeholder metadata.
+Relevant content should be updated during the next content-alignment pass
+rather than by reverting completed layouts.
 
 ---
 
-## Project detail structure
+# Current Phase
 
-Preferred structure:
+## Phase C4 — Request-a-Quote Flow
 
-1. Breadcrumb
+Status: Planned
 
-2. Project introduction
-   - title
-   - solution(s)
-   - sector
-   - Request a Quote
-   - Ask about a similar project
+### Objective
 
-3. Hero image
+Replace the legacy estimator-style enquiry with a focused, low-friction
+multi-step quote request aligned with Capital Shades' real sales process.
 
-4. Gallery
-   - only when additional images exist
-   - no duplicated hero image
-
-5. Project details
-   - Location — only when present
-   - Completed — only when present
-   - Solution(s)
-   - Sector
-
-6. Requirement
-   - only when present
-
-7. Delivered solution
-   - only when present
-
-8. Related projects
-
-9. Final quote / WhatsApp CTA
-
-The page must still feel intentional and complete when the only available
-content is:
-
-- title
-- sector
-- solution
-- hero image
-
-Do not pad sparse projects with invented copy.
+The experience should help the Capital Shades team collect enough information
+for an initial assessment while making clear that the final quotation follows
+a site visit and confirmed measurements.
 
 ---
 
-## Filtering
+## Quote flow
 
-Preserve URL-based filtering.
+### Step 1 — What do you need?
 
-Examples:
+Capture:
 
-`/projects?sector=residential`
+- Solution / structure type
+- Not sure — help me choose
+- Intended use
 
-`/projects?solution=car-park-shades`
+Use the current working solution taxonomy:
 
-Use canonical internal values.
+- Car Parking Shades
+- Shade Sails
+- Canopies
+- Awnings
+- Pergolas & Gazebos
+- Tensile & Custom Structures
+- Screen Fencing
+- Parasols
 
-Sector values:
-
-- residential
-- commercial
-- institutional
-
-Solution values:
-
-- solution slugs
-
-Requirements:
-
-- active filter state should be visually clear
-- provide a simple reset to All
-- filters must remain usable on mobile
-- do not expose dead filters by default
-- do not let the filter UI dominate the photography
+Tents should not appear as a primary option.
 
 ---
 
-## Project → Solution relationship
+### Step 2 — Tell us about the site
 
-Projects may belong to one or more solutions.
+Capture:
 
-Use the current `solutions: string[]` model.
+- Location
+- Approximate width
+- Approximate length
+- Number of vehicles where relevant
+- Material preference if known
+- Site photos
+- Additional project details
 
-Where practical:
+Measurements should use simple dimensions rather than requiring square metres.
 
-- display the primary or relevant solution
-- link solution labels back to `/solutions/[slug]`
-- allow solution filters to match projects with multiple solutions
+Example:
 
-Do not fall back to deprecated `product` fields in UI components.
+Width:
+`6 m`
 
----
+Length:
+`5 m`
 
-## Contextual WhatsApp
-
-Extend the shared WhatsApp system from C1.
-
-Project detail pages should use a project-specific message such as:
-
-"Hi Capital Shades, I was looking at the [Project Name] project on your
-website and would like to discuss something similar."
-
-All appropriate WhatsApp controls on the page should inherit this project
-context:
-
-- floating WhatsApp
-- mobile action bar
-- mobile header menu
-- project CTA
-- final CTA
-
-Do not hard-code WhatsApp numbers.
-
-The Projects index can keep the general WhatsApp message unless the user
-clicks a project-specific enquiry action.
+Helper copy should make clear that rough measurements are acceptable and will
+be confirmed during the site visit.
 
 ---
 
-## Related projects
+## Conditional fields
 
-Use actual content relationships.
+Car Parking Shades should ask for vehicle count.
 
-Preferred relevance order:
+Suggested choices:
 
-1. same solution
-2. same sector
-3. another featured/recent project
+- 1
+- 2
+- 3–5
+- 6–10
+- 10+
+- Not sure
 
-Do not show the current project again.
+Do not show irrelevant vehicle questions for unrelated solutions.
 
-Do not claim projects are "similar" unless the relationship is based on
-solution/sector data.
-
-Preferred headings:
-
-- Related projects
-- More work in this solution
-- More projects
+Future conditional questions may be added only where they materially improve
+lead quality.
 
 ---
 
-## Gallery
+## Site photos
 
-Use existing project gallery infrastructure where practical.
+Site-photo upload is an important part of this phase.
 
-Requirements:
+Photos should be strongly encouraged but not mandatory.
 
-- responsive
-- real project images only
-- no duplicate hero image
-- accessible if modal/lightbox behavior is used
-- meaningful alt text
-- keyboard navigation if interactive
+Suggested supporting message:
 
-Do not add a large carousel dependency if a simpler responsive gallery works.
+> Add photos of the site
 
----
+> Photos help the team understand the space and may help Capital Shades
+> prepare an initial estimate before the site visit.
 
-## Visual Direction
+Support multiple images where practical.
 
-Follow `docs/design-direction.md`.
-
-Projects should be more image-led than Solutions.
-
-Prefer:
-
-- large project imagery
-- staggered compositions
-- varied image proportions
-- subtle captions
-- warm-white space
-- occasional charcoal sections
-- thin gold rules
-- restrained teal
-
-Avoid:
-
-- SaaS card grids
-- heavy borders around every item
-- large rounded cards
-- gradients
-- heavy shadows
-- decorative overlays
-- badge-heavy metadata
+Do not make large uploads block or break the form experience.
 
 ---
 
-## Geographic / SEO readiness
+### Step 3 — How should we contact you?
 
-Do not perform the SEO optimization phase yet.
+Capture:
 
-However, preserve project location as a first-class optional field.
+- Name
+- Phone
+- Email
+- Preferred contact method
 
-When verified location content exists, project pages should be able to render
-it naturally.
+Preferred contact options:
 
-Do not invent project locations for SEO.
+- Phone
+- WhatsApp
+- Email
 
-Do not add location keywords to titles or copy unless supported by real data.
-
-This phase should keep the project architecture ready for later local SEO.
+Phone and email validation should remain practical for East African and
+international enquiries.
 
 ---
 
-## Floating WhatsApp / Mobile Action Bar
+## Quote expectations
 
-Preserve C1 behavior.
+The form should distinguish between:
 
-Desktop/tablet:
+- initial assessment / estimate;
+- final quotation.
 
-- floating WhatsApp remains available
-- hide it where conversion controls already make it redundant
-- do not allow it to cover footer content
+Use wording consistent with:
 
-Mobile:
+> Project details and site photos can help the team make an initial
+> assessment. A final quotation follows the site visit and confirmed
+> measurements.
 
-- no separate floating WhatsApp
-- preserve:
-  Call | WhatsApp | Request a Quote
+Do not imply that form submission creates a binding quotation.
 
-Project pages should pass project context into shared WhatsApp controls.
+---
 
-Do not regress:
+## Site visit
 
-- hero-aware action-bar behavior
-- form-focus hiding
-- footer visibility behavior
+Site visit is part of the normal process.
+
+Do not state that every site visit is free.
+
+Safe wording:
+
+> Site visits within Nairobi and nearby areas may be provided at no cost,
+> depending on location.
+
+Exact commercial policy may be refined later.
+
+---
+
+## Warranty
+
+Where warranty information appears near the quote flow, use only:
+
+> Selected structures are covered by warranties of up to 10 years.
+> Final warranty terms are provided with the quotation and contract documents.
+
+Do not introduce stronger wording.
+
+---
+
+## Submission destination
+
+Enquiries should reach the Capital Shades team using the existing confirmed
+contact destination.
+
+Confirmed public email:
+
+`info@capitalshades.co.ke`
+
+Preserve any existing server-side delivery/fallback infrastructure unless a
+change is necessary for photo uploads.
+
+---
+
+## WhatsApp fallback
+
+Preserve a useful WhatsApp fallback.
+
+If form submission fails, the fallback message should carry as much entered
+project context as practical without becoming unreadably long.
+
+Do not expose uploaded files through unsafe public URLs.
 
 ---
 
@@ -424,20 +353,18 @@ Do not regress:
 
 Preserve or improve:
 
-- semantic headings
-- focus-visible styles
 - keyboard navigation
-- accessible filters
-- meaningful alt text
-- accessible gallery interactions
-- appropriate aria labels
-- reasonable tap targets
-
-Do not hide essential project information behind hover-only interactions.
+- labelled fields
+- error summaries/messages
+- focus management between steps
+- screen-reader step/progress information
+- accessible file input
+- reduced-motion preferences
+- adequate mobile tap targets
 
 ---
 
-## Responsive Requirements
+## Responsive requirements
 
 Verify:
 
@@ -446,79 +373,148 @@ Verify:
 - 375px
 - 320px
 
-Requirements:
+The form should remain comfortable with the on-screen phone keyboard open.
 
-- no horizontal overflow
-- filters remain usable
-- project titles wrap cleanly
-- captions remain readable
-- galleries remain navigable
-- CTAs remain usable
-- floating/mobile controls do not obscure content
+The mobile action bar should not cover focused form fields.
 
 ---
 
-## Content Rules
+## C4 content cleanup
 
-Do not invent:
+Review and update the current quote option:
 
-- location
-- client name
-- dimensions
-- completion date
-- project duration
-- material
-- challenge
-- requirement
-- delivered solution
-- technical specifications
+`100% waterproof PVC`
 
-Only render these when actual content exists.
+Use neutral wording such as:
+
+`Waterproof PVC`
+
+or another accurate option matching the solution/material model.
 
 ---
 
-## Out of Scope
-
-- owner-confirmed project content population
-- final project taxonomy changes
-- Sanity Studio migration
-- About page redesign
-- Contact page redesign
-- quote-flow redesign
-- final SEO optimization
-- analytics
-- testimonials
-
----
-
-## Acceptance Criteria
-
-- `/projects` follows the new visual system
-- photography is the primary proof
-- URL-driven filtering still works
-- sector labels are normalized
-- dead filters are not exposed unnecessarily
-- `/projects/[slug]` works for all current projects
-- detail pages remain intentional with sparse metadata
-- solution links work
-- project-specific WhatsApp context works
-- related projects use actual relationships
-- no unverified project facts are introduced
-- no duplicate floating WhatsApp on mobile
-- no horizontal overflow at 320px / 375px
-- accessibility is preserved
-- npm run check passes
-- npm run lint passes
-- npm run build passes
-
----
-
-## Phase Boundary
-
-Stop after C2.
+## Out of scope
 
 Do not begin:
 
-- C3 About / Contact
-- C4 Quote flow
-- C5 Sanity migration
+- Sanity Studio migration
+- final SEO optimization
+- location landing pages
+- CRM/customer-management system
+- invoicing system
+- final analytics implementation
+
+---
+
+## Acceptance criteria
+
+- [ ] Three-step quote flow
+- [ ] Not sure — help me choose
+- [ ] Current working solution taxonomy
+- [ ] Location field
+- [ ] Width × length inputs
+- [ ] Conditional vehicle-count input
+- [ ] Prominent optional multi-photo upload
+- [ ] Material preference
+- [ ] Intended use / project notes
+- [ ] Name / phone / email
+- [ ] Preferred contact method
+- [ ] Initial estimate vs final quote wording
+- [ ] Final-quote-after-site-visit expectation
+- [ ] Warranty wording remains conditional
+- [ ] Submission still reaches the team
+- [ ] WhatsApp fallback remains functional
+- [ ] Accessible multi-step behavior
+- [ ] No mobile overflow
+- [ ] `npm run check` passes
+- [ ] `npm run lint` passes
+- [ ] `npm run build` passes
+
+---
+
+# Remaining roadmap
+
+## Phase C5 — Sanity / Content Model Migration
+
+Planned.
+
+Key work:
+
+- final solution taxonomy;
+- solution records;
+- project schema;
+- galleries;
+- general locations;
+- completion year;
+- scope;
+- featured project controls;
+- public settings;
+- service areas;
+- blog/articles;
+- editorial workflow.
+
+---
+
+## Phase C6 — Content Alignment
+
+Planned.
+
+Use verified discovery results to update:
+
+- homepage
+- About
+- Solutions
+- process wording
+- geographic scope
+- warranty language
+- materials/sourcing
+- institutional positioning.
+
+---
+
+## Phase C7 — SEO / Local Search
+
+Planned.
+
+High priority due to owner goals.
+
+Expected work includes:
+
+- keyword/search-intent research
+- page titles/descriptions
+- headings/content
+- technical SEO
+- structured data
+- internal linking
+- canonical URLs
+- project location signals
+- Nairobi/local search
+- Kenya/East Africa positioning
+- Google Business Profile alignment
+- sitemap
+- robots
+- Search Console
+- blog/content opportunities
+- Core Web Vitals
+
+---
+
+## Phase C8 — Launch QA
+
+Planned.
+
+Expected work:
+
+- responsive QA
+- accessibility
+- forms
+- WhatsApp/call links
+- metadata
+- redirects
+- broken links
+- image optimization
+- performance
+- analytics
+- production environment
+- domain/DNS
+- monitoring

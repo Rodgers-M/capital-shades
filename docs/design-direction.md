@@ -1,100 +1,54 @@
-## Solution taxonomy
+# Capital Shades — Design Direction
 
-Until the business discovery session confirms the final service taxonomy,
-the existing solution records are the source of truth:
+This document defines the intended user experience and visual/product direction
+for the Capital Shades website.
 
-- Car Park Shades
-- Tensile Membrane Structures
-- Shade Sails
-- Canopies
-- Parasols
-- Pool Shades
-
-Do not invent, merge, rename or remove solution categories yet.
-
-The homepage does not need to give every solution equal prominence.
-It may feature the strongest solution categories and link to the complete
-Solutions index.
-
-The earlier exploratory categories such as Awnings, Pergolas and Custom
-Structures are not approved business categories.
+Implementation tasks belong in `implementation.md`.
+Business and architecture decisions belong in `decisions.md`.
 
 ---
 
-## Sectors
+## Brand direction
 
-The canonical customer-context vocabulary is:
+Preserve the existing Capital Shades logo.
 
-- Residential
-- Commercial
-- Institutional
+The website should feel like an evolution of the existing brand rather than a
+new identity.
 
-These are cross-cutting content dimensions rather than separate duplicated
-site hierarchies.
+Approved palette direction:
 
-Sector UI must not display fake project counts or imply portfolio evidence
-that does not exist.
+- warm white / white — dominant canvas
+- charcoal / near-black — structural foundation
+- restrained gold — premium architectural accent
+- existing Capital Shades teal — secondary brand signature
 
-Where a sector has insufficient project content, do not link to an empty
-filtered portfolio.
+The owner has approved this black / white / gold / teal direction.
 
 ---
 
-## Homepage direction
+## Visual character
 
-The homepage is a routing and credibility layer, not an exhaustive company
-brochure.
+The website should feel:
 
-Preferred content rhythm:
+- architectural
+- professional
+- established
+- premium
+- practical
+- image-led
+- restrained
+- credible
 
-1. Hero
-2. Selected project proof
-3. Featured solutions
-4. Solution guidance / comparison
-5. Residential / Commercial / Institutional context
-6. Featured project case study
-7. How we work
-8. Final quote CTA
-9. Footer
+Avoid:
 
-### Hero
-
-The hero should balance an expressive brand statement with literal business
-clarity.
-
-It should:
-
-- clearly explain what Capital Shades provides within a few seconds
-- use a strong real project image
-- prioritize Request a Quote
-- use View Projects as a secondary CTA
-- avoid unverified geographic or technical claims
-
-### Projects
-
-Project imagery should appear early.
-
-Prefer:
-
-- asymmetric editorial layouts
-- large photography
-- minimal card chrome
-- project metadata only where verified
-
-Avoid generic three-column card grids.
-
-### Solutions
-
-Use strong editorial presentation rather than repetitive SaaS-style cards.
-
-Until taxonomy is confirmed, use the existing solution records.
-
-### Featured project
-
-Include one deeper project story when enough verified data exists.
-
-Until then, the layout may exist but unavailable fields should be omitted.
-Never invent challenge, materials, location, completion date or technical data.
+- generic construction templates
+- SaaS dashboards/card grids
+- excessive rounded cards
+- gradients used decoratively
+- heavy shadows
+- pill-heavy UI
+- fake luxury styling
+- decorative clutter
 
 ---
 
@@ -102,37 +56,410 @@ Never invent challenge, materials, location, completion date or technical data.
 
 Typography should feel architectural, editorial and restrained.
 
-- Use the existing font stack for now.
+- Use the existing font stack unless a deliberate typography phase changes it.
 - Prefer medium and semibold weights.
 - Avoid widespread extrabold typography.
-- Large headings should gain impact through scale, spacing and composition
-  rather than extreme font weight.
-- Uppercase is appropriate for small eyebrow labels and metadata.
-- Body copy should remain highly readable.
+- Create hierarchy primarily through scale, spacing and composition.
+- Use uppercase sparingly for eyebrows and metadata.
+- Keep body text highly readable.
 
 ---
 
 ## Imagery
 
-Photography is a primary design element.
+Photography is one of the site's strongest credibility assets.
 
 Prefer:
 
 - real Capital Shades project imagery
-- large image-led compositions
+- large photographic compositions
 - asymmetric crops
-- project details
-- strong whitespace around images
+- natural project details
+- installation/fabrication imagery where useful
+- strong whitespace around photography
 
 Avoid:
 
-- generic stock images
-- repeated use of the same project image within one viewport
-- heavy image effects
-- decorative gradients
+- generic stock imagery
+- AI-generated project imagery
+- repeated use of the same image within one page
+- excessive image effects
+- decorative overlays
 
-A simple dark overlay on photography is acceptable where required for text
-legibility.
+A simple dark overlay may be used when required for text legibility.
+
+---
+
+## Information architecture
+
+Primary navigation:
+
+- Solutions
+- Projects
+- About
+- Contact
+
+Primary conversion action:
+
+- Request a Quote
+
+Blog remains available but does not need to occupy primary navigation.
+
+---
+
+## Solution taxonomy
+
+Current working top-level solution families:
+
+1. Car Parking Shades
+2. Shade Sails
+3. Canopies
+4. Awnings
+5. Pergolas & Gazebos
+6. Tensile & Custom Structures
+7. Screen Fencing
+8. Parasols
+
+Tents are not a primary promoted solution.
+
+Applications and variants such as:
+
+- carports
+- retractable awnings
+- pool shades
+- playground shades
+- hospitality shades
+- walkway covers
+- car wash structures
+- privacy screens
+- dust screens
+
+should be surfaced contextually rather than automatically becoming separate
+top-level pages.
+
+---
+
+## Sectors
+
+Canonical customer contexts:
+
+- Residential
+- Commercial
+- Institutional
+
+These should function as cross-cutting dimensions.
+
+Institutional work is a strategic growth area and should remain visibly
+represented even if the existing portfolio is currently weighted more heavily
+toward residential and commercial work.
+
+Do not create fake project counts or fabricate institutional portfolio proof.
+
+---
+
+## Content model
+
+Solutions answer:
+
+> What can Capital Shades build?
+
+Applications answer:
+
+> Where or how can this structure be used?
+
+Sectors answer:
+
+> Is this relevant to my type of project?
+
+Projects answer:
+
+> Has Capital Shades delivered something similar?
+
+Projects should connect:
+
+- solution(s);
+- sector;
+- general location where publishable;
+- completion year where known;
+- project imagery;
+- project scope where known.
+
+---
+
+## Homepage direction
+
+The homepage is a routing and credibility layer, not an exhaustive brochure.
+
+Preferred rhythm:
+
+1. Hero
+2. Selected project proof
+3. Featured solutions
+4. Solution guidance
+5. Residential / Commercial / Institutional context
+6. Featured project
+7. How Capital Shades works
+8. Final quote CTA
+9. Footer
+
+---
+
+## Hero
+
+The hero should:
+
+- immediately explain the business;
+- use real project imagery;
+- prioritize Request a Quote;
+- offer View Projects as a secondary path;
+- avoid unnecessary claims or statistics.
+
+Business scope may now accurately reference:
+
+- design;
+- fabrication;
+- supply;
+- installation.
+
+Geographic copy may accurately reference:
+
+- Nairobi base;
+- Kenya;
+- East Africa.
+
+Do not overload the hero with every capability.
+
+---
+
+## Solutions experience
+
+Solutions should use an editorial, image-led presentation.
+
+Avoid repetitive equal-sized SaaS cards.
+
+Each solution page should help visitors understand:
+
+- what the structure is;
+- common applications;
+- available relevant options/materials;
+- real related projects;
+- how to ask about that solution.
+
+Customer search terminology may appear naturally in copy.
+
+Example:
+
+Car Parking Shades may naturally mention:
+
+- car shades
+- carports
+- car parking shades
+
+without creating separate duplicate pages for every phrase.
+
+---
+
+## Projects experience
+
+Projects are the site's strongest proof layer.
+
+Prefer:
+
+- large imagery;
+- masonry/editorial layouts;
+- restrained captions;
+- verified metadata only;
+- contextual links back to relevant solutions.
+
+Project detail pages should still feel complete when project metadata is sparse.
+
+Do not invent narrative content to fill gaps.
+
+Project-specific content must remain distinct from generic solution content.
+
+---
+
+## About direction
+
+About should establish:
+
+- who Capital Shades is;
+- what lifecycle the company handles;
+- who it serves;
+- where it operates;
+- how projects typically proceed;
+- why the company is credible.
+
+Useful confirmed capability language includes:
+
+- Design
+- Fabrication
+- Supply
+- Installation
+- Maintenance and repair
+- After-sales support
+
+Avoid a long generic company-history page.
+
+---
+
+## Geographic presentation
+
+Capital Shades is based in Nairobi and serves projects across Kenya and East
+Africa.
+
+Use this broad positioning sparingly.
+
+For local relevance, naturally emphasize Nairobi and nearby areas such as:
+
+- Kiambu
+- Machakos
+- Kajiado
+
+when contextually appropriate.
+
+Do not keyword-stuff location names.
+
+General estate/project locations may be shown where approved.
+
+Do not expose exact private residential addresses.
+
+---
+
+## Quote-flow direction
+
+The quote experience should be a focused multi-step flow.
+
+Preferred structure:
+
+### Step 1 — What do you need?
+
+- Structure type
+- Not sure — help me choose
+- Intended use
+
+### Step 2 — Tell us about the site
+
+- Location
+- Approximate width
+- Approximate length
+- Number of vehicles where relevant
+- Material preference if known
+- Site photos
+- Additional details
+
+### Step 3 — How should we contact you?
+
+- Name
+- Phone
+- Email
+- Preferred contact:
+  - Phone
+  - WhatsApp
+  - Email
+
+Site photos should receive prominent treatment because they can help the team
+understand the site and prepare an initial estimate.
+
+Photos should be strongly encouraged rather than mandatory.
+
+The website should make clear that:
+
+- rough dimensions are acceptable;
+- Capital Shades confirms measurements during the site visit;
+- a final quotation follows the site visit and confirmed measurements.
+
+---
+
+## Conversion model
+
+Visitors should always have low-friction paths to:
+
+- Call
+- WhatsApp
+- Request a Quote
+
+Email remains important, particularly for organisations and institutional
+customers.
+
+Do not force every visitor through the quote form.
+
+Desktop/tablet may use a persistent floating WhatsApp control.
+
+Mobile should use:
+
+**Call | WhatsApp | Request a Quote**
+
+without an additional floating WhatsApp button.
+
+---
+
+## Trust signals
+
+Prefer concrete verified evidence over generic marketing claims.
+
+Useful trust signals include:
+
+- real completed projects;
+- project photography;
+- full lifecycle capability;
+- maintenance and after-sales support;
+- materials sourced from suppliers in South Africa and France;
+- selected warranties of up to 10 years;
+- customer reviews where verified;
+- clear process;
+- general project locations;
+- completion years.
+
+Approved warranty wording:
+
+> Selected structures are covered by warranties of up to 10 years.
+> Final warranty terms are provided with the quotation and contract documents.
+
+Do not reduce conditional warranty information to a blanket guarantee.
+
+---
+
+## Material language
+
+Use descriptive technical wording.
+
+Examples:
+
+- shade mesh
+- waterproof PVC membrane
+- metal roofing
+
+Avoid unnecessary absolute claims such as:
+
+- 100% waterproof
+- indestructible
+- permanent
+- maintenance-free
+
+unless supported by explicit manufacturer documentation.
+
+---
+
+## SEO direction
+
+Google visibility is a major business goal.
+
+Design should support SEO rather than fight it.
+
+This includes:
+
+- crawlable solution pages;
+- meaningful headings;
+- real text content;
+- project detail pages;
+- internal linking;
+- location-aware project content;
+- fast loading;
+- good mobile usability;
+- CMS-managed project updates.
+
+Do not compromise the editorial design by turning pages into keyword lists.
 
 ---
 
@@ -142,11 +469,12 @@ Prefer:
 
 - warm white space
 - charcoal sections used deliberately
-- thin gold rules and accents
-- restrained teal brand moments
+- thin gold rules
+- restrained teal moments
 - editorial grids
 - square or lightly rounded geometry
-- varied section compositions
+- varied section composition
+- prominent photography
 
 Avoid:
 
@@ -156,3 +484,4 @@ Avoid:
 - decorative blueprint textures
 - heavy shadows
 - unnecessary illustration
+- fake statistics

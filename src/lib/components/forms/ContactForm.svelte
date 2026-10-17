@@ -44,7 +44,7 @@
 {#if status === 'success'}
 	<div class="flex h-full flex-col items-center justify-center py-12 text-center" role="status">
 		<CheckCircle2Icon class="size-14 text-success" />
-		<h2 class="mt-4 text-2xl font-extrabold">Message sent</h2>
+		<h2 class="mt-4 text-2xl font-medium tracking-tight">Message sent</h2>
 		<p class="mt-2 max-w-sm text-muted-foreground">
 			Thanks {form.name.split(' ')[0]}. We'll get back to you on {form.phone} shortly.
 		</p>
@@ -60,8 +60,14 @@
 		</Button>
 	</div>
 {:else}
-	<form method="POST" action="/api/enquiry" {onsubmit} class="space-y-4">
-		<h2 class="text-xl font-extrabold">Send an enquiry</h2>
+	<!-- The page supplies the visible heading -->
+	<form
+		method="POST"
+		action="/api/enquiry"
+		{onsubmit}
+		aria-label="Send a message"
+		class="space-y-4"
+	>
 		<input type="hidden" name="kind" value="contact" />
 		<input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" />
 
@@ -150,7 +156,7 @@
 			class="h-12 w-full text-base sm:w-auto sm:px-8"
 			disabled={status === 'submitting'}
 		>
-			{status === 'submitting' ? 'Sending…' : 'Send Enquiry'}
+			{status === 'submitting' ? 'Sending…' : 'Send message'}
 		</Button>
 	</form>
 {/if}
