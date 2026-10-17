@@ -157,7 +157,7 @@ rather than by reverting completed layouts.
 
 ## Phase C4 — Request-a-Quote Flow
 
-Status: Planned
+Status: Complete
 
 ### Objective
 
@@ -408,27 +408,27 @@ Do not begin:
 
 ## Acceptance criteria
 
-- [ ] Three-step quote flow
-- [ ] Not sure — help me choose
-- [ ] Current working solution taxonomy
-- [ ] Location field
-- [ ] Width × length inputs
-- [ ] Conditional vehicle-count input
-- [ ] Prominent optional multi-photo upload
-- [ ] Material preference
-- [ ] Intended use / project notes
-- [ ] Name / phone / email
-- [ ] Preferred contact method
-- [ ] Initial estimate vs final quote wording
-- [ ] Final-quote-after-site-visit expectation
-- [ ] Warranty wording remains conditional
-- [ ] Submission still reaches the team
-- [ ] WhatsApp fallback remains functional
-- [ ] Accessible multi-step behavior
-- [ ] No mobile overflow
-- [ ] `npm run check` passes
-- [ ] `npm run lint` passes
-- [ ] `npm run build` passes
+- [x] Three-step quote flow
+- [x] Not sure — help me choose
+- [x] Current working solution taxonomy
+- [x] Location field
+- [x] Width × length inputs
+- [x] Conditional vehicle-count input
+- [x] Prominent optional multi-photo upload
+- [x] Material preference
+- [x] Intended use / project notes
+- [x] Name / phone / email
+- [x] Preferred contact method
+- [x] Initial estimate vs final quote wording
+- [x] Final-quote-after-site-visit expectation
+- [x] Warranty wording remains conditional
+- [x] Submission still reaches the team
+- [x] WhatsApp fallback remains functional
+- [x] Accessible multi-step behavior
+- [x] No mobile overflow
+- [x] `npm run check` passes
+- [x] `npm run lint` passes
+- [x] `npm run build` passes
 
 ---
 
@@ -518,3 +518,19 @@ Expected work:
 - production environment
 - domain/DNS
 - monitoring
+- enquiry endpoint rate limiting
+
+### Enquiry endpoint rate limiting
+
+`/api/enquiry` is protected only by a honeypot field. Since C4, a quote
+request can carry about 4 MB of site photos that are emailed as attachments,
+so a spam burst could fill the inbox and use up the Resend quota, making real
+enquiries fail.
+
+Before launch:
+
+- add a per-IP limit on `/api/enquiry` (host firewall rule, or a KV/edge
+  counter keyed on `getClientAddress()`), returning a friendly 429 that keeps
+  the WhatsApp fallback usable;
+- consider a minimum form-completion time as a cheap extra bot check;
+- confirm the Resend plan's sending and attachment quotas.

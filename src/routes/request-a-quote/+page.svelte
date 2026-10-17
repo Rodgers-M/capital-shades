@@ -1,44 +1,76 @@
 <script lang="ts">
-	import { MapPinIcon, PhoneIcon, RulerIcon } from '@lucide/svelte';
 	import Seo from '$lib/components/Seo.svelte';
-	import PageHero from '$lib/components/PageHero.svelte';
-	import QuoteEstimator from '$lib/components/forms/QuoteEstimator.svelte';
+	import QuoteFlow from '$lib/components/quote/QuoteFlow.svelte';
+	import QuoteAside from '$lib/components/quote/QuoteAside.svelte';
+	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import { QUOTE_LABEL } from '$lib/nav';
+	import { whatsappHref } from '$lib/whatsapp';
 
+	/*
+	 * Request a Quote: a short editorial header, then the three-step flow with
+	 * expectations and other contact routes alongside. The phone action bar is
+	 * hidden here, so phones get Call/WhatsApp in the header instead.
+	 */
 	let { data } = $props();
-
-	// The location perk only shows once the owner has confirmed a location
-	const perks = $derived([
-		{ icon: RulerIcon, text: 'Site evaluation & measurement' },
-		...(data.settings.location
-			? [{ icon: MapPinIcon, text: `Based in ${data.settings.location}` }]
-			: []),
-		{ icon: PhoneIcon, text: 'We call you back to arrange a visit' }
-	]);
+	const settings = $derived(data.settings);
 </script>
 
 <Seo
 	title={QUOTE_LABEL}
-	description="Tell us about your shade project in a few taps and we'll call you to arrange a site visit."
+	description="Tell {settings.name} what you need and where the site is, and add site photos if you have them. A final quotation follows a site visit and confirmed measurements."
 />
 
-<PageHero
-	eyebrow={QUOTE_LABEL}
-	title="Plan your shade in a few taps."
-	description="Three quick choices and your number — then we'll call you to arrange a site visit."
-	image={data.products[0]?.image}
-	compact
->
-	<ul class="mt-4 hidden flex-wrap gap-x-6 gap-y-2 text-sm text-on-ink-muted sm:flex">
-		{#each perks as perk (perk.text)}
-			<li class="inline-flex items-center gap-2">
-				<perk.icon class="size-4 text-primary" />
-				{perk.text}
-			</li>
-		{/each}
-	</ul>
-</PageHero>
+<section aria-labelledby="quote-title" class="container-page pt-10 md:pt-14">
+	<div class="grid gap-5 lg:grid-cols-12 lg:items-end lg:gap-16">
+		<div class="lg:col-span-7">
+			<p class="flex items-center gap-3 eyebrow text-primary-strong">
+				<span class="h-px w-10 bg-primary" aria-hidden="true"></span>
+				{QUOTE_LABEL}
+			</p>
+			<h1
+				id="quote-title"
+				class="mt-5 text-[2.125rem] leading-[1.04] font-medium tracking-[-0.025em] text-balance sm:mt-6 sm:text-6xl"
+			>
+				Tell us about your project.
+			</h1>
+		</div>
+		<p class="max-w-xl leading-relaxed text-muted-foreground sm:text-lg lg:col-span-5">
+			Three short steps. Project details and site photos help us make an initial assessment; your
+			final quotation follows a site visit and confirmed measurements.
+		</p>
+	</div>
 
-<section class="relative container-page -mt-10 pb-8">
-	<QuoteEstimator settings={data.settings} />
+	<!-- Phones and tablets: the aside with these routes sits below the form -->
+	<p
+		class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-foreground/15 pt-4 text-sm text-muted-foreground lg:hidden"
+	>
+		Prefer to talk?
+		<a
+			href="tel:+{settings.primaryPhone.number}"
+			class="inline-flex min-h-11 items-center font-semibold text-foreground underline decoration-primary underline-offset-4"
+		>
+			Call {settings.primaryPhone.display}
+		</a>
+		<a
+			href={whatsappHref(settings)}
+			target="_blank"
+			rel="noopener"
+			class="inline-flex min-h-11 items-center gap-1.5 font-semibold text-foreground underline decoration-primary underline-offset-4"
+		>
+			<WhatsAppIcon class="size-4 text-brand-strong" />
+			WhatsApp
+			<span class="sr-only">(opens in a new tab)</span>
+		</a>
+	</p>
 </section>
+
+<div class="container-page pt-10 pb-20 md:pt-14 md:pb-28">
+	<div class="grid gap-16 lg:grid-cols-12 lg:gap-16">
+		<div class="min-w-0 lg:col-span-7">
+			<QuoteFlow {settings} />
+		</div>
+		<div class="lg:col-span-4 lg:col-start-9">
+			<QuoteAside {settings} />
+		</div>
+	</div>
+</div>

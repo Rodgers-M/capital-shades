@@ -17,10 +17,7 @@
 	let errorMessage = $state('');
 
 	const whatsappFallback = $derived(
-		whatsappLink(
-			settings.whatsapp.number,
-			summarise({ kind: 'contact', application: '', size: '', material: '', ...form })
-		)
+		whatsappLink(settings.whatsapp.number, summarise({ kind: 'contact', ...form }))
 	);
 
 	// Without JS the form posts to /api/enquiry and is redirected to /thank-you.

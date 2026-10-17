@@ -76,8 +76,8 @@ export const hasHero = (pathname: string) =>
 	pathname.startsWith(`${SOLUTIONS_HREF}/`) ||
 	pathname.startsWith(`${PROJECTS_HREF}/`);
 
-/** Pages that end with their own quote section, so the footer skips its band. */
+/** Pages that end with (or are) their own quote section, so the footer skips its band. */
 export const hasClosingCta = (pathname: string) =>
-	['/', '/about', '/contact'].includes(pathname) ||
+	['/', '/about', '/contact', QUOTE_HREF].includes(pathname) ||
 	pathname.startsWith(`${SOLUTIONS_HREF}/`) ||
 	pathname.startsWith(`${PROJECTS_HREF}/`);

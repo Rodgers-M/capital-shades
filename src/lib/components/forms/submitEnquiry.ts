@@ -3,18 +3,23 @@ export type SubmitResult =
 	| { status: 'invalid'; errors: Record<string, string> }
 	| { status: 'error'; message: string };
 
-/** POST a form to /api/enquiry as JSON-accepting fetch (no page reload). */
-export async function submitEnquiry(form: HTMLFormElement): Promise<SubmitResult> {
+/**
+ * POST a form (or prepared form data, e.g. with downsized photos) to
+ * /api/enquiry as a JSON-accepting fetch (no page reload).
+ */
+export async function submitEnquiry(body: HTMLFormElement | FormData): Promise<SubmitResult> {
 	try {
 		const response = await fetch('/api/enquiry', {
 			method: 'POST',
-			body: new FormData(form),
+			body: body instanceof FormData ? body : new FormData(body),
 			headers: { accept: 'application/json' }
 		});
-		const body = await response.json().catch(() => ({}));
+		const json = await response.json().catch(() => ({}));
 		if (response.ok) return { status: 'success' };
-		if (response.status === 400 && body.errors) return { status: 'invalid', errors: body.errors };
-		return { status: 'error', message: body.message ?? 'Something went wrong.' };
+		if (response.status === 400 && json.errors) return { status: 'invalid', errors: json.errors };
+		if (response.status === 413)
+			return { status: 'error', message: 'Your photos were too large to send.' };
+		return { status: 'error', message: json.message ?? 'Something went wrong.' };
 	} catch {
 		return { status: 'error', message: 'Could not reach the server. Check your connection.' };
 	}

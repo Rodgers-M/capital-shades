@@ -18,6 +18,9 @@
 			>{data.settings.primaryPhone.display}</a
 		>.
 	</p>
+	<p class="mt-3 max-w-md text-muted-foreground">
+		For quote requests, a final quotation follows the site visit and confirmed measurements.
+	</p>
 	<div class="mt-8 flex gap-3">
 		<Button href="/projects" variant="outline">See our projects</Button>
 		<Button href="/">Back to home</Button>

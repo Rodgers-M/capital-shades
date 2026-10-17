@@ -9,8 +9,11 @@
 		required = false,
 		placeholder,
 		autocomplete,
+		inputmode,
+		hint,
 		error,
 		multiline = false,
+		rows = 5,
 		value = $bindable(''),
 		input = $bindable()
 	}: {
@@ -21,12 +24,20 @@
 		required?: boolean;
 		placeholder?: string;
 		autocomplete?: import('svelte/elements').FullAutoFill;
+		inputmode?: 'text' | 'decimal' | 'numeric' | 'tel' | 'email';
+		/** Helper text under the label */
+		hint?: string;
 		error?: string;
 		multiline?: boolean;
+		rows?: number;
 		value?: string;
 		/** The input/textarea element, e.g. to focus it */
 		input?: HTMLElement;
 	} = $props();
+
+	const describedBy = $derived(
+		[hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(' ') || undefined
+	);
 
 	const control = $derived(
 		cn(
@@ -41,17 +52,20 @@
 		{label}
 		{#if !required}<span class="font-normal text-muted-foreground">(optional)</span>{/if}
 	</label>
+	{#if hint}
+		<p id="{id}-hint" class="text-sm text-muted-foreground">{hint}</p>
+	{/if}
 	{#if multiline}
 		<textarea
 			{id}
 			{name}
 			{required}
 			{placeholder}
-			rows="5"
+			{rows}
 			bind:value
 			bind:this={input}
 			aria-invalid={error ? true : undefined}
-			aria-describedby={error ? `${id}-error` : undefined}
+			aria-describedby={describedBy}
 			class={cn(control, 'py-2.5')}></textarea>
 	{:else}
 		<input
@@ -61,10 +75,11 @@
 			{required}
 			{placeholder}
 			{autocomplete}
+			{inputmode}
 			bind:value
 			bind:this={input}
 			aria-invalid={error ? true : undefined}
-			aria-describedby={error ? `${id}-error` : undefined}
+			aria-describedby={describedBy}
 			class={cn(control, 'h-11')}
 		/>
 	{/if}
