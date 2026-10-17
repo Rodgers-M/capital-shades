@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# A new push to a PR cancels that PR's run in progress; every other run gets
+# a group of its own, so a merge to main is never dropped.
+concurrency:
+  group: ci-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  site:
+    name: Lint, check, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run check
+      # Without SANITY_PROJECT_ID the build prerenders from seed content.
+      - run: npm run build
+
+  commit-messages:
+    name: No AI attribution
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      # Commits up to 6629cdb predate this rule and are already pushed;
+      # rewording them would need a force push, so they're excluded.
+      - env:
+          BASE: ${{ github.base_ref }}
+        run: node scripts/check-commit-messages.mjs "origin/$BASE..HEAD" --not 6629cdb

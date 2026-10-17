@@ -156,3 +156,6 @@ Thumbs.db
 # Env
 !.env.test
 # Vite
+
+# Scratch work for agents and experiments (AGENTS.md, Guardrails)
+/--testing--/
