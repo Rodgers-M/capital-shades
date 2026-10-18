@@ -42,11 +42,10 @@
 		rel="noopener"
 		inert={footerInView}
 		aria-label={whatsappLabel(context)}
-		class="fixed right-6 bottom-6 z-30 hidden h-12 items-center gap-2.5 rounded-sm border border-ink-border bg-ink px-3.5 text-sm font-semibold text-on-ink shadow-md transition-[transform,opacity,background-color] duration-300 hover:bg-ink-raised md:inline-flex lg:px-4 {footerInView
+		class="fixed right-6 bottom-6 z-30 hidden size-14 items-center justify-center rounded-full bg-whatsapp-deep text-whatsapp-deep-foreground shadow-md transition-[transform,opacity,background-color] duration-300 hover:bg-whatsapp-deep-hover md:inline-flex {footerInView
 			? 'pointer-events-none translate-y-4 opacity-0'
 			: ''}"
 	>
-		<WhatsAppIcon class="size-5 text-whatsapp" />
-		<span class="hidden lg:inline">WhatsApp</span>
+		<WhatsAppIcon class="size-8" />
 	</a>
 {/if}

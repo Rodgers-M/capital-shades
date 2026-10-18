@@ -511,6 +511,13 @@ Behavior:
 
 Desktop/tablet may use the floating WhatsApp action where appropriate.
 
+The floating WhatsApp action is icon-only: the standard white WhatsApp mark on a
+round green button, with no text label, because visitors recognise it on sight.
+It uses a slightly deeper green than WhatsApp's own (`whatsapp-deep`), close
+to what other sites use, so the white mark meets the 3:1 contrast WCAG asks of
+icons. It keeps a descriptive accessible name. Other WhatsApp controls keep
+near-black on the standard green.
+
 ---
 
 ## WhatsApp context

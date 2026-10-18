@@ -57,6 +57,11 @@
 	--color-whatsapp-hover: #1ebe5a;
 	/* White on WhatsApp green is only 2:1 — use near-black text (9:1) */
 	--color-whatsapp-foreground: #171717;
+	/* Deeper fill for the icon-only floating button. Its mark is 3.07:1 on it, just over
+	   the 3:1 icon minimum, so don't lighten it. A fill, not a text colour */
+	--color-whatsapp-deep: #1ea452;
+	--color-whatsapp-deep-hover: #188c44;
+	--color-whatsapp-deep-foreground: #faf9f6;
 
 	/*
 	 * TODO(phase-b): temporary aliases for the old navy/amber/orange tokens, still
