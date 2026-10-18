@@ -5,14 +5,14 @@
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import { QUOTE_HREF, QUOTE_LABEL, solutionHref } from '$lib/nav';
 	import { whatsappHref } from '$lib/whatsapp';
-	import type { Product, PublicSiteSettings } from '$lib/content/types';
+	import type { Solution, PublicSiteSettings } from '$lib/content/types';
 
 	/*
 	 * Guidance for visitors who don't know which structure they need: each
 	 * solution's own "typical use" line (its record's eyebrow) as a quick
 	 * index, and a pre-filled WhatsApp message asking for advice.
 	 */
-	let { solutions, settings }: { solutions: Product[]; settings: PublicSiteSettings } = $props();
+	let { solutions, settings }: { solutions: Solution[]; settings: PublicSiteSettings } = $props();
 
 	const uses = $derived(solutions.filter((s) => s.eyebrow));
 </script>

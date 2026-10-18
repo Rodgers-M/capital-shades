@@ -2,6 +2,7 @@ import { json, redirect } from '@sveltejs/kit';
 import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
 import { PHOTO_LIMITS, parseEnquiry, summarise, type Enquiry } from '$lib/enquiry';
+import { loadQuoteMaterials } from '$lib/server/content/quoteMaterials';
 // Static seed settings, not the CMS: sending must never depend on a content fetch
 import { settings } from '$lib/content/seed/settings';
 import { whatsappLink } from '$lib/utils';
@@ -30,7 +31,9 @@ export async function POST({ request }) {
 		return wantsJson ? json({ ok: true }) : redirect(303, '/thank-you');
 	}
 
-	const parsed = parseEnquiry(form);
+	// Only quotes ask about material; loadQuoteMaterials never throws
+	const quoteMaterials = form.get('kind') === 'quote' ? await loadQuoteMaterials() : {};
+	const parsed = parseEnquiry(form, quoteMaterials);
 	if (!parsed.ok) {
 		if (wantsJson) return json({ ok: false, errors: parsed.errors }, { status: 400 });
 		if (form.get('kind') !== 'quote') redirect(303, '/contact');

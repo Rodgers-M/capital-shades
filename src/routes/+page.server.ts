@@ -7,17 +7,17 @@ const FEATURED_SOLUTIONS = 4;
 
 /** Optional, owner-confirmed fields that make a project worth telling as a story. */
 const storyDetail = (p: Project) =>
-	[p.location, p.completed, p.requirement, p.deliveredSolution].filter(Boolean).length +
+	[p.location, p.completed, p.scope, p.requirement, p.deliveredSolution].filter(Boolean).length +
 	(p.gallery?.length ? 1 : 0);
 
 const isLandscape = (p: Project) => p.heroImage.width >= p.heroImage.height * 1.2;
 
 export async function load() {
-	const { projects, products } = await getContent();
+	const { projects, solutions } = await getContent();
 
 	// Solutions with real portfolio evidence first, most projects first
 	const projectCount = (slug: string) => projects.filter((p) => p.solutions.includes(slug)).length;
-	const featuredSolutions = products
+	const featuredSolutions = solutions
 		.filter((s) => projectCount(s.slug) > 0)
 		.sort((a, b) => projectCount(b.slug) - projectCount(a.slug))
 		.slice(0, FEATURED_SOLUTIONS);

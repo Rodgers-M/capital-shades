@@ -145,8 +145,10 @@ Only expose verified official accounts.
 
 ### Quote material options
 
-The quote form asks about material only where the published solution copy
-confirms the options (`MATERIALS_BY_SOLUTION` in `src/lib/enquiry.ts`):
+The quote form asks about material only where the options are confirmed. Each
+solution record sets them ("Material choices in the quote form" in the Studio);
+`MATERIALS_BY_SOLUTION` in `src/lib/enquiry.ts` is the fallback for records
+that don't. Current options:
 
 - Car Parking Shades: shade mesh, waterproof PVC, metal roofing
 - Shade Sails: shade mesh
@@ -162,8 +164,22 @@ Still confirm:
 - [ ] Which materials to offer for Awnings, Pergolas & Gazebos, Screen Fencing
       and Parasols. The question is hidden for these until confirmed.
 
-Each confirmation also needs a change to `MATERIALS_BY_SOLUTION`; the solution
+Once confirmed, an editor ticks them on the solution record. The solution
 pages' copy doesn't feed the form.
+
+---
+
+### Solution taxonomy migration (Phase C5)
+
+- [ ] Pool Shades: keep the old page, or redirect `/solutions/pool-shades` to
+      Shade Sails (or another solution)? It is served unlisted until decided.
+- [ ] Copy and photos for Awnings, Pergolas & Gazebos and Screen Fencing. They
+      have no page until these exist.
+- [ ] Move the pergola project to Pergolas & Gazebos once that page exists.
+- [ ] Which solution "shade nets" belongs to as a customer term (shade sails,
+      car parking shades, or both).
+- [ ] Customer sectors per solution were taken from each page's applications
+      list; confirm them.
 
 ---
 

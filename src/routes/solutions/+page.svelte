@@ -12,7 +12,7 @@
 <Seo
 	title="Solutions"
 	description="Car park shades, shade sails, canopies, tensile membrane structures, parasols and pool shades — custom designed and installed in Kenya."
-	image={data.products[0]?.image}
+	image={data.solutions[0]?.image}
 />
 
 <section aria-labelledby="solutions-title" class="border-b">
@@ -37,7 +37,7 @@
 		</div>
 		<nav aria-label="Solutions on this page" class="lg:col-span-5">
 			<ol class="border-t border-foreground/15 text-sm">
-				{#each data.products as solution, i (solution.slug)}
+				{#each data.solutions as solution, i (solution.slug)}
 					<li class="border-b border-foreground/15">
 						<a
 							href="#{solution.slug}"
@@ -56,7 +56,7 @@
 </section>
 
 <div class="container-page space-y-20 section-y md:space-y-28 lg:space-y-32">
-	{#each data.products as solution, i (solution.slug)}
+	{#each data.solutions as solution, i (solution.slug)}
 		<SolutionFeature
 			{solution}
 			index={i}
@@ -67,6 +67,6 @@
 	{/each}
 </div>
 
-<SolutionFinder solutions={data.products} settings={data.settings} />
+<SolutionFinder solutions={data.solutions} settings={data.settings} />
 
 <SolutionGuide />

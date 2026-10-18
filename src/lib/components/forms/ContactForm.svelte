@@ -6,9 +6,9 @@
 	import { submitEnquiry } from './submitEnquiry';
 	import { summarise } from '$lib/enquiry';
 	import { whatsappLink } from '$lib/utils';
-	import type { Product, PublicSiteSettings } from '$lib/content/types';
+	import type { Solution, PublicSiteSettings } from '$lib/content/types';
 
-	let { settings, products }: { settings: PublicSiteSettings; products: Product[] } = $props();
+	let { settings, solutions }: { settings: PublicSiteSettings; solutions: Solution[] } = $props();
 
 	const EMPTY = { name: '', phone: '', email: '', location: '', product: '', message: '' };
 	let form = $state({ ...EMPTY });
@@ -111,8 +111,8 @@
 					class="h-11 w-full rounded-md border border-input bg-card px-3 text-base"
 				>
 					<option value="">Select a solution</option>
-					{#each products as product (product.slug)}
-						<option value={product.title}>{product.title}</option>
+					{#each solutions as solution (solution.slug)}
+						<option value={solution.title}>{solution.title}</option>
 					{/each}
 					<option value="Other">Something else</option>
 				</select>

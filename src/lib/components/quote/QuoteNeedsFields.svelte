@@ -2,16 +2,20 @@
 	import Field from '$lib/components/forms/Field.svelte';
 	import ChoiceGroup from './ChoiceGroup.svelte';
 	import ChoiceSelect from './ChoiceSelect.svelte';
-	import { SITE_TYPES, STRUCTURES, materialFor } from '$lib/enquiry';
+	import { SITE_TYPES, STRUCTURES, materialFor, type QuoteMaterials } from '$lib/enquiry';
 	import { fieldId, type QuoteErrors, type QuoteValues } from './steps';
 
 	/** Step 1 — what the visitor needs. */
-	let { values = $bindable(), errors }: { values: QuoteValues; errors: QuoteErrors } = $props();
+	let {
+		values = $bindable(),
+		errors,
+		quoteMaterials
+	}: { values: QuoteValues; errors: QuoteErrors; quoteMaterials: QuoteMaterials } = $props();
 
 	// A material the new structure doesn't offer is cleared, so it is never sent
 	function setStructure(structure: string) {
 		values.structure = structure;
-		values.material = materialFor(structure, values.material);
+		values.material = materialFor(structure, values.material, quoteMaterials);
 	}
 </script>
 

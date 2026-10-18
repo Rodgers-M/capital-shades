@@ -131,7 +131,7 @@
 				description="For general questions. To describe a project and get a quote, use Request a Quote."
 			/>
 			<div class="mt-10">
-				<ContactForm {settings} products={data.products} />
+				<ContactForm {settings} solutions={data.solutions} />
 			</div>
 		</div>
 

@@ -5,13 +5,13 @@
 	import { SECTORS } from '$lib/content/sectors';
 	import { projectHref } from '$lib/nav';
 	import { cn } from '$lib/utils';
-	import type { Product, Project } from '$lib/content/types';
+	import type { Solution, Project } from '$lib/content/types';
 
 	/*
 	 * Early project proof: one large photo and two staggered portrait crops,
 	 * captioned with verified metadata only (title, solution, sector).
 	 */
-	let { projects, solutions }: { projects: Project[]; solutions: Product[] } = $props();
+	let { projects, solutions }: { projects: Project[]; solutions: Solution[] } = $props();
 
 	const meta = (p: Project) =>
 		[

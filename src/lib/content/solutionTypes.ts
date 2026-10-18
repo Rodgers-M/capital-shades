@@ -3,8 +3,9 @@
  * taxonomy"), used where visitors pick a structure type, such as Request a
  * Quote. Hints name applications and variants from the same decision record.
  *
- * TODO(phase-c5): the solution records still predate this taxonomy. Once they
- * are migrated, derive this list from them instead of keeping a copy here.
+ * The solution records (seed or Sanity) use these IDs as their slugs. The quote
+ * flow keeps this copy because /api/enquiry validates against it and must never
+ * depend on a content fetch; content only overrides per-solution materials.
  */
 export const SOLUTION_TYPES = [
 	{ id: 'car-parking-shades', label: 'Car Parking Shades', hint: 'Car shades and carports' },
@@ -22,3 +23,20 @@ export const SOLUTION_TYPES = [
 ] as const;
 
 export type SolutionTypeId = (typeof SOLUTION_TYPES)[number]['id'];
+
+export const isSolutionTypeId = (value: string): value is SolutionTypeId =>
+	SOLUTION_TYPES.some((type) => type.id === value);
+
+/**
+ * Solution slugs renamed in the C5 taxonomy migration, old → new. Old URLs
+ * 301 straight to the new slug, and old project references resolve through
+ * it. Also imported by the Studio, which refuses these slugs on new records.
+ */
+export const LEGACY_SOLUTION_SLUGS: Readonly<Record<string, SolutionTypeId>> = {
+	'car-park-shades': 'car-parking-shades',
+	'tensile-membrane-structures': 'tensile-custom-structures'
+};
+
+/** The current slug for a solution slug that may predate the migration. */
+export const currentSolutionSlug = (slug: string): string =>
+	Object.hasOwn(LEGACY_SOLUTION_SLUGS, slug) ? LEGACY_SOLUTION_SLUGS[slug] : slug;

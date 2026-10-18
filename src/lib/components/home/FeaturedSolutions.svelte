@@ -5,14 +5,14 @@
 	import TextLink from '$lib/components/TextLink.svelte';
 	import SolutionIndexList from '$lib/components/solutions/SolutionIndexList.svelte';
 	import { SOLUTIONS_HREF, solutionHref } from '$lib/nav';
-	import type { Product } from '$lib/content/types';
+	import type { Solution } from '$lib/content/types';
 
 	/*
 	 * A subset of solutions, strongest portfolio evidence first: one lead
 	 * entry with a large photo, the rest as an editorial index. The full
 	 * catalogue stays on /solutions.
 	 */
-	let { solutions }: { solutions: Product[] } = $props();
+	let { solutions }: { solutions: Solution[] } = $props();
 
 	const lead = $derived(solutions[0]);
 	const rest = $derived(solutions.slice(1));

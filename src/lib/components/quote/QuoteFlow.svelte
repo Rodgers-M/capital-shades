@@ -21,7 +21,8 @@
 		summarise,
 		validateEnquiry,
 		type Enquiry,
-		type EnquiryField
+		type EnquiryField,
+		type QuoteMaterials
 	} from '$lib/enquiry';
 	import { QUOTE_LABEL } from '$lib/nav';
 	import { whatsappLink } from '$lib/utils';
@@ -38,7 +39,10 @@
 	 * JavaScript, one step shows at a time, each step is checked before moving
 	 * on, and photos are downsized before sending.
 	 */
-	let { settings }: { settings: PublicSiteSettings } = $props();
+	let {
+		settings,
+		quoteMaterials
+	}: { settings: PublicSiteSettings; quoteMaterials: QuoteMaterials } = $props();
 
 	const LAST = QUOTE_STEPS.length - 1;
 	const PHOTO_PREP_TIMEOUT = 20_000;
@@ -72,7 +76,7 @@
 		) as QuoteValues),
 		kind: 'quote',
 		vehicles: values.structure === VEHICLE_STRUCTURE ? values.vehicles : '',
-		material: materialFor(values.structure, values.material)
+		material: materialFor(values.structure, values.material, quoteMaterials)
 	});
 	const invalid = $derived(validateEnquiry(enquiry));
 	const errors = $derived<QuoteErrors>({
@@ -251,7 +255,7 @@
 				active={step === 0}
 				bind:heading={headings[0]}
 			>
-				<QuoteNeedsFields bind:values {errors} />
+				<QuoteNeedsFields bind:values {errors} {quoteMaterials} />
 				{@render continueNav(0)}
 			</QuoteStep>
 
@@ -262,7 +266,7 @@
 				active={step === 1}
 				bind:heading={headings[1]}
 			>
-				<QuoteSiteFields bind:values bind:photos {errors} />
+				<QuoteSiteFields bind:values bind:photos {errors} {quoteMaterials} />
 				{@render continueNav(1)}
 			</QuoteStep>
 
@@ -275,12 +279,13 @@
 			>
 				<QuoteContactFields bind:values {errors} />
 
-				<p
-					class="mt-8 border-l-2 border-primary pl-4 text-sm leading-relaxed text-muted-foreground"
-				>
-					Project details and site photos can help the team make an initial assessment. A final
-					quotation follows the site visit and confirmed measurements.
-				</p>
+				{#if settings.quoteNote}
+					<p
+						class="mt-8 border-l-2 border-primary pl-4 text-sm leading-relaxed text-muted-foreground"
+					>
+						{settings.quoteNote}
+					</p>
+				{/if}
 
 				{#if status === 'error' && sendError}
 					<QuoteSendError

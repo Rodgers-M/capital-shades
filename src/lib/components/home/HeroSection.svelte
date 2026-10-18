@@ -3,7 +3,7 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import Picture from '$lib/components/Picture.svelte';
 	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
-	import type { Product, Project, PublicSiteSettings } from '$lib/content/types';
+	import type { Solution, Project, PublicSiteSettings } from '$lib/content/types';
 
 	/*
 	 * Home hero: an expressive line, then a literal one saying what Capital
@@ -14,7 +14,7 @@
 		settings,
 		project,
 		solutions
-	}: { settings: PublicSiteSettings; project?: Project; solutions: Product[] } = $props();
+	}: { settings: PublicSiteSettings; project?: Project; solutions: Solution[] } = $props();
 
 	const solutionTitle = (slug: string) => solutions.find((s) => s.slug === slug)?.title;
 	const caption = $derived(

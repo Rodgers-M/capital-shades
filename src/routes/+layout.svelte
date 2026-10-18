@@ -60,7 +60,7 @@
 	<main id="main" class="flex-1">
 		{@render children()}
 	</main>
-	<SiteFooter {settings} products={data.products} />
+	<SiteFooter {settings} solutions={data.solutions} />
 	<MobileActionBar {settings} />
 	<FloatingWhatsApp {settings} />
 </div>

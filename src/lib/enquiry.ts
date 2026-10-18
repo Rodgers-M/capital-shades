@@ -1,6 +1,6 @@
 /** Shared between the enquiry forms and the /api/enquiry endpoint. */
 import { SECTORS } from '$lib/content/sectors';
-import { SOLUTION_TYPES, type SolutionTypeId } from '$lib/content/solutionTypes';
+import { SOLUTION_TYPES, isSolutionTypeId, type SolutionTypeId } from '$lib/content/solutionTypes';
 
 export interface EnquiryOption {
 	value: string;
@@ -47,9 +47,11 @@ export const MATERIALS: EnquiryOption[] = [
 ];
 
 /*
- * Only materials the published solution copy confirms for that structure.
- * Structures left out don't ask about material until the owner confirms
- * options (docs/content-to-confirm.md — "Quote material options").
+ * Fallback for structures whose content record sets no materials: only the
+ * materials the published solution copy confirms. Structures left out don't ask
+ * about material until the owner confirms options (docs/content-to-confirm.md —
+ * "Quote material options").
+ * TODO(after-c5-migration): remove once every solution record in Sanity sets its materials.
  */
 const MATERIALS_BY_SOLUTION = new Map<string, readonly string[]>([
 	['car-parking-shades', ['mesh', 'pvc', 'metal', NOT_SURE]],
@@ -58,15 +60,45 @@ const MATERIALS_BY_SOLUTION = new Map<string, readonly string[]>([
 	['tensile-custom-structures', ['pvc', NOT_SURE]]
 ] satisfies [SolutionTypeId, readonly string[]][]);
 
+/** Material values per structure, set in the solution records; structures left out use the fallback. */
+export type QuoteMaterials = Readonly<Partial<Record<SolutionTypeId, readonly string[]>>>;
+
+/**
+ * Builds QuoteMaterials from solution records. Unknown values are dropped and
+ * "Not sure yet" is always offered, so editors only tick real materials. A
+ * record with none set keeps the fallback, as do slugs outside the taxonomy.
+ */
+export function toQuoteMaterials(
+	records: readonly { slug: string; quoteMaterials?: readonly string[] | null }[]
+): QuoteMaterials {
+	const result: Partial<Record<SolutionTypeId, readonly string[]>> = {};
+	for (const { slug, quoteMaterials } of records) {
+		const known = MATERIALS.filter(
+			(m) => m.value !== NOT_SURE && quoteMaterials?.includes(m.value)
+		).map((m) => m.value);
+		if (isSolutionTypeId(slug) && known.length) result[slug] = [...known, NOT_SURE];
+	}
+	return result;
+}
+
 /** Material choices for a STRUCTURES value; empty when the question shouldn't be asked. */
-export function materialOptionsForSolution(structure: string): EnquiryOption[] {
-	const allowed = MATERIALS_BY_SOLUTION.get(structure);
+export function materialOptionsForSolution(
+	structure: string,
+	fromContent: QuoteMaterials = {}
+): EnquiryOption[] {
+	const allowed =
+		(isSolutionTypeId(structure) ? fromContent[structure] : undefined) ??
+		MATERIALS_BY_SOLUTION.get(structure);
 	return allowed ? MATERIALS.filter((m) => allowed.includes(m.value)) : [];
 }
 
 /** The material if the structure offers it, otherwise empty. */
-export const materialFor = (structure: string, material: string): string =>
-	isOption(materialOptionsForSolution(structure), material) ? material : '';
+export const materialFor = (
+	structure: string,
+	material: string,
+	fromContent: QuoteMaterials = {}
+): string =>
+	isOption(materialOptionsForSolution(structure, fromContent), material) ? material : '';
 
 export const CONTACT_METHODS: EnquiryOption[] = [
 	{ value: 'phone', label: 'Phone call' },
@@ -210,7 +242,8 @@ export function validateEnquiry(e: Enquiry): Partial<Record<EnquiryField, string
 
 /** Parse and validate form data. Returns field errors, or the enquiry. */
 export function parseEnquiry(
-	form: FormData
+	form: FormData,
+	quoteMaterials: QuoteMaterials = {}
 ): { ok: true; enquiry: Enquiry } | { ok: false; errors: Partial<Record<EnquiryField, string>> } {
 	const get = (key: EnquiryField) =>
 		String(form.get(key) ?? '')
@@ -239,7 +272,7 @@ export function parseEnquiry(
 					width: get('width'),
 					length: get('length'),
 					vehicles: structure === VEHICLE_STRUCTURE ? pick('vehicles', VEHICLE_COUNTS) : '',
-					material: materialFor(structure, get('material')),
+					material: materialFor(structure, get('material'), quoteMaterials),
 					contactMethod: get('contactMethod')
 				})
 	};

@@ -1,20 +1,23 @@
 /**
- * One-off: copy the website's seed content (settings, products, projects,
+ * One-off: copy the website's seed content (settings, solutions, projects,
  * blog posts and photos) into Sanity.
  *
  *   cd studio && npm run import-seed
  *
  * Safe to re-run — documents use fixed IDs and are replaced, and Sanity
- * de-duplicates identical image uploads.
+ * de-duplicates identical image uploads. It replaces edits made in the Studio
+ * to those documents, so use it on a new dataset; for one that already has
+ * content from the old schema, run `npm run migrate-solutions` instead.
  */
 import { createReadStream } from 'node:fs';
 import path from 'node:path';
 import { getCliClient } from 'sanity/cli';
 import { settings } from '../../src/lib/content/seed/settings';
-import { products } from '../../src/lib/content/seed/products';
+import { solutions } from '../../src/lib/content/seed/solutions';
 import { projects } from '../../src/lib/content/seed/projects';
 import { posts } from '../../src/lib/content/seed/posts';
 import { markdownToPortableText } from './markdownToPortableText';
+import { orderRank, solutionId } from './ids';
 
 const client = getCliClient({ apiVersion: '2025-10-01' });
 const PHOTOS = path.resolve(import.meta.dirname, '../../src/lib/assets/photos');
@@ -50,20 +53,30 @@ async function main() {
 		sectors: withKeys(settings.sectors)
 	});
 
-	for (const [i, p] of products.entries()) {
+	for (const [i, s] of solutions.entries()) {
+		// Planned solutions have no page yet, so no copy or photo
+		const page: Record<string, unknown> =
+			s.status === 'planned'
+				? {}
+				: {
+						eyebrow: s.eyebrow,
+						summary: s.summary,
+						body: s.body,
+						features: s.features,
+						applications: s.applications,
+						sectors: s.sectors,
+						image: await image(s.photo, s.photoAlt)
+					};
 		tx.createOrReplace({
-			_id: `product-${p.slug}`,
-			_type: 'product',
-			// Valid LexoRank values so drag-to-reorder works from the start
-			orderRank: `0|${String((i + 1) * 100000).padStart(6, '0')}:`,
-			title: p.title,
-			slug: { _type: 'slug', current: p.slug },
-			eyebrow: p.eyebrow,
-			summary: p.summary,
-			body: p.body,
-			features: p.features,
-			applications: p.applications,
-			image: await image(p.photo, p.photoAlt)
+			_id: solutionId(s.slug),
+			_type: 'solution',
+			orderRank: orderRank(i),
+			title: s.title,
+			slug: { _type: 'slug', current: s.slug },
+			status: s.status,
+			quoteMaterials: s.quoteMaterials,
+			aliases: s.aliases,
+			...page
 		});
 	}
 
@@ -73,13 +86,18 @@ async function main() {
 			_type: 'project',
 			title: p.title,
 			slug: { _type: 'slug', current: p.slug },
-			product: { _type: 'reference', _ref: `product-${p.product}` },
+			solutions: p.solutions.map((slug) => ({
+				_key: slug,
+				_type: 'reference',
+				_ref: solutionId(slug)
+			})),
 			sector: p.sector,
 			location: p.location,
 			material: p.material,
-			completed: p.completed,
+			completionYear: p.completionYear,
+			scope: p.scope,
 			featured: p.featured ?? false,
-			image: await image(p.photo, p.photoAlt)
+			heroImage: await image(p.photo, p.photoAlt)
 		});
 	}
 
@@ -101,7 +119,7 @@ async function main() {
 
 	await tx.commit();
 	console.log(
-		`Done: settings, ${products.length} products, ${projects.length} projects, ${posts.length} posts.`
+		`Done: settings, ${solutions.length} solutions, ${projects.length} projects, ${posts.length} posts.`
 	);
 }
 

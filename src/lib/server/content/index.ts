@@ -1,10 +1,19 @@
-import type { Post, Product, Project, SiteSettings } from '$lib/content/types';
+import type { QuoteMaterials } from '$lib/enquiry';
+import type { Post, Project, SiteSettings, Solution } from '$lib/content/types';
 import { loadSeedContent } from './seed';
 import { loadSanityContent, sanityConfig } from './sanity';
 
 export interface Content {
 	settings: SiteSettings;
-	products: Product[];
+	/** Published solutions, in display order: the ones listed and linked across the site */
+	solutions: Solution[];
+	/**
+	 * Retired solutions whose old page is still served, unlisted.
+	 * TODO(after-c5-migration): drop each once the owner decides its redirect target.
+	 */
+	legacySolutions: Solution[];
+	/** Quote material choices set in the solution records, any status */
+	quoteMaterials: QuoteMaterials;
 	projects: Project[];
 	/** Published posts only, newest first */
 	posts: Post[];

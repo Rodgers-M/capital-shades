@@ -1,3 +1,4 @@
+import { currentSolutionSlug } from '$lib/content/solutionTypes';
 import type { Sector } from '$lib/content/types';
 
 /** Primary navigation (header and mobile menu). */
@@ -33,7 +34,7 @@ const SECTOR_IDS: readonly Sector[] = ['residential', 'commercial', 'institution
 
 export type ProjectFilters = { sector?: Sector; solution?: string };
 
-/** Shareable /projects URL for a filter, e.g. /projects?solution=car-park-shades */
+/** Shareable /projects URL for a filter, e.g. /projects?solution=car-parking-shades */
 export function projectsHref({ sector, solution }: ProjectFilters = {}) {
 	const params = new URLSearchParams();
 	if (solution) params.set('solution', solution);
@@ -44,7 +45,8 @@ export function projectsHref({ sector, solution }: ProjectFilters = {}) {
 
 /**
  * Reads the filter from a /projects URL. Also accepts the earlier
- * `?filter=<sector-or-solution>` form so old links keep working.
+ * `?filter=<sector-or-solution>` form and renamed solution slugs, so old links
+ * keep working.
  */
 export function readProjectFilters(params: URLSearchParams): ProjectFilters {
 	const isSector = (v: string | null): v is Sector => !!v && SECTOR_IDS.includes(v as Sector);
@@ -53,7 +55,7 @@ export function readProjectFilters(params: URLSearchParams): ProjectFilters {
 	const solution = params.get('solution') ?? (legacy && !isSector(legacy) ? legacy : null);
 	return {
 		...(isSector(sector) && { sector }),
-		...(solution && { solution })
+		...(solution && { solution: currentSolutionSlug(solution) })
 	};
 }
 

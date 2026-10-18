@@ -8,7 +8,8 @@
 		"dev": "sanity dev",
 		"build": "sanity build",
 		"deploy": "sanity deploy",
-		"import-seed": "sanity exec scripts/import-seed.ts --with-user-token"
+		"import-seed": "sanity exec scripts/import-seed.ts --with-user-token",
+		"migrate-solutions": "sanity exec scripts/migrate-solutions.ts --with-user-token --"
 	},
 	"dependencies": {
 		"@sanity/icons": "^5.2.2",

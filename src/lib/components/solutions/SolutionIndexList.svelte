@@ -2,7 +2,7 @@
 	import Picture from '$lib/components/Picture.svelte';
 	import { solutionHref } from '$lib/nav';
 	import { cn } from '$lib/utils';
-	import type { Product } from '$lib/content/types';
+	import type { Solution } from '$lib/content/types';
 
 	/*
 	 * Numbered editorial index of solutions: title, summary and a small photo
@@ -13,7 +13,7 @@
 		solutions,
 		start = 1,
 		class: className
-	}: { solutions: Product[]; start?: number; class?: string } = $props();
+	}: { solutions: Solution[]; start?: number; class?: string } = $props();
 
 	const number = (i: number) => String(i + start).padStart(2, '0');
 </script>

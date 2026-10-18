@@ -5,11 +5,11 @@
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import { QUOTE_HREF, QUOTE_LABEL, SOLUTIONS_HREF } from '$lib/nav';
 	import { whatsappHref } from '$lib/whatsapp';
-	import type { Product, PublicSiteSettings } from '$lib/content/types';
+	import type { Solution, PublicSiteSettings } from '$lib/content/types';
 
 	// Solution page opener. `data-hero` keeps the phone action bar out of the way
 	// while these calls to action are on screen.
-	let { settings, solution }: { settings: PublicSiteSettings; solution: Product } = $props();
+	let { settings, solution }: { settings: PublicSiteSettings; solution: Solution } = $props();
 </script>
 
 <section data-hero aria-labelledby="solution-title" class="border-b">

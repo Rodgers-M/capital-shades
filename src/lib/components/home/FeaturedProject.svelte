@@ -4,18 +4,18 @@
 	import TextLink from '$lib/components/TextLink.svelte';
 	import { SECTORS } from '$lib/content/sectors';
 	import { projectHref, projectsHref, solutionHref } from '$lib/nav';
-	import type { Product, Project } from '$lib/content/types';
+	import type { Solution, Project } from '$lib/content/types';
 
 	/*
 	 * One deeper project story. Every detail is optional and only shown when
 	 * the owner has confirmed it — nothing here is ever filled in by default.
 	 */
-	let { project, solutions }: { project: Project; solutions: Product[] } = $props();
+	let { project, solutions }: { project: Project; solutions: Solution[] } = $props();
 
 	const solutionLinks = $derived(
 		project.solutions
 			.map((slug) => solutions.find((s) => s.slug === slug))
-			.filter((s): s is Product => !!s)
+			.filter((s): s is Solution => !!s)
 	);
 	const details = $derived(
 		[
@@ -26,6 +26,7 @@
 	);
 	const story = $derived(
 		[
+			{ title: 'Project scope', text: project.scope },
 			{ title: 'The requirement', text: project.requirement },
 			{ title: 'What we delivered', text: project.deliveredSolution }
 		].filter((s): s is { title: string; text: string } => !!s.text)

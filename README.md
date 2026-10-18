@@ -25,7 +25,7 @@ Without `RESEND_API_KEY`, the dev server logs enquiries to the terminal. In prod
 
 ```
 src/lib/content/types.ts     content model shared by seed + Sanity
-src/lib/content/seed/        seed settings, products, projects, blog posts
+src/lib/content/seed/        seed settings, solutions, projects, blog posts
 src/lib/assets/photos/       seed photos (the owner's own, from the old site)
 src/lib/server/content/      getContent(): picks Sanity or the seed data
 src/routes/                  pages (all prerendered) + /api/enquiry
@@ -34,7 +34,7 @@ studio/                      Sanity Studio (separate package)
 
 - **Colours** are tokens in `src/routes/layout.css`. Components use token classes only (`bg-ink`, `text-primary`, `text-accent-strong`…), never hex values or palette colours. To change the palette, edit that one block.
 - **Images** are converted to AVIF/WebP at several widths. For seed photos, `@sveltejs/enhanced-img` does this at build time. For Sanity images, Sanity's image CDN does it.
-- **Redirects:** `/recent-projects`, `/gallery` and `/car-park-shades` from the old site return a 301 to their new pages.
+- **Redirects:** `/recent-projects`, `/gallery` and `/car-park-shades` from the old site return a 301 to their new pages, as do solution slugs renamed in the taxonomy migration (`LEGACY_SOLUTION_SLUGS` in `src/lib/content/solutionTypes.ts`).
 
 ## Going live
 
@@ -48,10 +48,11 @@ studio/                      Sanity Studio (separate package)
    npm install
    npx sanity login
    ```
-4. Import the seed content and photos. This is safe to re-run.
+4. Import the seed content and photos into the new, empty dataset. Re-running it replaces the imported documents, including Studio edits to them.
    ```sh
    npm run import-seed
    ```
+   A dataset that already holds content from the old schema (`product` documents) is migrated instead: run `npm run migrate-solutions` for a dry run, then `npm run migrate-solutions -- --apply`. See the C5 migration map in [docs/implementation.md](docs/implementation.md).
 5. Deploy the Studio to https://capitalshades.sanity.studio:
    ```sh
    npm run deploy
@@ -73,7 +74,7 @@ Pages are prerendered, so a Sanity publish needs a rebuild. That takes about a m
    - URL: the deploy hook
    - Dataset: `production`
    - Trigger on: create, update, delete
-   - Filter: `_type in ["siteSettings", "product", "project", "post"]`
+   - Filter: `_type in ["siteSettings", "solution", "project", "post"]`
 
 ### 4. Email (Resend)
 

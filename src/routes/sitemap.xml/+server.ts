@@ -5,11 +5,11 @@ import { PROJECTS_HREF, QUOTE_HREF, SOLUTIONS_HREF, projectHref, solutionHref } 
 export const prerender = true;
 
 export async function GET() {
-	const { products, projects, posts } = await getContent();
+	const { solutions, projects, posts } = await getContent();
 	const pages = [
 		'/',
 		SOLUTIONS_HREF,
-		...products.map((p) => solutionHref(p.slug)),
+		...solutions.map((p) => solutionHref(p.slug)),
 		PROJECTS_HREF,
 		...projects.map((p) => projectHref(p.slug)),
 		QUOTE_HREF,

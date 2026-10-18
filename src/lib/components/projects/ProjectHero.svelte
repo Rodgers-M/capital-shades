@@ -7,7 +7,7 @@
 	import { PROJECTS_HREF, QUOTE_HREF, QUOTE_LABEL, solutionHref } from '$lib/nav';
 	import { cn } from '$lib/utils';
 	import { whatsappHref } from '$lib/whatsapp';
-	import type { Product, Project, PublicSiteSettings } from '$lib/content/types';
+	import type { Solution, Project, PublicSiteSettings } from '$lib/content/types';
 
 	/*
 	 * Project opener: breadcrumb, title, its solutions (linked) and sector, the
@@ -21,7 +21,7 @@
 	}: {
 		settings: PublicSiteSettings;
 		project: Project;
-		solutions: Pick<Product, 'slug' | 'title'>[];
+		solutions: Pick<Solution, 'slug' | 'title'>[];
 	} = $props();
 
 	const portrait = $derived(project.heroImage.height > project.heroImage.width);

@@ -25,6 +25,9 @@ export function toPublicSettings(settings: SiteSettings): PublicSiteSettings {
 		linkedinUrl: text(settings.linkedinUrl),
 		googleMapsUrl: text(settings.googleMapsUrl),
 		facebookReviewsUrl: text(settings.facebookReviewsUrl),
+		warrantyNote: text(settings.warrantyNote),
+		siteVisitNote: text(settings.siteVisitNote),
+		quoteNote: text(settings.quoteNote),
 		serviceAreas: settings.serviceAreas.map((area) => area.trim()).filter(Boolean)
 	};
 }

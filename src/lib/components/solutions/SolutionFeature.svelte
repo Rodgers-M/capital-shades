@@ -5,7 +5,7 @@
 	import { projectsHref, solutionHref } from '$lib/nav';
 	import { cn } from '$lib/utils';
 	import { whatsappHref } from '$lib/whatsapp';
-	import type { Img, Product, PublicSiteSettings } from '$lib/content/types';
+	import type { Img, Solution, PublicSiteSettings } from '$lib/content/types';
 
 	/*
 	 * One solution on the index: a large photo beside its name, summary and
@@ -19,7 +19,7 @@
 		hasProjects,
 		settings
 	}: {
-		solution: Product;
+		solution: Solution;
 		index: number;
 		proof: Img[];
 		hasProjects: boolean;

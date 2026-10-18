@@ -5,18 +5,18 @@ import { getContent } from '$lib/server/content';
 const SHOWN_PROJECTS = 5;
 
 export async function entries() {
-	const { products } = await getContent();
-	return products.map((p) => ({ slug: p.slug }));
+	const { solutions, legacySolutions } = await getContent();
+	// Legacy pages are still built, unlisted, so their old URLs keep working
+	return [...solutions, ...legacySolutions].map((p) => ({ slug: p.slug }));
 }
 
 export async function load({ params }) {
-	const { products, projects } = await getContent();
-	// TODO: rename once the content source serves Solution records (Sanity schema migration)
-	const solution = products.find((p) => p.slug === params.slug);
+	const { solutions, legacySolutions, projects } = await getContent();
+	const solution = [...solutions, ...legacySolutions].find((p) => p.slug === params.slug);
 	if (!solution) error(404, 'Solution not found');
 
 	// Photos already on the page (this hero, other solutions' thumbnails) aren't repeated
-	const pagePhotos = new Set(products.map((p) => p.image.src));
+	const pagePhotos = new Set([solution, ...solutions].map((p) => p.image.src));
 	const related = projects
 		.filter((p) => p.solutions.includes(solution.slug) && !pagePhotos.has(p.heroImage.src))
 		.sort((a, b) => Number(b.featured) - Number(a.featured));
@@ -29,7 +29,7 @@ export async function load({ params }) {
 		solution,
 		projects: shown,
 		closingImage: closing?.heroImage,
-		others: products.filter((p) => p.slug !== solution.slug),
+		others: solutions.filter((p) => p.slug !== solution.slug),
 		whatsapp: { topic: solution.title }
 	};
 }

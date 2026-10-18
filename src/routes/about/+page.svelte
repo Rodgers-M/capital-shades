@@ -23,7 +23,7 @@
 		`${settings.location ? `${settings.location}-based shade` : 'Shade'} and outdoor structures for homes, businesses and institutions.`
 	);
 	const solutionList = $derived(
-		data.products.map((s, i, all) =>
+		data.solutions.map((s, i, all) =>
 			i === all.length - 1 && all.length > 1
 				? `and ${s.title.toLowerCase()}`
 				: s.title.toLowerCase()
@@ -112,7 +112,7 @@
 			class="lg:col-span-5 lg:self-start"
 		/>
 		<div class="lg:col-span-7">
-			<SolutionIndexList solutions={data.products} />
+			<SolutionIndexList solutions={data.solutions} />
 			<TextLink href={SOLUTIONS_HREF} class="mt-8">View all solutions</TextLink>
 		</div>
 	</div>
@@ -137,7 +137,7 @@
 {/if}
 
 <div class="border-t">
-	<SelectedProjects projects={data.selectedProjects} solutions={data.products} />
+	<SelectedProjects projects={data.selectedProjects} solutions={data.solutions} />
 </div>
 
 <div class="border-t">

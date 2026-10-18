@@ -1,12 +1,12 @@
 <script lang="ts">
 	import EditorialHeading from '$lib/components/EditorialHeading.svelte';
-	import type { Product } from '$lib/content/types';
+	import type { Solution } from '$lib/content/types';
 
 	/*
 	 * The solution's own copy plus its verified lists. Each part is optional:
 	 * an empty list renders nothing, and the section disappears if all are empty.
 	 */
-	let { solution }: { solution: Product } = $props();
+	let { solution }: { solution: Solution } = $props();
 
 	const lists = $derived(
 		[

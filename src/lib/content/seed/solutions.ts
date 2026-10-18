@@ -1,25 +1,49 @@
-export interface SeedProduct {
+import type { Sector, SolutionStatus } from '../types';
+
+interface SeedRecord {
+	/** A SOLUTION_TYPES id, except for legacy records */
 	slug: string;
 	title: string;
+	/** Material values offered in the quote form (enquiry.ts MATERIALS); "Not sure yet" is always added */
+	quoteMaterials?: string[];
+	/** Customer search terms (docs/decisions.md — "Customer terminology"); never listed on the page */
+	aliases?: string[];
+}
+
+/** A solution with a page: all its copy and a photo are required. */
+export interface SeedPage extends SeedRecord {
+	status: Exclude<SolutionStatus, 'planned'>;
 	eyebrow: string;
 	summary: string;
 	body: string[];
 	features: string[];
 	applications: string[];
+	/** Taken from the applications the copy names, not from delivered projects */
+	sectors: Sector[];
 	photo: string;
 	photoAlt: string;
 }
 
+/** In the taxonomy, without a page until its copy and photos are confirmed. */
+interface SeedPlanned extends SeedRecord {
+	status: 'planned';
+}
+
+export type SeedSolution = SeedPage | SeedPlanned;
+
 /*
- * The six product lines on the current site, rewritten from its copy.
- * Copy is descriptive: what each structure is and where it is used. No
- * subjective, superlative or geographic claims, and nothing about performance,
- * value or who builds what beyond "design and installation" (Phase C1 review).
+ * The working taxonomy (docs/decisions.md), in display order, migrated from the
+ * six product lines on the current site (migration map: docs/implementation.md,
+ * Phase C5). Copy is descriptive: what each structure is and where it is used.
+ * No subjective, superlative or geographic claims, and nothing about
+ * performance, value or who builds what beyond "design and installation"
+ * (Phase C1 review). Planned records carry no copy: none is confirmed yet.
  */
-export const products: SeedProduct[] = [
+export const solutions: SeedSolution[] = [
 	{
-		slug: 'car-park-shades',
-		title: 'Car Park Shades',
+		slug: 'car-parking-shades',
+		title: 'Car Parking Shades',
+		status: 'published',
 		eyebrow: 'Homes to shopping centres',
 		summary:
 			'Cantilever and post-supported car park shades that keep vehicles out of direct sun and rain, at home or at work.',
@@ -35,12 +59,16 @@ export const products: SeedProduct[] = [
 			'Designed for the site'
 		],
 		applications: ['Homes', 'Offices', 'Shopping centres', 'Schools', 'Hotels'],
+		sectors: ['residential', 'commercial', 'institutional'],
+		quoteMaterials: ['mesh', 'pvc', 'metal'],
+		aliases: ['car shades', 'carports', 'car parking shades'],
 		photo: 'carport-landcruiser-green',
 		photoAlt: 'Green car park shade over a white SUV at a home'
 	},
 	{
 		slug: 'shade-sails',
 		title: 'Shade Sails',
+		status: 'published',
 		eyebrow: 'Patios, pools & play areas',
 		summary: 'Tensioned fabric sails that shade patios, terraces, play areas and gardens.',
 		body: [
@@ -54,12 +82,16 @@ export const products: SeedProduct[] = [
 			'Tensioned fabric panels'
 		],
 		applications: ['Homes', 'Hotels & restaurants', 'Schools', 'Pools'],
+		sectors: ['residential', 'commercial', 'institutional'],
+		quoteMaterials: ['mesh'],
+		aliases: ['shade sails'],
 		photo: 'sails-hotel-balcony',
 		photoAlt: 'Layered shade sails over a hotel terrace'
 	},
 	{
 		slug: 'canopies',
 		title: 'Canopies',
+		status: 'published',
 		eyebrow: 'Entrances & walkways',
 		summary:
 			'Entrance canopies and covered walkways that shade people as they arrive, wait or move between buildings.',
@@ -74,12 +106,17 @@ export const products: SeedProduct[] = [
 			'Design and installation'
 		],
 		applications: ['Shop and office entrances', 'Walkways', 'Restaurants', 'Schools'],
+		sectors: ['commercial', 'institutional'],
+		quoteMaterials: ['pvc'],
 		photo: 'canopy-red-entrance',
 		photoAlt: 'Red fabric canopies over a building entrance'
 	},
+	{ slug: 'awnings', title: 'Awnings', status: 'planned' },
+	{ slug: 'pergolas-gazebos', title: 'Pergolas & Gazebos', status: 'planned' },
 	{
-		slug: 'tensile-membrane-structures',
-		title: 'Tensile Membrane Structures',
+		slug: 'tensile-custom-structures',
+		title: 'Tensile & Custom Structures',
+		status: 'published',
 		eyebrow: 'Architectural shade',
 		summary:
 			'Fabric held in tension to form curved structures over carports, courtyards and commercial spaces.',
@@ -94,12 +131,16 @@ export const products: SeedProduct[] = [
 			'Designed for the site'
 		],
 		applications: ['Homes', 'Courtyards', 'Hotels', 'Commercial entrances'],
+		sectors: ['residential', 'commercial'],
+		quoteMaterials: ['pvc'],
 		photo: 'carport-decorative-night',
 		photoAlt: 'Illuminated membrane carport with decorative laser-cut panels at night'
 	},
+	{ slug: 'screen-fencing', title: 'Screen Fencing', status: 'planned', aliases: ['screen fence'] },
 	{
 		slug: 'parasols',
 		title: 'Parasols',
+		status: 'published',
 		eyebrow: 'Hospitality & outdoor seating',
 		summary: 'Parasols that shade outdoor seating at restaurants, hotels and gardens.',
 		body: [
@@ -107,12 +148,16 @@ export const products: SeedProduct[] = [
 		],
 		features: ['Choice of sizes', 'Choice of colours'],
 		applications: ['Restaurants', 'Hotels', 'Gardens', 'Poolsides'],
+		sectors: ['residential', 'commercial'],
 		photo: 'parasol-yellow',
 		photoAlt: 'Yellow parasols shading outdoor restaurant seating'
 	},
 	{
+		// Legacy: pool shades are an application, not a top-level solution. The page
+		// stays live, unlisted, until the owner decides where it goes (Phase C5 map).
 		slug: 'pool-shades',
 		title: 'Pool Shades',
+		status: 'legacy',
 		eyebrow: 'Poolside comfort',
 		summary:
 			'Shade structures over and around pools that keep swimmers and poolside seating out of direct sun.',
@@ -125,6 +170,7 @@ export const products: SeedProduct[] = [
 			'Choice of colours'
 		],
 		applications: ['Homes', 'Hotels', 'Clubs', 'Schools'],
+		sectors: ['residential', 'commercial', 'institutional'],
 		photo: 'sails-pool-garden',
 		photoAlt: 'Shade sails over a garden beside a swimming pool'
 	}

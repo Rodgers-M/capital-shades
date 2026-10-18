@@ -54,6 +54,12 @@ export interface SiteSettings {
 	stats: Stat[];
 	/** Sectors the company builds for (from the current site). */
 	sectors: { title: string; text: string }[];
+	/** Approved warranty wording (docs/decisions.md — "Warranty wording"); null hides it */
+	warrantyNote: string | null;
+	/** Which site visits may be free; null hides it */
+	siteVisitNote: string | null;
+	/** Initial estimate vs final quotation, shown with the quote request; null hides it */
+	quoteNote: string | null;
 }
 
 /**
@@ -79,44 +85,37 @@ export const PUBLIC_SETTINGS_KEYS = [
 	'serviceAreas',
 	'facebookReviewsUrl',
 	'stats',
-	'sectors'
+	'sectors',
+	'warrantyNote',
+	'siteVisitNote',
+	'quoteNote'
 ] as const satisfies readonly (keyof SiteSettings)[];
 
 export type PublicSiteSettings = Pick<SiteSettings, (typeof PUBLIC_SETTINGS_KEYS)[number]>;
 
 export type Sector = 'residential' | 'commercial' | 'institutional';
 
-/** A shade solution (car park shades, shade sails, …). Replaces Product. */
+/**
+ * Where a solution record stands in the taxonomy migration (docs/implementation.md,
+ * Phase C5). Only `published` solutions are listed; `planned` ones are in the
+ * taxonomy but have no page until their copy and photos are confirmed; `legacy`
+ * ones keep serving their old page, unlisted, until the owner decides their fate.
+ */
+export type SolutionStatus = 'published' | 'planned' | 'legacy';
+
+/** A solution with a page (car parking shades, shade sails, …). */
 export interface Solution {
 	slug: string;
 	title: string;
-	eyebrow?: string;
+	/** Typical-use label above the title, e.g. "Homes to shopping centres"; empty when not set */
+	eyebrow: string;
 	summary: string;
 	/** One string per paragraph */
 	body: string[];
 	image: Img;
-	applications: Sector[];
-	features?: string[];
-	options?: string[];
-	materials?: string[];
-	faqs?: { question: string; answer: string }[];
-}
-
-/**
- * TODO(phase-b): migrate the seed and Sanity "product" documents to Solution,
- * then remove this type. Note `applications` here is free text, not Sector.
- */
-export interface Product {
-	slug: string;
-	title: string;
-	/** Short line shown above the title on cards, e.g. "Homes to malls" */
-	eyebrow: string;
-	summary: string;
-	/** Longer copy for the product page, one string per paragraph */
-	body: string[];
-	features: string[];
+	/** Where and how it is used, e.g. "Walkway covers", "Hotels" */
 	applications: string[];
-	image: Img;
+	features: string[];
 }
 
 export interface Project {
@@ -125,12 +124,15 @@ export interface Project {
 	sector: Sector;
 	/** Slugs of the solutions this project showcases, main one first */
 	solutions: string[];
-	/** Only set when confirmed by the owner */
+	/** General area only, never a private address. Only set when confirmed by the owner */
 	location: string | null;
 	material: string | null;
+	/** Completion year as shown, e.g. "2026" */
 	completed: string | null;
 	heroImage: Img;
 	gallery?: Img[];
+	/** What the project covered, without client details — only once confirmed by the owner */
+	scope?: string | null;
 	/** What the client needed — only once confirmed by the owner */
 	requirement?: string | null;
 	/** What was delivered — only once confirmed by the owner */

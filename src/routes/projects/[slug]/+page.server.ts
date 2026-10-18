@@ -10,7 +10,7 @@ export async function entries() {
 }
 
 export async function load({ params }) {
-	const { projects, products } = await getContent();
+	const { projects, solutions } = await getContent();
 	const project = projects.find((p) => p.slug === params.slug);
 	if (!project) error(404, 'Project not found');
 
@@ -38,7 +38,7 @@ export async function load({ params }) {
 		project,
 		// The project's own solutions, in the project's order
 		projectSolutions: project.solutions
-			.map((slug) => products.find((s) => s.slug === slug))
+			.map((slug) => solutions.find((s) => s.slug === slug))
 			.filter((s) => s !== undefined),
 		// Extra photos only — never the hero again
 		gallery: (project.gallery ?? []).filter((img) => img.src !== project.heroImage.src),

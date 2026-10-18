@@ -3,11 +3,18 @@ import { PackageIcon } from '@sanity/icons/Package';
 import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 import { imageField } from './image';
 
+/*
+ * The pre-C5 solution model, kept read-only so existing documents stay
+ * viewable and project references stay valid. studio/scripts/migrate-solutions.ts
+ * copies them into `solution` documents without deleting them.
+ * TODO(after-c5-migration): delete with its documents once production is migrated and verified.
+ */
 export const product = defineType({
 	name: 'product',
-	title: 'Product',
+	title: 'Legacy product',
 	type: 'document',
 	icon: PackageIcon,
+	readOnly: true,
 	orderings: [orderRankOrdering],
 	fields: [
 		orderRankField({ type: 'product' }),

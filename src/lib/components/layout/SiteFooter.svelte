@@ -14,9 +14,9 @@
 	} from '$lib/nav';
 	import { cn } from '$lib/utils';
 	import { whatsappHref } from '$lib/whatsapp';
-	import type { Product, PublicSiteSettings } from '$lib/content/types';
+	import type { Solution, PublicSiteSettings } from '$lib/content/types';
 
-	let { settings, products }: { settings: PublicSiteSettings; products: Product[] } = $props();
+	let { settings, solutions }: { settings: PublicSiteSettings; solutions: Solution[] } = $props();
 
 	// Only profiles set in settings — nothing unverified is linked
 	const socials = $derived(
@@ -100,9 +100,9 @@
 			<div>
 				<h2 class={heading}>Solutions</h2>
 				<ul class="mt-4 space-y-2.5 text-sm">
-					{#each products as product (product.slug)}
+					{#each solutions as solution (solution.slug)}
 						<li>
-							<a href={solutionHref(product.slug)} class={link}>{product.title}</a>
+							<a href={solutionHref(solution.slug)} class={link}>{solution.title}</a>
 						</li>
 					{/each}
 				</ul>

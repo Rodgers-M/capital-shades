@@ -6,9 +6,9 @@
 
 	/*
 	 * Expectations beside the quote flow: what happens after sending (from the
-	 * confirmed project process), the site-visit and warranty wording approved
-	 * in docs/decisions.md, and the other ways to get in touch — the phone
-	 * action bar is hidden on this page.
+	 * confirmed project process), the site-visit and warranty wording from site
+	 * settings, and the other ways to get in touch — the phone action bar is
+	 * hidden on this page.
 	 */
 	let { settings }: { settings: PublicSiteSettings } = $props();
 
@@ -49,22 +49,22 @@
 				</li>
 			{/each}
 		</ol>
-		<dl class="mt-6 space-y-4 border-t border-foreground/15 pt-5 text-sm leading-relaxed">
-			<div>
-				<dt class="font-semibold">Site visits</dt>
-				<dd class="mt-1 text-muted-foreground">
-					Site visits within Nairobi and nearby areas may be provided at no cost, depending on
-					location.
-				</dd>
-			</div>
-			<div>
-				<dt class="font-semibold">Warranty</dt>
-				<dd class="mt-1 text-muted-foreground">
-					Selected structures are covered by warranties of up to 10 years. Final warranty terms are
-					provided with the quotation and contract documents.
-				</dd>
-			</div>
-		</dl>
+		{#if settings.siteVisitNote || settings.warrantyNote}
+			<dl class="mt-6 space-y-4 border-t border-foreground/15 pt-5 text-sm leading-relaxed">
+				{#if settings.siteVisitNote}
+					<div>
+						<dt class="font-semibold">Site visits</dt>
+						<dd class="mt-1 text-muted-foreground">{settings.siteVisitNote}</dd>
+					</div>
+				{/if}
+				{#if settings.warrantyNote}
+					<div>
+						<dt class="font-semibold">Warranty</dt>
+						<dd class="mt-1 text-muted-foreground">{settings.warrantyNote}</dd>
+					</div>
+				{/if}
+			</dl>
+		{/if}
 	</div>
 
 	<div>

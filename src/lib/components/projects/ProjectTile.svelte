@@ -3,7 +3,7 @@
 	import { sectorLabel } from '$lib/content/sectors';
 	import { projectHref } from '$lib/nav';
 	import { cn } from '$lib/utils';
-	import type { Product, Project } from '$lib/content/types';
+	import type { Solution, Project } from '$lib/content/types';
 
 	/*
 	 * A project photo with a quiet caption: title (linking to the project page,
@@ -20,7 +20,7 @@
 	}: {
 		project: Project;
 		/** All solutions, to name the project's own */
-		solutions: Pick<Product, 'slug' | 'title'>[];
+		solutions: Pick<Solution, 'slug' | 'title'>[];
 		sizes: string;
 		/** e.g. an aspect ratio; defaults to the photo's own proportions */
 		imageClass?: string;

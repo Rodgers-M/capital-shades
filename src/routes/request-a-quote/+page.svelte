@@ -67,7 +67,7 @@
 <div class="container-page pt-10 pb-20 md:pt-14 md:pb-28">
 	<div class="grid gap-16 lg:grid-cols-12 lg:gap-16">
 		<div class="min-w-0 lg:col-span-7">
-			<QuoteFlow {settings} />
+			<QuoteFlow {settings} quoteMaterials={data.quoteMaterials} />
 		</div>
 		<div class="lg:col-span-4 lg:col-start-9">
 			<QuoteAside {settings} />

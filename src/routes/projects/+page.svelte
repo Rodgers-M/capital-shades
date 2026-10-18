@@ -35,7 +35,7 @@
 	const lead = $derived(visible[0]);
 	const rest = $derived(visible.slice(1));
 
-	const solutionTitle = (slug: string) => data.products.find((s) => s.slug === slug)?.title;
+	const solutionTitle = (slug: string) => data.solutions.find((s) => s.slug === slug)?.title;
 	// Describes the view in words for screen readers (no counts)
 	const viewLabel = $derived(
 		[
@@ -87,7 +87,7 @@
 	{#if lead}
 		<ProjectTile
 			project={lead}
-			solutions={data.products}
+			solutions={data.solutions}
 			sizes="(min-width: 1024px) 66vw, 100vw"
 			imageClass="aspect-[4/3] lg:aspect-[16/9]"
 			priority
@@ -100,7 +100,7 @@
 					<li class="mb-12 break-inside-avoid md:mb-16">
 						<ProjectTile
 							{project}
-							solutions={data.products}
+							solutions={data.solutions}
 							sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
 						/>
 					</li>

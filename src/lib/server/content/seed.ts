@@ -1,28 +1,37 @@
 import { marked } from 'marked';
+import { toQuoteMaterials } from '$lib/enquiry';
 import { settings } from '$lib/content/seed/settings';
-import { products as seedProducts } from '$lib/content/seed/products';
+import { solutions as seedSolutions, type SeedPage } from '$lib/content/seed/solutions';
 import { projects as seedProjects } from '$lib/content/seed/projects';
 import { posts as seedPosts } from '$lib/content/seed/posts';
-import type { Post, Product, Project } from '$lib/content/types';
+import type { Post, Project, Solution } from '$lib/content/types';
 import type { Content } from './index';
 import { photo } from './photos';
 
 const WORDS_PER_MINUTE = 200;
 
 export function loadSeedContent(): Content {
-	const products: Product[] = seedProducts.map(({ photo: key, photoAlt, ...p }) => ({
-		...p,
-		image: photo(key, photoAlt)
-	}));
+	const pages = (status: SeedPage['status']): Solution[] =>
+		seedSolutions
+			.filter((s): s is SeedPage => s.status === status)
+			.map((s) => ({
+				slug: s.slug,
+				title: s.title,
+				eyebrow: s.eyebrow,
+				summary: s.summary,
+				body: s.body,
+				features: s.features,
+				applications: s.applications,
+				image: photo(s.photo, s.photoAlt)
+			}));
 
-	// Seed entries still name one `product`; it becomes the project's first solution
 	const projects: Project[] = seedProjects.map(
-		({ photo: key, photoAlt, product, solutions, ...p }) => ({
+		({ photo: key, photoAlt, completionYear, ...p }) => ({
 			...p,
-			solutions: solutions?.length ? solutions : [product],
 			location: p.location ?? null,
 			material: p.material ?? null,
-			completed: p.completed ?? null,
+			completed: completionYear ? String(completionYear) : null,
+			scope: p.scope ?? null,
 			featured: p.featured ?? false,
 			heroImage: photo(key, photoAlt)
 		})
@@ -37,5 +46,12 @@ export function loadSeedContent(): Content {
 			html: marked.parse(markdown.trim(), { async: false })
 		}));
 
-	return { settings, products, projects, posts };
+	return {
+		settings,
+		solutions: pages('published'),
+		legacySolutions: pages('legacy'),
+		quoteMaterials: toQuoteMaterials(seedSolutions),
+		projects,
+		posts
+	};
 }

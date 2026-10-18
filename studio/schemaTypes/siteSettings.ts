@@ -27,6 +27,7 @@ export const siteSettings = defineType({
 	groups: [
 		{ name: 'business', title: 'Business', default: true },
 		{ name: 'contact', title: 'Contact' },
+		{ name: 'quotes', title: 'Quotes & warranty' },
 		{ name: 'proof', title: 'Stats & social proof' }
 	],
 	fields: [
@@ -62,13 +63,21 @@ export const siteSettings = defineType({
 			]
 		}),
 		defineField({
+			name: 'primaryPhone',
+			title: 'Main phone number',
+			type: 'object',
+			group: 'contact',
+			description: 'The one number shown on the site: header, call buttons and footer.',
+			fields: phoneFields,
+			validation: (r) => r.required()
+		}),
+		defineField({
 			name: 'phones',
-			title: 'Phone numbers',
+			title: 'Other phone numbers',
 			type: 'array',
 			group: 'contact',
-			description: 'The first number is the main one (header, call buttons).',
-			of: [defineArrayMember({ type: 'object', name: 'phone', fields: phoneFields })],
-			validation: (r) => r.required().min(1)
+			description: 'Kept for reference only. Never shown on the site.',
+			of: [defineArrayMember({ type: 'object', name: 'phone', fields: phoneFields })]
 		}),
 		defineField({
 			name: 'whatsapp',
@@ -88,7 +97,30 @@ export const siteSettings = defineType({
 			name: 'location',
 			type: 'string',
 			group: 'contact',
-			description: 'Shown publicly, e.g. "Nairobi, Kenya" or a full address.'
+			description: 'Where the business is based, shown publicly, e.g. "Nairobi".'
+		}),
+		defineField({
+			name: 'address',
+			title: 'Street address',
+			type: 'string',
+			group: 'contact',
+			description: 'Leave empty unless the business wants its premises published.'
+		}),
+		defineField({
+			name: 'googleMapsUrl',
+			title: 'Google Maps link',
+			type: 'url',
+			group: 'contact',
+			description: 'Leave empty to hide.'
+		}),
+		defineField({
+			name: 'serviceAreas',
+			title: 'Service areas',
+			type: 'array',
+			group: 'contact',
+			description: 'The main areas served, e.g. "Kiambu County". Shown on the site and to Google.',
+			of: [defineArrayMember({ type: 'string' })],
+			options: { layout: 'tags' }
 		}),
 		defineField({
 			name: 'hours',
@@ -98,6 +130,20 @@ export const siteSettings = defineType({
 			description: 'Leave empty to hide.'
 		}),
 		defineField({ name: 'facebookUrl', title: 'Facebook page', type: 'url', group: 'proof' }),
+		defineField({
+			name: 'instagramUrl',
+			title: 'Instagram profile',
+			type: 'url',
+			group: 'proof',
+			description: 'Only the official account. Leave empty to hide.'
+		}),
+		defineField({
+			name: 'linkedinUrl',
+			title: 'LinkedIn page',
+			type: 'url',
+			group: 'proof',
+			description: 'Only the official account. Leave empty to hide.'
+		}),
 		defineField({
 			name: 'facebookReviewsUrl',
 			title: 'Facebook reviews page',
@@ -124,6 +170,32 @@ export const siteSettings = defineType({
 				})
 			],
 			validation: (r) => r.max(4)
+		}),
+		defineField({
+			name: 'quoteNote',
+			title: 'Estimate and quotation',
+			type: 'text',
+			rows: 3,
+			group: 'quotes',
+			description:
+				'Shown with the quote request. Keep it clear that the final quotation follows the site visit and confirmed measurements.'
+		}),
+		defineField({
+			name: 'siteVisitNote',
+			title: 'Site visits',
+			type: 'text',
+			rows: 2,
+			group: 'quotes',
+			description: 'Don’t promise free visits everywhere: it depends on the distance from Nairobi.'
+		}),
+		defineField({
+			name: 'warrantyNote',
+			title: 'Warranty',
+			type: 'text',
+			rows: 3,
+			group: 'quotes',
+			description:
+				'Keep it conditional ("selected structures… up to 10 years") until the warranty scope is confirmed. Leave empty to hide.'
 		})
 	],
 	preview: { prepare: () => ({ title: 'Site settings' }) }

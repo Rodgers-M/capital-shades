@@ -3,11 +3,11 @@
 	import TextLink from '$lib/components/TextLink.svelte';
 	import { sectorLabel } from '$lib/content/sectors';
 	import { solutionHref } from '$lib/nav';
-	import type { Product, Project } from '$lib/content/types';
+	import type { Solution, Project } from '$lib/content/types';
 
 	/*
-	 * Verified facts about the project. Location, completion date, requirement
-	 * and delivered solution only appear once the owner has supplied them.
+	 * Verified facts about the project. Location, completion year, scope,
+	 * requirement and delivered solution only appear once the owner has supplied them.
 	 * Only project-specific content sits under the project heading: when there
 	 * is no project story yet, the solution's general summary is shown in a
 	 * separate block labelled "About this solution", never as a description of
@@ -16,7 +16,7 @@
 	let {
 		project,
 		solutions
-	}: { project: Project; solutions: Pick<Product, 'slug' | 'title' | 'summary'>[] } = $props();
+	}: { project: Project; solutions: Pick<Solution, 'slug' | 'title' | 'summary'>[] } = $props();
 
 	const facts = $derived(
 		[
@@ -27,6 +27,7 @@
 	);
 	const story = $derived(
 		[
+			{ title: 'Project scope', text: project.scope },
 			{ title: 'The requirement', text: project.requirement },
 			{ title: 'What was delivered', text: project.deliveredSolution }
 		].filter((s): s is { title: string; text: string } => !!s.text)

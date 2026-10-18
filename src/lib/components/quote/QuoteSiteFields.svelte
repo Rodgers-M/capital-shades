@@ -6,7 +6,8 @@
 		MATERIALS,
 		VEHICLE_COUNTS,
 		VEHICLE_STRUCTURE,
-		materialOptionsForSolution
+		materialOptionsForSolution,
+		type QuoteMaterials
 	} from '$lib/enquiry';
 	import { fieldId, type QuoteErrors, type QuoteValues } from './steps';
 	import type { SitePhoto } from './photos';
@@ -15,11 +16,17 @@
 	let {
 		values = $bindable(),
 		photos = $bindable(),
-		errors
-	}: { values: QuoteValues; photos: SitePhoto[]; errors: QuoteErrors } = $props();
+		errors,
+		quoteMaterials
+	}: {
+		values: QuoteValues;
+		photos: SitePhoto[];
+		errors: QuoteErrors;
+		quoteMaterials: QuoteMaterials;
+	} = $props();
 
 	const asksVehicles = $derived(values.structure === VEHICLE_STRUCTURE);
-	const materials = $derived(materialOptionsForSolution(values.structure));
+	const materials = $derived(materialOptionsForSolution(values.structure, quoteMaterials));
 </script>
 
 <div class="space-y-8">

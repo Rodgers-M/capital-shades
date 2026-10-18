@@ -55,7 +55,7 @@
 					<li class={offset(i)}>
 						<ProjectTile
 							project={related}
-							solutions={data.products}
+							solutions={data.solutions}
 							sizes="(min-width: 1024px) 22vw, 50vw"
 							imageClass="aspect-[3/4]"
 						/>

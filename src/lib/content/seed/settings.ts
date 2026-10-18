@@ -1,9 +1,9 @@
 import type { SiteSettings } from '../types';
 
 /**
- * Seed settings, used until Sanity is connected.
- * Only facts found on the current site or the company Facebook page — see
- * docs/content-to-confirm.md for what still needs the owner's confirmation.
+ * Seed settings, used until Sanity is connected and copied into it by the
+ * Studio import. Only facts confirmed in docs/decisions.md or found on the
+ * current site — see docs/content-to-confirm.md for what is still open.
  */
 export const settings: SiteSettings = {
 	name: 'Capital Shades',
@@ -11,19 +11,17 @@ export const settings: SiteSettings = {
 	tagline: 'The coolest solutions under the sun.',
 	description:
 		'Capital Shades designs and installs custom car park shades, shade sails, canopies and tensile membrane structures in Kenya.',
-	// Facebook and the current contact page list 0722 765 397; the current site header lists 0708 559 059.
+	// Server-side only. 0708 559 059 is the old site's header number; it isn't shown publicly.
 	phones: [
 		{ display: '0722 765 397', number: '254722765397' },
 		{ display: '0708 559 059', number: '254708559059' }
 	],
-	// TODO(owner): provisional — 0722 765 397 is on Facebook, the contact page and the carport sign.
+	// Confirmed by the owner (docs/decisions.md — "Official contact details")
 	primaryPhone: { display: '0722 765 397', number: '254722765397' },
-	// TODO(owner): confirm which number is on WhatsApp (Facebook shows a WhatsApp button).
 	whatsapp: { display: '0722 765 397', number: '254722765397' },
 	email: 'info@capitalshades.co.ke',
 	// Unconfirmed details stay null/empty so nothing is published until the owner confirms it.
-	// Geographic positioning recorded in docs/decisions.md ("Geographic positioning"):
-	// Nairobi-centred, serving nearby counties; projects elsewhere may be considered.
+	// docs/decisions.md — "Geographic positioning": based in Nairobi, primary local market below.
 	location: 'Nairobi',
 	address: null,
 	hours: null,
@@ -65,5 +63,12 @@ export const settings: SiteSettings = {
 			title: 'Government buildings',
 			text: 'A wide range of options, colours, fabrics and styles to match the finished look you need.'
 		}
-	]
+	],
+	// Approved wording from docs/decisions.md; keep the warranty conditional until its scope is confirmed
+	warrantyNote:
+		'Selected structures are covered by warranties of up to 10 years. Final warranty terms are provided with the quotation and contract documents.',
+	siteVisitNote:
+		'Site visits within Nairobi and nearby areas may be provided at no cost, depending on location.',
+	quoteNote:
+		'Project details and site photos can help the team make an initial assessment. A final quotation follows the site visit and confirmed measurements.'
 };

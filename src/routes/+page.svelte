@@ -21,9 +21,9 @@
 
 <Seo description={data.settings.description} image={data.hero?.heroImage} />
 
-<HeroSection settings={data.settings} project={data.hero} solutions={data.products} />
+<HeroSection settings={data.settings} project={data.hero} solutions={data.solutions} />
 
-<SelectedProjects projects={data.selectedProjects} solutions={data.products} />
+<SelectedProjects projects={data.selectedProjects} solutions={data.solutions} />
 
 <FeaturedSolutions solutions={data.featuredSolutions} />
 
@@ -32,7 +32,7 @@
 <SectorContext sectors={data.sectors} />
 
 {#if data.featuredProject}
-	<FeaturedProject project={data.featuredProject} solutions={data.products} />
+	<FeaturedProject project={data.featuredProject} solutions={data.solutions} />
 {/if}
 
 <ProcessStrip />
