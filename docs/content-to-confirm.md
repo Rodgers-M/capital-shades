@@ -143,6 +143,30 @@ Only expose verified official accounts.
 
 ## Important content to collect
 
+### Quote material options
+
+The quote form asks about material only where the published solution copy
+confirms the options (`MATERIALS_BY_SOLUTION` in `src/lib/enquiry.ts`):
+
+- Car Parking Shades: shade mesh, waterproof PVC, metal roofing
+- Shade Sails: shade mesh
+- Canopies: waterproof PVC
+- Tensile & Custom Structures: waterproof PVC
+
+Still confirm:
+
+- [ ] Whether canopies are also offered with metal roofing.
+- [ ] Whether tensile structures are also offered in shade mesh.
+- [ ] Whether shade sails are also offered in a waterproof fabric (the Shade
+      Sails page mentions "waterproof material").
+- [ ] Which materials to offer for Awnings, Pergolas & Gazebos, Screen Fencing
+      and Parasols. The question is hidden for these until confirmed.
+
+Each confirmation also needs a change to `MATERIALS_BY_SOLUTION`; the solution
+pages' copy doesn't feed the form.
+
+---
+
 ### Featured projects
 
 - [ ] Select approximately 5–10 flagship projects.

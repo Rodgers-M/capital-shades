@@ -38,11 +38,35 @@ export const VEHICLE_COUNTS: EnquiryOption[] = [
 	{ value: NOT_SURE, label: 'Not sure' }
 ];
 
+/** Every material choice; which ones a structure offers is in MATERIALS_BY_SOLUTION. */
 export const MATERIALS: EnquiryOption[] = [
 	{ value: 'mesh', label: 'Shade mesh', hint: 'Breathable shade netting' },
 	{ value: 'pvc', label: 'Waterproof PVC', hint: 'Coated membrane for sun and rain' },
+	{ value: 'metal', label: 'Metal roofing' },
 	{ value: NOT_SURE, label: 'Not sure yet', hint: 'We can advise during the site visit' }
 ];
+
+/*
+ * Only materials the published solution copy confirms for that structure.
+ * Structures left out don't ask about material until the owner confirms
+ * options (docs/content-to-confirm.md — "Quote material options").
+ */
+const MATERIALS_BY_SOLUTION = new Map<string, readonly string[]>([
+	['car-parking-shades', ['mesh', 'pvc', 'metal', NOT_SURE]],
+	['shade-sails', ['mesh', NOT_SURE]],
+	['canopies', ['pvc', NOT_SURE]],
+	['tensile-custom-structures', ['pvc', NOT_SURE]]
+] satisfies [SolutionTypeId, readonly string[]][]);
+
+/** Material choices for a STRUCTURES value; empty when the question shouldn't be asked. */
+export function materialOptionsForSolution(structure: string): EnquiryOption[] {
+	const allowed = MATERIALS_BY_SOLUTION.get(structure);
+	return allowed ? MATERIALS.filter((m) => allowed.includes(m.value)) : [];
+}
+
+/** The material if the structure offers it, otherwise empty. */
+export const materialFor = (structure: string, material: string): string =>
+	isOption(materialOptionsForSolution(structure), material) ? material : '';
 
 export const CONTACT_METHODS: EnquiryOption[] = [
 	{ value: 'phone', label: 'Phone call' },
@@ -90,7 +114,7 @@ export interface Enquiry {
 	length: string;
 	/** Quote: a VEHICLE_COUNTS value — car parking shades only */
 	vehicles: string;
-	/** Quote: a MATERIALS value */
+	/** Quote: a MATERIALS value the structure offers (materialOptionsForSolution) */
 	material: string;
 	/** Quote: a CONTACT_METHODS value */
 	contactMethod: string;
@@ -215,7 +239,7 @@ export function parseEnquiry(
 					width: get('width'),
 					length: get('length'),
 					vehicles: structure === VEHICLE_STRUCTURE ? pick('vehicles', VEHICLE_COUNTS) : '',
-					material: pick('material', MATERIALS),
+					material: materialFor(structure, get('material')),
 					contactMethod: get('contactMethod')
 				})
 	};

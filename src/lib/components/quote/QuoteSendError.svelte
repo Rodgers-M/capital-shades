@@ -7,12 +7,16 @@
 	let {
 		message,
 		hasPhotos,
+		canRetryWithoutPhotos,
 		whatsappHref,
 		phone,
 		onretrywithoutphotos
 	}: {
 		message: string;
+		/** Only adds the "attach your photos" note to the WhatsApp link */
 		hasPhotos: boolean;
+		/** Only when the photos themselves may be what failed (too large, or a dropped connection) */
+		canRetryWithoutPhotos: boolean;
 		/** Pre-filled with the visitor's answers */
 		whatsappHref: string;
 		phone: PublicSiteSettings['primaryPhone'];
@@ -26,7 +30,7 @@
 <div class="mt-6 border-l-2 border-destructive bg-destructive/5 p-4 text-sm" role="alert">
 	<p class="font-semibold text-destructive">{message}</p>
 	<ul class="mt-3 space-y-2">
-		{#if hasPhotos}
+		{#if canRetryWithoutPhotos}
 			<li>
 				<button type="button" onclick={onretrywithoutphotos} class={action}>
 					Try again without photos

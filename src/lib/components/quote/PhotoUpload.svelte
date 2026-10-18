@@ -46,6 +46,18 @@
 			.join(' ');
 	}
 
+	const pickerButton = cn(
+		'quote-js h-12 cursor-pointer items-center gap-2 rounded-sm bg-ink px-5 text-sm font-semibold tracking-wide text-on-ink transition-colors hover:bg-ink-raised',
+		'has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-ring',
+		'has-disabled:cursor-not-allowed has-disabled:opacity-40'
+	);
+
+	function pick(event: Event & { currentTarget: HTMLInputElement }) {
+		add(event.currentTarget.files);
+		// Clear so the same photo can be chosen again after removing it
+		event.currentTarget.value = '';
+	}
+
 	function update(photoId: number, changes: Partial<SitePhoto>) {
 		const photo = photos.find((p) => p.id === photoId);
 		// Removed while it was being prepared
@@ -102,30 +114,45 @@
 		</div>
 	</div>
 
-	<div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
-		<input
-			{id}
-			type="file"
-			name="photos"
-			accept={PHOTO_LIMITS.accept}
-			multiple
-			disabled={full}
-			aria-describedby="{id}-hint"
-			class="quote-js peer sr-only"
-			onchange={(event) => {
-				add(event.currentTarget.files);
-				// Clear so the same photo can be chosen again after removing it
-				event.currentTarget.value = '';
-			}}
-		/>
+	<div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3">
+		<!--
+			Camera first on touch devices, where people are often standing at the site.
+			Phones take one photo per launch, so each lands in the grid below and the
+			button offers another. Desktop browsers ignore capture, so it is hidden for mouse
+			pointers; touch laptops may still show it and open the file picker instead.
+		-->
+		<label class={cn(pickerButton, 'hidden pointer-coarse:inline-flex')}>
+			<input
+				type="file"
+				accept={PHOTO_LIMITS.accept}
+				capture="environment"
+				disabled={full}
+				aria-describedby="{id}-hint"
+				class="sr-only"
+				onchange={pick}
+			/>
+			<CameraIcon class="size-4" aria-hidden="true" />
+			<!-- The gallery button carries "Photo limit reached", so it isn't said twice -->
+			{photos.length && !full ? 'Take another photo' : 'Take a photo'}
+		</label>
 		<label
-			for={id}
 			class={cn(
-				'quote-js inline-flex h-12 cursor-pointer items-center gap-2 rounded-sm bg-ink px-5 text-sm font-semibold tracking-wide text-on-ink transition-colors hover:bg-ink-raised',
-				'peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-ring',
-				'peer-disabled:cursor-not-allowed peer-disabled:opacity-40'
+				pickerButton,
+				'inline-flex',
+				'pointer-coarse:border pointer-coarse:border-foreground/20 pointer-coarse:bg-card pointer-coarse:text-foreground pointer-coarse:hover:border-foreground pointer-coarse:hover:bg-card'
 			)}
 		>
+			<input
+				{id}
+				type="file"
+				name="photos"
+				accept={PHOTO_LIMITS.accept}
+				multiple
+				disabled={full}
+				aria-describedby="{id}-hint"
+				class="sr-only"
+				onchange={pick}
+			/>
 			<ImagePlusIcon class="size-4" aria-hidden="true" />
 			{full ? 'Photo limit reached' : photos.length ? 'Add more photos' : 'Choose photos'}
 		</label>

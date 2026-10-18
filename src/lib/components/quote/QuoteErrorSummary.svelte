@@ -15,7 +15,9 @@
 	// Radios sit inside a fieldset, so focus the first one rather than jumping to the group
 	function focusField(event: MouseEvent, field: EnquiryField) {
 		const target = document.getElementById(fieldId(field));
-		const control = target?.matches('input, textarea') ? target : target?.querySelector('input');
+		const control = target?.matches('input, textarea, select, button')
+			? target
+			: target?.querySelector('input');
 		if (!control) return;
 		event.preventDefault();
 		control.focus();

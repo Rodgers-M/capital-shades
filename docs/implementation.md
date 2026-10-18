@@ -534,3 +534,12 @@ Before launch:
   the WhatsApp fallback usable;
 - consider a minimum form-completion time as a cheap extra bot check;
 - confirm the Resend plan's sending and attachment quotas.
+
+### C4 follow-up refinements
+
+- [x] Structure selector changed to compact accessible dropdown
+- [x] No-JavaScript structure select preserved
+- [x] Direct mobile camera capture for site photos
+- [x] Existing photo resizing / validation / limits reused
+- [x] Mobile quote layout tightened
+- [x] Material preference limited to confirmed options per solution (UI, server, no-JS)

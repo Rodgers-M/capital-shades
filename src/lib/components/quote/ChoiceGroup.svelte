@@ -26,7 +26,7 @@
 		hint?: string;
 		error?: string;
 		required?: boolean;
-		/** `list`: full rows with hints; `inline`: short labels in a wrapping row */
+		/** `list`: rows, with hints from the small breakpoint up; `inline`: short labels in a wrapping row */
 		layout?: 'list' | 'inline';
 		/** Columns for the `list` layout from the small breakpoint up */
 		columns?: 2 | 3;
@@ -65,7 +65,9 @@
 				class={cn(
 					'flex cursor-pointer items-start gap-3 rounded-sm border border-foreground/15 bg-card transition-colors hover:border-foreground/40',
 					'has-checked:border-foreground has-checked:bg-primary/10 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-ring',
-					layout === 'list' ? 'min-h-14 p-3.5' : 'min-h-11 items-center px-4 py-2.5'
+					layout === 'list'
+						? 'min-h-11 items-center px-3.5 py-2.5 sm:min-h-14 sm:items-start sm:p-3.5'
+						: 'min-h-11 items-center px-4 py-2.5'
 				)}
 			>
 				<input
@@ -81,7 +83,7 @@
 				<span
 					class={cn(
 						'flex size-4 shrink-0 items-center justify-center rounded-full border border-foreground/40 peer-checked:border-foreground peer-checked:[&>span]:scale-100',
-						layout === 'list' && 'mt-0.5'
+						layout === 'list' && 'sm:mt-0.5'
 					)}
 					aria-hidden="true"
 				>
@@ -90,7 +92,7 @@
 				<span class="min-w-0">
 					<span class="block text-sm leading-snug font-semibold sm:text-base">{option.label}</span>
 					{#if layout === 'list' && option.hint}
-						<span class="mt-0.5 block text-sm text-muted-foreground">{option.hint}</span>
+						<span class="mt-0.5 hidden text-sm text-muted-foreground sm:block">{option.hint}</span>
 					{/if}
 				</span>
 			</label>

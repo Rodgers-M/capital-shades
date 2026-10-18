@@ -2,7 +2,12 @@
 	import Field from '$lib/components/forms/Field.svelte';
 	import ChoiceGroup from './ChoiceGroup.svelte';
 	import PhotoUpload from './PhotoUpload.svelte';
-	import { MATERIALS, VEHICLE_COUNTS, VEHICLE_STRUCTURE } from '$lib/enquiry';
+	import {
+		MATERIALS,
+		VEHICLE_COUNTS,
+		VEHICLE_STRUCTURE,
+		materialOptionsForSolution
+	} from '$lib/enquiry';
 	import { fieldId, type QuoteErrors, type QuoteValues } from './steps';
 	import type { SitePhoto } from './photos';
 
@@ -14,6 +19,7 @@
 	}: { values: QuoteValues; photos: SitePhoto[]; errors: QuoteErrors } = $props();
 
 	const asksVehicles = $derived(values.structure === VEHICLE_STRUCTURE);
+	const materials = $derived(materialOptionsForSolution(values.structure));
 </script>
 
 <div class="space-y-8">
@@ -70,15 +76,23 @@
 		/>
 	</div>
 
-	<ChoiceGroup
-		id={fieldId('material')}
-		name="material"
-		legend="Material preference"
-		hint="If you already know what you’d like."
-		options={MATERIALS}
-		columns={3}
-		bind:value={values.material}
-	/>
+	<!--
+		Without JavaScript it can't follow the structure, so it offers every material
+		and the server drops one the structure doesn't offer.
+	-->
+	<div class="quote-reveal data-inactive:hidden" data-inactive={!materials.length || undefined}>
+		<ChoiceGroup
+			id={fieldId('material')}
+			name="material"
+			legend="Material preference"
+			hint="If you already know what you’d like."
+			options={materials.length ? materials : MATERIALS}
+			bind:value={values.material}
+		/>
+		<p class="quote-reveal mt-2 hidden text-sm text-muted-foreground">
+			Not every material suits every structure. We’ll confirm the right one during the site visit.
+		</p>
+	</div>
 
 	<PhotoUpload id="q-photos" bind:photos />
 

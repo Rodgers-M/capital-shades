@@ -2,7 +2,7 @@
 	import { onMount, tick } from 'svelte';
 	import { ArrowRightIcon } from '@lucide/svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import { submitEnquiry } from '$lib/components/forms/submitEnquiry';
+	import { submitEnquiry, type SubmitErrorCause } from '$lib/components/forms/submitEnquiry';
 	import QuoteContactFields from './QuoteContactFields.svelte';
 	import QuoteErrorSummary from './QuoteErrorSummary.svelte';
 	import QuoteNeedsFields from './QuoteNeedsFields.svelte';
@@ -17,6 +17,7 @@
 	import {
 		EMPTY_ENQUIRY,
 		VEHICLE_STRUCTURE,
+		materialFor,
 		summarise,
 		validateEnquiry,
 		type Enquiry,
@@ -50,7 +51,8 @@
 	/** Fields flagged after Continue/Submit; each clears once it is valid */
 	let flagged = $state<EnquiryField[]>([]);
 	let showSummary = $state(false);
-	let errorMessage = $state('');
+	/** The last failed send, and whether it carried photos */
+	let sendError = $state<{ message: string; cause: SubmitErrorCause; hadPhotos: boolean }>();
 	/** Errors only the server reported; replaced on each send */
 	let serverErrors = $state<QuoteErrors>({});
 	/** The last send left photos out (on request, failed, or over the upload budget) */
@@ -69,7 +71,8 @@
 			Object.entries(values).map(([key, value]) => [key, value.trim()])
 		) as QuoteValues),
 		kind: 'quote',
-		vehicles: values.structure === VEHICLE_STRUCTURE ? values.vehicles : ''
+		vehicles: values.structure === VEHICLE_STRUCTURE ? values.vehicles : '',
+		material: materialFor(values.structure, values.material)
 	});
 	const invalid = $derived(validateEnquiry(enquiry));
 	const errors = $derived<QuoteErrors>({
@@ -160,7 +163,7 @@
 			if (first !== -1 && first !== step) await goTo(first);
 			flag(fields);
 		} else {
-			errorMessage = result.message;
+			sendError = { message: result.message, cause: result.cause, hadPhotos: sending.length > 0 };
 			status = 'error';
 		}
 	}
@@ -279,10 +282,11 @@
 					quotation follows the site visit and confirmed measurements.
 				</p>
 
-				{#if status === 'error'}
+				{#if status === 'error' && sendError}
 					<QuoteSendError
-						message={errorMessage}
+						message={sendError.message}
 						hasPhotos={readyPhotos.length > 0}
+						canRetryWithoutPhotos={sendError.hadPhotos && sendError.cause !== 'server'}
 						whatsappHref={whatsappFallback}
 						phone={settings.primaryPhone}
 						onretrywithoutphotos={() => send({ withPhotos: false })}
