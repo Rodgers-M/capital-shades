@@ -41,7 +41,7 @@
 	/* Focus ring: a deeper gold that reaches 3:1 on both warm white and charcoal */
 	--color-ring: #9c7a3c;
 
-	/* Ink: the near-black surfaces (footer, dark sections, mobile action bar) */
+	/* Ink: the near-black surfaces (footer, dark sections) */
 	--color-ink: #171717;
 	--color-ink-raised: #222222;
 	--color-ink-border: #343434;
@@ -176,6 +176,44 @@
 	}
 	@media (width >= 80rem) {
 		padding-block: 4rem;
+	}
+}
+
+/*
+ * Native horizontal swipe row (Phase C5.6). Apply below md only, e.g.
+ * `max-md:snap-rail md:grid`; children set their own width so the next item
+ * peeks in. Bleeds to the screen edges by container-page's phone padding
+ * (1.25rem), and keeps a little block padding so focus rings aren't clipped.
+ */
+@utility snap-rail {
+	display: flex;
+	gap: 1rem;
+	margin-inline: -1.25rem;
+	padding: 0.25rem 1.25rem;
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scroll-padding-inline: 1.25rem;
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-border) transparent;
+
+	& > * {
+		flex: none;
+		scroll-snap-align: start;
+	}
+}
+
+/*
+ * Bottom-right offset for fixed controls (the floating WhatsApp button). The
+ * safe-area term only applies if app.html opts into `viewport-fit=cover`; until
+ * then iOS keeps the page above the home indicator and it resolves to the 1rem.
+ */
+@utility fixed-corner {
+	right: 1rem;
+	bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.5rem));
+	@media (width >= 48rem) {
+		right: 1.5rem;
+		bottom: max(1.5rem, calc(env(safe-area-inset-bottom) + 0.5rem));
 	}
 }
 

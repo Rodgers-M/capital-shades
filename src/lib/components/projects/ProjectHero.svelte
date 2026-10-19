@@ -11,8 +11,7 @@
 
 	/*
 	 * Project opener: breadcrumb, title, its solutions (linked) and sector, the
-	 * two next steps, and the hero photo. `data-hero` keeps the phone action bar
-	 * out of the way while these calls to action are on screen.
+	 * two next steps, and the hero photo.
 	 */
 	let {
 		settings,
@@ -27,7 +26,7 @@
 	const portrait = $derived(project.heroImage.height > project.heroImage.width);
 </script>
 
-<section data-hero aria-labelledby="project-title" class="border-b">
+<section aria-labelledby="project-title" class="border-b">
 	<div
 		class="container-page grid gap-10 pt-8 pb-12 md:pt-10 md:pb-16 lg:grid-cols-12 lg:items-center lg:gap-12 lg:py-16"
 	>
@@ -78,6 +77,7 @@
 				</Button>
 				<Button
 					href={whatsappHref(settings, { project: project.title })}
+					data-hides-floating-whatsapp
 					target="_blank"
 					rel="noopener"
 					variant="outline"

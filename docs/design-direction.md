@@ -190,17 +190,19 @@ Projects should connect:
 
 The homepage is a routing and credibility layer, not an exhaustive brochure.
 
-Preferred rhythm:
+Preferred rhythm (Phases C5.5–C5.6):
 
-1. Hero
-2. Selected project proof
-3. Featured solutions
-4. Solution guidance
-5. Residential / Commercial / Institutional context
-6. Featured project
-7. How Capital Shades works
-8. Final quote CTA
-9. Footer
+1. Hero, with the capability line
+2. Why Capital Shades
+3. Core solutions, with a short "not sure?" prompt
+4. How it works
+5. Selected work (compact project proof)
+6. Residential / Commercial / Institutional context
+7. Final quote CTA
+8. Footer
+
+Detailed material comparison and solution guidance live on `/solutions`; a
+deeper featured case study can return once verified project details exist.
 
 ---
 
@@ -211,7 +213,7 @@ The hero should:
 - immediately explain the business;
 - use real project imagery;
 - prioritize Request a Quote;
-- offer View Projects as a secondary path;
+- offer WhatsApp as the secondary action and View Projects as the proof path;
 - avoid unnecessary claims or statistics.
 
 Business scope may now accurately reference:
@@ -384,13 +386,8 @@ customers.
 
 Do not force every visitor through the quote form.
 
-Desktop/tablet may use a persistent floating WhatsApp control.
-
-Mobile should use:
-
-**Call | WhatsApp | Request a Quote**
-
-without an additional floating WhatsApp button.
+A persistent floating WhatsApp control is used on every screen size; there is no
+mobile bottom action bar (docs/decisions.md — "Mobile conversion").
 
 ---
 

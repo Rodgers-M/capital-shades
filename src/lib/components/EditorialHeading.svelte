@@ -14,6 +14,7 @@
 		description,
 		tone = 'light',
 		action,
+		compact = false,
 		class: className
 	}: {
 		/** Lets the section use aria-labelledby */
@@ -24,6 +25,8 @@
 		/** `ink` on charcoal sections */
 		tone?: 'light' | 'ink';
 		action?: Snippet;
+		/** Phones: no eyebrow, a smaller title and the action on the same row */
+		compact?: boolean;
 		class?: string;
 	} = $props();
 
@@ -31,14 +34,19 @@
 </script>
 
 <div
-	class={cn('flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-10', className)}
+	class={cn(
+		'flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-10',
+		compact && 'max-md:flex-row max-md:items-baseline max-md:justify-between max-md:gap-4',
+		className
+	)}
 >
 	<div class="max-w-3xl">
 		{#if eyebrow}
 			<p
 				class={cn(
 					'flex items-center gap-3 eyebrow',
-					onInk ? 'text-primary' : 'text-primary-strong'
+					onInk ? 'text-primary' : 'text-primary-strong',
+					compact && 'max-md:hidden'
 				)}
 			>
 				<span class="h-px w-10 bg-primary" aria-hidden="true"></span>
@@ -49,6 +57,7 @@
 			{id}
 			class={cn(
 				'mt-5 text-3xl leading-[1.08] font-medium tracking-tight text-balance sm:text-4xl lg:text-5xl',
+				compact && 'max-md:mt-0 max-md:text-2xl',
 				onInk ? 'text-on-ink' : 'text-foreground'
 			)}
 		>

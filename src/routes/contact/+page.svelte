@@ -11,7 +11,7 @@
 
 	/*
 	 * Contact: the three main routes (call, WhatsApp, quote) first and above the
-	 * fold — the phone action bar is hidden on this page — then email, the
+	 * fold — the floating WhatsApp control is hidden on this page — then email, the
 	 * message form, and where the business works. Every detail comes from
 	 * public settings and only renders when set.
 	 */

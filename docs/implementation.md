@@ -440,9 +440,9 @@ Do not begin:
 
 ---
 
-## Current Phase
+## Phase C5.0 — Sanity / Content Model Migration
 
-Phase C5 — Sanity / Content Model Migration
+Status: Complete
 
 ## Objective
 
@@ -1196,15 +1196,1461 @@ A new, empty dataset uses `npm run import-seed` instead.
 
 ## Phase Boundary
 
-Stop after C5.
+Stop after C5.0.
 
 Do not begin:
 
+- C5.5
 - C6 Content Alignment
 - C7 SEO / Local Search
 - C8 Launch QA
 
+## Phase C5.5 — Homepage Conversion Refinement
+
+Status: Complete
+
+## Objective
+
+Refine the homepage so a first-time visitor can quickly understand:
+
+1. What Capital Shades does
+2. Who it serves
+3. Why the business is a strong fit
+4. Where it operates
+5. What kind of work it has delivered
+6. How to contact the team immediately
+
+This is not a full redesign.
+
+The goal is to reduce unnecessary homepage sections, sharpen the message,
+and make the first one to two screenfuls commercially stronger.
+
+Do not begin the full C6 content-alignment phase.
+
+---
+
+## Core principle
+
+The homepage should not try to explain the entire website.
+
+It should function as:
+
+- a strong business introduction;
+- a trust layer;
+- a proof layer;
+- a routing layer;
+- a conversion page.
+
+Visitors should be able to understand the Capital Shades proposition without
+scrolling through many explanatory sections.
+
+---
+
+# 1. Recommended homepage structure
+
+Refine the homepage toward this order:
+
+1. Hero
+2. Why Capital Shades
+3. Core solutions
+4. Selected projects
+5. Residential / Commercial / Institutional
+6. How it works
+7. Final conversion CTA
+8. Footer
+
+Reduce or remove homepage sections that are useful elsewhere but do not need
+their own dedicated homepage block.
+
+---
+
+# 2. Hero
+
+The hero should communicate the business proposition more directly than the
+current expressive version.
+
+The visitor should understand within a few seconds that Capital Shades:
+
+- designs;
+- fabricates;
+- supplies;
+- installs;
+- maintains shade/outdoor structures.
+
+The hero should also establish:
+
+- homes, businesses and institutions as customer contexts;
+- Nairobi as the business base;
+- Kenya / East Africa as the broader service scope;
+- Request a Quote and WhatsApp as primary conversion paths;
+- Projects as the main proof path.
+
+---
+
+## Hero messaging direction
+
+Use a strong literal headline rather than relying only on abstract brand copy.
+
+Preferred direction:
+
+> Shade structures designed, fabricated and installed for your space.
+
+Supporting copy can communicate:
+
+> Car parking shades, shade sails, canopies, awnings, pergolas, tensile
+> structures and more — for homes, businesses and institutions across Kenya
+> and East Africa.
+
+Do not feel required to copy this word-for-word if a stronger concise version
+fits the existing visual composition.
+
+Keep it factual.
+
+Do not overload the hero with every service or process detail.
+
+---
+
+## Hero actions
+
+Primary:
+
+- Request a Quote
+
+Secondary:
+
+- WhatsApp
+
+Tertiary / supporting link:
+
+- View Projects
+
+The hero should make it clear that a visitor can either:
+
+- start a structured quote;
+- start a quick conversation;
+- review completed work first.
+
+---
+
+# 3. Capability line
+
+Near the hero, expose the confirmed lifecycle in a restrained form.
+
+For example:
+
+Design · Fabrication · Supply · Installation · Maintenance
+
+This may be:
+
+- a thin capability strip;
+- a quiet line under the hero copy;
+- another editorial treatment that fits the existing design.
+
+Do not turn this into five large cards.
+
+---
+
+# 4. Why Capital Shades
+
+Add or refine one concise section near the top answering:
+
+"Why should I choose Capital Shades?"
+
+Use the owner-confirmed differentiators and verified service capability.
+
+Preferred themes:
+
+### Custom design
+
+Structures are designed around the site, intended use and project requirements.
+
+### Materials & finishes
+
+The business uses high-end materials and finishes, with material sourcing
+including suppliers in South Africa and France.
+
+Do not invent supplier brands or certifications.
+
+### Expert installation
+
+Installation is one of the owner-confirmed differentiators.
+
+Avoid vague superlatives.
+
+### Full lifecycle / after-sales
+
+Capital Shades handles the project from design and fabrication through
+installation, maintenance and after-sales support.
+
+Warranty may be mentioned only using the approved conditional wording where
+appropriate.
+
+---
+
+## Presentation
+
+Do not build four generic SaaS cards.
+
+Prefer:
+
+- editorial columns;
+- ruled rows;
+- concise statements;
+- small numbered items;
+- restrained typography.
+
+The section should remain compact.
+
+---
+
+# 5. Core solutions
+
+Keep a homepage Solutions section, but reduce its role.
+
+The homepage does not need to explain all eight solution categories in depth.
+
+Use the current working taxonomy:
+
+- Car Parking Shades
+- Shade Sails
+- Canopies
+- Awnings
+- Pergolas & Gazebos
+- Tensile & Custom Structures
+- Screen Fencing
+- Parasols
+
+Preferred behavior:
+
+- feature approximately 4–6 strategically useful solutions;
+- link clearly to View all Solutions;
+- retain access to all eight on `/solutions`.
+
+Prioritize solutions with:
+
+- existing project proof;
+- common customer search terminology;
+- strategic commercial relevance.
+
+Do not bring Pool Shades back as a top-level solution.
+
+---
+
+# 6. Remove/reduce the standalone solution-guide section
+
+The current homepage has dedicated solution/material guidance.
+
+Review whether the standalone:
+
+"Which structure is right for your space?"
+
+or equivalent guidance deserves a full homepage section.
+
+Preferred direction:
+
+Remove or significantly reduce it.
+
+Reason:
+
+- the Solutions page now handles detailed guidance;
+- the quote flow provides "Not sure — help me choose";
+- the homepage should focus on proposition, proof and conversion.
+
+If useful, retain only a compact prompt such as:
+
+> Not sure which structure suits your space?
+> We can help you choose.
+
+Link to:
+
+- Solutions
+- Request a Quote
+
+Do not keep a large comparison block merely because it already exists.
+
+---
+
+# 7. Remove homepage material comparison
+
+Remove the detailed Shade Mesh vs PVC comparison from the homepage unless
+there is a strong UX reason to retain it.
+
+Material education belongs more naturally on:
+
+- Solutions;
+- relevant solution detail pages;
+- quote flow.
+
+The first-time visitor does not need to understand roofing-material differences
+before understanding the company itself.
+
+Removing it should shorten the page.
+
+Do not delete the shared component/data if other pages still use it.
+
+---
+
+# 8. Selected projects
+
+Keep real project proof prominent.
+
+Projects should appear early enough that visitors can quickly verify the work.
+
+Preferred section:
+
+- 3–5 strong projects;
+- image-led;
+- minimal metadata;
+- solution / sector where useful;
+- general location only when verified;
+- View all Projects.
+
+Do not overcrowd the homepage with project cards.
+
+Avoid repeating project imagery elsewhere on the same page.
+
+---
+
+# 9. Featured project section
+
+Review whether the standalone Featured Project section still adds enough value
+now that:
+
+- Selected Projects exists;
+- project detail pages exist;
+- project-specific metadata is still incomplete.
+
+Preferred direction:
+
+Remove the dedicated Featured Project homepage section unless it provides
+meaningfully different proof from Selected Projects.
+
+A deeper featured case study can return later when verified project scope,
+location, year and delivered-solution content are available.
+
+Do not keep the section only to preserve the previous B2 layout.
+
+---
+
+# 10. Customer sectors
+
+Keep:
+
+- Residential
+- Commercial
+- Institutional
+
+Give the three equal visual importance.
+
+Do not base prominence solely on current portfolio counts.
+
+Institutional work is a strategic growth target.
+
+The section should help customers self-identify quickly.
+
+Possible examples:
+
+### Residential
+
+Homes and private outdoor spaces.
+
+### Commercial
+
+Developers, offices, hospitality and commercial properties.
+
+### Institutional
+
+Schools, hospitals, churches and government organisations.
+
+Use confirmed customer categories only.
+
+---
+
+# 11. Process
+
+Replace the older provisional process with the now-confirmed customer journey.
+
+Do not show all 11 internal stages on the homepage.
+
+Compress them into four understandable stages:
+
+### 1. Tell us about the project
+
+Initial enquiry and discussion.
+
+### 2. Site visit & measurements
+
+Capital Shades reviews the site and confirms measurements.
+
+### 3. Design, quotation & fabrication
+
+The project is designed/proposed, quoted and fabricated after approval.
+
+### 4. Installation, handover & support
+
+Installation, handover and after-sales support.
+
+This should align with the full confirmed process recorded in `decisions.md`.
+
+Avoid old generic stages such as:
+
+- Site evaluation
+- Design
+- Fabrication
+- Installation
+
+when they omit important context such as quotation, handover and support.
+
+---
+
+# 12. Geography
+
+Homepage should communicate service geography once, clearly.
+
+Preferred concise direction:
+
+> Based in Nairobi · Projects across Kenya and East Africa
+
+or equivalent.
+
+Do not repeat this phrase throughout multiple sections.
+
+Do not turn this phase into SEO keyword optimization.
+
+C7 will handle detailed local-search strategy.
+
+---
+
+# 13. Warranty
+
+Warranty is a useful trust signal but must remain conditional.
+
+If used on the homepage, only use approved wording or a concise derivative
+that preserves the condition.
+
+Approved wording:
+
+> Selected structures are covered by warranties of up to 10 years.
+> Final warranty terms are provided with the quotation and contract documents.
+
+A shorter homepage treatment may say:
+
+> Selected warranties up to 10 years
+
+only if nearby/contextual copy makes it clear that terms vary.
+
+Do not write:
+
+- 10-year warranty
+- all structures covered for 10 years
+
+as an unconditional claim.
+
+It is also acceptable to leave warranty detail off the homepage and expose it
+through About / Quote instead.
+
+---
+
+# 14. Final conversion section
+
+Keep one strong final CTA.
+
+The visitor should be offered:
+
+- Request a Quote
+- WhatsApp
+- Call
+
+Preferred message:
+
+> Tell us about your project.
+
+Supporting copy may mention:
+
+- site photos are useful;
+- rough dimensions are enough to start;
+- final quotation follows the site visit.
+
+Keep this concise.
+
+---
+
+# 15. WhatsApp / mobile conversion
+
+Preserve existing behavior.
+
+Desktop/tablet:
+
+- floating WhatsApp control remains;
+- do not let it cover footer or CTA content.
+
+Mobile:
+
+- Call | WhatsApp | Request a Quote
+- no duplicate floating WhatsApp control.
+
+Hero-aware mobile action-bar behavior should continue working after the hero
+changes.
+
+---
+
+# 16. Homepage copy alignment
+
+Use the now-confirmed business facts.
+
+The homepage may accurately say that Capital Shades:
+
+- is based in Nairobi;
+- serves Kenya and East Africa;
+- designs;
+- fabricates;
+- supplies;
+- installs;
+- provides maintenance and repair;
+- provides after-sales support;
+- works with Residential, Commercial and Institutional customers;
+- sources materials including from suppliers in South Africa and France.
+
+Do not invent:
+
+- years in business;
+- project totals;
+- client totals;
+- supplier brands;
+- certifications;
+- project completion claims;
+- response-time promises;
+- installation-duration promises.
+
+---
+
+# 17. Visual direction
+
+Do not redesign the visual system again.
+
+Preserve:
+
+- warm white;
+- charcoal;
+- restrained gold;
+- teal;
+- editorial typography;
+- strong photography;
+- thin rules;
+- restrained geometry.
+
+The main visual goal of this phase is:
+
+**less page, clearer hierarchy.**
+
+Prefer fewer stronger sections over additional visual treatments.
+
+---
+
+# 18. Page-length reduction
+
+The final homepage should be materially shorter than the current B2 version.
+
+Candidates for removal/merging:
+
+- standalone material comparison;
+- large solution-guidance block;
+- standalone Featured Project section;
+- repetitive CTAs;
+- redundant copy.
+
+Do not remove content merely to hit an arbitrary number of pixels.
+
+Every remaining section should answer a distinct customer question.
+
+---
+
+# 19. Customer-question test
+
+After implementation, review the page from the perspective of a first-time
+visitor.
+
+Within the first 1–2 screenfuls they should be able to answer:
+
+- What does Capital Shades do?
+- Does it handle my type of project?
+- Why should I consider them?
+- Where do they work?
+- How can I contact them now?
+
+By the end of the homepage they should also know:
+
+- what main solutions are available;
+- that real project proof exists;
+- that Residential / Commercial / Institutional work is supported;
+- what the broad project process looks like.
+
+---
+
+# 20. Responsive requirements
+
+Verify:
+
+- desktop
+- tablet
+- 375px
+- 320px
+
+Especially verify:
+
+- hero CTA hierarchy;
+- capability line;
+- Why Capital Shades section;
+- solution list;
+- project imagery;
+- process steps;
+- mobile action bar.
+
+No horizontal overflow.
+
+---
+
+# 21. Accessibility
+
+Preserve:
+
+- semantic heading order;
+- image alt text;
+- keyboard navigation;
+- focus states;
+- accessible WhatsApp/Call/Quote links;
+- reduced motion preferences.
+
+Do not turn concise UI into icon-only inaccessible content.
+
+---
+
+# 22. Out of scope
+
+Do not begin:
+
+- C6 full-site content alignment
+- C7 SEO/local search
+- C8 launch QA
+- Sanity schema changes
+- quote-flow redesign
+- project-page redesign
+- solution-page redesign
+
+This phase is homepage refinement only.
+
+---
+
+# Acceptance criteria
+
+- [x] Homepage is materially shorter
+- [x] Hero immediately explains what Capital Shades does
+- [x] Hero communicates customer contexts
+- [x] Hero includes Nairobi / Kenya / East Africa positioning appropriately
+- [x] Request a Quote is prominent
+- [x] WhatsApp is prominent
+- [x] View Projects remains an obvious proof path
+- [x] Confirmed lifecycle is visible near the top
+- [x] Why Capital Shades uses verified differentiators
+- [x] Solutions section is concise
+- [x] Detailed material comparison removed from homepage
+- [x] Large "help me choose" section removed or reduced
+- [x] Selected Projects remains strong
+- [x] Standalone Featured Project removed unless it adds distinct value
+- [x] Residential / Commercial / Institutional remains visible
+- [x] Homepage process reflects confirmed customer journey
+- [x] Final CTA supports Quote / WhatsApp / Call
+      (C5.6: on the home page WhatsApp comes from the floating control, see
+      docs/decisions.md — "Mobile conversion")
+- [x] No unsupported claims introduced
+- [x] Existing visual design language is preserved
+- [x] Existing WhatsApp/mobile behavior is preserved
+- [x] No horizontal overflow at 320px / 375px
+- [x] npm run check passes
+- [x] npm run lint passes
+- [x] npm run build passes
+
+---
+
+## Phase Boundary
+
+Stop after homepage conversion refinement.
+
+## Phase C5.6 — Mobile Homepage Compression
+
+Status: Complete
+
+## Objective
+
+Reduce the homepage's mobile scroll length and improve first-screen conversion
+without removing important business information or redesigning the desktop
+experience.
+
+The primary focus is mobile presentation.
+
+Use:
+
+- tighter mobile typography;
+- tighter vertical spacing;
+- horizontal swipe / scroll-snap for suitable repeated content;
+- a more compact connected process timeline;
+- a much simpler mobile footer.
+
+Do not begin C6.
+
+---
+
+## Core principle
+
+Do not remove information simply to shorten the page.
+
+Instead, reduce vertical repetition on mobile and make repeated content easier
+to browse horizontally.
+
+The homepage should still answer:
+
+- What does Capital Shades do?
+- Who is it for?
+- Why should I consider them?
+- Where do they work?
+- Can I see real projects?
+- How do I contact them now?
+
+Desktop/tablet should retain the existing editorial composition unless a small
+shared adjustment is necessary.
+
+---
+
+# 1. Hero mobile compression
+
+On phones, make the hero materially more compact.
+
+Goals:
+
+- Capital Shades / location label visible;
+- headline visible;
+- supporting copy remains understandable;
+- Request a Quote visible in the first viewport;
+- WhatsApp also visible in the first viewport where reasonably possible;
+- View Projects remains available as a quieter proof path.
+
+Review:
+
+- headline font size;
+- headline line height;
+- supporting-copy size;
+- supporting-copy width;
+- vertical gaps;
+- CTA padding;
+- hero image height / placement.
+
+Do not make the hero feel cramped.
+
+Do not reduce accessibility tap targets.
+
+---
+
+## Mobile hero typography
+
+Preserve the strong desktop typography.
+
+On small phones, deliberately reduce the headline and supporting-copy scale so
+the visitor reaches the conversion actions sooner.
+
+Create a proper mobile type scale rather than shrinking every element equally.
+
+The hero should still feel confident, premium and readable.
+
+---
+
+# 2. Hero CTA layout
+
+Optimize the mobile CTA group so the two most important actions appear early.
+
+Priority:
+
+1. Request a Quote
+2. WhatsApp
+3. View Projects
+
+Preferred mobile treatment:
+
+[ Request a Quote ] [ WhatsApp ]
+
+View projects →
+
+A stacked layout is acceptable if a two-column treatment becomes cramped at
+320px.
+
+Requirements:
+
+- Request a Quote remains visually primary;
+- WhatsApp remains immediately visible;
+- View Projects may use a lighter text-link treatment;
+- all tap targets remain comfortable;
+- no horizontal overflow.
+
+---
+
+# 3. Capability line
+
+Current capability message:
+
+Design · Fabrication · Supply · Installation · Maintenance
+
+Keep this near the hero but compress it on phones.
+
+Avoid awkward separator wrapping.
+
+Possible treatments:
+
+- compact two-line layout;
+- horizontally scrollable line;
+- tightly spaced wrapping with controlled separators.
+
+Do not turn the five capabilities into five stacked cards.
+
+The line should remain easy to scan without adding significant page height.
+
+---
+
+# 4. Why Capital Shades — mobile swipe
+
+Desktop:
+
+Preserve the current editorial composition.
+
+Mobile:
+
+Convert the repeated reasons into a horizontally scrollable, scroll-snap row.
+
+Current themes:
+
+- Custom design
+- Materials & finishes
+- Expert installation
+- Support after handover
+
+Requirements:
+
+- native horizontal scrolling;
+- CSS scroll-snap;
+- no carousel library;
+- partial next item visible to suggest horizontal browsing;
+- usable with JavaScript disabled;
+- keyboard accessible;
+- visible focus states;
+- no autoplay;
+- no forced slide changes.
+
+Keep each item concise.
+
+Prefer restrained panels with:
+
+- small number / label;
+- short heading;
+- short supporting sentence.
+
+Avoid large rounded cards and heavy shadows.
+
+The warranty text should not become another large mobile block.
+
+If retained here, keep it compact and clearly conditional.
+
+---
+
+# 5. Solutions — mobile swipe
+
+Desktop:
+
+Preserve the current concise solution treatment.
+
+Mobile:
+
+Convert the featured solution items into a compact horizontal scroll-snap rail.
+
+Each item should contain only what is useful for quick recognition:
+
+- image;
+- solution title;
+- link / tap target.
+
+Avoid long descriptions.
+
+Show enough of the next item to make horizontal scrolling obvious.
+
+Requirements:
+
+- native horizontal scroll;
+- CSS scroll-snap;
+- no carousel dependency;
+- no autoplay;
+- links remain directly accessible;
+- focus rings must not be clipped.
+
+Keep:
+
+**View all solutions**
+
+outside the scroll area and always visible.
+
+---
+
+## Not sure prompt
+
+Keep the compact prompt:
+
+> Not sure which structure suits your space?
+
+Offer:
+
+- Request a Quote / Help me choose
+- WhatsApp advice message
+
+This prompt should remain outside the horizontal rail so it is not hidden
+behind a swipe interaction.
+
+---
+
+# 6. Selected Projects — mobile swipe
+
+Selected Projects is the strongest candidate for horizontal browsing.
+
+Desktop:
+
+Preserve the existing editorial project composition.
+
+Mobile:
+
+Use a horizontal scroll-snap project rail instead of stacking multiple large
+project images vertically.
+
+Each project may show:
+
+- strong project image;
+- project title;
+- solution and/or sector where useful.
+
+Requirements:
+
+- real project imagery;
+- natural image proportions;
+- native horizontal scrolling;
+- CSS scroll-snap;
+- partial next project visible;
+- no autoplay;
+- no JavaScript-heavy carousel;
+- project image/title remains a real link;
+- keyboard navigation remains usable.
+
+Avoid:
+
+- equal-height generic cards;
+- heavy overlays;
+- badges;
+- excessive metadata.
+
+Keep:
+
+**View all projects**
+
+outside the rail.
+
+---
+
+# 7. Sectors — compact mobile treatment
+
+Do not automatically convert Residential / Commercial / Institutional into a
+carousel.
+
+There are only three sectors, and all three are strategically important.
+
+On mobile, first test a compact layout that keeps all three visible with minimal
+height.
+
+Preferred direction:
+
+Residential  
+Homes & private spaces →
+
+Commercial  
+Developers, hospitality & businesses →
+
+Institutional  
+Schools, hospitals, churches & government organisations →
+
+Possible treatments:
+
+- three compact ruled rows;
+- compact stacked editorial items;
+- a very small horizontal treatment if it proves materially better.
+
+Only use horizontal swipe if it clearly improves both height and usability.
+
+Requirements:
+
+- Residential, Commercial and Institutional remain equally discoverable;
+- Institutional must not be visually de-emphasized;
+- no project counts;
+- no empty-state messaging here.
+
+---
+
+# 8. Process visual treatment
+
+Replace the current process presentation with a connected numbered progression
+inspired by the structural idea used on the Greenleaf Kenya Services page.
+
+Borrow the concept, not Greenleaf's visual styling.
+
+Capital Shades process:
+
+1. Tell us about the project
+2. Site visit & measurements
+3. Design, quotation & fabrication
+4. Installation, handover & support
+
+---
+
+## Desktop process
+
+Desktop may use a horizontal or stepped progression.
+
+Requirements:
+
+- clear numerical sequence;
+- stages visibly connected;
+- restrained typography;
+- minimal chrome;
+- thin connecting rule;
+- no large standalone cards.
+
+The progression should communicate that these stages belong to one process.
+
+---
+
+## Mobile process
+
+Do not make the process swipeable.
+
+Use a compact vertical timeline.
+
+Preferred structure:
+
+01
+Tell us about the project
+Initial enquiry and discussion
+
+│
+
+02
+Site visit & measurements
+We review the site and confirm dimensions
+
+│
+
+03
+Design, quotation & fabrication
+The project is agreed, quoted and fabricated after approval
+
+│
+
+04
+Installation, handover & support
+Installation, handover and available after-sales support
+
+Requirements:
+
+- numbers aligned consistently;
+- thin gold or restrained connecting rule;
+- concise descriptions;
+- minimal vertical padding;
+- no large cards;
+- sequence is visually obvious.
+
+Preserve the Capital Shades visual system:
+
+- warm white;
+- charcoal;
+- restrained gold;
+- teal accents only where appropriate.
+
+---
+
+# 9. Closing CTA
+
+Keep the final CTA concise and compact on phones.
+
+Core message:
+
+> Tell us about your project.
+
+Supporting text should remain short.
+
+For example:
+
+> Rough dimensions and a few site photos are enough to start. Your final
+> quotation follows a site visit and confirmed measurements.
+
+Actions:
+
+- Request a Quote
+- WhatsApp
+- Call
+
+Avoid making this another full-height hero.
+
+Reduce:
+
+- oversized heading scale;
+- excessive top/bottom padding;
+- unnecessary image height;
+- repeated explanatory copy.
+
+---
+
+# 10. Mobile footer compression
+
+On phones, simplify the footer substantially.
+
+The mobile footer should function primarily as:
+
+- contact information;
+- brand closure;
+- essential utility links.
+
+It should not act as a duplicate site map.
+
+---
+
+## Hide on mobile
+
+Hide the full:
+
+- Solutions navigation column
+- Company/navigation column
+
+These links remain available through:
+
+- mobile header navigation;
+- contextual page links;
+- site content.
+
+Tablet and desktop should retain the fuller footer navigation.
+
+---
+
+## Keep on mobile
+
+Keep:
+
+- Capital Shades logo / brand
+- primary phone
+- WhatsApp
+- email
+- concise location/service-area context
+- verified social links
+- Blog / Insights
+- Privacy
+- copyright
+
+Possible mobile footer rhythm:
+
+Capital Shades
+
+Call
+0722 765 397
+
+WhatsApp
+Chat with us
+
+Email
+info@capitalshades.co.ke
+
+Based in Nairobi
+Projects across Kenya and East Africa
+
+[ verified social links ]
+
+Blog / Insights
+Privacy
+
+© Capital Shades
+
+Do not add unverified social links.
+
+---
+
+# 11. Mobile section spacing
+
+Review homepage-specific mobile spacing.
+
+The global design system intentionally uses generous editorial spacing, but the
+homepage can use a tighter rhythm on phones.
+
+Prefer section-level mobile adjustments rather than changing spacing globally.
+
+Review:
+
+- section top/bottom padding;
+- gaps between heading and content;
+- spacing between rail and section footer link;
+- CTA block spacing;
+- process row spacing.
+
+Goal:
+
+reduce scroll fatigue without making the page feel crowded.
+
+---
+
+# 12. Swipe behavior guidelines
+
+All swipeable sections should prefer native browser behavior.
+
+Use:
+
+- `overflow-x: auto`
+- `scroll-snap-type`
+- `scroll-snap-align`
+- appropriate item widths
+- controlled gap
+- optional quiet scrollbar treatment
+
+Avoid:
+
+- autoplay
+- timed movement
+- drag-only interaction
+- pagination dots unless clearly useful
+- large JavaScript carousel libraries
+- infinite looping
+
+Users must still be able to:
+
+- swipe on touch;
+- scroll with a trackpad;
+- use keyboard navigation;
+- tab into individual links;
+- access all content without JavaScript.
+
+---
+
+# 13. Swipe affordance
+
+Avoid repeatedly writing "Swipe →".
+
+Prefer visual affordance:
+
+- partial next item visible;
+- horizontal continuation;
+- natural clipped edge.
+
+A subtle "Swipe to explore" hint may be used only if testing shows the
+interaction is otherwise unclear.
+
+Do not clutter every rail with instructions.
+
+---
+
+# 14. Mobile action bar
+
+Preserve the existing:
+
+Call | WhatsApp | Request a Quote
+
+behavior.
+
+The hero should remain marked with `data-hero`.
+
+The action bar should continue appearing only after the hero leaves the
+viewport.
+
+Because the hero now exposes Quote and WhatsApp earlier, verify that the action
+bar's appearance after the hero feels natural rather than repetitive.
+
+Do not add another floating WhatsApp control on phones.
+
+---
+
+# 15. Accessibility
+
+Horizontal rails must preserve:
+
+- semantic links;
+- logical document order;
+- keyboard focus;
+- visible focus states;
+- screen-reader readability;
+- comfortable tap targets.
+
+Do not hide essential content behind hover.
+
+Do not create keyboard traps.
+
+Do not clip focus rings at the edges of horizontal containers.
+
+The process timeline should preserve proper heading/list semantics rather than
+being purely decorative.
+
+---
+
+# 16. Responsive verification
+
+Test:
+
+- 320px
+- 375px
+- 390px
+- tablet
+- desktop
+
+Specifically verify:
+
+### Hero
+
+- Quote appears in the first viewport;
+- WhatsApp also appears in the first viewport where practical;
+- View Projects remains accessible;
+- copy remains readable.
+
+### Swipe sections
+
+- native swipe works;
+- no page-level horizontal overflow;
+- next-item affordance is visible;
+- links remain clickable;
+- keyboard focus is visible.
+
+### Process
+
+- timeline alignment holds;
+- connecting rule does not break;
+- descriptions remain readable.
+
+### Footer
+
+- significantly shorter on mobile;
+- all essential contact actions remain available;
+- no important nav dependency is lost.
+
+---
+
+# 17. Page-length target
+
+Do not optimize for a precise pixel number.
+
+Current mobile homepage is approximately 7,900px at 375px.
+
+The page should become materially shorter.
+
+A result around roughly 6,000–7,000px would be a useful signal if achieved
+naturally.
+
+The more important metric is:
+
+- lower scroll fatigue;
+- earlier conversion actions;
+- no important information lost.
+
+Do not sacrifice clarity merely to reach a height target.
+
+---
+
+# 18. Desktop protection
+
+This phase is primarily mobile-focused.
+
+Do not materially redesign desktop sections that already work.
+
+Shared-component changes must preserve existing desktop behavior by default.
+
+The process timeline may receive a deliberate desktop improvement as described
+above, but it must remain consistent with the established visual language.
+
+---
+
+# 19. Before / after report
+
+Before changing code:
+
+1. measure homepage height at 320px and 375px;
+2. identify the biggest vertical contributors;
+3. record the first-viewport position of:
+   - Request a Quote;
+   - WhatsApp;
+   - View Projects.
+
+After implementation, report the same values.
+
+Also report:
+
+- which sections became horizontal rails;
+- whether Sectors stayed vertical or became horizontal;
+- mobile footer height before/after;
+- hero height before/after;
+- any desktop changes required.
+
+---
+
+# Out of scope
+
+Do not:
+
+- remove additional major business sections;
+- redesign Solutions pages;
+- redesign Projects pages;
+- redesign About / Contact;
+- modify Sanity schemas;
+- alter quote-flow behavior;
+- begin C6 content alignment;
+- begin C7 SEO;
+- introduce a carousel library.
+
+---
+
+# Acceptance criteria
+
+- [x] Mobile hero is materially shorter
+- [x] Request a Quote appears in first viewport at 320px / 375px
+- [x] WhatsApp appears in first viewport where practical
+- [x] View Projects remains obvious
+- [x] Capability line is compact
+- [x] Why Capital Shades uses native horizontal scroll-snap on phones
+- [x] Featured Solutions uses compact horizontal browsing on phones
+- [x] Selected Projects uses horizontal browsing on phones
+- [x] Sectors use the most compact usable treatment
+- [x] Process uses connected progression styling
+- [x] Mobile process is a compact vertical timeline
+- [x] Final CTA is vertically compact
+- [x] Mobile footer hides full Solutions and Company link columns
+- [ ] Mobile footer preserves contact/social/blog/privacy essentials
+      (contact, social and Blog done; no Privacy page exists yet to link)
+- [x] Mobile page height is materially reduced
+- [x] No page-level horizontal overflow
+- [x] Horizontal content works without JavaScript
+- [x] Keyboard accessibility is preserved
+- [x] Existing desktop composition remains intact
+- [x] Mobile action-bar behavior does not regress
+      (final refinement: action bar removed; floating WhatsApp is the single
+      persistent control, see docs/decisions.md — "Mobile conversion")
+- [x] npm run check passes
+- [x] npm run lint passes
+- [x] npm run build passes
+
+---
+
+## Phase Boundary
+
+Stop after C5.6.
+
+Do not begin C6.
+
+---
+
 # Remaining roadmap
+
+---
 
 ## Phase C6 — Content Alignment
 

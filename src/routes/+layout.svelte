@@ -3,7 +3,6 @@
 	import './layout.css';
 	import SiteHeader from '$lib/components/layout/SiteHeader.svelte';
 	import SiteFooter from '$lib/components/layout/SiteFooter.svelte';
-	import MobileActionBar from '$lib/components/layout/MobileActionBar.svelte';
 	import FloatingWhatsApp from '$lib/components/layout/FloatingWhatsApp.svelte';
 	import { SITE_URL } from '$lib/config';
 	import { jsonLdTag } from '$lib/seo';
@@ -57,10 +56,10 @@
 
 <div class="flex min-h-dvh flex-col">
 	<SiteHeader {settings} />
+	<!-- Before main so keyboard users reach it before the footer makes it step aside -->
+	<FloatingWhatsApp {settings} />
 	<main id="main" class="flex-1">
 		{@render children()}
 	</main>
 	<SiteFooter {settings} solutions={data.solutions} />
-	<MobileActionBar {settings} />
-	<FloatingWhatsApp {settings} />
 </div>

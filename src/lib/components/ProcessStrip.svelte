@@ -2,39 +2,70 @@
 	import EditorialHeading from './EditorialHeading.svelte';
 	import TextLink from './TextLink.svelte';
 
-	// Home page summary of the process; the full version is ProcessSection on /about.
-	// Describes the steps without claiming who fabricates (not yet confirmed).
+	/*
+	 * Home page summary of the confirmed project process (docs/decisions.md —
+	 * "Project process"), its eleven stages grouped into four. The full version
+	 * is ProcessSection on /about.
+	 *
+	 * One connected progression: numbered markers joined by a thin gold rule,
+	 * a vertical timeline below lg and a horizontal one from lg. The list order
+	 * carries the sequence, so the numbers are decorative.
+	 */
 	const STEPS = [
 		{
-			title: 'Site evaluation',
-			text: 'A visit to measure the space and understand how it is used.'
+			title: 'Tell us about the project',
+			text: 'Initial enquiry and discussion, by phone, WhatsApp or quote request.'
 		},
-		{ title: 'Design', text: 'Layout, materials and colours, agreed with you.' },
-		{ title: 'Fabrication', text: 'Frames and covers made to the agreed design.' },
-		{ title: 'Installation', text: 'Set up, tensioned and finished on site.' }
+		{
+			title: 'Site visit and measurements',
+			text: 'We review the site and confirm the measurements.'
+		},
+		{
+			title: 'Design, quotation and fabrication',
+			text: 'The design or proposal is agreed and quoted, then fabricated after approval.'
+		},
+		{
+			title: 'Installation, handover and support',
+			text: 'Installation and handover, with after-sales support available.'
+		}
 	];
 </script>
 
-<section aria-labelledby="how-we-work" class="bg-muted section-y">
+<!-- No fill: it follows the muted Solutions band on the home page -->
+<section aria-labelledby="how-we-work" class="section-y max-md:py-12">
 	<div class="container-page">
 		<EditorialHeading
 			id="how-we-work"
-			eyebrow="How we work"
-			title="A straightforward path from enquiry to completed project."
+			eyebrow="How it works"
+			title="From first enquiry to after-sales support."
 		>
 			{#snippet action()}
 				<TextLink href="/about">More about us</TextLink>
 			{/snippet}
 		</EditorialHeading>
 
-		<ol class="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+		<!--
+			Connectors: below lg, a vertical rule from each marker down to the next;
+			from lg, a horizontal rule from each marker across the column gap (gap-x-8),
+			stopping short of the next marker.
+		-->
+		<ol class="mt-8 md:mt-12 lg:mt-16 lg:grid lg:grid-cols-4 lg:gap-x-8">
 			{#each STEPS as step, i (step.title)}
-				<li class="border-t border-foreground/20 pt-6">
-					<span class="font-mono text-sm text-primary-strong" aria-hidden="true">
+				<li
+					class="relative grid grid-cols-[2.5rem_1fr] gap-x-4 pb-6 not-last:before:absolute not-last:before:top-12 not-last:before:bottom-2 not-last:before:left-5 not-last:before:w-px not-last:before:bg-primary/60 last:pb-0 lg:block lg:pb-0 lg:not-last:before:hidden lg:not-last:after:absolute lg:not-last:after:top-5 lg:not-last:after:-right-6 lg:not-last:after:left-12 lg:not-last:after:h-px lg:not-last:after:bg-primary/60"
+				>
+					<span
+						class="flex size-10 items-center justify-center rounded-full border border-primary font-mono text-sm text-primary-strong"
+						aria-hidden="true"
+					>
 						{String(i + 1).padStart(2, '0')}
 					</span>
-					<h3 class="mt-4 text-xl font-medium tracking-tight">{step.title}</h3>
-					<p class="mt-2 leading-relaxed text-muted-foreground">{step.text}</p>
+					<div class="pt-2 lg:mt-5 lg:pt-0">
+						<h3 class="text-lg font-medium tracking-tight md:text-xl">{step.title}</h3>
+						<p class="mt-1.5 text-sm leading-relaxed text-muted-foreground md:text-base">
+							{step.text}
+						</p>
+					</div>
 				</li>
 			{/each}
 		</ol>

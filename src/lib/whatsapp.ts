@@ -9,7 +9,7 @@ import type { PublicSiteSettings } from '$lib/content/types';
  * - `intent: 'advice'`: the visitor isn't sure which structure they need
  *
  * Pages pass one through their load data as `whatsapp`, and every shared
- * WhatsApp control (floating button, phone bar, menu, footer) picks it up.
+ * WhatsApp control (floating button, menu, footer) picks it up.
  */
 export type WhatsAppContext = { project?: string; topic?: string; intent?: 'advice' };
 

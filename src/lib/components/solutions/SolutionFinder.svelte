@@ -30,6 +30,7 @@
 			<div class="mt-9 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
 				<Button
 					href={whatsappHref(settings, { intent: 'advice' })}
+					data-hides-floating-whatsapp
 					target="_blank"
 					rel="noopener"
 					variant="whatsapp"

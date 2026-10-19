@@ -7,8 +7,8 @@
 	/*
 	 * Expectations beside the quote flow: what happens after sending (from the
 	 * confirmed project process), the site-visit and warranty wording from site
-	 * settings, and the other ways to get in touch — the phone action bar is
-	 * hidden on this page.
+	 * settings, and the other ways to get in touch — the floating WhatsApp
+	 * control is hidden on this page.
 	 */
 	let { settings }: { settings: PublicSiteSettings } = $props();
 

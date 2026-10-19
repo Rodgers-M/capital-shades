@@ -499,17 +499,19 @@ Operational claims that are now confirmed include:
 
 ## Mobile conversion
 
-Mobile conversion UI:
+Decided in Phase C5.6: there is no persistent mobile bottom action bar
+(Call | WhatsApp | Request a Quote). Pages carry deliberate conversion points,
+the sticky header exposes the phone number and the mobile menu offers Call,
+WhatsApp and Request a Quote.
 
-**Call | WhatsApp | Request a Quote**
+The floating WhatsApp action is the single persistent contact control on every
+screen size. It is hidden on Contact and Request a Quote and while the footer is
+in view, and respects the phone's bottom safe area.
 
-Behavior:
-
-- hidden while the page hero is visible where applicable;
-- hidden during active form interaction;
-- no duplicate floating WhatsApp button on phones.
-
-Desktop/tablet may use the floating WhatsApp action where appropriate.
+Explicit WhatsApp buttons stay only where they carry context or a distinct
+intent: the home hero, solution and project enquiries, "not sure — help me
+choose", the Contact page and the quote-flow fallback. Generic WhatsApp
+buttons that repeat the floating control are not added.
 
 The floating WhatsApp action is icon-only: the standard white WhatsApp mark on a
 round green button, with no text label, because visitors recognise it on sight.

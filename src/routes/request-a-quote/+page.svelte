@@ -8,8 +8,8 @@
 
 	/*
 	 * Request a Quote: a short editorial header, then the three-step flow with
-	 * expectations and other contact routes alongside. The phone action bar is
-	 * hidden here, so phones get Call/WhatsApp in the header instead.
+	 * expectations and other contact routes alongside. The floating WhatsApp
+	 * control is hidden here, so phones get Call/WhatsApp in the header instead.
 	 */
 	let { data } = $props();
 	const settings = $derived(data.settings);

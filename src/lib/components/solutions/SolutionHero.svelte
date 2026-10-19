@@ -7,12 +7,11 @@
 	import { whatsappHref } from '$lib/whatsapp';
 	import type { Solution, PublicSiteSettings } from '$lib/content/types';
 
-	// Solution page opener. `data-hero` keeps the phone action bar out of the way
-	// while these calls to action are on screen.
+	// Solution page opener: title, summary, contextual Quote and WhatsApp actions, photo.
 	let { settings, solution }: { settings: PublicSiteSettings; solution: Solution } = $props();
 </script>
 
-<section data-hero aria-labelledby="solution-title" class="border-b">
+<section aria-labelledby="solution-title" class="border-b">
 	<div
 		class="container-page grid gap-10 pt-8 pb-12 md:pt-10 md:pb-16 lg:grid-cols-12 lg:items-center lg:gap-12 lg:py-16"
 	>
@@ -51,6 +50,7 @@
 				</Button>
 				<Button
 					href={whatsappHref(settings, { topic: solution.title })}
+					data-hides-floating-whatsapp
 					target="_blank"
 					rel="noopener"
 					variant="outline"

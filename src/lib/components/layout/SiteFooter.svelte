@@ -5,11 +5,11 @@
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import SiteLogo from './SiteLogo.svelte';
 	import {
+		BLOG_HREF,
 		COMPANY_LINKS,
 		QUOTE_HREF,
 		QUOTE_LABEL,
 		hasClosingCta,
-		showsQuickContact,
 		solutionHref
 	} from '$lib/nav';
 	import { cn } from '$lib/utils';
@@ -62,18 +62,19 @@
 						{QUOTE_LABEL}
 						<ArrowRightIcon />
 					</Button>
-					<Button href={whatsapp} target="_blank" rel="noopener" variant="outline-on-ink" size="lg">
-						<WhatsAppIcon class="size-4 text-brand" />
-						WhatsApp
-						<span class="sr-only">(opens in a new tab)</span>
-					</Button>
 				</div>
 			</div>
 		</section>
 	{/if}
 
 	<div class="container-page">
-		<div class="grid grid-cols-2 gap-x-6 gap-y-10 py-14 sm:gap-10 md:py-16 lg:grid-cols-4">
+		<!--
+			Phones: brand, socials and contact only. The Solutions and Company columns
+			duplicate the header menu, so they start at md (Phase C5.6).
+		-->
+		<div
+			class="grid grid-cols-2 gap-x-6 gap-y-10 py-14 max-md:py-10 max-sm:gap-y-8 sm:gap-10 md:py-16 lg:grid-cols-4"
+		>
 			<div class="col-span-2 lg:col-span-1">
 				<SiteLogo onInk />
 				<p class="mt-5 hidden max-w-xs text-sm leading-relaxed text-on-ink-subtle sm:block">
@@ -97,7 +98,7 @@
 				{/if}
 			</div>
 
-			<div>
+			<div class="max-md:hidden">
 				<h2 class={heading}>Solutions</h2>
 				<ul class="mt-4 space-y-2.5 text-sm">
 					{#each solutions as solution (solution.slug)}
@@ -108,7 +109,7 @@
 				</ul>
 			</div>
 
-			<div>
+			<div class="max-md:hidden">
 				<h2 class={heading}>Company</h2>
 				<ul class="mt-4 space-y-2.5 text-sm">
 					{#each COMPANY_LINKS as item (item.href)}
@@ -173,12 +174,9 @@
 		</div>
 
 		<div
-			class={cn(
-				'flex flex-col gap-2 border-t border-ink-border py-6 text-xs text-on-ink-subtle md:flex-row md:justify-between',
-				// Clear the fixed phone action bar where it shows
-				showsQuickContact(page.url.pathname) && 'pb-24 md:pb-6'
-			)}
+			class="flex flex-col gap-2 border-t border-ink-border py-6 text-xs text-on-ink-subtle md:flex-row md:justify-between"
 		>
+			<a href={BLOG_HREF} class="text-sm text-on-ink-muted md:hidden {link}">Blog</a>
 			<p>© {new Date().getFullYear()} {settings.legalName}. All rights reserved.</p>
 			<p>{settings.tagline}</p>
 		</div>

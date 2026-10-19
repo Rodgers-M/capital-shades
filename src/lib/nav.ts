@@ -12,11 +12,13 @@ export const NAV_LINKS = [
 export const QUOTE_HREF = '/request-a-quote';
 export const QUOTE_LABEL = 'Request a Quote';
 
+export const BLOG_HREF = '/blog';
+
 /** Footer "Company" column. Blog is out of the primary nav but stays reachable here. */
 export const COMPANY_LINKS = [
 	{ label: 'Projects', href: '/projects' },
 	{ label: 'About', href: '/about' },
-	{ label: 'Blog', href: '/blog' },
+	{ label: 'Blog', href: BLOG_HREF },
 	{ label: 'Contact', href: '/contact' }
 ] as const;
 
@@ -59,7 +61,7 @@ export function readProjectFilters(params: URLSearchParams): ProjectFilters {
 	};
 }
 
-/** Pages where the quick-contact controls (phone bar, floating WhatsApp) would duplicate the page's own. */
+/** Pages where the floating WhatsApp control would duplicate the page's own contact options. */
 const NO_QUICK_CONTACT = [QUOTE_HREF, '/contact'];
 
 const matches = (pathname: string, href: string) =>
@@ -67,16 +69,6 @@ const matches = (pathname: string, href: string) =>
 
 export const showsQuickContact = (pathname: string) =>
 	!NO_QUICK_CONTACT.some((href) => matches(pathname, href));
-
-/**
- * Pages that open with a hero marked `data-hero`. The phone action bar waits
- * until it has scrolled out of view; listing them here avoids a flash of the
- * bar before the page's script runs.
- */
-export const hasHero = (pathname: string) =>
-	pathname === '/' ||
-	pathname.startsWith(`${SOLUTIONS_HREF}/`) ||
-	pathname.startsWith(`${PROJECTS_HREF}/`);
 
 /** Pages that end with (or are) their own quote section, so the footer skips its band. */
 export const hasClosingCta = (pathname: string) =>

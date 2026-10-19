@@ -12,8 +12,15 @@
 	let {
 		solutions,
 		start = 1,
+		summaries = true,
 		class: className
-	}: { solutions: Solution[]; start?: number; class?: string } = $props();
+	}: {
+		solutions: Solution[];
+		start?: number;
+		/** Off where the list only routes to the solution pages, e.g. the home page */
+		summaries?: boolean;
+		class?: string;
+	} = $props();
 
 	const number = (i: number) => String(i + start).padStart(2, '0');
 </script>
@@ -23,18 +30,25 @@
 		<li class="border-b border-foreground/15">
 			<a
 				href={solutionHref(solution.slug)}
-				class="group grid grid-cols-[auto_1fr_auto] items-start gap-x-5 py-6"
+				class={cn(
+					'group grid grid-cols-[auto_1fr_auto] gap-x-5',
+					summaries ? 'items-start py-6' : 'items-center py-4'
+				)}
 			>
-				<span class="pt-1 font-mono text-sm text-primary-strong">{number(i)}</span>
+				<span class={cn('font-mono text-sm text-primary-strong', summaries && 'pt-1')}>
+					{number(i)}
+				</span>
 				<span>
 					<span
 						class="block text-xl font-medium tracking-tight transition-colors group-hover:text-primary-strong"
 					>
 						{solution.title}
 					</span>
-					<span class="mt-2 line-clamp-3 block text-sm leading-relaxed text-muted-foreground">
-						{solution.summary}
-					</span>
+					{#if summaries}
+						<span class="mt-2 line-clamp-3 block text-sm leading-relaxed text-muted-foreground">
+							{solution.summary}
+						</span>
+					{/if}
 				</span>
 				<span class="w-20 overflow-hidden rounded-sm sm:w-28">
 					<Picture
