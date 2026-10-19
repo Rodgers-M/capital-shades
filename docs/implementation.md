@@ -2640,32 +2640,1036 @@ Do not:
 
 ---
 
-## Phase Boundary
+---
 
-Stop after C5.6.
+## Current Phase
 
-Do not begin C6.
+Phase C6 — Content Alignment
+
+## Objective
+
+Align all public-facing website copy with the confirmed Capital Shades business
+model, taxonomy, service process, geography, warranty language and conversion
+strategy.
+
+This phase is primarily about content consistency and truthfulness.
+
+Do not redesign page layouts.
+
+Do not begin the dedicated SEO/local-search phase.
 
 ---
 
-# Remaining roadmap
+## Core principle
+
+Every public page should now use the same language for:
+
+- solutions;
+- capabilities;
+- sectors;
+- geography;
+- process;
+- quote expectations;
+- warranties;
+- contact methods.
+
+Remove stale terminology from the old website.
+
+Do not invent missing project facts, supplier details, statistics, certifications
+or guarantees.
 
 ---
 
-## Phase C6 — Content Alignment
+# 1. Full-site content audit
 
-Planned.
+Before changing copy, audit all public-facing content for:
 
-Use verified discovery results to update:
+- old solution names;
+- references to Pool Shades as a top-level solution;
+- "Car Park Shades";
+- "Tensile Membrane Structures";
+- Product / Products terminology;
+- Estimator terminology;
+- unsupported claims;
+- stale process copy;
+- conflicting geography;
+- inconsistent warranty wording;
+- inconsistent site-visit / quotation wording;
+- duplicate or contradictory conversion copy.
+
+Search:
+
+- route files;
+- shared components;
+- seed content;
+- Sanity seed/import content;
+- metadata;
+- structured data;
+- footer/header copy;
+- blog content;
+- hard-coded fallback copy.
+
+Report the audit categories before making broad changes.
+
+---
+
+# 2. Canonical solution terminology
+
+Use the current working taxonomy consistently:
+
+1. Car Parking Shades
+2. Shade Sails
+3. Canopies
+4. Awnings
+5. Pergolas & Gazebos
+6. Tensile & Custom Structures
+7. Screen Fencing
+8. Parasols
+
+Do not publicly present Pool Shades as a ninth top-level solution.
+
+Pool shades may be described as an application/use case where appropriate.
+
+Do not introduce Tents as a primary solution.
+
+---
+
+## Legacy naming
+
+Replace public-facing uses of:
+
+- Car Park Shades
+  → Car Parking Shades
+
+- Tensile Membrane Structures
+  → Tensile & Custom Structures
+
+Do not break intentional legacy slug redirects or migration code.
+
+Old slugs may remain in:
+
+- redirect maps;
+- migration tooling;
+- compatibility logic;
+- legacy-document handling.
+
+Do not replace technical compatibility values merely for copy consistency.
+
+---
+
+# 3. Homepage
+
+C5.5 and C5.6 established the final homepage structure and messaging direction.
+
+Do not materially redesign it.
+
+Audit only for:
+
+- stale metadata;
+- old solution names;
+- duplicated claims;
+- wording inconsistent with the confirmed business facts;
+- geography consistency;
+- warranty wording;
+- service/process terminology.
+
+Preserve the current section order:
+
+1. Hero
+2. Why Capital Shades
+3. Solutions
+4. How it works
+5. Selected work
+6. Residential / Commercial / Institutional
+7. Closing CTA
+
+---
+
+# 4. Solutions index
+
+Update `/solutions` copy so it reflects the current taxonomy and customer needs.
+
+The page should explain that Capital Shades provides custom shade and outdoor
+structure solutions for:
+
+- Residential
+- Commercial
+- Institutional
+
+The page may refer to:
+
+- design;
+- fabrication;
+- supply;
+- installation;
+- maintenance / repair;
+- after-sales support.
+
+Avoid overly broad claims.
+
+---
+
+## Pool shades
+
+Do not list Pool Shades as a top-level solution.
+
+Where useful, swimming-pool shade should appear as an application of relevant
+solutions.
+
+The legacy Pool Shades route may continue to exist during migration, but public
+navigation and primary page copy should not present it as a current top-level
+category.
+
+---
+
+# 5. Solution detail pages
+
+Audit every current solution page.
+
+Each page should use a consistent content structure where the available content
+supports it:
+
+- clear solution name;
+- concise summary;
+- typical applications;
+- relevant sectors;
+- available material information;
+- related projects where available;
+- contextual quote action;
+- contextual WhatsApp action;
+- "Not sure?" guidance where useful.
+
+Do not force empty sections.
+
+---
+
+## Planned solutions
+
+Current planned/new categories include:
+
+- Awnings
+- Pergolas & Gazebos
+- Screen Fencing
+
+If verified copy/photos are still unavailable:
+
+- do not invent detailed marketing copy;
+- do not fabricate project proof;
+- preserve their planned/unpublished status;
+- do not publish thin pages merely to complete the taxonomy.
+
+If a page is not currently published because its content is incomplete, leave
+it that way.
+
+Record missing content in `docs/content-to-confirm.md`.
+
+---
+
+# 6. Material language
+
+Use only confirmed material information.
+
+Current safe quote material knowledge remains:
+
+### Car Parking Shades
+
+- Shade mesh
+- Waterproof PVC
+- Metal roofing
+
+### Shade Sails
+
+- Shade mesh
+
+### Canopies
+
+- Waterproof PVC
+
+### Tensile & Custom Structures
+
+- Waterproof PVC
+
+Do not casually add:
+
+- metal roofing to Canopies;
+- shade mesh to Tensile & Custom Structures;
+- detailed material choices to Awnings, Pergolas & Gazebos, Screen Fencing or
+  Parasols;
+
+unless the content already contains verified owner-confirmed evidence.
+
+Keep unresolved material questions in `docs/content-to-confirm.md`.
+
+---
+
+# 7. About page
+
+Align About with the confirmed business model.
+
+The page should clearly communicate that Capital Shades:
+
+- is based in Nairobi;
+- works across Kenya and East Africa;
+- handles design;
+- fabrication;
+- supply;
+- installation;
+- maintenance / repair;
+- after-sales support.
+
+Avoid unnecessary repetition of homepage copy.
+
+---
+
+## About process
+
+Update stale process copy to match the confirmed customer journey.
+
+Use the same four customer-facing stages:
+
+1. Tell us about the project
+2. Site visit & measurements
+3. Design, quotation & fabrication
+4. Installation, handover & support
+
+The About page may explain these stages slightly more deeply than the homepage.
+
+Do not expose all 11 internal process stages unless useful.
+
+---
+
+## Fabrication wording
+
+Fabrication may happen:
+
+- at the Capital Shades workshop;
+- on site/customer location where appropriate.
+
+Do not make an unsupported blanket claim that all fabrication is:
+
+- in-house;
+- off-site;
+- on-site.
+
+Use neutral wording such as:
+
+> Fabrication is carried out according to the project requirements, either at
+> the workshop or on site where appropriate.
+
+Only include this detail where it improves understanding.
+
+---
+
+# 8. Contact page
+
+Review the Contact page for content consistency.
+
+Keep primary contact routes:
+
+- Call
+- WhatsApp
+- Request a Quote
+- Email
+
+Confirmed contact:
+
+Phone:
+`+254722765397`
+
+WhatsApp:
+`+254722765397`
+
+Display phone may remain:
+
+`0722 765 397`
+
+Email:
+`info@capitalshades.co.ke`
+
+Do not add an unconfirmed:
+
+- street address;
+- map;
+- opening hours;
+- social account.
+
+---
+
+## Contact geography
+
+A concise statement is sufficient:
+
+> Based in Nairobi, serving projects across Kenya and East Africa.
+
+Do not over-repeat county names unless they help explain site-visit availability.
+
+---
+
+# 9. Request a Quote
+
+Preserve the current quote-flow UX.
+
+Only align copy where required.
+
+The flow should consistently communicate:
+
+- location;
+- structure type;
+- rough width × length measurements;
+- number of vehicles where relevant;
+- site photos;
+- material preference where confirmed;
+- intended use;
+- preferred contact method.
+
+---
+
+## Measurement language
+
+Keep measurements simple.
+
+Use concepts such as:
+
+> Rough dimensions are enough to start.
+
+Avoid demanding exact area calculations from users.
+
+Capital Shades confirms measurements during the site visit.
+
+---
+
+## Site photos
+
+Maintain the message that photos are:
+
+- optional;
+- useful for initial assessment;
+- not a substitute for final site measurements.
+
+Do not promise that photos alone are enough for a final quotation.
+
+---
+
+# 10. Estimate vs final quotation
+
+Use consistent language site-wide.
+
+Approved business rule:
+
+Project details, rough measurements and photos may support an initial
+assessment or estimate.
+
+The final quotation follows:
+
+- site visit;
+- confirmed measurements.
+
+Remove copy that implies users receive a guaranteed final quote directly from
+the online form.
+
+---
+
+# 11. Site visits
+
+Use cautious, accurate wording.
+
+Confirmed:
+
+- site visit is part of the normal process;
+- Capital Shades takes/validates site measurements;
+- free site visits may be available around Nairobi and nearby areas depending
+  on distance.
+
+Do not state:
+
+> Free site visits
+
+as a universal promise.
+
+Prefer wording such as:
+
+> Site visits in Nairobi and nearby areas may be complimentary depending on
+> location.
+
+Only include this detail where useful.
+
+---
+
+# 12. Warranty language
+
+Use the approved wording consistently:
+
+> Selected structures are covered by warranties of up to 10 years. Final
+> warranty terms are provided with the quotation and contract documents.
+
+Shorter UI wording is acceptable only if it preserves the conditional meaning.
+
+Do not use:
+
+- 10-year warranty
+- 10 years guaranteed
+- all structures include a 10-year warranty
+
+without qualification.
+
+---
+
+# 13. Geography
+
+Use the following hierarchy consistently:
+
+Primary business base:
+
+- Nairobi
+
+Core nearby service market:
+
+- Nairobi
+- Kiambu County
+- Machakos County
+- Kajiado County
+
+Broader service positioning:
+
+- Kenya
+- East Africa
+
+Do not make every page list all four counties.
+
+Use:
+
+> Based in Nairobi, serving projects across Kenya and East Africa.
+
+as the main broad positioning where appropriate.
+
+Detailed local-search optimization belongs to C7.
+
+---
+
+# 14. Customer sectors
+
+Use the canonical sectors consistently:
+
+- Residential
+- Commercial
+- Institutional
+
+Confirmed customer examples include:
+
+Residential:
+
+- homeowners
+
+Commercial:
+
+- property developers;
+- offices;
+- hotels;
+- restaurants;
+- shopping centres.
+
+Institutional:
+
+- schools;
+- hospitals;
+- churches;
+- government organisations.
+
+Do not invent client names or institutional contracts.
+
+Do not imply Capital Shades has completed work for every listed organisation
+type unless the wording clearly describes who the business serves rather than
+past clients.
+
+---
+
+# 15. Differentiators
+
+Verified differentiators that may be used:
+
+- custom design;
+- high-end materials and finishes;
+- expert installation;
+- full project lifecycle;
+- maintenance / repair;
+- after-sales support;
+- materials sourced from suppliers including South Africa and France.
+
+Do not turn these into unsupported superlatives such as:
+
+- best in Kenya;
+- highest-quality in East Africa;
+- industry-leading;
+- unmatched;
+- number one.
+
+Do not invent supplier/company names.
+
+---
+
+# 16. Project pages
+
+Audit project detail copy for consistency.
+
+Public project information may include:
+
+- title;
+- solution(s);
+- sector;
+- general location;
+- completion year;
+- scope;
+- customer requirement;
+- delivered solution;
+- hero image;
+- gallery.
+
+Do not publish:
+
+- client name;
+- exact private address.
+
+If project-specific scope, requirement or delivered-solution content is absent,
+omit it rather than replacing it with generic solution copy.
+
+Keep generic solution context visually separate from actual project facts.
+
+---
+
+# 17. Project index
+
+Keep the existing image-led portfolio structure.
+
+Audit:
+
+- filter labels;
+- solution names;
+- sector names;
+- stale Pool Shades references;
+- old URLs/labels;
+- empty categories.
+
+Institutional may remain visible where strategically appropriate even if the
+current project dataset is limited, but do not fabricate projects or counts.
+
+---
+
+# 18. Footer
+
+Update stale footer copy.
+
+Remove old solution names and old taxonomy references.
+
+Desktop/tablet may continue to show the full navigation structure.
+
+Mobile remains the compact contact-focused footer established in C5.6.
+
+Do not reintroduce hidden mobile navigation columns.
+
+---
+
+# 19. Header / navigation
+
+Audit:
+
+- nav labels;
+- mobile-menu labels;
+- contact labels;
+- stale solution terminology.
+
+Primary navigation remains:
+
+- Solutions
+- Projects
+- About
+- Contact
+- Request a Quote
+
+Do not expand the main nav with every solution.
+
+---
+
+# 20. Metadata
+
+Update stale metadata copy where it is obviously content alignment rather than
+keyword research.
+
+Examples:
+
+- page title using an old solution name;
+- meta description mentioning Pool Shades as a current top-level service;
+- descriptions containing "Products" or "Estimator";
+- stale site description.
+
+Keep metadata factual and concise.
+
+Do not perform C7 keyword research or build dedicated SEO landing pages yet.
+
+---
+
+# 21. Structured data
+
+Audit existing structured-data text fields for stale business terminology.
+
+Use:
+
+- current business description;
+- confirmed phone;
+- confirmed email;
+- Nairobi base;
+- current URLs.
+
+Do not add:
+
+- fake ratings;
+- fabricated review counts;
+- exact address;
+- coordinates;
+- business hours;
+
+unless verified.
+
+Do not broaden the structured-data implementation substantially in C6.
+
+---
+
+# 22. Blog content
+
+Audit existing blog posts for stale terminology.
+
+Do not rewrite every historical article for style.
+
+Correct only content that is clearly misleading under the new business model,
+such as:
+
+- old solution names used as current navigation/category terminology;
+- Pool Shades described as a current top-level category where context makes
+  that misleading;
+- broken links to old solution routes;
+- Product/Estimator terminology that points at removed experiences.
+
+Preserve historical article context where rewriting would distort the original
+meaning.
+
+Record larger editorial improvements for later.
+
+---
+
+# 23. Internal links
+
+Audit public internal links.
+
+Update links to:
+
+- current solution URLs;
+- `/solutions`;
+- `/projects`;
+- `/request-a-quote`.
+
+Avoid links that unnecessarily pass through redirects.
+
+Legacy external/indexed URLs should continue to redirect correctly, but current
+site copy should link directly to canonical routes.
+
+---
+
+# 24. CTA terminology
+
+Use a consistent conversion vocabulary.
+
+Preferred:
+
+- Request a Quote
+- WhatsApp
+- Call
+- View Projects
+- View Solutions
+- Tell us about your project
+- Help me choose
+
+Avoid unnecessary variants such as:
+
+- Get Estimate
+- Start Estimator
+- Get Pricing
+- Book Assessment
+- Enquire Now
+
+unless there is a strong contextual reason.
+
+Quote remains the primary structured conversion.
+
+WhatsApp remains the conversational alternative.
+
+---
+
+# 25. WhatsApp context
+
+Preserve the C5.6 conversion model.
+
+Keep contextual WhatsApp links for:
+
+- solution enquiry;
+- project enquiry;
+- help choosing a structure;
+- hero conversion;
+- Contact page;
+- quote fallback.
+
+Do not reintroduce generic WhatsApp buttons into every section.
+
+The floating WhatsApp control remains the persistent generic conversation path.
+
+---
+
+# 26. Unsupported claims sweep
+
+Search the public site for numbers and absolute claims.
+
+Review phrases containing concepts such as:
+
+- 100%
+- always
+- guaranteed
+- best
+- leading
+- years of experience
+- number of projects
+- customers served
+- fastest
+- free
+- waterproof
+- lifetime
+- 10-year warranty
+
+Keep only claims supported by confirmed content.
+
+"Waterproof PVC" or "waterproof cover" may remain when describing the material
+itself where already verified.
+
+Do not interpret this sweep as a reason to remove legitimate technical
+descriptions.
+
+---
+
+# 27. Seed / Sanity consistency
+
+Where C6 copy exists in both:
+
+- seed content;
+- Sanity/import content;
+
+keep the normalized frontend result consistent.
+
+Do not update only one content source and leave a contradictory fallback.
+
+If live Sanity content requires owner/editor updates that cannot safely be
+automated, document the required manual change.
+
+---
+
+# 28. Content-to-confirm
+
+As you audit, add unresolved facts to:
+
+`docs/content-to-confirm.md`
+
+Do not solve uncertainty through marketing assumptions.
+
+Examples may include:
+
+- missing solution copy;
+- material applicability;
+- supplier names;
+- project scope;
+- photo rights;
+- testimonials;
+- flagship projects;
+- social profiles.
+
+Do not duplicate questions already recorded.
+
+---
+
+# 29. Design protection
+
+C6 is not a visual redesign.
+
+Do not materially change:
+
+- homepage structure;
+- page layouts;
+- color system;
+- typography system;
+- project grid;
+- solution layout;
+- mobile rails;
+- process timeline;
+- floating WhatsApp behavior.
+
+Small spacing changes needed because copy length changed are acceptable.
+
+---
+
+# 30. Validation
+
+Run:
+
+- formatter
+- npm run check
+- npm run lint
+- npm run build
+- Studio type/schema validation where content schemas or seed data are touched
+
+Search the built/public content for stale terms including:
+
+- Car Park Shades
+- Tensile Membrane Structures
+- Pool Shades
+- Products
+- Estimator
+
+Do not blindly fail on occurrences inside:
+
+- redirect maps;
+- migration comments;
+- compatibility code;
+- legacy CMS fields.
+
+Classify each remaining occurrence.
+
+---
+
+# 31. Browser review
+
+Review at minimum:
 
 - homepage
-- About
-- Solutions
-- process wording
-- geographic scope
-- warranty language
-- materials/sourcing
-- institutional positioning.
+- /solutions
+- published solution detail pages
+- /projects
+- several project detail pages
+- /about
+- /contact
+- /request-a-quote
+- /blog
+- representative blog post
+
+Verify:
+
+- headings remain readable;
+- no awkward wrapping introduced by renamed solutions;
+- no broken internal links;
+- no horizontal overflow;
+- CTA hierarchy remains intact.
+
+---
+
+# 32. Final C6 report
+
+Report:
+
+1. stale terminology found;
+2. terminology replaced;
+3. pages/content sources changed;
+4. unsupported claims removed or softened;
+5. process wording aligned;
+6. geography wording aligned;
+7. warranty/site-visit wording aligned;
+8. metadata updated;
+9. blog references changed;
+10. current internal-link redirects avoided;
+11. unresolved content questions;
+12. any manual Sanity edits still needed;
+13. checks/build results.
+
+Also explicitly list any remaining legacy terms and explain why they remain.
+
+---
+
+# Out of scope
+
+Do not begin:
+
+- C7 SEO / Local Search
+- keyword research
+- location landing pages
+- Google Business Profile work
+- Search Console work
+- structured-data expansion
+- C8 launch QA
+- privacy/legal drafting
+- new testimonials
+- fabricated project case studies
+- another homepage redesign
+
+---
+
+# Acceptance criteria
+
+- [x] Public site uses the eight-solution taxonomy consistently
+- [x] Car Parking Shades naming is aligned
+- [x] Tensile & Custom Structures naming is aligned
+- [x] Pool Shades is not presented as a top-level current solution
+- [x] Product terminology is removed from customer-facing copy
+- [x] Estimator terminology is removed from customer-facing copy
+- [x] About process matches the confirmed lifecycle
+- [x] Quote/site-visit wording is consistent
+- [x] Warranty language remains conditional
+- [x] Nairobi / Kenya / East Africa positioning is consistent
+- [x] Residential / Commercial / Institutional terminology is consistent
+- [x] Contact details are consistent
+- [x] Footer copy is aligned
+- [x] Metadata no longer contains stale taxonomy copy
+- [x] Current internal links avoid legacy redirects
+- [x] Project pages distinguish project facts from generic solution copy
+- [x] Unsupported marketing claims are removed or corrected
+- [x] Seed and Sanity-facing content remain compatible
+- [x] Missing facts are recorded rather than invented
+- [x] Existing layouts remain materially unchanged
+- [x] npm run check passes
+- [x] npm run lint passes
+- [x] npm run build passes
+
+---
+
+## Manual Sanity edits (production)
+
+The seed and import carry the C6 copy. A dataset migrated from the old
+`product` documents keeps its old copy, so an editor needs to update, in the
+Studio:
+
+- **Site settings → Description:** "Capital Shades designs, fabricates and
+  installs car parking shades, shade sails, canopies and other shade
+  structures for homes, businesses and institutions." It leaves out the
+  geography on purpose: the hero and service-area copy state it, using
+  `SERVICE_REACH` in `src/lib/content/geography.ts` (a code constant until
+  C7 adds a settings field; keep the two in step).
+- **Site settings → Stats bar:** "Breathable or 100% waterproof" →
+  "Breathable or waterproof" (not shown on the site, kept for consistency).
+- **Solution "Car Parking Shades":** summary, description and photo alt text
+  say "car park shade(s)"; use "car parking shade(s)".
+- **Solution "Tensile & Custom Structures":** the description opens
+  "Tensile membrane structures use fabric…"; use "Tensile structures use
+  fabric stretched in tension to create curved forms, designed around the
+  site."
+- **Projects:** titles "Office car park shades" and "Commercial car park
+  shade" → "car parking shades" / "car parking shade" (and matching photo
+  descriptions).
+- **Blog post "Why Shade Matters for Shopping Centres":** excerpt and opening
+  paragraph as in `src/lib/content/seed/posts.ts`. **"Shade for Schools":**
+  "site evaluation" → "site visit". **"Car Park Shades: A Practical Guide":**
+  the checklist's first step, the closing paragraph and "fully waterproof", as
+  in the seed. **"Shade Netting vs Waterproof PVC":** "fully waterproof" →
+  "waterproof".
+
+## Phase Boundary
+
+Stop after C6.
+
+Do not begin C7.
+
+# Remaining roadmap
 
 ---
 

@@ -180,6 +180,9 @@ pages' copy doesn't feed the form.
       car parking shades, or both).
 - [ ] Customer sectors per solution were taken from each page's applications
       list; confirm them.
+- [ ] Tensile & Custom Structures: which custom structures to describe beyond
+      tensile membranes (e.g. car wash structures, named in the taxonomy). The
+      page copy still describes tensile membranes only.
 
 ---
 
@@ -228,6 +231,13 @@ Do not invent institutional case studies to fill gaps.
 
 The phrase "professionally tensioned" in the current school-shade blog article
 still requires review.
+
+- [ ] Article titles still use "Car Park Shades" (e.g. "Car Park Shades: A
+      Practical Guide…"). They were kept in Phase C6 as historical article
+      titles; rename only if the owner wants the new terminology there too.
+- [ ] Shopping-centre article: the claim that shade changes how long shoppers
+      stay and which centre they choose was removed in C6 as unverified.
+      Restore it only with evidence the owner can stand behind.
 
 ---
 

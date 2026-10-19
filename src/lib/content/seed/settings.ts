@@ -10,7 +10,7 @@ export const settings: SiteSettings = {
 	legalName: 'Capital Shades E.A Ltd',
 	tagline: 'The coolest solutions under the sun.',
 	description:
-		'Capital Shades designs and installs custom car park shades, shade sails, canopies and tensile membrane structures in Kenya.',
+		'Capital Shades designs, fabricates and installs car parking shades, shade sails, canopies and other shade structures for homes, businesses and institutions.',
 	// Server-side only. 0708 559 059 is the old site's header number; it isn't shown publicly.
 	phones: [
 		{ display: '0722 765 397', number: '254722765397' },
@@ -35,7 +35,7 @@ export const settings: SiteSettings = {
 	// Capabilities from the current site — no figures that need updating.
 	// "In-house" and "Any size" were removed as unverified claims (Phase B1).
 	stats: [
-		{ value: 'Mesh or PVC', label: 'Breathable or 100% waterproof' },
+		{ value: 'Mesh or PVC', label: 'Breathable or waterproof' },
 		{ value: 'Site visit', label: 'Evaluation & measurement' }
 	],
 	sectors: [

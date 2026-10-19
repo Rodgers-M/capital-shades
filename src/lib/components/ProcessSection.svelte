@@ -1,33 +1,22 @@
 <script lang="ts">
+	import { PROCESS_HEADING, withStageTitles } from '$lib/content/process';
 	import EditorialHeading from './EditorialHeading.svelte';
 	import Picture from './Picture.svelte';
 	import type { Img } from '$lib/content/types';
 
 	/*
-	 * How a project runs, described from the visitor's side. The site visit is
-	 * supported by the current site's copy ("site visit — evaluation &
-	 * measurement"); nothing here claims who fabricates or installs.
+	 * How a project runs, from the visitor's side: the confirmed process
+	 * (docs/decisions.md — "Project process") in the same four stages as the
+	 * home page, with a little more detail.
 	 */
 	let { image }: { image?: Img } = $props();
 
-	const STEPS = [
-		{
-			title: 'Tell us about your project',
-			text: 'Call, WhatsApp or send a few details about the space and what you would like covered.'
-		},
-		{
-			title: 'Site visit',
-			text: 'The site is measured and we look at how the space is used.'
-		},
-		{
-			title: 'Design and specification',
-			text: 'Layout, cover material and colours are agreed with you before work starts.'
-		},
-		{
-			title: 'Installation and handover',
-			text: 'The structure is installed and finished on site, then handed over.'
-		}
-	];
+	const STEPS = withStageTitles([
+		'Call, WhatsApp or send a quote request with the location, rough size and a few site photos if you have them, and we discuss what you need.',
+		'We visit the site and take the measurements ourselves. Photos and rough figures can support an initial estimate; the final quotation follows the visit.',
+		'You receive a design or proposal and a quotation. Once you approve, fabrication is carried out according to the project, either at the workshop or on site where appropriate.',
+		'We install the structure and hand it over, with maintenance, repairs and after-sales support available afterwards.'
+	]);
 </script>
 
 <section aria-labelledby="process" class="container-page section-y">
@@ -44,11 +33,7 @@
 		{/if}
 
 		<div class={image ? 'lg:col-span-7' : 'lg:col-span-12'}>
-			<EditorialHeading
-				id="process"
-				eyebrow="How it works"
-				title="A straightforward path from enquiry to completed project."
-			/>
+			<EditorialHeading id="process" eyebrow="How it works" title={PROCESS_HEADING} />
 			<ol class="mt-12 border-t border-foreground/15">
 				{#each STEPS as step, i (step.title)}
 					<li class="grid grid-cols-[3rem_1fr] gap-x-4 border-b border-foreground/15 py-7">

@@ -16,7 +16,7 @@
 
 <Seo
 	title="Blog"
-	description="Buyer's guides, maintenance tips and advice on car park shades, shade sails and tensile structures in Kenya."
+	description="Buyer's guides, maintenance tips and advice on car parking shades, shade sails and other shade structures in Kenya."
 	image={posts[0]?.image}
 />
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PROCESS_HEADING, withStageTitles } from '$lib/content/process';
 	import EditorialHeading from './EditorialHeading.svelte';
 	import TextLink from './TextLink.svelte';
 
@@ -11,34 +12,18 @@
 	 * a vertical timeline below lg and a horizontal one from lg. The list order
 	 * carries the sequence, so the numbers are decorative.
 	 */
-	const STEPS = [
-		{
-			title: 'Tell us about the project',
-			text: 'Initial enquiry and discussion, by phone, WhatsApp or quote request.'
-		},
-		{
-			title: 'Site visit and measurements',
-			text: 'We review the site and confirm the measurements.'
-		},
-		{
-			title: 'Design, quotation and fabrication',
-			text: 'The design or proposal is agreed and quoted, then fabricated after approval.'
-		},
-		{
-			title: 'Installation, handover and support',
-			text: 'Installation and handover, with after-sales support available.'
-		}
-	];
+	const STEPS = withStageTitles([
+		'Initial enquiry and discussion, by phone, WhatsApp or quote request.',
+		'We review the site and confirm the measurements.',
+		'The design or proposal is agreed and quoted, then fabricated after approval.',
+		'Installation and handover, with after-sales support available.'
+	]);
 </script>
 
 <!-- No fill: it follows the muted Solutions band on the home page -->
 <section aria-labelledby="how-we-work" class="section-y max-md:py-12">
 	<div class="container-page">
-		<EditorialHeading
-			id="how-we-work"
-			eyebrow="How it works"
-			title="From first enquiry to after-sales support."
-		>
+		<EditorialHeading id="how-we-work" eyebrow="How it works" title={PROCESS_HEADING}>
 			{#snippet action()}
 				<TextLink href="/about">More about us</TextLink>
 			{/snippet}

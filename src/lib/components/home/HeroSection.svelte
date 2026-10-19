@@ -6,6 +6,7 @@
 	import WhatsAppIcon from '$lib/components/icons/WhatsAppIcon.svelte';
 	import { PROJECTS_HREF, QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
 	import { whatsappHref } from '$lib/whatsapp';
+	import { SERVICE_REACH } from '$lib/content/geography';
 	import type { Solution, Project, PublicSiteSettings } from '$lib/content/types';
 
 	/*
@@ -57,7 +58,7 @@
 				class="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg md:text-xl"
 			>
 				Car parking shades, shade sails, canopies, awnings, pergolas, tensile structures and more —
-				for homes, businesses and institutions across Kenya and East Africa.
+				for homes, businesses and institutions across {SERVICE_REACH}.
 			</p>
 			<ul
 				aria-label="What we handle"

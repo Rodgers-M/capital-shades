@@ -46,9 +46,9 @@ export const solutions: SeedSolution[] = [
 		status: 'published',
 		eyebrow: 'Homes to shopping centres',
 		summary:
-			'Cantilever and post-supported car park shades that keep vehicles out of direct sun and rain, at home or at work.',
+			'Cantilever and post-supported car parking shades that keep vehicles out of direct sun and rain, at home or at work.',
 		body: [
-			'Car park shades cover parked vehicles at homes, offices and other sites where people park, keeping them out of direct sun and rain.',
+			'Car parking shades cover parked vehicles at homes, offices and other sites where people park, keeping them out of direct sun and rain.',
 			'Each shade is designed around the space it covers, from a single-car carport to rows of commercial bays. Cantilever designs keep posts to one side of the bay; post-supported designs suit wider areas.',
 			'Covers are available in shade mesh, waterproof PVC membrane or metal roofing, in a choice of colours.'
 		],
@@ -63,7 +63,7 @@ export const solutions: SeedSolution[] = [
 		quoteMaterials: ['mesh', 'pvc', 'metal'],
 		aliases: ['car shades', 'carports', 'car parking shades'],
 		photo: 'carport-landcruiser-green',
-		photoAlt: 'Green car park shade over a white SUV at a home'
+		photoAlt: 'Green car parking shade over a white SUV at a home'
 	},
 	{
 		slug: 'shade-sails',
@@ -121,7 +121,7 @@ export const solutions: SeedSolution[] = [
 		summary:
 			'Fabric held in tension to form curved structures over carports, courtyards and commercial spaces.',
 		body: [
-			'Tensile membrane structures use fabric stretched in tension to create curved forms. They are used over entrances, courtyards and carports.',
+			'Tensile structures use fabric stretched in tension to create curved forms, designed around the site. They are used over entrances, courtyards and carports.',
 			'Designs can include decorative panels and integrated lighting.'
 		],
 		features: [

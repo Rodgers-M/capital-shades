@@ -55,7 +55,7 @@
 
 <Seo
 	title="Contact"
-	description="Call, WhatsApp or email {settings.name}, or request a quote for car park shades, shade sails, canopies and tensile structures."
+	description="Call, WhatsApp or email {settings.name}, or request a quote for car parking shades, shade sails, canopies and other shade structures."
 />
 
 <section aria-labelledby="contact-title" class="container-page pt-10 md:pt-14">
@@ -178,7 +178,7 @@
 				</h2>
 				<ul class="mt-5 flex flex-col items-start gap-4">
 					<li><TextLink href={PROJECTS_HREF}>See completed projects</TextLink></li>
-					<li><TextLink href={SOLUTIONS_HREF}>Explore solutions</TextLink></li>
+					<li><TextLink href={SOLUTIONS_HREF}>View solutions</TextLink></li>
 					{#if settings.facebookReviewsUrl}
 						<li>
 							<a

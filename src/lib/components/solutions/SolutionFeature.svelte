@@ -93,7 +93,7 @@
 						href={projectsHref({ solution: solution.slug })}
 						class="text-sm font-medium underline decoration-primary underline-offset-4 hover:text-primary-strong"
 					>
-						See projects
+						View projects
 					</a>
 				{/if}
 			</div>

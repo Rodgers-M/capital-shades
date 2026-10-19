@@ -13,7 +13,7 @@
 	<CheckCircle2Icon class="size-16 text-success" />
 	<h1 class="mt-5 text-3xl font-extrabold md:text-4xl">Thank you — we've got your message.</h1>
 	<p class="mt-3 max-w-md text-muted-foreground">
-		Our team will get back to you shortly. If it's urgent, call us on
+		We'll be in touch to talk through your project. If it's urgent, call us on
 		<a href="tel:+{data.settings.primaryPhone.number}" class="font-bold text-foreground underline"
 			>{data.settings.primaryPhone.display}</a
 		>.
@@ -22,7 +22,7 @@
 		For quote requests, a final quotation follows the site visit and confirmed measurements.
 	</p>
 	<div class="mt-8 flex gap-3">
-		<Button href="/projects" variant="outline">See our projects</Button>
+		<Button href="/projects" variant="outline">View projects</Button>
 		<Button href="/">Back to home</Button>
 	</div>
 </section>

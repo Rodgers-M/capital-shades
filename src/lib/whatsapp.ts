@@ -5,7 +5,7 @@ import type { PublicSiteSettings } from '$lib/content/types';
  * What a WhatsApp enquiry is about, so the pre-filled message gives the team
  * context without the visitor having to type it.
  * - `project`: a project title the visitor was looking at
- * - `topic`: a solution title, e.g. "Car Park Shades"
+ * - `topic`: a solution title, e.g. "Car Parking Shades"
  * - `intent: 'advice'`: the visitor isn't sure which structure they need
  *
  * Pages pass one through their load data as `whatsapp`, and every shared

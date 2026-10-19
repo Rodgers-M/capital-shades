@@ -22,7 +22,7 @@
 	const fullTitle = $derived(
 		title
 			? `${title} | Capital Shades`
-			: 'Capital Shades | Car Park Shades & Tensile Structures in Kenya'
+			: 'Capital Shades | Car Parking Shades & Shade Structures in Kenya'
 	);
 	const canonical = $derived(new URL(page.url.pathname, SITE_URL).href);
 	const imageUrl = $derived(image ? new URL(image.src, SITE_URL).href : undefined);

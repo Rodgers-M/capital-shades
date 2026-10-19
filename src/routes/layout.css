@@ -65,7 +65,7 @@
 
 	/*
 	 * TODO(phase-b): temporary aliases for the old navy/amber/orange tokens, still
-	 * used by page sections (hero, estimator, product pages, blog). Migrate those
+	 * used by the blog pages and their components, ReviewsBand and SectionHeading. Migrate those
 	 * to primary/brand/*-strong/destructive, then delete these two.
 	 */
 	--color-accent: var(--color-brand);

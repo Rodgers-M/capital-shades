@@ -3,15 +3,30 @@
 	import SolutionFeature from '$lib/components/solutions/SolutionFeature.svelte';
 	import SolutionFinder from '$lib/components/solutions/SolutionFinder.svelte';
 	import SolutionGuide from '$lib/components/solutions/SolutionGuide.svelte';
+	import { SOLUTION_TYPES, currentSolutionSlug } from '$lib/content/solutionTypes';
+	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
 
-	// Solutions index: every solution record, in catalogue order, then guidance
+	// Solutions index: every published solution, in catalogue order, then guidance
 	// for visitors who don't yet know which structure they need.
 	let { data } = $props();
+
+	// Taxonomy solutions without a page yet (planned records), named so the index
+	// reflects everything Capital Shades offers without publishing thin pages
+	const unlisted = $derived(
+		SOLUTION_TYPES.filter(
+			(type) => !data.solutions.some((s) => currentSolutionSlug(s.slug) === type.id)
+		).map((type) => type.label.toLowerCase())
+	);
+	const unlistedText = $derived(
+		unlisted.length > 1
+			? `${unlisted.slice(0, -1).join(', ')} and ${unlisted.at(-1)}`
+			: (unlisted[0] ?? '')
+	);
 </script>
 
 <Seo
 	title="Solutions"
-	description="Car park shades, shade sails, canopies, tensile membrane structures, parasols and pool shades — custom designed and installed in Kenya."
+	description="Car parking shades, shade sails, canopies, tensile and custom structures and more, designed, fabricated and installed for homes, businesses and institutions."
 	image={data.solutions[0]?.image}
 />
 
@@ -31,9 +46,19 @@
 				Find the right shade structure for your space.
 			</h1>
 			<p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-				Shade structures designed around different spaces and requirements — in shade mesh,
-				waterproof PVC or metal roofing.
+				Custom shade and outdoor structures for residential, commercial and institutional sites:
+				designed, fabricated and installed, with maintenance and after-sales support.
 			</p>
+			{#if unlistedText}
+				<p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+					We also design and install {unlistedText}.
+					<a
+						href={QUOTE_HREF}
+						class="font-semibold text-foreground underline decoration-primary underline-offset-4"
+						>{QUOTE_LABEL}</a
+					> to discuss one.
+				</p>
+			{/if}
 		</div>
 		<nav aria-label="Solutions on this page" class="lg:col-span-5">
 			<ol class="border-t border-foreground/15 text-sm">

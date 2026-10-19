@@ -50,11 +50,11 @@ A car park shade is a frame — usually galvanised or painted steel — with a f
 
 ## Choosing the cover material
 
-The two most common covers are **shade netting** (breathable knitted fabric) and **PVC membrane** (fully waterproof). We explain the trade-offs in [Shade netting vs waterproof PVC](/blog/shade-netting-vs-pvc-membrane). Metal roofing is a third option for permanent structures.
+The two most common covers are **shade netting** (breathable knitted fabric) and **PVC membrane** (waterproof). We explain the trade-offs in [Shade netting vs waterproof PVC](/blog/shade-netting-vs-pvc-membrane). Metal roofing is a third option for permanent structures.
 
 ## What to check before you commission a shade
 
-1. **Site evaluation.** Measure the space, how cars move in and out, and where water will run off.
+1. **Site visit and measurements.** The space is measured on site, along with how cars move in and out and where water will run off.
 2. **Structure and foundations.** The frame and footings must be designed for the wind loads at your site — especially for cantilever designs.
 3. **Material quality.** Ask what the frame is made of, how it is protected from rust and what grade of fabric is used.
 4. **Local regulations.** Larger structures may need approvals; a professional installer will advise.
@@ -67,7 +67,7 @@ Planning a car park shade? [Request a quote](/request-a-quote) and tell us about
 		slug: 'shade-netting-vs-pvc-membrane',
 		title: 'Shade Netting vs Waterproof PVC: Which Is Right for You?',
 		excerpt:
-			'Breathable shade netting or a fully waterproof PVC membrane? Here is how the two compare on sun, rain, heat and upkeep.',
+			'Breathable shade netting or a waterproof PVC membrane? Here is how the two compare on sun, rain, heat and upkeep.',
 		tag: 'Buyers Guide',
 		date: '2026-09-08',
 		author: 'Capital Shades team',
@@ -89,7 +89,7 @@ Shade netting is a knitted fabric, usually made from high-density polyethylene (
 PVC membrane is a polyester fabric coated in PVC, stretched tight over the frame.
 
 - **Sun:** blocks direct sunlight completely.
-- **Rain:** fully waterproof. Water runs off, so the design should plan where it goes — gutters and drainage matter.
+- **Rain:** waterproof. Water runs off, so the design should plan where it goes — gutters and drainage matter.
 - **Heat:** the surface doesn't breathe, so height and open sides help keep the space underneath airy. Lighter colours reflect more heat.
 - **Look:** a smooth, clean, architectural finish that suits entrances, walkways and commercial frontages.
 
@@ -97,7 +97,7 @@ PVC membrane is a polyester fabric coated in PVC, stretched tight over the frame
 
 | | Shade netting | PVC membrane |
 | --- | --- | --- |
-| Rain protection | Light only | Fully waterproof |
+| Rain protection | Light only | Waterproof |
 | Airflow | Breathable | Sealed |
 | Best for | Homes, schools, open car parks | Entrances, walkways, commercial parking |
 
@@ -153,7 +153,7 @@ Standard shades are supported at both ends — or along both sides — of the co
 - **Offices and malls with many bays:** standard or double-sided designs usually give the best value.
 - **Tight or irregular spaces:** a custom design may combine both.
 
-However large, small or irregularly shaped your car park is, the right answer comes from the site itself. [Request a quote](/request-a-quote) and we'll suggest the best layout.
+Whatever the shape of your car park, the right answer comes from the site itself. [Request a quote](/request-a-quote) and we'll suggest the best layout.
 `
 	},
 	{
@@ -188,20 +188,20 @@ Children spend a large part of the school day outdoors — at break, during spor
 - Structures must be engineered for local wind conditions and professionally tensioned.
 - Plan regular inspections — see our [maintenance checklist](/blog/shade-structure-maintenance-checklist).
 
-We work with schools on shade for play areas, parking and walkways. [Get in touch](/contact) to arrange a site evaluation.
+We work with schools on shade for play areas, parking and walkways. [Get in touch](/contact) to arrange a site visit.
 `
 	},
 	{
 		slug: 'shade-for-shopping-centres',
 		title: 'Why Shade Matters for Shopping Centres',
 		excerpt:
-			'Covered parking and walkways change where shoppers choose to go — and how long they stay.',
+			'Covered parking, entrances and walkways make a shopping centre more comfortable to visit, from the car park onwards.',
 		tag: 'Insights',
 		date: '2026-09-21',
 		author: 'Capital Shades team',
 		photo: 'carpark-retail-blue',
 		markdown: `
-At Capital Shades we are always looking at how shade can help our clients achieve their goals. Working with commercial sites, we have seen a **marked difference in both how long shoppers stay and which centre they choose** when shade and all-weather cover are available.
+Shade and all-weather cover shape how a shopping centre feels to visit, from the moment a shopper parks to the time they walk back to the car.
 
 ## Shade is part of the customer experience
 
@@ -209,7 +209,7 @@ A shopper's visit begins in the car park. Returning to a car that has been stand
 
 ## Where to add shade in a retail centre
 
-- **Customer parking.** The most visible improvement, and the one shoppers value most.
+- **Customer parking.** Often the most visible improvement.
 - **Entrances and drop-off points.** A PVC or tensile canopy keeps people dry and gives the building a distinctive frontage.
 - **Walkways** between parking, anchor stores and restaurants.
 - **Outdoor seating and food courts,** where comfort directly affects how long people linger.

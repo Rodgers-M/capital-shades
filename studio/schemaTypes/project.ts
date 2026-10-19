@@ -37,7 +37,7 @@ export const project = defineType({
 			name: 'title',
 			title: 'Project title',
 			type: 'string',
-			description: 'Describe the work, e.g. "Cantilever carport" or "Office car park shades".',
+			description: 'Describe the work, e.g. "Cantilever carport" or "Office car parking shades".',
 			validation: (r) => r.required()
 		}),
 		imageField('heroImage', 'Main photo', {

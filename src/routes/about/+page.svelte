@@ -10,6 +10,7 @@
 	import SelectedProjects from '$lib/components/home/SelectedProjects.svelte';
 	import SolutionIndexList from '$lib/components/solutions/SolutionIndexList.svelte';
 	import { PROJECTS_HREF, SOLUTIONS_HREF } from '$lib/nav';
+	import { SERVICE_REACH } from '$lib/content/geography';
 
 	/*
 	 * About: who Capital Shades is, what it builds, for whom, how a project
@@ -33,8 +34,8 @@
 
 <Seo
 	title="About"
-	description="{settings.name} designs and installs car park shades, shade sails, canopies and tensile membrane structures{settings.location
-		? ` and is based in ${settings.location}`
+	description="{settings.name} designs, fabricates and installs shade and outdoor structures{settings.location
+		? `, based in ${settings.location} and serving projects across ${SERVICE_REACH}`
 		: ''}."
 	image={data.heroImage}
 />
@@ -82,22 +83,24 @@
 		<EditorialHeading
 			id="who-we-are"
 			eyebrow="Who we are"
-			title="Design and installation of shade structures."
+			title="Shade structures, from design to after-sales support."
 			class="lg:col-span-5 lg:self-start"
 		/>
 		<div class="space-y-5 text-lg leading-relaxed text-foreground/85 lg:col-span-7 lg:pt-16">
 			<p>
-				{settings.legalName} designs and installs shade and outdoor structures: {solutionList.join(
-					', '
-				)}.
+				{settings.legalName} designs, fabricates, supplies and installs shade and outdoor structures:
+				{solutionList.join(', ')}. After handover, we provide maintenance, repairs and after-sales
+				support.
 			</p>
 			<p>
 				Projects range from single-car carports and garden shade to car parks and outdoor areas for
-				businesses, with covers in shade mesh, waterproof PVC or metal roofing.
+				businesses and institutions, with covers in shade mesh, waterproof PVC or metal roofing.
+				Fabrication is carried out according to the project, either at the workshop or on site where
+				appropriate.
 			</p>
 			<div class="flex flex-wrap gap-x-8 gap-y-4 pt-3">
-				<TextLink href={PROJECTS_HREF}>See projects</TextLink>
-				<TextLink href={SOLUTIONS_HREF}>Explore solutions</TextLink>
+				<TextLink href={PROJECTS_HREF}>View projects</TextLink>
+				<TextLink href={SOLUTIONS_HREF}>View solutions</TextLink>
 			</div>
 		</div>
 	</div>

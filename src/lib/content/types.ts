@@ -84,8 +84,6 @@ export const PUBLIC_SETTINGS_KEYS = [
 	'googleMapsUrl',
 	'serviceAreas',
 	'facebookReviewsUrl',
-	'stats',
-	'sectors',
 	'warrantyNote',
 	'siteVisitNote',
 	'quoteNote'

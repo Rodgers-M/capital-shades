@@ -61,11 +61,11 @@ export const projects: SeedProject[] = [
 	},
 	{
 		slug: 'office-car-park-blue',
-		title: 'Office car park shades',
+		title: 'Office car parking shades',
 		solutions: ['car-parking-shades'],
 		sector: 'commercial',
 		photo: 'carpark-office-blue',
-		photoAlt: 'Blue car park shades in front of an office building',
+		photoAlt: 'Blue car parking shades in front of an office building',
 		featured: true
 	},
 	{
@@ -115,7 +115,7 @@ export const projects: SeedProject[] = [
 		solutions: ['car-parking-shades'],
 		sector: 'residential',
 		photo: 'carport-landcruiser-green',
-		photoAlt: 'Green car park shade over a white SUV at a home'
+		photoAlt: 'Green car parking shade over a white SUV at a home'
 	},
 	{
 		slug: 'green-cantilever-suv',
@@ -185,7 +185,7 @@ export const projects: SeedProject[] = [
 	},
 	{
 		slug: 'blue-cantilever-car-park',
-		title: 'Commercial car park shade',
+		title: 'Commercial car parking shade',
 		solutions: ['car-parking-shades'],
 		sector: 'commercial',
 		photo: 'carpark-blue-cantilever',
@@ -205,6 +205,6 @@ export const projects: SeedProject[] = [
 		solutions: ['car-parking-shades'],
 		sector: 'commercial',
 		photo: 'carpark-retail-blue',
-		photoAlt: 'Blue car park shade in front of shops'
+		photoAlt: 'Blue car parking shade in front of shops'
 	}
 ];
