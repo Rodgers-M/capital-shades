@@ -18,6 +18,11 @@ Confirmed decisions belong in `decisions.md`.
 
 Do not invent a street address.
 
+- [ ] Google Business Profile: does one exist, and who has access? Its name,
+      phone, website, category, service areas and description should match
+      the site (checklist: `implementation.md`, "C7 results").
+- [ ] Search Console: who verifies the domain after launch (DNS access)?
+
 ---
 
 ### Business hours
@@ -77,7 +82,8 @@ Also confirm whether the older 2019 images below are Capital Shades work rather
 than stock photography:
 
 - [ ] `parasol-yellow`
-- [ ] `sails-pool-garden`
+- [ ] `sails-pool-garden` (not shown anywhere since the Pool Shades page was
+      redirected in C7)
 - [ ] `canopy-red-walkway`
 - [ ] `canopy-red-entrance`
 
@@ -105,8 +111,21 @@ Client names should not be published.
 Location should remain general enough that private residential sites cannot be
 easily identified.
 
-Also resolve duplicate project titles such as repeated
-"Cantilever carport" entries.
+Location and year are the strongest local-search signal the site can have
+(Phase C7): no project has either yet, so project pages can't say "Karen,
+Nairobi" or "2025". Even an estate name for 5–10 projects would help, as would
+projects in Kiambu, Machakos and Kajiado.
+
+Duplicate project titles were made distinct in C7 from what each photo shows
+(colour, setting). Replace them with better names if the owner knows more.
+
+Also gaps for search (Phase C7):
+
+- [ ] Tensile structures: more real examples (only two carports today).
+- [ ] Shade sails, canopies and parasols: projects beyond the one or two
+      photos each has now.
+- [ ] Institutional projects (schools, hospitals, churches) for the
+      institutional sector.
 
 ---
 
@@ -171,13 +190,17 @@ pages' copy doesn't feed the form.
 
 ### Solution taxonomy migration (Phase C5)
 
-- [ ] Pool Shades: keep the old page, or redirect `/solutions/pool-shades` to
-      Shade Sails (or another solution)? It is served unlisted until decided.
 - [ ] Copy and photos for Awnings, Pergolas & Gazebos and Screen Fencing. They
-      have no page until these exist.
+      have no page until these exist. Each needs at least: what it is, where
+      it is used, the materials offered and a few real project photos.
+      Awnings: whether retractable awnings are offered (a common search term).
+      Screen Fencing: whether it is privacy screening, dust screening or both,
+      and the materials. Searches for these are dominated by retail listings,
+      so a designed-and-installed page with real work could stand out.
 - [ ] Move the pergola project to Pergolas & Gazebos once that page exists.
-- [ ] Which solution "shade nets" belongs to as a customer term (shade sails,
-      car parking shades, or both).
+- [ ] "Shade nets": the site now calls car parking shades' shade mesh "shade
+      net" (Phase C7). Confirm whether shade sails' mesh should be described
+      the same way.
 - [ ] Customer sectors per solution were taken from each page's applications
       list; confirm them.
 - [ ] Tensile & Custom Structures: which custom structures to describe beyond

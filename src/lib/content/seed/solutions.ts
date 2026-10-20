@@ -22,6 +22,9 @@ export interface SeedPage extends SeedRecord {
 	sectors: Sector[];
 	photo: string;
 	photoAlt: string;
+	/** Search-result title and description (docs/implementation.md, Phase C7 intent map) */
+	seoTitle?: string;
+	seoDescription?: string;
 }
 
 /** In the taxonomy, without a page until its copy and photos are confirmed. */
@@ -37,7 +40,9 @@ export type SeedSolution = SeedPage | SeedPlanned;
  * Phase C5). Copy is descriptive: what each structure is and where it is used.
  * No subjective, superlative or geographic claims, and nothing about
  * performance, value or who builds what beyond "design and installation"
- * (Phase C1 review). Planned records carry no copy: none is confirmed yet.
+ * (Phase C1 review). Geography belongs only in the search fields, from the
+ * confirmed Nairobi base and Kenya reach. Planned records carry no copy: none
+ * is confirmed yet.
  */
 export const solutions: SeedSolution[] = [
 	{
@@ -48,9 +53,9 @@ export const solutions: SeedSolution[] = [
 		summary:
 			'Cantilever and post-supported car parking shades that keep vehicles out of direct sun and rain, at home or at work.',
 		body: [
-			'Car parking shades cover parked vehicles at homes, offices and other sites where people park, keeping them out of direct sun and rain.',
+			'Car parking shades, often called car shades or carports, cover parked vehicles at homes, offices and other sites where people park, keeping them out of direct sun and rain.',
 			'Each shade is designed around the space it covers, from a single-car carport to rows of commercial bays. Cantilever designs keep posts to one side of the bay; post-supported designs suit wider areas.',
-			'Covers are available in shade mesh, waterproof PVC membrane or metal roofing, in a choice of colours.'
+			'Covers are available in shade mesh (often called shade net), waterproof PVC membrane or metal roofing, in a choice of colours.'
 		],
 		features: [
 			'Cantilever and post-supported designs',
@@ -63,7 +68,10 @@ export const solutions: SeedSolution[] = [
 		quoteMaterials: ['mesh', 'pvc', 'metal'],
 		aliases: ['car shades', 'carports', 'car parking shades'],
 		photo: 'carport-landcruiser-green',
-		photoAlt: 'Green car parking shade over a white SUV at a home'
+		photoAlt: 'Green car parking shade over a white SUV at a home',
+		seoTitle: 'Car Parking Shades in Nairobi & Kenya',
+		seoDescription:
+			'Car parking shades and carports in shade net, waterproof PVC or metal roofing, designed and installed for homes and businesses in Nairobi and across Kenya.'
 	},
 	{
 		slug: 'shade-sails',
@@ -72,7 +80,7 @@ export const solutions: SeedSolution[] = [
 		eyebrow: 'Patios, pools & play areas',
 		summary: 'Tensioned fabric sails that shade patios, terraces, play areas and gardens.',
 		body: [
-			'Shade sails are tensioned fabric panels, often layered at different heights. They shade terraces, play equipment and gardens while leaving the sides open to the air.',
+			'Shade sails are tensioned fabric panels, often layered at different heights. They shade terraces, poolsides, play equipment and gardens while leaving the sides open to the air.',
 			'Choose breathable shade fabric for airflow, or waterproof material where you also need protection from rain.'
 		],
 		features: [
@@ -86,7 +94,10 @@ export const solutions: SeedSolution[] = [
 		quoteMaterials: ['mesh'],
 		aliases: ['shade sails'],
 		photo: 'sails-hotel-balcony',
-		photoAlt: 'Layered shade sails over a hotel terrace'
+		photoAlt: 'Layered shade sails over a hotel terrace',
+		seoTitle: 'Shade Sails in Nairobi & Kenya',
+		seoDescription:
+			'Shade sails for patios, gardens, pools, play areas and hotel terraces, designed and installed for homes, schools and businesses in Nairobi and across Kenya.'
 	},
 	{
 		slug: 'canopies',
@@ -109,7 +120,10 @@ export const solutions: SeedSolution[] = [
 		sectors: ['commercial', 'institutional'],
 		quoteMaterials: ['pvc'],
 		photo: 'canopy-red-entrance',
-		photoAlt: 'Red fabric canopies over a building entrance'
+		photoAlt: 'Red fabric canopies over a building entrance',
+		seoTitle: 'Entrance & Walkway Canopies in Nairobi',
+		seoDescription:
+			'Entrance canopies and covered walkways for shops, offices, restaurants and schools, in waterproof PVC. Designed and installed in Nairobi and across Kenya.'
 	},
 	{ slug: 'awnings', title: 'Awnings', status: 'planned' },
 	{ slug: 'pergolas-gazebos', title: 'Pergolas & Gazebos', status: 'planned' },
@@ -134,7 +148,10 @@ export const solutions: SeedSolution[] = [
 		sectors: ['residential', 'commercial'],
 		quoteMaterials: ['pvc'],
 		photo: 'carport-decorative-night',
-		photoAlt: 'Illuminated membrane carport with decorative laser-cut panels at night'
+		photoAlt: 'Illuminated membrane carport with decorative laser-cut panels at night',
+		seoTitle: 'Tensile Structures in Nairobi & Kenya',
+		seoDescription:
+			'Tensile fabric structures with curved PVC membranes over carports, courtyards and entrances, designed around each site. Based in Nairobi, working across Kenya.'
 	},
 	{ slug: 'screen-fencing', title: 'Screen Fencing', status: 'planned', aliases: ['screen fence'] },
 	{
@@ -150,28 +167,9 @@ export const solutions: SeedSolution[] = [
 		applications: ['Restaurants', 'Hotels', 'Gardens', 'Poolsides'],
 		sectors: ['residential', 'commercial'],
 		photo: 'parasol-yellow',
-		photoAlt: 'Yellow parasols shading outdoor restaurant seating'
-	},
-	{
-		// Legacy: pool shades are an application, not a top-level solution. The page
-		// stays live, unlisted, until the owner decides where it goes (Phase C5 map).
-		slug: 'pool-shades',
-		title: 'Pool Shades',
-		status: 'legacy',
-		eyebrow: 'Poolside comfort',
-		summary:
-			'Shade structures over and around pools that keep swimmers and poolside seating out of direct sun.',
-		body: [
-			'A shade structure over or beside a pool shades the water and the seating around it from direct sun.'
-		],
-		features: [
-			'Shade over the water and poolside',
-			'Sails or fixed structures',
-			'Choice of colours'
-		],
-		applications: ['Homes', 'Hotels', 'Clubs', 'Schools'],
-		sectors: ['residential', 'commercial', 'institutional'],
-		photo: 'sails-pool-garden',
-		photoAlt: 'Shade sails over a garden beside a swimming pool'
+		photoAlt: 'Yellow parasols shading outdoor restaurant seating',
+		seoTitle: 'Parasols for Restaurants, Hotels & Gardens',
+		seoDescription:
+			'Parasols that shade outdoor seating at restaurants, hotels, poolsides and gardens, from Capital Shades in Nairobi.'
 	}
 ];

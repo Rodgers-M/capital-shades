@@ -44,7 +44,8 @@ export const siteSettings = defineType({
 			type: 'text',
 			rows: 3,
 			group: 'business',
-			description: 'Used in search results and the footer.',
+			description:
+				'Used in the footer and the business details given to Google. The home page’s search snippet is written separately.',
 			validation: (r) => r.required().max(200)
 		}),
 		defineField({

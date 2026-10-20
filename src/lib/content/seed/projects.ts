@@ -19,13 +19,14 @@ export interface SeedProject {
 /*
  * One entry per installation, from the owner's own uploads on the current
  * site (Feb 2023 and Nov 2025 "Recent Projects"; duplicates removed).
- * Titles describe what the photo shows. Location, material, completion
+ * Titles describe what the photo shows, and no two match: each is a page
+ * title in search results. Location, material, completion
  * year and scope are left empty until the owner confirms them.
  */
 export const projects: SeedProject[] = [
 	{
 		slug: 'cantilever-carport-signboard',
-		title: 'Cantilever carport',
+		title: 'Cantilever carport with a Capital Shades sign',
 		solutions: ['car-parking-shades'],
 		sector: 'residential',
 		photo: 'carpark-signboard',
@@ -95,7 +96,7 @@ export const projects: SeedProject[] = [
 	},
 	{
 		slug: 'cantilever-carport-brown',
-		title: 'Cantilever carport',
+		title: 'Brown cantilever carport',
 		solutions: ['car-parking-shades'],
 		sector: 'residential',
 		photo: 'carport-cantilever-brown',
@@ -111,7 +112,7 @@ export const projects: SeedProject[] = [
 	},
 	{
 		slug: 'green-carport-land-cruiser',
-		title: 'Residential carport',
+		title: 'Green residential carport',
 		solutions: ['car-parking-shades'],
 		sector: 'residential',
 		photo: 'carport-landcruiser-green',
@@ -119,7 +120,7 @@ export const projects: SeedProject[] = [
 	},
 	{
 		slug: 'green-cantilever-suv',
-		title: 'Cantilever carport',
+		title: 'Green cantilever carport',
 		solutions: ['car-parking-shades'],
 		sector: 'residential',
 		photo: 'carpark-residential-green',
@@ -153,7 +154,7 @@ export const projects: SeedProject[] = [
 	},
 	{
 		slug: 'teal-carport-home',
-		title: 'Residential carport',
+		title: 'Teal residential carport',
 		solutions: ['car-parking-shades'],
 		sector: 'residential',
 		photo: 'carport-teal-house',
@@ -161,7 +162,7 @@ export const projects: SeedProject[] = [
 	},
 	{
 		slug: 'dark-cantilever-suv',
-		title: 'Cantilever carport',
+		title: 'Dark cantilever carport over an SUV',
 		solutions: ['car-parking-shades'],
 		sector: 'residential',
 		photo: 'carport-dark-white-suv',
@@ -169,7 +170,7 @@ export const projects: SeedProject[] = [
 	},
 	{
 		slug: 'dark-cantilever-garden',
-		title: 'Cantilever carport',
+		title: 'Dark cantilever carport beside a garden',
 		solutions: ['car-parking-shades'],
 		sector: 'residential',
 		photo: 'carport-dark-silver',

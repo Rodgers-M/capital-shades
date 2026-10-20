@@ -25,8 +25,8 @@
 </script>
 
 <Seo
-	title="Solutions"
-	description="Car parking shades, shade sails, canopies, tensile and custom structures and more, designed, fabricated and installed for homes, businesses and institutions."
+	title="Shade Structures in Nairobi & Kenya"
+	description="Car parking shades, shade sails, canopies, tensile structures and more, designed, fabricated and installed for homes, businesses and institutions."
 	image={data.solutions[0]?.image}
 />
 

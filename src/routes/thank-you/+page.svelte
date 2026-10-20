@@ -6,8 +6,7 @@
 	let { data } = $props();
 </script>
 
-<Seo title="Thank You" description="We've received your enquiry." />
-<svelte:head><meta name="robots" content="noindex" /></svelte:head>
+<Seo title="Thank You" description="We've received your enquiry." noindex />
 
 <section class="container-page flex flex-col items-center py-24 text-center">
 	<CheckCircle2Icon class="size-16 text-success" />

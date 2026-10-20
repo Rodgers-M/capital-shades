@@ -65,7 +65,7 @@ export const solution = defineType({
 					.required()
 					.custom((slug?: { current?: string }) =>
 						slug?.current && Object.hasOwn(LEGACY_SOLUTION_SLUGS, slug.current)
-							? 'This old address redirects to another solution, so the page would never show.'
+							? 'This old address now redirects to another solution, so this page never shows. Unpublish or delete this record.'
 							: true
 					)
 		}),
@@ -156,6 +156,26 @@ export const solution = defineType({
 				'Words customers search with, e.g. "car shades", "carports". For search and future content, never listed on the page.',
 			of: [defineArrayMember({ type: 'string' })],
 			options: { layout: 'tags' }
+		}),
+		defineField({
+			name: 'seoTitle',
+			title: 'Title in Google',
+			type: 'string',
+			group: 'search',
+			description:
+				'Optional. " | Capital Shades" is added after it, e.g. "Car Parking Shades in Nairobi & Kenya". Leave empty to use "<title> in Kenya".',
+			// About 60 characters show in results, and the suffix takes 17 of them
+			validation: (r) => r.max(45).warning('Google may cut off a title this long.')
+		}),
+		defineField({
+			name: 'seoDescription',
+			title: 'Description in Google',
+			type: 'text',
+			rows: 3,
+			group: 'search',
+			description:
+				'Optional. One or two sentences on what it is, who it is for and where. Leave empty to use the summary.',
+			validation: (r) => r.max(160).warning('Google may cut off a description this long.')
 		})
 	],
 	preview: {

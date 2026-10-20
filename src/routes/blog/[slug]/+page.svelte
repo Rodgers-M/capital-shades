@@ -6,8 +6,9 @@
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
 	import ArticleCard from '$lib/components/blog/ArticleCard.svelte';
 	import TagPill from '$lib/components/blog/TagPill.svelte';
-	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
+	import { BLOG_HREF, QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
 	import { SITE_URL } from '$lib/config';
+	import { breadcrumbList } from '$lib/seo';
 	import { formatDate } from '$lib/utils';
 
 	let { data } = $props();
@@ -19,17 +20,23 @@
 	description={post.excerpt}
 	image={post.image}
 	type="article"
-	jsonLd={{
-		'@context': 'https://schema.org',
-		'@type': 'Article',
-		headline: post.title,
-		description: post.excerpt,
-		datePublished: post.date,
-		image: new URL(post.image.src, SITE_URL).href,
-		author: { '@type': 'Organization', name: post.author },
-		publisher: { '@id': `${SITE_URL}/#business` },
-		mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`
-	}}
+	jsonLd={[
+		{
+			'@context': 'https://schema.org',
+			'@type': 'Article',
+			headline: post.title,
+			description: post.excerpt,
+			datePublished: post.date,
+			image: new URL(post.image.src, SITE_URL).href,
+			author: { '@type': 'Organization', name: post.author },
+			publisher: { '@id': `${SITE_URL}/#business` },
+			mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`
+		},
+		breadcrumbList([
+			{ name: 'Blog', path: BLOG_HREF },
+			{ name: post.title, path: `${BLOG_HREF}/${post.slug}` }
+		])
+	]}
 />
 
 <article>

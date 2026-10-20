@@ -28,13 +28,16 @@ export const isSolutionTypeId = (value: string): value is SolutionTypeId =>
 	SOLUTION_TYPES.some((type) => type.id === value);
 
 /**
- * Solution slugs renamed in the C5 taxonomy migration, old → new. Old URLs
- * 301 straight to the new slug, and old project references resolve through
- * it. Also imported by the Studio, which refuses these slugs on new records.
+ * Retired solution slugs, old → current. Old URLs 301 straight to the current
+ * slug, and old project references resolve through it. Also imported by the
+ * Studio, which refuses these slugs on new records. Pool shades are an
+ * application of shade sails, not a solution (docs/decisions.md — "Search
+ * architecture").
  */
 export const LEGACY_SOLUTION_SLUGS: Readonly<Record<string, SolutionTypeId>> = {
 	'car-park-shades': 'car-parking-shades',
-	'tensile-membrane-structures': 'tensile-custom-structures'
+	'tensile-membrane-structures': 'tensile-custom-structures',
+	'pool-shades': 'shade-sails'
 };
 
 /** The current slug for a solution slug that may predate the migration. */

@@ -54,7 +54,7 @@ export const QUERY = `{
 	},
 	"solutions": *[_type == "solution"] | order(orderRank asc, title asc){
 		"slug": slug.current, title, status, eyebrow, summary, body, features, applications,
-		quoteMaterials, image ${IMAGE}
+		quoteMaterials, seoTitle, seoDescription, image ${IMAGE}
 	},
 	"legacyProducts": count(*[_type == "product"]),
 	"projects": *[_type == "project"] | order(featured desc, _createdAt desc){
@@ -70,10 +70,14 @@ export const QUERY = `{
 }`;
 
 /** One solution from QUERY. Planned records may have no copy or image yet. */
-interface SanitySolution extends Partial<Omit<Solution, 'slug' | 'title' | 'image'>> {
+interface SanitySolution extends Partial<
+	Omit<Solution, 'slug' | 'title' | 'image' | 'seoTitle' | 'seoDescription'>
+> {
 	slug: string;
 	title: string;
 	status?: SolutionStatus | null;
+	seoTitle?: string | null;
+	seoDescription?: string | null;
 	quoteMaterials?: string[] | null;
 	image?: SanityImage | null;
 }
@@ -172,6 +176,8 @@ export function mapSanityContent(
 			body: s.body ?? [],
 			features: s.features ?? [],
 			applications: s.applications ?? [],
+			seoTitle: s.seoTitle?.trim() || null,
+			seoDescription: s.seoDescription?.trim() || null,
 			image: toImg(s.image, s.title)
 		};
 	};

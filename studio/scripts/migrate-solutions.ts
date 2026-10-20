@@ -17,14 +17,20 @@ import { settings as seedSettings } from '../../src/lib/content/seed/settings';
 import { orderRank, solutionId } from './ids';
 
 /**
+ * Retired slugs that describe an application of their target, not the target
+ * itself: their projects move to the target, but their copy never becomes its page.
+ */
+const FOLDED = new Set(['pool-shades']);
+
+/**
  * Old product slug → new solution: renames come from LEGACY_SOLUTION_SLUGS, so
- * the site and this script share one map. A product that maps to neither a
- * taxonomy solution nor a legacy seed record is reported and left alone.
+ * the site and this script share one map. The legacy branch serves any seed
+ * record kept as an unlisted page (none today). A product that maps to neither
+ * is reported and left alone.
  */
 function mapProduct(slug: string): { slug: string; status: 'published' | 'legacy' } | undefined {
 	const target = currentSolutionSlug(slug);
 	if (SOLUTION_TYPES.some((t) => t.id === target)) return { slug: target, status: 'published' };
-	// Pool Shades: an application, not a top-level solution; kept unlisted until the owner decides
 	return seedSolutions.some((s) => s.slug === target && s.status === 'legacy')
 		? { slug: target, status: 'legacy' }
 		: undefined;
@@ -107,6 +113,10 @@ async function main() {
 		const target = product.slug ? mapProduct(product.slug) : undefined;
 		if (!target) {
 			report.push(`  ? "${product.title}" (${product.slug}): no mapping, left as is`);
+			continue;
+		}
+		if (product.slug && FOLDED.has(product.slug)) {
+			report.push(`  → ${product.slug} → ${target.slug}: folded in, its copy isn't used`);
 			continue;
 		}
 		if (ids.has(target.slug)) {

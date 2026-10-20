@@ -114,6 +114,10 @@ export interface Solution {
 	/** Where and how it is used, e.g. "Walkway covers", "Hotels" */
 	applications: string[];
 	features: string[];
+	/** Search-result title without the site name; null uses the default from `solutionSeo` */
+	seoTitle: string | null;
+	/** Search-result description; null uses the summary */
+	seoDescription: string | null;
 }
 
 export interface Project {

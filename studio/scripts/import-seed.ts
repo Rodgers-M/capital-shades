@@ -65,6 +65,8 @@ async function main() {
 						features: s.features,
 						applications: s.applications,
 						sectors: s.sectors,
+						seoTitle: s.seoTitle,
+						seoDescription: s.seoDescription,
 						image: await image(s.photo, s.photoAlt)
 					};
 		tx.createOrReplace({

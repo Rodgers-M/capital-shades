@@ -2642,9 +2642,9 @@ Do not:
 
 ---
 
-## Current Phase
+## Phase C6 — Content Alignment
 
-Phase C6 — Content Alignment
+Status: Complete
 
 ## Objective
 
@@ -3663,42 +3663,1517 @@ Studio:
   in the seed. **"Shade Netting vs Waterproof PVC":** "fully waterproof" →
   "waterproof".
 
-## Phase Boundary
-
-Stop after C6.
-
-Do not begin C7.
-
-# Remaining roadmap
-
----
-
 ## Phase C7 — SEO / Local Search
 
-Planned.
+Status: Complete
 
-High priority due to owner goals.
+## Objective
 
-Expected work includes:
+Make the rebuilt Capital Shades website deliberately discoverable for relevant
+Google searches while preserving the current architecture, truthful content
+and conversion experience.
 
-- keyword/search-intent research
-- page titles/descriptions
-- headings/content
-- technical SEO
-- structured data
-- internal linking
-- canonical URLs
-- project location signals
-- Nairobi/local search
-- Kenya/East Africa positioning
-- Google Business Profile alignment
-- sitemap
-- robots
-- Search Console
-- blog/content opportunities
-- Core Web Vitals
+This phase should improve:
+
+- search intent alignment;
+- Nairobi/local relevance;
+- technical crawlability;
+- page titles and descriptions;
+- internal linking;
+- solution-page discoverability;
+- project-page search value;
+- structured data;
+- image/search metadata;
+- legacy URL handling;
+- measurement/indexing readiness.
+
+Do not create keyword-stuffed pages.
+
+Do not create thin location doorway pages.
+
+Do not redesign the website.
 
 ---
+
+# 1. SEO research before implementation
+
+Before changing metadata or page copy, perform a targeted search-intent audit
+for Capital Shades' real services.
+
+Research current Kenyan/Nairobi search results for at least:
+
+- car parking shades Kenya
+- car parking shades Nairobi
+- car shades Kenya
+- car shades Nairobi
+- carports Kenya
+- shade sails Kenya
+- shade sails Nairobi
+- tensile structures Kenya
+- tensile structures Nairobi
+- canopies Kenya / Nairobi
+- awnings Kenya / Nairobi
+- pergolas Kenya / Nairobi
+- gazebos Kenya / Nairobi
+- screen fencing Kenya
+- privacy screen fence Kenya
+- shade nets Kenya
+- commercial shade structures Kenya
+
+Also inspect major competitors that rank across multiple relevant queries.
+
+The purpose is to identify:
+
+- customer terminology;
+- commercial vs informational intent;
+- terminology differences;
+- useful application language;
+- SERP patterns;
+- content gaps.
+
+Do not copy competitors' content.
+
+Record a concise findings summary in `docs/implementation.md`.
+
+---
+
+# 2. Search-intent architecture
+
+Map search terms to the existing site architecture rather than creating a new
+page for every keyword variation.
+
+Canonical solution pages remain:
+
+1. Car Parking Shades
+2. Shade Sails
+3. Canopies
+4. Awnings
+5. Pergolas & Gazebos
+6. Tensile & Custom Structures
+7. Screen Fencing
+8. Parasols
+
+Use aliases and supporting language within these pages.
+
+Do not create separate thin pages merely for:
+
+- car shades
+- carports
+- shade ports
+- parking canopies
+- car shade nets
+
+when they describe substantially the same Capital Shades service.
+
+---
+
+# 3. Keyword / terminology mapping
+
+Create a simple internal intent map.
+
+Suggested starting direction:
+
+## Car Parking Shades
+
+Primary concepts:
+
+- car parking shades
+- car shades
+- car parking shades Kenya
+- car parking shades Nairobi
+
+Secondary/customer terminology:
+
+- carports
+- parking shades
+- parking canopies
+- shade ports
+- car shade structures
+
+Use naturally.
+
+Do not force every synonym into headings.
+
+---
+
+## Shade Sails
+
+Primary concepts:
+
+- shade sails
+- shade sails Kenya
+- shade sails Nairobi
+
+Supporting applications:
+
+- garden shade
+- pool shade
+- playground shade
+- outdoor shade
+- hospitality shade
+
+Pool shade should be treated as an application rather than returning as a
+top-level solution.
+
+---
+
+## Tensile & Custom Structures
+
+Primary concepts:
+
+- tensile structures
+- tensile structures Kenya
+- tensile structures Nairobi
+- tensile shade structures
+- tensile fabric structures
+
+Use "custom structures" descriptively, but do not rely on it as the only
+search phrase because it is too broad.
+
+---
+
+## Canopies
+
+Use application context to disambiguate the generic term.
+
+Potential supporting language:
+
+- outdoor canopies
+- entrance canopies
+- walkway canopies
+- commercial canopies
+
+Do not assume unsupported materials or structure types.
+
+---
+
+## Awnings
+
+Potential terms:
+
+- awnings Kenya
+- awnings Nairobi
+- retractable awnings
+
+Only use "retractable awnings" prominently once the offering is confirmed.
+
+---
+
+## Pergolas & Gazebos
+
+Potential terms:
+
+- pergolas Kenya
+- pergolas Nairobi
+- gazebos Kenya
+- gazebos Nairobi
+- outdoor structures
+
+Do not split these into separate thin pages during C7.
+
+---
+
+## Screen Fencing
+
+Potential terms:
+
+- screen fencing Kenya
+- privacy screen fence
+- privacy screening
+- dust screen fence
+
+Make it clear that Capital Shades provides a designed/installed solution.
+
+Avoid making the page look like an ecommerce listing for rolls of shade net.
+
+---
+
+## Parasols
+
+Use contextual commercial/hospitality terminology where supported.
+
+Do not invent hospitality-specific projects.
+
+---
+
+# 4. "Shade nets" strategy
+
+Treat "shade nets" carefully.
+
+Current search intent can include:
+
+- agriculture;
+- roll/material sales;
+- privacy mesh;
+- installed car shades.
+
+Capital Shades is primarily selling designed/fabricated/installed structures,
+not generic agricultural net rolls.
+
+Therefore:
+
+- use "shade net" naturally where the material/service genuinely overlaps;
+- include it in aliases/customer terminology where appropriate;
+- do not make it the primary site-wide keyword;
+- do not create a generic `/shade-nets` page merely to chase traffic;
+- avoid attracting irrelevant agricultural-shopping searches.
+
+Prioritize qualified enquiries over raw search volume.
+
+---
+
+# 5. Nairobi-first local positioning
+
+Nairobi is the primary local SEO anchor.
+
+Use Nairobi naturally in:
+
+- appropriate page titles;
+- descriptions;
+- solution copy;
+- project location context;
+- organization/business structured data.
+
+Broader positioning remains:
+
+- Kenya
+- East Africa
+
+Do not make every heading say:
+
+"Nairobi Kenya East Africa"
+
+Use geographic language naturally.
+
+---
+
+# 6. Nearby counties
+
+Confirmed nearby service areas include:
+
+- Nairobi
+- Kiambu County
+- Machakos County
+- Kajiado County
+
+Do not create pages such as:
+
+- Car Parking Shades Kiambu
+- Car Parking Shades Machakos
+- Car Parking Shades Kajiado
+- Shade Sails Kiambu
+
+unless future content and project evidence justify genuinely useful local
+pages.
+
+Avoid doorway-page SEO.
+
+Project location data and natural service-area copy should carry local
+relevance for now.
+
+---
+
+# 7. East Africa positioning
+
+Keep East Africa as broader business positioning.
+
+Do not optimize every solution page primarily for "East Africa".
+
+Primary organic focus should remain:
+
+Nairobi → Kenya → East Africa
+
+This better reflects the current physical/business base while retaining the
+broader service capability.
+
+---
+
+# 8. Homepage metadata
+
+Review the homepage title and description using the keyword research.
+
+The homepage should target the broader business category rather than trying to
+rank for every solution.
+
+Current title:
+
+`Capital Shades | Car Parking Shades & Shade Structures in Kenya`
+
+Evaluate whether this remains the best balance.
+
+Possible direction:
+
+`Capital Shades | Shade Structures & Car Parking Shades Kenya`
+
+or equivalent.
+
+Do not change solely for stylistic reasons.
+
+Keep title concise enough to avoid unnecessary truncation.
+
+Homepage description should communicate:
+
+- design / fabrication / installation;
+- major shade-structure category;
+- Nairobi/Kenya relevance;
+- customer context where useful.
+
+Do not keyword-stuff all eight solutions into the description.
+
+---
+
+# 9. Solution page metadata
+
+Every published solution page should have a unique:
+
+- title;
+- meta description;
+- canonical URL.
+
+Titles should generally combine:
+
+solution + useful geography + Capital Shades
+
+without following an identical robotic template where a better natural title
+exists.
+
+Examples of direction, not mandatory copy:
+
+`Car Parking Shades in Nairobi & Kenya | Capital Shades`
+
+`Shade Sails in Kenya | Design & Installation | Capital Shades`
+
+`Tensile Structures in Kenya | Capital Shades`
+
+Do not put Nairobi and Kenya into every title if it makes the title awkward.
+
+---
+
+# 10. Planned solution pages
+
+Do not publish thin SEO pages for:
+
+- Awnings
+- Pergolas & Gazebos
+- Screen Fencing
+
+until enough verified copy and imagery exist to make them genuinely useful.
+
+Having eight taxonomy records does not require eight indexable pages.
+
+Avoid:
+
+- placeholder pages;
+- 100-word SEO pages;
+- invented FAQs;
+- generic AI copy.
+
+Record publication readiness separately.
+
+---
+
+# 11. Headings and on-page intent
+
+Audit H1/H2 structure of all published solution pages.
+
+Each page should have:
+
+- one clear H1;
+- useful application-oriented H2s;
+- natural terminology;
+- no duplicate keyword headings solely for SEO.
+
+Examples:
+
+Instead of:
+
+`Car Parking Shades Kenya`
+
+followed by:
+
+`Best Car Parking Shades Nairobi Kenya`
+
+prefer meaningful sections such as:
+
+`Car parking shades for homes and commercial sites`
+
+`Material options`
+
+`Where car parking shades work well`
+
+`Related projects`
+
+Write for customers first.
+
+---
+
+# 12. Solution aliases
+
+Use the C5 `aliases / customer terminology` field where appropriate.
+
+Aliases may support:
+
+- copy decisions;
+- metadata;
+- internal search/content logic;
+- future content planning.
+
+Do not automatically render an ugly comma-separated keyword list.
+
+Do not expose aliases as hidden SEO text.
+
+---
+
+# 13. Project SEO
+
+Projects should become a major organic-search proof layer.
+
+For projects with enough verified information, use:
+
+- solution;
+- sector;
+- general location;
+- completion year;
+- scope;
+- requirement;
+- delivered solution.
+
+Generate useful metadata from real project facts.
+
+Example direction:
+
+`Car Parking Shade Project in Karen, Nairobi | Capital Shades`
+
+only if:
+
+- the project really is a car parking shade;
+- Karen is the verified general location.
+
+Do not invent locations.
+
+---
+
+# 14. Project titles
+
+Do not automatically keyword-stuff project titles.
+
+Editorial project names can remain concise.
+
+SEO metadata may provide additional context separately.
+
+Resolve obviously duplicate project titles where verified information exists,
+but do not invent distinctions.
+
+Keep exact client identities private.
+
+---
+
+# 15. Project location SEO
+
+General location data is useful for local relevance.
+
+Use safe public locations such as:
+
+- Karen, Nairobi
+- Runda, Nairobi
+- Kiambu
+- Thika Road area
+
+Do not expose:
+
+- exact residential address;
+- coordinates identifying a private site;
+- client name.
+
+Location should serve both customer understanding and local relevance without
+compromising privacy.
+
+---
+
+# 16. Project index metadata
+
+Optimize `/projects` as portfolio/proof, not as a giant keyword landing page.
+
+Use a concise title/description describing:
+
+- completed shade structures;
+- relevant solution types;
+- Nairobi/Kenya scope where appropriate.
+
+Do not put every solution name in the title.
+
+---
+
+# 17. Internal linking
+
+Improve contextual internal linking between:
+
+- Solutions → relevant Projects
+- Projects → relevant Solutions
+- Blog → relevant Solutions
+- Blog → relevant Projects where genuinely related
+- About → Solutions / Projects
+- Homepage → primary solutions / projects
+- Solution applications → quote flow
+
+Use descriptive anchor text.
+
+Prefer:
+
+`See our car parking shade projects`
+
+over:
+
+`Click here`
+
+Do not over-link every keyword occurrence.
+
+---
+
+# 18. Blog SEO
+
+Review existing articles for search intent and internal-link opportunities.
+
+Do not rewrite every post.
+
+For each existing post, evaluate:
+
+- title;
+- H1;
+- description;
+- canonical;
+- internal links;
+- outdated terminology;
+- whether it satisfies an actual customer question.
+
+Historical slugs should normally remain stable.
+
+A title may be updated without changing the slug if doing so improves accuracy.
+
+---
+
+# 19. Old "Car Park Shades" article titles
+
+Review the owner question about existing article titles.
+
+Do not change URLs automatically.
+
+If a title using "Car Park Shades" remains understandable and is already
+published/shared, leaving it is acceptable.
+
+If title alignment improves clarity, the visible title may become
+"Car Parking Shades..." while retaining the historical slug.
+
+Do not introduce redirects merely to make blog slugs prettier.
+
+---
+
+# 20. Future editorial opportunities
+
+Based on research, record useful content opportunities but do not build a large
+content campaign in C7.
+
+Potential topics may include real customer questions such as:
+
+- car parking shade design choices;
+- shade sail vs canopy;
+- waterproof vs breathable shade;
+- what happens during a site visit;
+- how to plan shade for multiple vehicles;
+- commercial shade considerations;
+- maintaining installed shade structures.
+
+Only record opportunities supported by business knowledge.
+
+Do not generate dozens of thin SEO articles.
+
+---
+
+# 21. Canonical URLs
+
+Ensure every indexable page emits the correct canonical URL.
+
+Audit:
+
+- homepage;
+- solutions;
+- solution detail;
+- projects;
+- project detail;
+- about;
+- contact;
+- blog;
+- blog posts.
+
+Filtered URLs such as:
+
+`/projects?solution=...`
+
+should generally canonicalize appropriately rather than creating a large set of
+duplicate indexable pages.
+
+Determine the correct behavior based on the current implementation.
+
+---
+
+# 22. Project filter URLs
+
+The portfolio uses URL-driven filters.
+
+Audit search-engine handling of:
+
+- `?solution=`
+- `?sector=`
+- legacy `?filter=`
+
+Unless there is a strong reason for filtered combinations to rank separately,
+avoid creating duplicate indexed versions of `/projects`.
+
+Prefer a canonical back to `/projects` for transient filter states.
+
+Do not break shareable filtered URLs for users.
+
+---
+
+# 23. Legacy redirects
+
+Audit all old routes.
+
+Already known examples include:
+
+- `/products`
+- `/products/[slug]`
+- `/estimator`
+- `/car-park-shades`
+- `/gallery`
+- `/recent-projects`
+- old solution slugs
+
+Verify:
+
+- permanent redirects where appropriate;
+- one hop only;
+- target returns 200;
+- no redirect loops.
+
+---
+
+# 24. Historical `/portfolios/*` URLs
+
+The previous sitemap included:
+
+- `/portfolios/*`
+- `/portfolios_category/*`
+
+Investigate these URLs.
+
+Build an explicit mapping where possible.
+
+Preferred priority:
+
+1. old individual portfolio → corresponding current `/projects/[slug]`
+2. old category → relevant canonical `/projects` or solution page
+3. unknown legacy portfolio URL → useful parent destination
+
+Do not blindly redirect every old URL to the homepage.
+
+Avoid redirect chains.
+
+Document the mapping.
+
+---
+
+# 25. Pool Shades legacy route
+
+Review `/solutions/pool-shades`.
+
+It is currently an unlisted legacy page.
+
+Determine the best SEO transition using:
+
+- its actual existing content;
+- project relationships;
+- current taxonomy;
+- search intent.
+
+Possible outcomes include:
+
+- retain temporarily with canonical handling;
+- redirect to Shade Sails;
+- redirect to another relevant solution;
+- redirect to a future application section.
+
+Do not choose purely from taxonomy.
+
+Document the decision.
+
+---
+
+# 26. Sitemap
+
+Audit the generated XML sitemap.
+
+It should contain only canonical URLs intended for indexing.
+
+Include:
+
+- homepage;
+- core public pages;
+- published solution pages;
+- project detail pages;
+- blog posts.
+
+Do not include:
+
+- redirects;
+- filtered project URLs;
+- unpublished/planned solution pages;
+- thank-you page;
+- quote-success states;
+- legacy Pool Shades page if it is not intended for indexing.
+
+Use appropriate last-modified data where trustworthy and practical.
+
+Do not fabricate timestamps.
+
+---
+
+# 27. Robots
+
+Audit `robots.txt`.
+
+Ensure:
+
+- public content is crawlable;
+- Studio/admin/private routes are handled appropriately;
+- sitemap URL is declared where useful.
+
+Do not block query parameters globally without understanding the effect.
+
+Do not use robots.txt as a substitute for canonical/noindex decisions.
+
+---
+
+# 28. Noindex pages
+
+Review utility/conversion pages.
+
+Likely candidates for `noindex` include:
+
+- thank-you page;
+- internal success/error pages;
+- Studio routes;
+- other pages with no useful search value.
+
+Do not automatically noindex:
+
+- Contact
+- Request a Quote
+
+They may have legitimate search/customer value.
+
+Make explicit decisions.
+
+---
+
+# 29. Structured data
+
+Audit and improve structured data using only verified facts.
+
+At minimum evaluate:
+
+- Organization / LocalBusiness
+- WebSite
+- BreadcrumbList where appropriate
+- Article for blog posts
+
+Use verified:
+
+- business name;
+- URL;
+- primary phone;
+- email;
+- Nairobi base;
+- logo;
+- service geography where schema supports it safely.
+
+Do not add:
+
+- fabricated ratings;
+- fake review counts;
+- price ranges;
+- opening hours;
+- street address;
+- latitude/longitude;
+- employee counts;
+- founding dates;
+
+unless verified.
+
+---
+
+# 30. Business schema type
+
+Choose the most semantically appropriate schema type supported by the current
+business information.
+
+Do not force a highly specific type if it requires inaccurate assumptions.
+
+A valid LocalBusiness/Organization implementation with accurate data is better
+than a more specific but incorrect schema.
+
+Validate generated structured data.
+
+---
+
+# 31. Breadcrumbs
+
+Evaluate breadcrumbs for:
+
+- solution detail pages;
+- project detail pages;
+- blog posts.
+
+Breadcrumbs should help both:
+
+- users;
+- search engines understand hierarchy.
+
+Example:
+
+Home → Solutions → Car Parking Shades
+
+Home → Projects → Project Name
+
+Do not add visually heavy breadcrumbs if the current page design does not need
+them.
+
+Structured-data-only breadcrumbs are acceptable where appropriate, but visible
+breadcrumbs may improve navigation on deep pages.
+
+---
+
+# 32. Images
+
+Audit important SEO images:
+
+- solution heroes;
+- project heroes;
+- project galleries;
+- homepage project images.
+
+Ensure:
+
+- useful alt text;
+- dimensions where appropriate;
+- responsive delivery;
+- lazy loading below the fold;
+- hero/LCP image handling is appropriate;
+- filenames/content pipeline do not rely on keyword stuffing.
+
+Alt text should describe the image.
+
+Do not write alt text such as:
+
+`Best car parking shades Nairobi Kenya Capital Shades`.
+
+---
+
+# 33. Performance / Core Web Vitals
+
+Run a focused performance review.
+
+Prioritize:
+
+- homepage;
+- primary solution page;
+- projects;
+- project detail;
+- request quote.
+
+Inspect:
+
+- LCP;
+- CLS;
+- unnecessary image weight;
+- blocking fonts/assets;
+- JavaScript shipped for static content.
+
+Do not perform a broad architecture rewrite.
+
+Fix clear regressions or low-risk issues.
+
+Record larger performance work for C8 or later if necessary.
+
+---
+
+# 34. Open Graph / social metadata
+
+Ensure important pages have sensible:
+
+- title;
+- description;
+- share image where available.
+
+This is secondary to search metadata but useful for portfolio sharing, which is
+one of the owner's stated website goals.
+
+Prefer real project/solution imagery.
+
+Do not create generic fake social graphics merely to tick a box.
+
+---
+
+# 35. Google Business Profile consistency
+
+Do not edit Google Business Profile unless access exists and the user asks.
+
+Document the values the owner should ensure match the website:
+
+- Capital Shades business name;
+- primary phone;
+- website URL;
+- Nairobi base;
+- business category;
+- service areas;
+- business description.
+
+Do not invent address/hours.
+
+Add this to the launch/owner checklist.
+
+---
+
+# 36. Google Search Console
+
+Prepare the site for Search Console.
+
+Document post-deployment steps:
+
+- verify the domain/property;
+- submit sitemap;
+- inspect homepage;
+- inspect major solution pages;
+- inspect major project pages;
+- monitor indexing;
+- review search queries;
+- review Page Experience / Core Web Vitals;
+- watch for old URLs remaining indexed.
+
+Do not claim Search Console is configured unless it actually is.
+
+---
+
+# 37. Search measurement
+
+Define a lightweight measurement baseline for post-launch.
+
+Track search visibility around categories such as:
+
+- branded search;
+- car parking shades;
+- car shades;
+- shade sails;
+- tensile structures;
+- screen fencing;
+- relevant Nairobi variants.
+
+Do not promise rankings.
+
+Success indicators should include:
+
+- impressions;
+- clicks;
+- relevant enquiries;
+- indexed canonical pages;
+- discovery of useful real search queries.
+
+Qualified leads matter more than raw traffic.
+
+---
+
+# 38. Local content strategy
+
+Do not build dozens of city/county pages.
+
+Future local pages should only exist when there is enough unique value, such as:
+
+- real projects in that area;
+- relevant photos;
+- meaningful service context;
+- location-specific customer questions.
+
+A useful Nairobi-focused solution page is preferable to twenty thin locality
+pages.
+
+---
+
+# 39. Content gaps
+
+During SEO implementation, identify where a published page is too thin to
+compete usefully.
+
+Do not fill gaps with fabricated generic text.
+
+Add missing owner/content requirements to:
+
+`docs/content-to-confirm.md`
+
+Potential gaps may include:
+
+- Awnings copy/photos;
+- Pergolas & Gazebos copy/photos;
+- Screen Fencing copy/photos;
+- Tensile & Custom Structure examples;
+- richer project scope/location/year data;
+- testimonials;
+- institutional proof.
+
+---
+
+# 40. SEO configuration source
+
+Prefer reusable metadata helpers/templates where this reduces drift.
+
+Avoid:
+
+- hard-coded duplicate business descriptions across many routes;
+- one giant keyword constant inserted everywhere.
+
+Allow individual routes/content documents to override metadata appropriately.
+
+The content abstraction should remain intact.
+
+---
+
+# 41. Sanity and SEO fields
+
+Review the SEO fields introduced during C5.
+
+Use them only where they add editorial value.
+
+Do not add a large SEO-plugin-style schema with:
+
+- focus keyword;
+- keyword density;
+- arbitrary SEO score;
+- dozens of advanced fields.
+
+Useful editor-controlled fields may include:
+
+- SEO title override;
+- meta description override;
+- social/share image where needed.
+
+Defaults should work without manual SEO input.
+
+---
+
+# 42. Technical validation
+
+Run:
+
+- formatter;
+- npm run lint;
+- npm run check;
+- npm run build;
+- Studio type-check/schema validation if schemas change.
+
+Crawl the production build locally where practical.
+
+Check:
+
+- status codes;
+- redirect chains;
+- canonical tags;
+- titles;
+- descriptions;
+- H1 count;
+- sitemap;
+- robots;
+- noindex;
+- internal links;
+- broken links;
+- structured-data output.
+
+---
+
+# 43. SEO crawl report
+
+Create a concise report covering:
+
+- indexable URL count;
+- redirected URLs;
+- noindex URLs;
+- pages missing titles;
+- pages missing descriptions;
+- pages missing canonicals;
+- pages with duplicate titles;
+- pages with duplicate descriptions;
+- broken internal links;
+- redirecting internal links;
+- missing H1s;
+- multiple H1s.
+
+Fix issues that fall within C7.
+
+---
+
+# 44. Browser / SERP review
+
+Review major pages at mobile and desktop widths.
+
+Also inspect generated search snippets conceptually:
+
+- title reads naturally;
+- description reads naturally;
+- no keyword repetition;
+- brand is identifiable;
+- intent is obvious.
+
+Pages should still read like a professional business website, not SEO landing
+pages.
+
+---
+
+# 45. Documentation
+
+Update:
+
+- `docs/implementation.md`
+- `docs/design-direction.md` only if SEO decisions affect content hierarchy
+- `docs/content-to-confirm.md`
+- `docs/decisions.md` for durable SEO architecture decisions
+
+Record:
+
+- search-intent map;
+- local positioning;
+- indexing rules;
+- legacy redirect decisions;
+- Pool Shades decision;
+- filter canonical policy;
+- planned-page indexing policy.
+
+---
+
+# Final C7 report
+
+At completion report:
+
+1. search-result / competitor observations;
+2. search-intent map;
+3. primary terms associated with each solution;
+4. metadata changes;
+5. canonical strategy;
+6. sitemap changes;
+7. robots/noindex decisions;
+8. structured-data changes;
+9. project SEO improvements;
+10. internal-link improvements;
+11. legacy redirect mappings;
+12. `/portfolios/*` handling;
+13. Pool Shades SEO decision;
+14. image/performance changes;
+15. Search Console / GBP steps requiring owner action;
+16. content gaps preventing stronger SEO;
+17. complete technical crawl results;
+18. validation results.
+
+Explicitly state anything that was researched but intentionally not
+implemented.
+
+---
+
+# Out of scope
+
+Do not:
+
+- redesign the site;
+- publish thin planned solution pages;
+- create mass city/county pages;
+- invent testimonials;
+- invent reviews;
+- invent prices;
+- invent project locations;
+- invent FAQs;
+- buy/build backlinks;
+- configure Google services without access;
+- begin C8 launch QA;
+- draft legal/privacy content.
+
+---
+
+- [x] Search-intent research completed
+- [x] Existing architecture mapped to useful customer search terminology
+- [x] Nairobi is the primary local-search anchor
+- [x] Kenya / East Africa positioning remains natural
+- [x] No doorway-location pages created
+- [x] Shade-net terminology does not misrepresent the business as a material retailer
+- [x] Every indexable page has an appropriate title
+- [x] Every important indexable page has an appropriate description
+- [x] Canonical URLs are correct
+- [x] Project filter URLs do not create uncontrolled duplicate indexing
+- [x] Sitemap contains only intended canonical/indexable pages
+- [x] Redirects are permanent and one-hop where appropriate
+- [x] Historical portfolio URLs are explicitly handled
+- [x] Pool Shades legacy SEO treatment is explicitly decided
+- [x] Planned/thin solutions are not accidentally indexed
+- [x] Internal site links use canonical routes
+- [x] Project pages use verified location/scope data where available
+- [x] Structured data contains verified facts only
+- [x] No fabricated ratings/reviews/address/hours added
+- [x] Important images have useful alt text
+- [x] Basic Core Web Vitals/performance review completed
+- [x] Open Graph metadata is sensible
+- [x] Search Console post-launch steps documented
+- [x] Google Business Profile consistency checklist documented
+- [x] Full local build crawl has no broken internal links
+- [x] No indexable page is missing an H1
+- [x] No indexable page has multiple H1s unintentionally
+- [x] npm run lint passes
+- [x] npm run check passes
+- [x] npm run build passes
+
+---
+
+# C7 results
+
+## Search research (October 2026)
+
+Method: web searches for every query family in §1, plus competitor home and
+service pages. The search tool returns US-located results, not a Google.co.ke
+results page, so the ordering below is indicative; re-check the live Kenyan
+results page in Search Console after launch.
+
+Observations:
+
+- **Car parking shades / car shades / carports.** The most commercial family.
+  Results are dominated by Nairobi installers whose home pages target
+  "Car Parking Shades Nairobi Kenya" (Diamond Canopies, ShadePro, Maisha,
+  Baraka Shades, Shade Spot, Designer Shades), plus directory pages
+  (achisystems, bestcareservices) and Jiji listings. "Car shades" and
+  "carports" lead to the same pages; nobody separates them. Common language:
+  cantilever, post-supported/standard, arch, pyramid, shade net, PVC.
+- **Shade nets.** Mixed and mostly not our customer: agricultural rolls
+  (Amiran, agro-dealers), Jiji and Alibaba listings priced per metre, and
+  "car shade net" as a cheap carport cover. A small overlap with installed car
+  parking shades in shade net.
+- **Screen fencing / privacy screen fence.** Almost entirely Jiji listings for
+  rolls of artificial hedge and HDPE privacy net; a few "supply and fix"
+  sellers. Installed, designed screening is a gap, but there is no page to
+  rank until Screen Fencing has copy and photos.
+- **Shade sails.** Thin Kenyan results; generic international how-to guides
+  fill the gap. Kenyan competitors mention sails as a secondary service.
+- **Tensile structures.** Few Kenyan service pages; results are international
+  project write-ups (Serena Nairobi pool roof, Hemingways Watamu) and one
+  tensile-ceiling page. A credible Kenyan page with real projects has room.
+- **Canopies / awnings.** Awnings: directory listings (Shade Solutions
+  Kenya, Nairobi Canvas & Tents, Vitendi) for retractable and fixed awnings.
+  Canopies: mixed with car park canopies and polycarbonate entrance canopies.
+- **Pergolas / gazebos.** One competitor's pages (bestcareservices) and
+  international pergola-vs-gazebo explainers.
+- **Commercial shade structures.** The same installers, with corporate car
+  parks, walkways and "shade structures in Kenya" pages.
+- **Brand.** "Capital Shades" itself didn't surface; the old site has no real
+  content to rank.
+
+Competitor patterns: keyword-led H1s, prices per square metre, FAQs, project
+counts ("500+ projects"), testimonials and estate names (Runda, Karen,
+Kileleshwa, Syokimau) as local signals. Several mismatches (testimonial
+locations, differing project counts) show how thin those claims are. We copy
+none of it; the gaps worth filling honestly are real project locations and
+years, Kenyan tensile and shade-sail projects, and designed screening.
+
+## Search-intent map
+
+| Customer terms                                                          | Page                                       | Notes                                                                       |
+| ----------------------------------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------- |
+| car parking shades, car shades, carports, parking shades, car shade net | `/solutions/car-parking-shades`            | Primary commercial term; "car shades", "carports" and "shade net" in copy   |
+| shade sails, garden/pool/playground shade, pool shades                  | `/solutions/shade-sails`                   | `/solutions/pool-shades` 301s here                                          |
+| tensile structures, tensile fabric/membrane structures                  | `/solutions/tensile-custom-structures`     | Title says "Tensile Structures"; "custom" is too broad to target            |
+| canopies, entrance canopies, walkway covers                             | `/solutions/canopies`                      | Title leads with entrance and walkway to separate it from car park canopies |
+| parasols, restaurant/hotel umbrellas                                    | `/solutions/parasols`                      | No geography forced into the title                                          |
+| awnings, pergolas, gazebos, screen fencing, privacy screen fence        | none yet (planned)                         | Named on `/solutions` and in the quote form; no page until copy and photos  |
+| shade nets (generic)                                                    | none                                       | Not a target: mostly retail/agricultural; overlap handled on car parking    |
+| shade structures Nairobi/Kenya, commercial shade structures             | `/`, `/solutions`                          | Home and Solutions index carry the broad category                           |
+| Nairobi + Kiambu, Machakos, Kajiado                                     | settings `serviceAreas`, project locations | No location pages (§6)                                                      |
+
+## Metadata
+
+Titles follow "topic + useful geography | Capital Shades", written per page
+rather than from one template:
+
+- Home: `Capital Shades | Car Parking Shades & Shade Structures, Nairobi`;
+  description names the category, the customers and Nairobi/Kenya.
+- Solutions index: `Shade Structures in Nairobi & Kenya`.
+- Solution pages: content fields `seoTitle` / `seoDescription` (seed, and
+  "Title/Description in Google" in the Studio's Search tab). Empty falls back
+  to "<title> in Kenya" and the summary.
+- Projects: `Shade Structure Projects`.
+- Project pages: `projectSeo()` builds title and description from verified
+  fields only (title, location when known, solution, sector, year, scope).
+  Duplicate project titles were renamed from what each photo shows.
+- Blog: titles kept, including "Car Park Shades…" (historical, slugs stable).
+
+## Indexing rules
+
+- **Canonical:** every page's canonical is its path without the query string,
+  so `/projects?solution=…`, `?sector=…` and the old `?filter=…` all
+  canonicalise to `/projects`. Filtered links stay shareable; there is no
+  separate indexable filter page.
+- **Sitemap:** home, Solutions, published solution pages, Projects, every
+  project, Request a Quote, About, Blog, posts, Contact. Not planned
+  solutions, redirects, filtered URLs or Thank You. `lastmod` only for posts
+  (their publish date); nothing else has a trustworthy date.
+- **noindex:** Thank You and the error page. Contact and Request a Quote stay
+  indexable (people search for them).
+- **robots.txt:** unchanged: everything crawlable except `/api/`, sitemap
+  declared. The Studio lives on its own domain.
+- **Planned solutions** (Awnings, Pergolas & Gazebos, Screen Fencing) have no
+  route, so they 404 rather than serve thin pages; nothing links to them.
+
+## Legacy URLs
+
+All 301, one hop, target 200 (verified in the crawl below). Old WordPress
+URLs end in a slash, so every redirect route answers both forms itself.
+
+| Old URL                                    | Goes to                                |
+| ------------------------------------------ | -------------------------------------- |
+| `/products`, `/products/`                  | `/solutions`                           |
+| `/products/<slug>`                         | `/solutions/<current slug>`            |
+| `/car-park-shades(/)`                      | `/solutions/car-parking-shades`        |
+| `/recent-projects(/)`, `/gallery`          | `/projects`                            |
+| `/estimator`                               | `/request-a-quote`                     |
+| `/solutions/car-park-shades`               | `/solutions/car-parking-shades`        |
+| `/solutions/tensile-membrane-structures`   | `/solutions/tensile-custom-structures` |
+| `/solutions/pool-shades`                   | `/solutions/shade-sails`               |
+| `/portfolios/` and `/portfolios/*`         | `/projects`                            |
+| `/portfolios_category/canopies/`           | `/solutions/canopies`                  |
+| `/portfolios_category/car-park-shade/`     | `/solutions/car-parking-shades`        |
+| `/portfolios_category/services/`, `tents/` | `/solutions`                           |
+| other `/portfolios_category/*`             | `/projects`                            |
+| `/sitemap_index.xml`                       | `/sitemap.xml`                         |
+
+**`/portfolios/*`:** the old sitemap listed eight items
+(`investment-planning` … `investment-planning-8`). They are the WordPress
+"Finance" theme's demo entries ("Investment Planning", "Enterprise Loan",
+"MO Insurance"…) with stock images, not Capital Shades work, so none maps to a
+project; all go to the portfolio. The four category archives were empty.
+`/about/` and `/contact/` reach their page through the framework's own
+trailing-slash redirect (one hop).
+
+**Pool Shades:** redirected to Shade Sails. The old page was one sentence,
+its only photo (`sails-pool-garden`) is one whose provenance is unconfirmed,
+no project used it, and "pool shade" searches want shade over a pool, which
+the Shade Sails page now names (poolsides, pools). The seed record was
+removed; a migrated Sanity record with that slug is no longer built, and the
+migration folds an old `pool-shades` product into Shade Sails without
+overwriting Shade Sails' own copy.
+
+## Structured data
+
+- `HomeAndConstructionBusiness` (a LocalBusiness subtype; describes a
+  contractor without implying a shop) on every page: name, legal name,
+  description, logo, primary phone, email, Nairobi as `addressLocality`
+  (no street address), `areaServed` from the confirmed service areas,
+  Facebook in `sameAs`. No hours, ratings, reviews, prices, coordinates,
+  founding date or staff count.
+- `WebSite` on the home page.
+- `Service` + `BreadcrumbList` on solution pages; `BreadcrumbList` on project
+  pages and posts; `Article` on posts. Breadcrumbs are structured data only:
+  the pages already link back to their section, so no visible trail was
+  added.
+
+## Internal links
+
+- Solution → projects: "See all <solution> projects" (was "View in the
+  project gallery").
+- Blog → solutions: the car parking guide, cantilever comparison and
+  shopping-centre article now link to Car Parking Shades (and Canopies).
+- Already in place: project → its solutions, solution → related projects,
+  home and About → solutions and projects, Solutions → quote. The crawl found
+  no internal link to a redirect.
+
+## Images and performance
+
+- Hero images load eagerly with `fetchpriority="high"`; everything below the
+  fold is lazy; every `<img>` has width, height and alt text. Empty alt text
+  is used only on solution thumbnails beside their own title.
+- Added a preload for the one font file every page renders with.
+- Larger work for C8: about 60 KB (gzip) of JavaScript hydrates static pages;
+  measure real Core Web Vitals once live before changing architecture.
+
+## Owner actions (not configured from here)
+
+**Search Console:** verify `capitalshades.co.ke` (DNS), submit
+`/sitemap.xml`, remove the old `sitemap_index.xml` if it was submitted,
+inspect the home page, Car Parking Shades, Shade Sails, Tensile Structures
+and a few projects, then watch indexing, queries, Core Web Vitals and old URLs
+dropping out over the following weeks.
+
+**Google Business Profile** should match the site: name "Capital Shades";
+phone 0722 765 397; website `https://capitalshades.co.ke`; Nairobi base
+(service-area business unless a public address is confirmed); the closest category
+to shade structures (check Google's list; don't guess); service areas
+Nairobi, Kiambu, Machakos and Kajiado counties; the site's description. Don't
+add hours or an address until confirmed.
+
+**Measurement baseline** (Search Console, monthly): impressions and clicks
+for branded queries, car parking shades, car shades/carports, shade sails,
+tensile structures, screen fencing and their Nairobi variants; number of
+indexed canonical pages; enquiries by source. Qualified enquiries matter
+more than traffic; no ranking targets.
+
+## Content opportunities (not built)
+
+Supported by what the business already knows: planning car parking shades
+for several vehicles; shade sail or canopy; waterproof or breathable shade
+(partly covered); what happens at a site visit; maintaining an installed
+structure (covered). Build only with owner input.
+
+## Crawl report (local production build)
+
+Crawled from `/` and the sitemap with `vite preview`; script in
+`--testing--/c7-crawl.mjs`.
+
+| Check                                   | Result                                 |
+| --------------------------------------- | -------------------------------------- |
+| HTML pages crawled                      | 46 (40 canonical + 6 filtered views)   |
+| Indexable canonical URLs                | 40, all in the sitemap; sitemap has 40 |
+| Redirected URLs tested                  | 27, all one hop to a 200               |
+| noindex                                 | Thank You, error page                  |
+| Missing title / description / canonical | 0 / 0 / 0                              |
+| Duplicate titles / descriptions         | 0 / 0 (were 7 and 20 before C7)        |
+| Broken / redirecting internal links     | 0 / 0                                  |
+| Missing H1 / multiple H1                | 0 / 0                                  |
+| JSON-LD parse errors                    | 0                                      |
+| Images without alt                      | 0                                      |
+| Planned solution URLs                   | 404, not linked, not in sitemap        |
+
+## Manual Sanity edits (C7)
+
+On a dataset imported before C7:
+
+- Solutions: fill "Title in Google" and "Description in Google" (Search tab)
+  with the seed values in `src/lib/content/seed/solutions.ts`; Car Parking
+  Shades body ("often called car shades or carports", "shade mesh (often
+  called shade net)"); Shade Sails body ("poolsides").
+- Pool Shades: delete or unpublish the legacy record (it now redirects).
+- Projects: rename the duplicate titles as in
+  `src/lib/content/seed/projects.ts`.
+- Posts: the closing links in the car parking guide, cantilever comparison
+  and shopping-centre article, as in `src/lib/content/seed/posts.ts`.
+
+---
+
+## Phase Boundary
+
+Stop after C7.
+
+Do not begin C8.
+
+# Remaining roadmap
 
 ## Phase C8 — Launch QA
 

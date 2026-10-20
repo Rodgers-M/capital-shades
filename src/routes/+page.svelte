@@ -7,8 +7,24 @@
 	import SectorContext from '$lib/components/home/SectorContext.svelte';
 	import ProcessStrip from '$lib/components/ProcessStrip.svelte';
 	import QuoteCta from '$lib/components/QuoteCta.svelte';
+	import { SITE_URL } from '$lib/config';
 
 	let { data } = $props();
+	const settings = $derived(data.settings);
+
+	// Search snippet: the business category, the customers and the Nairobi anchor (Phase C7)
+	const description = $derived(
+		`Car parking shades, shade sails and shade structures designed, fabricated and installed for homes, businesses and institutions${settings.location ? ` in ${settings.location} and across Kenya` : ' across Kenya'}.`
+	);
+	const website = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		'@id': `${SITE_URL}/#website`,
+		name: settings.name,
+		url: SITE_URL,
+		inLanguage: 'en-KE',
+		publisher: { '@id': `${SITE_URL}/#business` }
+	});
 </script>
 
 <!--
@@ -18,7 +34,7 @@
 	work → is it for me → start now. Detail lives on /solutions, /projects and /about.
 -->
 
-<Seo description={data.settings.description} image={data.hero?.heroImage} />
+<Seo {description} image={data.hero?.heroImage} jsonLd={website} />
 
 <HeroSection settings={data.settings} project={data.hero} solutions={data.solutions} />
 

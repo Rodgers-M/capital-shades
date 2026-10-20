@@ -7,8 +7,8 @@
 	import ProjectPhotos from '$lib/components/projects/ProjectPhotos.svelte';
 	import ProjectDetails from '$lib/components/projects/ProjectDetails.svelte';
 	import ProjectTile from '$lib/components/projects/ProjectTile.svelte';
-	import { sectorLabel } from '$lib/content/sectors';
-	import { projectsHref } from '$lib/nav';
+	import { PROJECTS_HREF, projectHref, projectsHref } from '$lib/nav';
+	import { breadcrumbList, projectSeo } from '$lib/seo';
 
 	/*
 	 * Reusable project template: hero → extra photos → details → related
@@ -18,19 +18,20 @@
 	let { data } = $props();
 	const project = $derived(data.project);
 
-	const description = $derived(
-		[
-			`${data.projectSolutions.map((s) => s.title).join(' and ')} project for a ${sectorLabel(project.sector).toLowerCase()} site`,
-			project.location && `in ${project.location}`
-		]
-			.filter(Boolean)
-			.join(' ') + ' by Capital Shades.'
-	);
+	const seo = $derived(projectSeo(project, data.projectSolutions));
 	// Tablet-and-up stagger for the related row
 	const offset = (i: number) => (i % 2 === 1 ? 'mt-10 lg:mt-16' : '');
 </script>
 
-<Seo title={project.title} {description} image={project.heroImage} />
+<Seo
+	title={seo.title}
+	description={seo.description}
+	image={project.heroImage}
+	jsonLd={breadcrumbList([
+		{ name: 'Projects', path: PROJECTS_HREF },
+		{ name: project.title, path: projectHref(project.slug) }
+	])}
+/>
 
 <ProjectHero settings={data.settings} {project} solutions={data.projectSolutions} />
 

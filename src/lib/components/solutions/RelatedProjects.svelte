@@ -27,7 +27,7 @@
 	<div class="container-page">
 		<EditorialHeading id="related-projects" eyebrow="Projects" title="{solutionTitle} projects">
 			{#snippet action()}
-				<TextLink href={galleryHref}>View in the project gallery</TextLink>
+				<TextLink href={galleryHref}>See all {solutionTitle} projects</TextLink>
 			{/snippet}
 		</EditorialHeading>
 

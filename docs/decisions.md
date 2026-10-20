@@ -353,9 +353,9 @@ Do not over-repeat "East Africa" or geographic keywords purely for SEO.
 
 ## Local SEO direction
 
-Google visibility is one of the owner's highest priorities.
-
-A dedicated SEO/local-search phase will be completed later.
+Google visibility is one of the owner's highest priorities. Phase C7 set the
+rules below ("Search architecture"); its research and crawl are in
+`implementation.md`.
 
 The architecture should support searches such as:
 
@@ -383,6 +383,45 @@ For now:
 
 Future SEO may include genuinely useful location pages where enough distinct
 content exists.
+
+---
+
+## Search architecture
+
+Decided in Phase C7.
+
+- **One page per solution.** Customer terms map onto the eight solutions; no
+  page per synonym. Car shades, carports, parking shades and car shade nets →
+  Car Parking Shades. Pool, garden and playground shade → Shade Sails.
+  Tensile fabric/membrane structures → Tensile & Custom Structures. Privacy
+  and dust screens → Screen Fencing, once it has a page.
+- **"Shade nets"** is not a target term: most of that search is agricultural
+  rolls and retail listings. Use "shade net" only where the installed
+  structure really uses it (car parking shades), never as a site-wide keyword
+  and never as a `/shade-nets` page.
+- **Nairobi first**, then Kenya, then East Africa. Nairobi goes in titles and
+  descriptions where it reads naturally; East Africa stays in about/positioning
+  copy, not in titles.
+- **No location doorway pages** (e.g. "Car Parking Shades Kiambu"). Local
+  relevance comes from the Nairobi base, the service areas in settings and
+  verified project locations. A location page needs real projects and photos
+  there first.
+- **Planned solutions get no page and no index entry** until they have
+  confirmed copy and real photos. Eight taxonomy records do not mean eight
+  pages.
+- **Retired solution slugs redirect** (one hop) through
+  `LEGACY_SOLUTION_SLUGS`. Pool Shades → Shade Sails.
+- **Filtered portfolio views** (`/projects?solution=…`, `?sector=…`) stay
+  shareable but canonicalise to `/projects`; they are never in the sitemap.
+- **Search metadata** comes from content: solution records carry an optional
+  search title and description; project metadata is built from verified
+  fields. Customer terms (aliases) inform copy and are never rendered as a
+  keyword list or hidden text.
+- **Structured data** states verified facts only: no street address, hours,
+  ratings, review counts, prices, coordinates or founding date until
+  confirmed.
+- **Utility pages** (Thank You, errors) are noindex. Contact and Request a
+  Quote stay indexable.
 
 ---
 

@@ -22,6 +22,8 @@ export function loadSeedContent(): Content {
 				body: s.body,
 				features: s.features,
 				applications: s.applications,
+				seoTitle: s.seoTitle ?? null,
+				seoDescription: s.seoDescription ?? null,
 				image: photo(s.photo, s.photoAlt)
 			}));
 

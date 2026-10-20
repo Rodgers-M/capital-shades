@@ -8,7 +8,8 @@
 	import RelatedProjects from '$lib/components/solutions/RelatedProjects.svelte';
 	import SolutionIndexList from '$lib/components/solutions/SolutionIndexList.svelte';
 	import { SITE_URL } from '$lib/config';
-	import { SOLUTIONS_HREF, projectsHref } from '$lib/nav';
+	import { SOLUTIONS_HREF, projectsHref, solutionHref } from '$lib/nav';
+	import { breadcrumbList, solutionSeo } from '$lib/seo';
 
 	/*
 	 * Reusable solution template: hero → overview & verified lists → related
@@ -17,24 +18,32 @@
 	let { data } = $props();
 	const solution = $derived(data.solution);
 	const settings = $derived(data.settings);
+	const seo = $derived(solutionSeo(solution));
 </script>
 
 <Seo
-	title="{solution.title} in Kenya"
-	description={solution.summary}
+	title={seo.title}
+	description={seo.description}
 	image={solution.image}
-	jsonLd={{
-		'@context': 'https://schema.org',
-		'@type': 'Service',
-		name: solution.title,
-		description: solution.summary,
-		serviceType: solution.title,
-		// Only owner-confirmed areas (none yet), never an assumed region
-		...(settings.serviceAreas.length > 0 && {
-			areaServed: settings.serviceAreas.map((name) => ({ '@type': 'Place', name }))
-		}),
-		provider: { '@id': `${SITE_URL}/#business` }
-	}}
+	jsonLd={[
+		{
+			'@context': 'https://schema.org',
+			'@type': 'Service',
+			name: solution.title,
+			description: solution.summary,
+			serviceType: solution.title,
+			url: `${SITE_URL}${solutionHref(solution.slug)}`,
+			// Only owner-confirmed areas, never an assumed region
+			...(settings.serviceAreas.length > 0 && {
+				areaServed: settings.serviceAreas.map((name) => ({ '@type': 'Place', name }))
+			}),
+			provider: { '@id': `${SITE_URL}/#business` }
+		},
+		breadcrumbList([
+			{ name: 'Solutions', path: SOLUTIONS_HREF },
+			{ name: solution.title, path: solutionHref(solution.slug) }
+		])
+	]}
 />
 
 <SolutionHero {settings} {solution} />

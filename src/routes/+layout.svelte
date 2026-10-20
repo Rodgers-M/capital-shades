@@ -1,5 +1,7 @@
 <script lang="ts">
 	import '@fontsource-variable/plus-jakarta-sans';
+	// The one face every page renders with; the CSS above declares it, this preloads it
+	import fontLatin from '@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url';
 	import './layout.css';
 	import SiteHeader from '$lib/components/layout/SiteHeader.svelte';
 	import SiteFooter from '$lib/components/layout/SiteFooter.svelte';
@@ -12,7 +14,8 @@
 	const settings = $derived(data.settings);
 
 	// Business details for Google (local search / knowledge panel). Only fields set
-	// in settings are published — unconfirmed ones (address, areas) stay out.
+	// in settings are published: no street address, hours or ratings until confirmed.
+	// The base town alone is a valid partial address and anchors local search.
 	const organization = $derived({
 		'@context': 'https://schema.org',
 		'@type': 'HomeAndConstructionBusiness',
@@ -26,8 +29,13 @@
 		// One number only: publishing both conflicting numbers confuses Google
 		telephone: `+${settings.primaryPhone.number}`,
 		email: settings.email,
-		...(settings.address && {
-			address: { '@type': 'PostalAddress', streetAddress: settings.address, addressCountry: 'KE' }
+		...((settings.address || settings.location) && {
+			address: {
+				'@type': 'PostalAddress',
+				...(settings.address && { streetAddress: settings.address }),
+				...(settings.location && { addressLocality: settings.location }),
+				addressCountry: 'KE'
+			}
 		}),
 		...(settings.googleMapsUrl && { hasMap: settings.googleMapsUrl }),
 		...(settings.serviceAreas.length > 0 && {
@@ -38,6 +46,7 @@
 </script>
 
 <svelte:head>
+	<link rel="preload" href={fontLatin} as="font" type="font/woff2" crossorigin="anonymous" />
 	<!-- Logo symbol on a white tile so it reads on light and dark tabs -->
 	<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
 	<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />

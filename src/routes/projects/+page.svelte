@@ -48,8 +48,9 @@
 </script>
 
 <Seo
-	title="Projects"
-	description="Car parking shade, carport, shade sail, canopy and tensile structure projects by Capital Shades for homes and businesses."
+	title="Shade Structure Projects"
+	description="Car parking shades, carports, shade sails and tensile structures completed by {data
+		.settings.name} for homes and businesses. Browse by solution or sector."
 	image={data.projects[0]?.heroImage}
 />
 

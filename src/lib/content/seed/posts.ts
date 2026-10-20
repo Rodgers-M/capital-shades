@@ -60,7 +60,7 @@ The two most common covers are **shade netting** (breathable knitted fabric) and
 4. **Local regulations.** Larger structures may need approvals; a professional installer will advise.
 5. **Professional installation.** Correct tensioning and anchoring are what make a shade last.
 
-Planning a car park shade? [Request a quote](/request-a-quote) and tell us about your space.
+See our [car parking shades](/solutions/car-parking-shades), or [request a quote](/request-a-quote) and tell us about your space.
 `
 	},
 	{
@@ -153,7 +153,7 @@ Standard shades are supported at both ends — or along both sides — of the co
 - **Offices and malls with many bays:** standard or double-sided designs usually give the best value.
 - **Tight or irregular spaces:** a custom design may combine both.
 
-Whatever the shape of your car park, the right answer comes from the site itself. [Request a quote](/request-a-quote) and we'll suggest the best layout.
+Whatever the shape of your car park, the right answer comes from the site itself. See both designs among our [car parking shades](/solutions/car-parking-shades), or [request a quote](/request-a-quote) and we'll suggest the best layout.
 `
 	},
 	{
@@ -221,7 +221,7 @@ A shopper's visit begins in the car park. Returning to a car that has been stand
 - **Match the brand.** Fabrics and membranes come in a wide range of colours, and lighting can be added for evening trade.
 - **Install with minimal disruption,** phasing work so the centre stays open.
 
-Planning shade for a commercial site? [Request a quote](/request-a-quote).
+Planning shade for a commercial site? See our [car parking shades](/solutions/car-parking-shades) and [canopies](/solutions/canopies), or [request a quote](/request-a-quote).
 `
 	},
 	{
