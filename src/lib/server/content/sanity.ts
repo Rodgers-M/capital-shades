@@ -28,12 +28,13 @@ export function sanityConfig() {
 	if (!projectId) return null;
 	return {
 		projectId,
-		dataset: process.env.SANITY_DATASET ?? 'production',
+		dataset: process.env.SANITY_DATASET || 'production',
 		apiVersion: '2025-10-01',
 		useCdn: false,
 		// Never serve unpublished drafts, even when a token is configured
 		perspective: 'published' as const,
-		token: process.env.SANITY_READ_TOKEN
+		// A blank line in .env arrives as '', which must not count as set
+		token: process.env.SANITY_READ_TOKEN || undefined
 	};
 }
 

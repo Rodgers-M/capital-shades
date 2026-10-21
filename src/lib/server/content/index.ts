@@ -32,7 +32,10 @@ export function getContent(): Promise<Content> {
 }
 
 async function load(): Promise<Content> {
-	const content = sanityConfig() ? await loadSanityContent() : loadSeedContent();
+	const config = sanityConfig();
+	// A missing SANITY_PROJECT_ID silently means seed content, so say which source the build used
+	console.info(config ? `Content: Sanity (${config.dataset})` : 'Content: seed data');
+	const content = config ? await loadSanityContent() : loadSeedContent();
 	content.posts.sort((a, b) => b.date.localeCompare(a.date));
 	// A legacy page whose slug now redirects is never built (e.g. a migrated Pool Shades record)
 	content.legacySolutions = content.legacySolutions.filter(
