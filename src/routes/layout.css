@@ -1,0 +1,235 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/*
+ * Brand tokens. Every colour used by components comes from here — no hex values
+ * or palette literals (slate-*, amber-*) in markup.
+ *
+ * Identity (Phase A, 2026-10): warm white canvas, near-black structure, gold as
+ * a restrained premium accent and the logo's teal as a secondary signature.
+ * Gold and teal fills take near-black text; neither is dark enough for text on
+ * light surfaces, so use the *-strong variants for coloured text there.
+ */
+@theme {
+	--font-sans:
+		'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+		'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+	/* Light surfaces */
+	--color-background: #faf9f6;
+	--color-foreground: #171717;
+	--color-card: #ffffff;
+	--color-muted: #f1f0ec;
+	--color-muted-foreground: #6f6d67;
+	--color-border: #dedcd5;
+	--color-input: #cfcdc5;
+
+	/* Gold — primary fill (near-black text on it: 7.6:1) */
+	--color-primary: #c8a45d;
+	--color-primary-hover: #b8924e;
+	--color-primary-foreground: #171717;
+	/* Gold as text on light surfaces (5.2:1 on muted) */
+	--color-primary-strong: #7d5f26;
+
+	/* Capital Shades teal — secondary brand signature (near-black text on it: 7.4:1) */
+	--color-brand: #1abc9c;
+	--color-brand-hover: #159e85;
+	--color-brand-foreground: #171717;
+	/* Teal as text on light surfaces (5:1) */
+	--color-brand-strong: #0e7a64;
+
+	/* Focus ring: a deeper gold that reaches 3:1 on both warm white and charcoal */
+	--color-ring: #9c7a3c;
+
+	/* Ink: the near-black surfaces (footer, dark sections) */
+	--color-ink: #171717;
+	--color-ink-raised: #222222;
+	--color-ink-border: #343434;
+	--color-on-ink: #faf9f6;
+	--color-on-ink-muted: #c9c7c0;
+	--color-on-ink-subtle: #95928a;
+
+	/* Status & third-party brand */
+	--color-success: #10b981;
+	--color-success-strong: #047857;
+	--color-destructive: #b42318;
+	--color-whatsapp: #25d366;
+	--color-whatsapp-hover: #1ebe5a;
+	/* White on WhatsApp green is only 2:1 — use near-black text (9:1) */
+	--color-whatsapp-foreground: #171717;
+	/* Deeper fill for the icon-only floating button. Its mark is 3.07:1 on it, just over
+	   the 3:1 icon minimum, so don't lighten it. A fill, not a text colour */
+	--color-whatsapp-deep: #1ea452;
+	--color-whatsapp-deep-hover: #188c44;
+	--color-whatsapp-deep-foreground: #faf9f6;
+
+	/*
+	 * TODO(phase-b): temporary aliases for the old navy/amber/orange tokens, still
+	 * used by the blog pages and their components, ReviewsBand and SectionHeading. Migrate those
+	 * to primary/brand/*-strong/destructive, then delete these two.
+	 */
+	--color-accent: var(--color-brand);
+	--color-accent-strong: var(--color-primary-strong);
+
+	--animate-fade-in: fade-in 0.2s ease-out;
+	--animate-fade-out: fade-out 0.15s ease-in;
+	--animate-sheet-in: sheet-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+	--animate-sheet-out: sheet-out 0.2s ease-in;
+	--animate-pop-in: pop-in 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+	}
+	@keyframes fade-out {
+		to {
+			opacity: 0;
+		}
+	}
+	@keyframes sheet-in {
+		from {
+			transform: translateX(100%);
+		}
+	}
+	@keyframes sheet-out {
+		to {
+			transform: translateX(100%);
+		}
+	}
+	@keyframes pop-in {
+		from {
+			opacity: 0;
+			/* Tailwind v4 centres with the `translate` property, so only scale here */
+			transform: scale(0.96);
+		}
+	}
+}
+
+@layer base {
+	:root {
+		color-scheme: light;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+	}
+
+	body {
+		@apply bg-background font-sans text-foreground;
+		line-height: 1.5;
+	}
+
+	*,
+	::before,
+	::after {
+		border-color: var(--color-border);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-ring);
+		outline-offset: 2px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		::before,
+		::after {
+			animation-duration: 0.01ms !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+}
+
+@utility container-page {
+	margin-inline: auto;
+	width: 100%;
+	max-width: 88rem;
+	padding-inline: 1.25rem;
+	@media (width >= 48rem) {
+		padding-inline: 2rem;
+	}
+	@media (width >= 80rem) {
+		padding-inline: 3rem;
+	}
+}
+
+/*
+ * Vertical rhythm. Every page section uses one of these, so spacing stays
+ * consistent and can be tuned in one place.
+ */
+@utility section-y {
+	padding-block: 4rem;
+	@media (width >= 48rem) {
+		padding-block: 6rem;
+	}
+	@media (width >= 80rem) {
+		padding-block: 7.5rem;
+	}
+}
+
+/* Bands and content sitting directly under a page header */
+@utility section-y-tight {
+	padding-block: 2.5rem;
+	@media (width >= 48rem) {
+		padding-block: 3.5rem;
+	}
+	@media (width >= 80rem) {
+		padding-block: 4rem;
+	}
+}
+
+/*
+ * Native horizontal swipe row (Phase C5.6). Apply below md only, e.g.
+ * `max-md:snap-rail md:grid`; children set their own width so the next item
+ * peeks in. Bleeds to the screen edges by container-page's phone padding
+ * (1.25rem), and keeps a little block padding so focus rings aren't clipped.
+ */
+@utility snap-rail {
+	display: flex;
+	gap: 1rem;
+	margin-inline: -1.25rem;
+	padding: 0.25rem 1.25rem;
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scroll-padding-inline: 1.25rem;
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-border) transparent;
+
+	& > * {
+		flex: none;
+		scroll-snap-align: start;
+	}
+}
+
+/*
+ * Bottom-right offset for fixed controls (the floating WhatsApp button). The
+ * safe-area term only applies if app.html opts into `viewport-fit=cover`; until
+ * then iOS keeps the page above the home indicator and it resolves to the 1rem.
+ */
+@utility fixed-corner {
+	right: 1rem;
+	bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.5rem));
+	@media (width >= 48rem) {
+		right: 1.5rem;
+		bottom: max(1.5rem, calc(env(safe-area-inset-bottom) + 0.5rem));
+	}
+}
+
+/* Faint blueprint grid used over dark sections */
+@utility bg-grid {
+	background-image:
+		linear-gradient(currentColor 1px, transparent 1px),
+		linear-gradient(90deg, currentColor 1px, transparent 1px);
+	background-size: 48px 48px;
+}
+
+/* Small architectural label above headings — use sparingly */
+@utility eyebrow {
+	font-size: 0.75rem;
+	line-height: 1rem;
+	font-weight: 600;
+	letter-spacing: 0.24em;
+	text-transform: uppercase;
+}
