@@ -10,7 +10,7 @@
 </svelte:head>
 
 <section class="container-page flex flex-col items-center py-24 text-center">
-	<p class="font-mono text-6xl font-extrabold text-primary">{page.status}</p>
+	<p class="font-mono text-6xl font-extrabold text-primary-strong">{page.status}</p>
 	<h1 class="mt-4 text-3xl font-extrabold md:text-4xl">
 		{page.status === 404 ? "We couldn't find that page." : 'Something went wrong.'}
 	</h1>

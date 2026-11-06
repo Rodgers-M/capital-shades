@@ -3,7 +3,7 @@
 	import { cn } from '$lib/utils';
 
 	/*
-	 * Section heading for the editorial layouts: a thin gold rule and small
+	 * Section heading for the editorial layouts: a thin accent rule and small
 	 * uppercase label, then a large medium-weight title. Gains impact through
 	 * scale and spacing rather than weight (docs/design-direction.md).
 	 */

@@ -8,7 +8,7 @@
 	 * "Project process"), its eleven stages grouped into four. The full version
 	 * is ProcessSection on /about.
 	 *
-	 * One connected progression: numbered markers joined by a thin gold rule,
+	 * One connected progression: numbered markers joined by a thin accent rule,
 	 * a vertical timeline below lg and a horizontal one from lg. The list order
 	 * carries the sequence, so the numbers are decorative.
 	 */

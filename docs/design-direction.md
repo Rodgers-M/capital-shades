@@ -19,10 +19,10 @@ Approved palette direction:
 
 - warm white / white — dominant canvas
 - charcoal / near-black — structural foundation
-- restrained gold — premium architectural accent
-- existing Capital Shades teal — secondary brand signature
+- existing Capital Shades teal (#1abc9c, from the logo) — the one accent:
+  buttons, rules, underlines, highlights, on light and charcoal sections
 
-The owner has approved this black / white / gold / teal direction.
+The owner has approved this black / white / teal direction.
 
 ---
 
@@ -466,8 +466,7 @@ Prefer:
 
 - warm white space
 - charcoal sections used deliberately
-- thin gold rules
-- restrained teal moments
+- thin teal rules
 - editorial grids
 - square or lightly rounded geometry
 - varied section composition

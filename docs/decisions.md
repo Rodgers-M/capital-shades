@@ -606,8 +606,10 @@ The owner has approved the website direction using:
 
 - warm white / white;
 - charcoal / black;
-- restrained gold;
 - Capital Shades teal.
+
+In 2026-11 the owner dropped gold. The logo teal (#1abc9c) is the one accent for
+buttons, rules, underlines and highlights, on light and charcoal sections alike.
 
 The website should evolve the existing identity rather than replace it.
 

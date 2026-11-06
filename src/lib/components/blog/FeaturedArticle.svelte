@@ -88,7 +88,7 @@
 				</div>
 				<a
 					href={QUOTE_HREF}
-					class="mt-4 inline-flex items-center gap-1.5 self-start rounded-md bg-ink px-4 py-2.5 text-sm font-bold text-on-ink hover:bg-ink-raised"
+					class="mt-4 inline-flex items-center gap-1.5 self-start rounded-md bg-ink px-4 py-2.5 text-sm font-bold text-on-ink hover:bg-ink-raised focus-visible:outline-ink"
 				>
 					{QUOTE_LABEL}
 					<ArrowUpRightIcon class="size-4" />

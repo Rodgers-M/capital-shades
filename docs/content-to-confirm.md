@@ -304,7 +304,7 @@ The following no longer need owner confirmation:
 - [x] Project scope may be published
 - [x] Existing logo should remain
 - [x] No formal brand guide currently exists
-- [x] Owner approves black / white / gold / teal design direction
+- [x] Owner approves black / white / teal design direction (gold dropped 2026-11)
 - [x] Projects, galleries and blog/articles should be editable after launch
 - [x] Google visibility is a major website priority
 

@@ -3,7 +3,7 @@
 	import { ArrowRightIcon } from '@lucide/svelte';
 	import { cn } from '$lib/utils';
 
-	// Quiet "View all …" style link: label, thin gold underline, arrow.
+	// Quiet "View all …" style link: label, thin accent underline, arrow.
 	let {
 		href,
 		tone = 'light',
