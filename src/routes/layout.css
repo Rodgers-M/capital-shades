@@ -5,10 +5,9 @@
  * Brand tokens. Every colour used by components comes from here — no hex values
  * or palette literals (slate-*, amber-*) in markup.
  *
- * Identity (Phase A, 2026-10): warm white canvas, near-black structure, gold as
- * a restrained premium accent and the logo's teal as a secondary signature.
- * Gold and teal fills take near-black text; neither is dark enough for text on
- * light surfaces, so use the *-strong variants for coloured text there.
+ * Identity: warm white canvas, near-black structure and the logo's teal as the
+ * one accent. Teal fills take near-black text. Plain teal works as text on ink
+ * (7.4:1) but not on light surfaces, so use primary-strong for coloured text there.
  */
 @theme {
 	--font-sans:
@@ -24,22 +23,25 @@
 	--color-border: #dedcd5;
 	--color-input: #cfcdc5;
 
-	/* Gold — primary fill (near-black text on it: 7.6:1) */
-	--color-primary: #c8a45d;
-	--color-primary-hover: #b8924e;
+	/* Capital Shades teal (#1abc9c, from the logo) — primary fill (near-black text on it: 7.4:1) */
+	--color-primary: #1abc9c;
+	--color-primary-hover: #159e85;
 	--color-primary-foreground: #171717;
-	/* Gold as text on light surfaces (5.2:1 on muted) */
-	--color-primary-strong: #7d5f26;
+	/* Teal as text on light surfaces: 4.9:1 on muted, 4.6:1 on a primary/15 tint */
+	--color-primary-strong: #0d765f;
 
-	/* Capital Shades teal — secondary brand signature (near-black text on it: 7.4:1) */
-	--color-brand: #1abc9c;
-	--color-brand-hover: #159e85;
-	--color-brand-foreground: #171717;
-	/* Teal as text on light surfaces (5:1) */
-	--color-brand-strong: #0e7a64;
+	/*
+	 * TODO(phase-b): aliases of primary under the logo teal's older name. Migrate the brand-*
+	 * callers (WhatsApp and phone icons, footer icons, HeroSection, SolutionDetails)
+	 * to primary-*, then delete these four.
+	 */
+	--color-brand: var(--color-primary);
+	--color-brand-hover: var(--color-primary-hover);
+	--color-brand-foreground: var(--color-primary-foreground);
+	--color-brand-strong: var(--color-primary-strong);
 
-	/* Focus ring: a deeper gold that reaches 3:1 on both warm white and charcoal */
-	--color-ring: #9c7a3c;
+	/* Focus ring: a deeper teal that reaches 3:1 on warm white, muted and charcoal */
+	--color-ring: #129a80;
 
 	/* Ink: the near-black surfaces (footer, dark sections) */
 	--color-ink: #171717;
@@ -66,9 +68,9 @@
 	/*
 	 * TODO(phase-b): temporary aliases for the old navy/amber/orange tokens, still
 	 * used by the blog pages and their components, ReviewsBand and SectionHeading. Migrate those
-	 * to primary/brand/*-strong/destructive, then delete these two.
+	 * to primary/primary-strong/destructive, then delete these two.
 	 */
-	--color-accent: var(--color-brand);
+	--color-accent: var(--color-primary);
 	--color-accent-strong: var(--color-primary-strong);
 
 	--animate-fade-in: fade-in 0.2s ease-out;
