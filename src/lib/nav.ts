@@ -24,6 +24,9 @@ export const COMPANY_LINKS = [
 
 export const SOLUTIONS_HREF = '/solutions';
 
+/** Main links other than Solutions, which has its own panel (desktop) or expandable list (phones). */
+export const NAV_LINKS_AFTER_SOLUTIONS = NAV_LINKS.filter((link) => link.href !== SOLUTIONS_HREF);
+
 /** Detail page for one solution. */
 export const solutionHref = (slug: string) => `${SOLUTIONS_HREF}/${slug}`;
 
@@ -64,11 +67,12 @@ export function readProjectFilters(params: URLSearchParams): ProjectFilters {
 /** Pages where the floating WhatsApp control would duplicate the page's own contact options. */
 const NO_QUICK_CONTACT = [QUOTE_HREF, '/contact'];
 
-const matches = (pathname: string, href: string) =>
+/** Whether `pathname` is `href` or a page under it. */
+export const isActivePath = (pathname: string, href: string): boolean =>
 	pathname === href || pathname.startsWith(`${href}/`);
 
 export const showsQuickContact = (pathname: string) =>
-	!NO_QUICK_CONTACT.some((href) => matches(pathname, href));
+	!NO_QUICK_CONTACT.some((href) => isActivePath(pathname, href));
 
 /** Pages that end with (or are) their own quote section, so the footer skips its band. */
 export const hasClosingCta = (pathname: string) =>

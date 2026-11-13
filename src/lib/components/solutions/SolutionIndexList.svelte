@@ -12,13 +12,10 @@
 	let {
 		solutions,
 		start = 1,
-		summaries = true,
 		class: className
 	}: {
 		solutions: Solution[];
 		start?: number;
-		/** Off where the list only routes to the solution pages, e.g. the home page */
-		summaries?: boolean;
 		class?: string;
 	} = $props();
 
@@ -30,12 +27,9 @@
 		<li class="border-b border-foreground/15">
 			<a
 				href={solutionHref(solution.slug)}
-				class={cn(
-					'group grid grid-cols-[auto_1fr_auto] gap-x-5',
-					summaries ? 'items-start py-6' : 'items-center py-4'
-				)}
+				class="group grid grid-cols-[auto_1fr_auto] items-start gap-x-5 py-6"
 			>
-				<span class={cn('font-mono text-sm text-primary-strong', summaries && 'pt-1')}>
+				<span class="pt-1 font-mono text-sm text-primary-strong">
 					{number(i)}
 				</span>
 				<span>
@@ -44,11 +38,9 @@
 					>
 						{solution.title}
 					</span>
-					{#if summaries}
-						<span class="mt-2 line-clamp-3 block text-sm leading-relaxed text-muted-foreground">
-							{solution.summary}
-						</span>
-					{/if}
+					<span class="mt-2 line-clamp-3 block text-sm leading-relaxed text-muted-foreground">
+						{solution.summary}
+					</span>
 				</span>
 				<span class="w-20 overflow-hidden rounded-sm sm:w-28">
 					<Picture

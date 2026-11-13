@@ -12,8 +12,8 @@
 	import { breadcrumbList, solutionSeo } from '$lib/seo';
 
 	/*
-	 * Reusable solution template: hero → overview & verified lists → related
-	 * projects → other solutions → quote. Sections without content are omitted.
+	 * Reusable solution template: hero → related projects → overview & verified
+	 * lists → other solutions → quote. Proof comes straight after the hero. Sections without content are omitted.
 	 */
 	let { data } = $props();
 	const solution = $derived(data.solution);
@@ -48,8 +48,6 @@
 
 <SolutionHero {settings} {solution} />
 
-<SolutionDetails {solution} />
-
 {#if data.projects.length}
 	<RelatedProjects
 		projects={data.projects}
@@ -58,7 +56,9 @@
 	/>
 {/if}
 
-<section aria-labelledby="other-solutions" class="container-page section-y">
+<SolutionDetails {solution} />
+
+<section aria-labelledby="other-solutions" class="container-page border-t section-y">
 	<div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
 		<EditorialHeading
 			id="other-solutions"

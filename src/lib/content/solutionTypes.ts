@@ -43,3 +43,22 @@ export const LEGACY_SOLUTION_SLUGS: Readonly<Record<string, SolutionTypeId>> = {
 /** The current slug for a solution slug that may predate the migration. */
 export const currentSolutionSlug = (slug: string): string =>
 	Object.hasOwn(LEGACY_SOLUTION_SLUGS, slug) ? LEGACY_SOLUTION_SLUGS[slug] : slug;
+
+/** Taxonomy types with no published solution page yet, in taxonomy order. */
+export const unlistedSolutionTypes = (
+	solutions: readonly { slug: string }[]
+): (typeof SOLUTION_TYPES)[number][] =>
+	SOLUTION_TYPES.filter((type) => !solutions.some((s) => currentSolutionSlug(s.slug) === type.id));
+
+/**
+ * The homepage picker's question for each solution, in the customer's words
+ * (the hints above and docs/decisions.md — "Customer terminology"). A
+ * published solution without an entry shows its title instead.
+ */
+export const SOLUTION_NEEDS: Partial<Record<SolutionTypeId, string>> = {
+	'car-parking-shades': 'My car park or driveway',
+	'shade-sails': 'A patio, pool or play area',
+	canopies: 'An entrance or walkway',
+	parasols: 'Restaurant or hotel seating',
+	'tensile-custom-structures': 'A large or custom structure'
+};

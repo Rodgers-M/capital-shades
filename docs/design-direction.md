@@ -99,6 +99,10 @@ Primary navigation:
 - About
 - Contact
 
+Solutions opens a panel (desktop) or an expanded list (phone menu) that names
+every structure: published solutions with their photo, and taxonomy types
+without a page as text only, linking to Request a Quote.
+
 Primary conversion action:
 
 - Request a Quote
@@ -194,7 +198,8 @@ Preferred rhythm (Phases C5.5–C5.6):
 
 1. Hero, with the capability line
 2. Why Capital Shades
-3. Core solutions, with a short "not sure?" prompt
+3. "What do you need to shade?" picker: a card per customer need leading to
+   its solution, then all solutions and a short "not sure?" prompt
 4. How it works
 5. Selected work (compact project proof)
 6. Residential / Commercial / Institutional context

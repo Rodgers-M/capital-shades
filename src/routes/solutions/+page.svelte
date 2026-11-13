@@ -3,7 +3,7 @@
 	import SolutionFeature from '$lib/components/solutions/SolutionFeature.svelte';
 	import SolutionFinder from '$lib/components/solutions/SolutionFinder.svelte';
 	import SolutionGuide from '$lib/components/solutions/SolutionGuide.svelte';
-	import { SOLUTION_TYPES, currentSolutionSlug } from '$lib/content/solutionTypes';
+	import { unlistedSolutionTypes } from '$lib/content/solutionTypes';
 	import { QUOTE_HREF, QUOTE_LABEL } from '$lib/nav';
 
 	// Solutions index: every published solution, in catalogue order, then guidance
@@ -13,9 +13,7 @@
 	// Taxonomy solutions without a page yet (planned records), named so the index
 	// reflects everything Capital Shades offers without publishing thin pages
 	const unlisted = $derived(
-		SOLUTION_TYPES.filter(
-			(type) => !data.solutions.some((s) => currentSolutionSlug(s.slug) === type.id)
-		).map((type) => type.label.toLowerCase())
+		unlistedSolutionTypes(data.solutions).map((type) => type.label.toLowerCase())
 	);
 	const unlistedText = $derived(
 		unlisted.length > 1
