@@ -64,7 +64,7 @@
 </a>
 
 <div class="flex min-h-dvh flex-col">
-	<SiteHeader {settings} />
+	<SiteHeader {settings} solutions={data.solutions} />
 	<!-- Before main so keyboard users reach it before the footer makes it step aside -->
 	<FloatingWhatsApp {settings} />
 	<main id="main" class="flex-1">

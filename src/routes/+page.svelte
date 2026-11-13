@@ -2,7 +2,7 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import HeroSection from '$lib/components/home/HeroSection.svelte';
 	import WhyCapitalShades from '$lib/components/home/WhyCapitalShades.svelte';
-	import FeaturedSolutions from '$lib/components/home/FeaturedSolutions.svelte';
+	import SolutionPicker from '$lib/components/home/SolutionPicker.svelte';
 	import SelectedProjects from '$lib/components/home/SelectedProjects.svelte';
 	import SectorContext from '$lib/components/home/SectorContext.svelte';
 	import ProcessStrip from '$lib/components/ProcessStrip.svelte';
@@ -40,7 +40,7 @@
 
 <WhyCapitalShades settings={data.settings} />
 
-<FeaturedSolutions settings={data.settings} solutions={data.featuredSolutions} />
+<SolutionPicker settings={data.settings} solutions={data.solutions} />
 
 <ProcessStrip />
 

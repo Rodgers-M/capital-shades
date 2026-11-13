@@ -5173,6 +5173,22 @@ Stop after C7.
 
 Do not begin C8.
 
+# Solutions navigation (after C7)
+
+Customers found "Solutions" and "Projects" hard to tell apart, and three
+taxonomy types were hidden in one sentence on `/solutions`. Scope:
+
+- [x] Desktop: Solutions opens a panel with every published solution (photo and
+      use line); types without a page are named as text, linking to Request a
+      Quote
+- [x] Phones: the menu shows Solutions expanded, with the same list
+- [x] Solution pages: related projects sit directly under the hero
+- [x] Homepage: a "What do you need to shade?" picker replaces the Core
+      solutions section (`SOLUTION_NEEDS` in `solutionTypes.ts`)
+
+Still needs the owner: photos and copy for Awnings, Pergolas & Gazebos and
+Screen Fencing, so each can get its own page and picker card.
+
 # Remaining roadmap
 
 ## Phase C8 — Launch QA
