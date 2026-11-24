@@ -4987,17 +4987,17 @@ years, Kenyan tensile and shade-sail projects, and designed screening.
 
 ## Search-intent map
 
-| Customer terms                                                          | Page                                       | Notes                                                                       |
-| ----------------------------------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------- |
-| car parking shades, car shades, carports, parking shades, car shade net | `/solutions/car-parking-shades`            | Primary commercial term; "car shades", "carports" and "shade net" in copy   |
-| shade sails, garden/pool/playground shade, pool shades                  | `/solutions/shade-sails`                   | `/solutions/pool-shades` 301s here                                          |
-| tensile structures, tensile fabric/membrane structures                  | `/solutions/tensile-custom-structures`     | Title says "Tensile Structures"; "custom" is too broad to target            |
-| canopies, entrance canopies, walkway covers                             | `/solutions/canopies`                      | Title leads with entrance and walkway to separate it from car park canopies |
-| parasols, restaurant/hotel umbrellas                                    | `/solutions/parasols`                      | No geography forced into the title                                          |
-| awnings, pergolas, gazebos, screen fencing, privacy screen fence        | none yet (planned)                         | Named on `/solutions` and in the quote form; no page until copy and photos  |
-| shade nets (generic)                                                    | none                                       | Not a target: mostly retail/agricultural; overlap handled on car parking    |
-| shade structures Nairobi/Kenya, commercial shade structures             | `/`, `/solutions`                          | Home and Solutions index carry the broad category                           |
-| Nairobi + Kiambu, Machakos, Kajiado                                     | settings `serviceAreas`, project locations | No location pages (§6)                                                      |
+| Customer terms                                                          | Page                                                                             | Notes                                                                       |
+| ----------------------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| car parking shades, car shades, carports, parking shades, car shade net | `/solutions/car-parking-shades`                                                  | Primary commercial term; "car shades", "carports" and "shade net" in copy   |
+| shade sails, garden/pool/playground shade, pool shades                  | `/solutions/shade-sails`                                                         | `/solutions/pool-shades` 301s here                                          |
+| tensile structures, tensile fabric/membrane structures                  | `/solutions/tensile-custom-structures`                                           | Title says "Tensile Structures"; "custom" is too broad to target            |
+| canopies, entrance canopies, walkway covers                             | `/solutions/canopies`                                                            | Title leads with entrance and walkway to separate it from car park canopies |
+| parasols, restaurant/hotel umbrellas                                    | `/solutions/parasols`                                                            | No geography forced into the title                                          |
+| awnings, pergolas, gazebos, screen fencing, privacy screen fence        | `/solutions/awnings`, `/solutions/pergolas-gazebos`, `/solutions/screen-fencing` | Seed only (Nov 2026), not yet in Sanity; drafted copy awaiting owner review |
+| shade nets (generic)                                                    | none                                                                             | Not a target: mostly retail/agricultural; overlap handled on car parking    |
+| shade structures Nairobi/Kenya, commercial shade structures             | `/`, `/solutions`                                                                | Home and Solutions index carry the broad category                           |
+| Nairobi + Kiambu, Machakos, Kajiado                                     | settings `serviceAreas`, project locations                                       | No location pages (§6)                                                      |
 
 ## Metadata
 
@@ -5186,8 +5186,10 @@ taxonomy types were hidden in one sentence on `/solutions`. Scope:
 - [x] Homepage: a "What do you need to shade?" picker replaces the Core
       solutions section (`SOLUTION_NEEDS` in `solutionTypes.ts`)
 
-Still needs the owner: photos and copy for Awnings, Pergolas & Gazebos and
-Screen Fencing, so each can get its own page and picker card.
+Awnings, Pergolas & Gazebos and Screen Fencing have pages and picker cards in
+the seed data (Nov 2026), from new owner photos; their copy still needs owner
+review (docs/content-to-confirm.md). Not yet in Sanity, which production
+builds from.
 
 # Remaining roadmap
 

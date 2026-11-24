@@ -41,8 +41,9 @@ export type SeedSolution = SeedPage | SeedPlanned;
  * No subjective, superlative or geographic claims, and nothing about
  * performance, value or who builds what beyond "design and installation"
  * (Phase C1 review). Geography belongs only in the search fields, from the
- * confirmed Nairobi base and Kenya reach. Planned records carry no copy: none
- * is confirmed yet.
+ * confirmed Nairobi base and Kenya reach. Awnings, Pergolas & Gazebos and
+ * Screen Fencing copy is drafted from the owner's project photos and still
+ * awaits confirmation (docs/content-to-confirm.md).
  */
 export const solutions: SeedSolution[] = [
 	{
@@ -119,14 +120,63 @@ export const solutions: SeedSolution[] = [
 		applications: ['Shop and office entrances', 'Walkways', 'Restaurants', 'Schools'],
 		sectors: ['commercial', 'institutional'],
 		quoteMaterials: ['pvc'],
-		photo: 'canopy-red-entrance',
-		photoAlt: 'Red fabric canopies over a building entrance',
+		photo: 'canopy-blue-walkway',
+		photoAlt: 'Blue fabric canopy over the walkway along an office building',
 		seoTitle: 'Entrance & Walkway Canopies in Nairobi',
 		seoDescription:
 			'Entrance canopies and covered walkways for shops, offices, restaurants and schools, in waterproof PVC. Designed and installed in Nairobi and across Kenya.'
 	},
-	{ slug: 'awnings', title: 'Awnings', status: 'planned' },
-	{ slug: 'pergolas-gazebos', title: 'Pergolas & Gazebos', status: 'planned' },
+	{
+		slug: 'awnings',
+		title: 'Awnings',
+		status: 'published',
+		eyebrow: 'Balconies, shopfronts & walkways',
+		summary:
+			'Fabric awnings fixed to the face of a building over windows, balconies, shopfronts and walkways.',
+		body: [
+			'An awning is a fabric cover fixed to the face of a building on wall brackets or a light steel frame. It covers windows, doorways, balconies and the walkway along a building.',
+			'Each awning is sized to the wall it is fixed to, from a single balcony or window to the full length of a shopfront or side passage. Fabrics come in a range of colours to suit the building or a brand.'
+		],
+		features: [
+			'Wall-mounted or framed designs',
+			'Shade or waterproof fabrics',
+			'Choice of fabric colours',
+			'Sized to the wall it covers'
+		],
+		applications: ['Homes', 'Balconies', 'Shopfronts', 'Walkways'],
+		sectors: ['residential', 'commercial'],
+		photo: 'awning-red-balcony',
+		photoAlt: 'Red fabric awning over a first-floor balcony',
+		seoTitle: 'Awnings in Nairobi & Kenya',
+		seoDescription:
+			'Fabric awnings for balconies, windows, shopfronts and walkways, designed and installed for homes and businesses in Nairobi and across Kenya.'
+	},
+	{
+		slug: 'pergolas-gazebos',
+		title: 'Pergolas & Gazebos',
+		status: 'published',
+		eyebrow: 'Patios, decks & gardens',
+		summary: 'Pergolas and gazebos that turn a patio, deck or garden into a shaded outdoor room.',
+		body: [
+			'A pergola is an open frame of posts and roof beams over a patio, deck, terrace or garden seating area. It can stand on its own or be fixed to the house. A gazebo is a free-standing roofed shelter, usually in a garden.',
+			'The roof is chosen for how the space will be used: open slats, fabric panels between the rafters, or clear roofing panels.',
+			'Frames are designed for the space, in steel or timber, and finished to suit the house.'
+		],
+		features: [
+			'Free-standing or fixed to the house',
+			'Slatted, fabric or clear roofs',
+			'Steel and timber frames',
+			'Designed for the space'
+		],
+		applications: ['Patios', 'Decks and balconies', 'Gardens'],
+		sectors: ['residential'],
+		aliases: ['pergolas', 'gazebos'],
+		photo: 'pergola-timber-porch',
+		photoAlt: 'Dark timber pergola on stone-clad columns over a patio',
+		seoTitle: 'Pergolas & Gazebos in Nairobi & Kenya',
+		seoDescription:
+			'Pergolas and gazebos for patios, decks and gardens, with slatted or covered roofs on steel or timber frames. Designed and installed in Nairobi and across Kenya.'
+	},
 	{
 		slug: 'tensile-custom-structures',
 		title: 'Tensile & Custom Structures',
@@ -153,7 +203,32 @@ export const solutions: SeedSolution[] = [
 		seoDescription:
 			'Tensile fabric structures with curved PVC membranes over carports, courtyards and entrances, designed around each site. Based in Nairobi, working across Kenya.'
 	},
-	{ slug: 'screen-fencing', title: 'Screen Fencing', status: 'planned', aliases: ['screen fence'] },
+	{
+		slug: 'screen-fencing',
+		title: 'Screen Fencing',
+		status: 'published',
+		eyebrow: 'Boundaries & privacy',
+		summary:
+			'Shade-net screening fixed along boundary walls and fences for privacy and to cut dust and wind.',
+		body: [
+			'Screen fencing is shade netting stretched on a steel frame, usually fixed on top of a boundary wall or along a fence line. It is used for privacy and as a dust screen along roads and neighbouring sites.',
+			'Screens are made to the length and height of the boundary, in a range of colours: greens that blend with planting, or blues and neutrals that match the building.'
+		],
+		features: [
+			'Privacy and dust screening',
+			'Fixed on walls or fence lines',
+			'Choice of netting colours',
+			'Made to length and height'
+		],
+		applications: ['Homes', 'Gated compounds', 'Commercial premises'],
+		sectors: ['residential', 'commercial'],
+		aliases: ['screen fence', 'privacy screen fence', 'dust screen'],
+		photo: 'screen-fence-pool-courtyard',
+		photoAlt: 'Beige screen fencing above the walls of a courtyard with a swimming pool',
+		seoTitle: 'Screen Fencing in Nairobi & Kenya',
+		seoDescription:
+			'Privacy and dust screen fencing in shade netting, fixed along boundary walls and fences for homes and businesses in Nairobi and across Kenya.'
+	},
 	{
 		slug: 'parasols',
 		title: 'Parasols',

@@ -18,10 +18,10 @@ export interface SeedProject {
 
 /*
  * One entry per installation, from the owner's own uploads on the current
- * site (Feb 2023 and Nov 2025 "Recent Projects"; duplicates removed).
- * Titles describe what the photo shows, and no two match: each is a page
- * title in search results. Location, material, completion
- * year and scope are left empty until the owner confirms them.
+ * site (Feb 2023 and Nov 2025 "Recent Projects") and photos sent in Nov 2026;
+ * duplicates removed. Titles describe what the photo shows, and no two match:
+ * each is a page title in search results. Location, material, completion year
+ * and scope are left empty until the owner confirms them.
  */
 export const projects: SeedProject[] = [
 	{
@@ -137,9 +137,7 @@ export const projects: SeedProject[] = [
 	{
 		slug: 'pergola-structure',
 		title: 'Pergola structure (in progress)',
-		// A pergola, but Pergolas & Gazebos has no page yet; move it there once it does,
-		// so the project keeps a solution link meanwhile (Phase C5 map)
-		solutions: ['canopies'],
+		solutions: ['pergolas-gazebos'],
 		sector: 'residential',
 		photo: 'pergola-in-progress',
 		photoAlt: 'Pergola frame with slatted roof being installed in a garden'
@@ -207,5 +205,165 @@ export const projects: SeedProject[] = [
 		sector: 'commercial',
 		photo: 'carpark-retail-blue',
 		photoAlt: 'Blue car parking shade in front of shops'
+	},
+	{
+		slug: 'decorative-lace-panel-carport',
+		title: 'Curved carport with a lace-pattern end panel',
+		solutions: ['car-parking-shades'],
+		sector: 'residential',
+		photo: 'carport-decorative-lace',
+		photoAlt: 'Dark green curved carport with a laser-cut lace-pattern end panel beside a lawn'
+	},
+	{
+		slug: 'pergola-timber-porch',
+		title: 'Timber pergola over a front porch',
+		solutions: ['pergolas-gazebos'],
+		sector: 'residential',
+		photo: 'pergola-timber-porch',
+		photoAlt: 'Dark timber pergola on stone-clad columns over a patio'
+	},
+	{
+		slug: 'pergola-fabric-terrace',
+		title: 'Fabric-roofed pergola over a tiled terrace',
+		solutions: ['pergolas-gazebos'],
+		sector: 'residential',
+		photo: 'pergola-fabric-terrace',
+		photoAlt: 'Pergola with tan fabric panels between dark steel rafters over a tiled terrace'
+	},
+	{
+		slug: 'pergola-timber-deck',
+		title: 'Pergola over a raised deck',
+		solutions: ['pergolas-gazebos'],
+		sector: 'residential',
+		photo: 'pergola-timber-deck',
+		photoAlt: 'Timber pergola over a raised deck on a stone-clad base'
+	},
+	{
+		slug: 'awning-red-balcony',
+		title: 'Red balcony awning',
+		solutions: ['awnings'],
+		sector: 'residential',
+		photo: 'awning-red-balcony',
+		photoAlt: 'Red fabric awning over a first-floor balcony'
+	},
+	{
+		slug: 'awning-canvas-walkway',
+		title: 'Canvas awning over a side walkway',
+		solutions: ['awnings'],
+		sector: 'commercial',
+		photo: 'awning-canvas-walkway',
+		photoAlt: 'Grey canvas awning on a steel frame over a paved walkway'
+	},
+	{
+		slug: 'awning-side-passage',
+		title: 'Fabric awning along a side passage',
+		solutions: ['awnings'],
+		sector: 'residential',
+		photo: 'awning-side-passage',
+		photoAlt: 'Beige fabric awning on wall brackets along a narrow garden passage'
+	},
+	{
+		slug: 'screen-fence-pool-courtyard',
+		title: 'Screen fencing around a pool courtyard',
+		solutions: ['screen-fencing'],
+		sector: 'residential',
+		photo: 'screen-fence-pool-courtyard',
+		photoAlt: 'Beige screen fencing above the walls of a courtyard with a swimming pool'
+	},
+	{
+		slug: 'screen-fence-boundary-wall',
+		title: 'Screen fencing on a roadside boundary wall',
+		solutions: ['screen-fencing'],
+		sector: 'commercial',
+		photo: 'screen-fence-boundary-wall',
+		photoAlt: 'Dark screen fencing along the top of a long roadside boundary wall'
+	},
+	{
+		slug: 'screen-fence-green-garden',
+		title: 'Green screen fencing behind a garden',
+		solutions: ['screen-fencing'],
+		sector: 'residential',
+		photo: 'screen-fence-green-garden',
+		photoAlt: 'Green screen fencing above a boundary wall behind young palms'
+	},
+	{
+		slug: 'screen-fence-blue',
+		title: 'Blue screen fencing',
+		solutions: ['screen-fencing'],
+		sector: 'residential',
+		photo: 'screen-fence-blue',
+		photoAlt: 'Long run of blue screen fencing along a boundary'
+	},
+	{
+		slug: 'sails-restaurant-frontage',
+		title: 'Shade sails over restaurant seating',
+		solutions: ['shade-sails'],
+		sector: 'commercial',
+		photo: 'sails-restaurant-frontage',
+		photoAlt: 'Shade sails on curved posts over the seating in front of a restaurant'
+	},
+	{
+		slug: 'sail-office-terrace',
+		title: 'Shade sail over an office terrace',
+		solutions: ['shade-sails'],
+		sector: 'commercial',
+		photo: 'sail-office-terrace',
+		photoAlt: 'Brown shade sail over a paved terrace beside an office building'
+	},
+	{
+		slug: 'tensile-poolside-terrace',
+		title: 'Tensile shade over a poolside terrace',
+		solutions: ['tensile-custom-structures'],
+		sector: 'commercial',
+		photo: 'tensile-poolside-terrace',
+		photoAlt: 'Grey tensile membrane on steel masts over a poolside dining terrace'
+	},
+	{
+		slug: 'tensile-rooftop-membrane',
+		title: 'Rooftop membrane roof (in progress)',
+		solutions: ['tensile-custom-structures'],
+		sector: 'commercial',
+		photo: 'tensile-rooftop-membrane',
+		photoAlt: 'Orange fabric membrane along the edge of an open rooftop beside a steel roof frame'
+	},
+	{
+		slug: 'membrane-curved-poolside',
+		title: 'Curved membrane canopy by a pool',
+		solutions: ['tensile-custom-structures'],
+		sector: 'residential',
+		photo: 'membrane-curved-poolside',
+		photoAlt: 'Cream curved membrane canopy on dark steel arches beside a pool'
+	},
+	{
+		slug: 'membrane-terrace-seating',
+		title: 'Membrane cover over a terrace lounge',
+		solutions: ['tensile-custom-structures'],
+		sector: 'commercial',
+		photo: 'membrane-terrace-seating',
+		photoAlt: 'Cream membrane cover with pendant lights over a long terrace with built-in seating'
+	},
+	{
+		slug: 'canopy-blue-walkway',
+		title: 'Walkway canopy at an office building',
+		solutions: ['canopies'],
+		sector: 'commercial',
+		photo: 'canopy-blue-walkway',
+		photoAlt: 'Blue fabric canopy over the walkway along an office building'
+	},
+	{
+		slug: 'canopy-blue-shopfront',
+		title: 'Shopfront canopy',
+		solutions: ['canopies'],
+		sector: 'commercial',
+		photo: 'canopy-blue-shopfront',
+		photoAlt: 'Blue fabric canopy along a row of shopfronts'
+	},
+	{
+		slug: 'canopy-beige-frames',
+		title: 'Fabric canopies on steel frames',
+		solutions: ['canopies'],
+		sector: 'commercial',
+		photo: 'canopy-beige-frames',
+		photoAlt: 'Beige fabric canopies on dark steel frames along a building'
 	}
 ];

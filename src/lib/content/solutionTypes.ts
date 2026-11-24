@@ -11,7 +11,7 @@ export const SOLUTION_TYPES = [
 	{ id: 'car-parking-shades', label: 'Car Parking Shades', hint: 'Car shades and carports' },
 	{ id: 'shade-sails', label: 'Shade Sails', hint: 'Gardens, pools and play areas' },
 	{ id: 'canopies', label: 'Canopies', hint: 'Entrances and walkway covers' },
-	{ id: 'awnings', label: 'Awnings', hint: 'Including retractable awnings' },
+	{ id: 'awnings', label: 'Awnings', hint: 'Balconies, windows and shopfronts' },
 	{ id: 'pergolas-gazebos', label: 'Pergolas & Gazebos', hint: 'Outdoor seating and living' },
 	{
 		id: 'tensile-custom-structures',
@@ -52,13 +52,15 @@ export const unlistedSolutionTypes = (
 
 /**
  * The homepage picker's question for each solution, in the customer's words
- * (the hints above and docs/decisions.md — "Customer terminology"). A
- * published solution without an entry shows its title instead.
+ * (the hints above and docs/decisions.md — "Customer terminology").
  */
-export const SOLUTION_NEEDS: Partial<Record<SolutionTypeId, string>> = {
+export const SOLUTION_NEEDS: Record<SolutionTypeId, string> = {
 	'car-parking-shades': 'My car park or driveway',
 	'shade-sails': 'A patio, pool or play area',
 	canopies: 'An entrance or walkway',
+	awnings: 'A balcony, window or shopfront',
+	'pergolas-gazebos': 'A patio, deck or garden',
+	'screen-fencing': 'Privacy along a boundary',
 	parasols: 'Restaurant or hotel seating',
 	'tensile-custom-structures': 'A large or custom structure'
 };

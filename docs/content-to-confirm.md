@@ -85,9 +85,25 @@ than stock photography:
 - [ ] `sails-pool-garden` (not shown anywhere since the Pool Shades page was
       redirected in C7)
 - [ ] `canopy-red-walkway`
-- [ ] `canopy-red-entrance`
+- [ ] `canopy-red-entrance` (not shown since Nov 2026 in the seed; the Canopies
+      page now uses `canopy-blue-walkway`)
 
 Do not publish questionable overseas/stock-looking imagery as company work.
+
+- [ ] Confirm publication rights for the Nov 2026 photos now on the site:
+      `awning-*`, `canopy-beige-frames`, `canopy-blue-*`,
+      `carport-decorative-lace`, `membrane-curved-poolside`,
+      `membrane-terrace-seating`, `pergola-fabric-terrace`,
+      `pergola-timber-*`, `sail-office-terrace`, `sails-restaurant-frontage`,
+      `screen-fence-*`, `tensile-poolside-terrace`, `tensile-rooftop-membrane`.
+
+Nov 2026 photos held back until the owner confirms they are Capital Shades
+work: the white sails in a cobbled courtyard, the white sails seen from below,
+the white tensile structure with a red mast, the sail over a garden lounge with
+fields behind, the aluminium pergola with a logo in the corner, the louvred
+pergola on a rendered house with chimneys, and the glass canopy over a balcony.
+Also held back: photos with the phone number printed on them, TikTok
+watermarks, chat screenshots and one 3D render.
 
 ---
 
@@ -190,14 +206,19 @@ pages' copy doesn't feed the form.
 
 ### Solution taxonomy migration (Phase C5)
 
-- [ ] Copy and photos for Awnings, Pergolas & Gazebos and Screen Fencing. They
-      have no page until these exist. Each needs at least: what it is, where
-      it is used, the materials offered and a few real project photos.
-      Awnings: whether retractable awnings are offered (a common search term).
-      Screen Fencing: whether it is privacy screening, dust screening or both,
-      and the materials. Searches for these are dominated by retail listings,
-      so a designed-and-installed page with real work could stand out.
-- [ ] Move the pergola project to Pergolas & Gazebos once that page exists.
+- [ ] Review the drafted copy for Awnings, Pergolas & Gazebos and Screen
+      Fencing (`src/lib/content/seed/solutions.ts`). The pages are published in
+      the seed data (not yet in Sanity), written from the Nov 2026 project
+      photos; each claim below is inferred from those photos, not confirmed:
+  - Awnings: wall brackets or a light steel frame; shade or waterproof
+    fabrics; colour choice. Whether retractable awnings are offered (a common
+    search term; the page doesn't mention them yet).
+  - Pergolas & Gazebos: steel or timber frames; slatted, fabric or clear roofs.
+    Whether gazebos are built at all (no gazebo photo yet).
+  - Screen Fencing: shade netting on a steel frame on walls or fence lines;
+    privacy and dust screening; green, blue, neutral and dark colours.
+- [x] Move the pergola project to Pergolas & Gazebos once that page exists
+      (seed only; the Sanity project still links to Canopies).
 - [ ] "Shade nets": the site now calls car parking shades' shade mesh "shade
       net" (Phase C7). Confirm whether shade sails' mesh should be described
       the same way.
