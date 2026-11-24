@@ -394,7 +394,7 @@ Decided in Phase C7.
   page per synonym. Car shades, carports, parking shades and car shade nets →
   Car Parking Shades. Pool, garden and playground shade → Shade Sails.
   Tensile fabric/membrane structures → Tensile & Custom Structures. Privacy
-  and dust screens → Screen Fencing, once it has a page.
+  and dust screens → Screen Fencing.
 - **"Shade nets"** is not a target term: most of that search is agricultural
   rolls and retail listings. Use "shade net" only where the installed
   structure really uses it (car parking shades), never as a site-wide keyword
@@ -407,8 +407,11 @@ Decided in Phase C7.
   verified project locations. A location page needs real projects and photos
   there first.
 - **Planned solutions get no page and no index entry** until they have
-  confirmed copy and real photos. Eight taxonomy records do not mean eight
-  pages.
+  copy and real photos. Eight taxonomy records do not mean eight pages.
+  Awnings, Pergolas & Gazebos and Screen Fencing were published in Nov 2026
+  in the seed data with real photos and copy drafted from them, at the site
+  maintainer's request, ahead of the owner confirming the details
+  (docs/content-to-confirm.md). Sanity still has them as planned.
 - **Retired solution slugs redirect** (one hop) through
   `LEGACY_SOLUTION_SLUGS`. Pool Shades → Shade Sails.
 - **Filtered portfolio views** (`/projects?solution=…`, `?sector=…`) stay
